@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="LibroNH" table="Libro"> 
+				  	
+						<id name="Id" column="idLibro" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
+					<property name="Genero" type="string"> 
+						<column name="genero"  not-null="true"/>
+					</property>
+					<property name="EdadRecomendada" type="integer"> 
+						<column name="edadRecomendada"  not-null="true"/>
+					</property>
+					<property name="FechaPublicacion" type="date"> 
+						<column name="fechaPublicacion"  not-null="true"/>
+					</property>
+					<property name="NumPags" type="integer"> 
+						<column name="numPags"  not-null="true"/>
+					</property>
+					<property name="Sinopsis" type="string"> 
+						<column name="sinopsis"  not-null="true"/>
+					</property>
+					<property name="FotoPortada" type="string"> 
+						<column name="fotoPortada"  not-null="true"/>
+					</property>
+					<property name="ValoracionMedia" type="float"> 
+						<column name="valoracionMedia"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="LectorGuardando" table="[libro_guardado_lector]"  >
+							<key>
+								
+									<column name="FK_idLibro_idLibro"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH">
+									<column name="FK_idUsuario_idLector"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="LectorLeyendo" table="[libro_en_curso_lector]"  >
+							<key>
+								
+									<column name="FK_idLibro_idLibroEnCurso"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH">
+									<column name="FK_idUsuario_idLector"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="AutorPublicador" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH" >	
+								<column name="FK_idUsuario_idAutor"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Reseña" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idLibro_idLibro"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ReseñaNH"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LibroNHReadAllHQL">from LibroNH</query>
+		  <query name="LibroNHdameLibrosPorFiltrosHQL"><![CDATA[FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_titulo is null or concat('%', lower(libro.Titulo), '%') like lower(:p_titulo))]]></query>
+		</hibernate-mapping>
+	

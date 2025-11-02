@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{707DAD7F-5632-4AD7-860E-73A181C52EE2}|InitializeDB\\InitializeDB.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\initializedb\\createdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{707DAD7F-5632-4AD7-860E-73A181C52EE2}|InitializeDB\\InitializeDB.csproj|solutionrelative:initializedb\\createdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateDB.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\InitializeDB\\CreateDB.cs",
+              "RelativeDocumentMoniker": "InitializeDB\\CreateDB.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\InitializeDB\\CreateDB.cs",
+              "RelativeToolTip": "InitializeDB\\CreateDB.cs",
+              "ViewState": "AgIAABMCAAAAAAAAAAAAACgCAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T18:59:16.036Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

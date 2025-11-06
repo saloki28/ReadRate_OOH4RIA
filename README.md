@@ -23,7 +23,7 @@ if (usuarioEN.ClubSuscrito.Contains (clubSuscritoENAux) == true) {
 else
 ```
 
-### ✅ 2. `Administrador.cs`
+### ✅ 2. `AdministradorCEN.cs`
 
 - **Ubicación:** `ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_E4/AdministradorCEN.cs`  
 - **Método:** `Encode`  

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="EventoNH" table="Evento"> 
+				  	
+						<id name="Id" column="idEvento" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Hora" type="timestamp"> 
+						<column name="hora"  not-null="true"/>
+					</property>
+					<property name="Ubicacion" type="string"> 
+						<column name="ubicacion"  not-null="true"/>
+					</property>
+					<property name="AforoMax" type="integer"> 
+						<column name="aforoMax"  not-null="true"/>
+					</property>
+					<property name="AforoActual" type="integer"> 
+						<column name="aforoActual"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="UsuarioParticipante" table="[usuario_evento]" inverse="true" >
+							<key>
+								
+									<column name="FK_idEvento_idEvento"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH">
+									<column name="FK_idUsuario_idUsuarioParticipante"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="AdministradorEventos" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AdministradorNH" >	
+								<column name="FK_idAdministrador_idAdministrador"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="NotificacionEvento" >
+							<key>
+							
+								
+								<column name="FK_idEvento_idEventoNotificado"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NotificacionNH"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="EventoNHReadAllHQL">from EventoNH</query>
+		  <query name="EventoNHdameEventosPorFechaHQL"><![CDATA[FROM EventoNH evento where (:p_fecha is null or evento.Fecha>=:p_fecha)]]></query>
+		</hibernate-mapping>
+	

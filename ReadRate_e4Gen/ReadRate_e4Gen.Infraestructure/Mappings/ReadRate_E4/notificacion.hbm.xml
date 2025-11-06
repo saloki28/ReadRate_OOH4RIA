@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="NotificacionNH" table="Notificacion"> 
+				  	
+						<id name="Id" column="idNotificacion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Concepto" > 
+						<column name="concepto"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="UsuarioNotificado" table="[usuario_notificacion]" inverse="true" >
+							<key>
+								
+									<column name="FK_idNotificacion_idNotificacion"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH">
+									<column name="FK_idUsuario_idUsuarioNotificado"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="NoticiaNotificada" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NoticiaNH" >	
+								<column name="FK_idNoticia_idNoticiaNotificada"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="EventoNotificado" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH" >	
+								<column name="FK_idEvento_idEventoNotificado"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="ClubNotificado" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH" >	
+								<column name="FK_idClub_idClub"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="AutorAvisado" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH" >	
+								<column name="FK_idUsuario_idAutor"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="ReseñaNotificada" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ReseñaNH" >	
+								<column name="FK_idReseña_idReseña"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="NotificacionNHReadAllHQL">from NotificacionNH</query>
+		</hibernate-mapping>
+	

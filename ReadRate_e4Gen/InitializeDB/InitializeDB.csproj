@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.5.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+  <ItemGroup>
+  
+    <ProjectReference Include="..\ReadRate_e4Gen.ApplicationCore\ReadRate_e4Gen.ApplicationCore.csproj"/>
+    <ProjectReference Include="..\ReadRate_e4Gen.Infraestructure\ReadRate_e4Gen.Infraestructure.csproj"/>
+  </ItemGroup>
+</Project>

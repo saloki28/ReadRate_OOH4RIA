@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="UsuarioNH" table="Usuario"> 
+				  	
+						<id name="Id" column="idUsuario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="NombreUsuario" type="string"> 
+						<column name="nombreUsuario"  not-null="true"/>
+					</property>
+					<property name="FechaNacimiento" type="date"> 
+						<column name="fechaNacimiento"  not-null="true"/>
+					</property>
+					<property name="CiudadResidencia" type="string"> 
+						<column name="ciudadResidencia"  not-null="true"/>
+					</property>
+					<property name="PaisResidencia" type="string"> 
+						<column name="paisResidencia"  not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+					<property name="Rol" > 
+						<column name="rol"  not-null="true"/>
+					</property>
+					<property name="Pass" type="string"> 
+						<column name="pass"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Evento" table="[usuario_evento]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idUsuarioParticipante"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH">
+									<column name="FK_idEvento_idEvento"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Notificacion" table="[usuario_notificacion]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idUsuarioNotificado"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NotificacionNH">
+									<column name="FK_idNotificacion_idNotificacion"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="ClubSuscrito" table="[usuario_club]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idUsuarioMiembro"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH">
+									<column name="FK_idClub_idClub"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="ClubCreado" >
+							<key>
+							
+								
+								<column name="FK_idUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioNHReadAllHQL">from UsuarioNH</query>
+		  <query name="UsuarioNHdameUsuarioPorEmailHQL"><![CDATA[FROM UsuarioNH usuario where lower(usuario.Email) like concat('%', lower(:p_email), '%')]]></query>
+		</hibernate-mapping>
+	

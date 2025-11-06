@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				
+<joined-subclass name="LectorNH" extends="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH" table="Lector"> 
+	<key>
+    	
+				<column name="idUsuario"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="CantLibrosCurso" type="integer"> 
+						<column name="cantLibrosCurso"  not-null="true"/>
+					</property>
+					<property name="CantLibrosLeidos" type="integer"> 
+						<column name="cantLibrosLeidos"  not-null="true"/>
+					</property>
+					<property name="CantAutoresSeguidos" type="integer"> 
+						<column name="cantAutoresSeguidos"  not-null="true"/>
+					</property>
+					<property name="CantClubsSuscritos" type="integer"> 
+						<column name="cantClubsSuscritos"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="LibroLeido" table="[libro_guardado_lector]" inverse="true" >
+							<key>
+								
+									<column name="FK_idUsuario_idLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LibroNH">
+									<column name="FK_idLibro_idLibro"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="LibroEnCurso" table="[libro_en_curso_lector]" inverse="true" >
+							<key>
+								
+									<column name="FK_idUsuario_idLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LibroNH">
+									<column name="FK_idLibro_idLibroEnCurso"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="AutorSeguido" table="[lector_autor]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH">
+									<column name="FK_idUsuario_idAutor"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="ReseñaPublicada" >
+							<key>
+							
+								
+								<column name="FK_idUsuario_idLector"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ReseñaNH"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="LectorNHReadAllHQL">from LectorNH</query>
+		</hibernate-mapping>
+	

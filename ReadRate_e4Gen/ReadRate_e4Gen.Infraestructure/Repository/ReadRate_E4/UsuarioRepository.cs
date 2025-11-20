@@ -459,7 +459,7 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioNH self where FROM UsuarioNH usuario where lower(usuario.Email) like concat('%', lower(:p_email), '%')";
+                //String sql = @"FROM UsuarioNH self where FROM UsuarioNH usuario where usuario.Email = :p_email";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioNHdameUsuarioPorEmailHQL");
                 query.SetParameter ("p_email", p_email);

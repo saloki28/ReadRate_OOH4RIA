@@ -16,16 +16,7 @@ namespace ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4
 public partial class AdministradorCEN
 {
 // Agrega este metodo privado en la clase AdministradorCEN para solucionar el error
-private object ObtenerID (string decodedToken)
-{
-        // Suponiendo que el token decodificado es un JSON con un campo "id"
-        var payload = JsonConvert.DeserializeObject<Dictionary<string, object> >(decodedToken);
 
-        if (payload != null && payload.ContainsKey ("id")) {
-                return payload ["id"];
-        }
-        throw new ModelException ("El token no contiene el campo 'id'");
-}
 
 public string Login (string p_email, string p_pass)
 {

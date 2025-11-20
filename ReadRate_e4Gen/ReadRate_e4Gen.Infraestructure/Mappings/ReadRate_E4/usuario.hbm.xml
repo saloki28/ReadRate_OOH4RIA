@@ -107,6 +107,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioNHReadAllHQL">from UsuarioNH</query>
-		  <query name="UsuarioNHdameUsuarioPorEmailHQL"><![CDATA[FROM UsuarioNH usuario where lower(usuario.Email) like concat('%', lower(:p_email), '%')]]></query>
+		  <query name="UsuarioNHdameUsuarioPorEmailHQL"><![CDATA[FROM UsuarioNH usuario where usuario.Email = :p_email]]></query>
 		</hibernate-mapping>
 	

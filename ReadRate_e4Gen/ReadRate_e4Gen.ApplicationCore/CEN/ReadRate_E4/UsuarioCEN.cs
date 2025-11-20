@@ -85,10 +85,10 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
 
 
 
-private string Encode (int id, string email)
+private string Encode (int id)
 {
         var payload = new Dictionary<string, object>(){
-                { "id", id }, { "email", email }
+                { "id", id }
         };
         string token = Jose.JWT.Encode (payload, Utils.Util.getKey (), Jose.JwsAlgorithm.HS256);
 
@@ -98,7 +98,7 @@ private string Encode (int id, string email)
 public string GetToken (int id)
 {
         UsuarioEN en = _IUsuarioRepository.ReadOIDDefault (id);
-        string token = Encode (en.Id, en.Email);
+        string token = Encode (en.Id);
 
         return token;
 }
@@ -117,7 +117,7 @@ public int CheckToken (string token)
                 UsuarioEN en = _IUsuarioRepository.ReadOIDDefault (id);
 
                 if (en != null && ((long)en.Id).Equals (ObtenerID (decodedToken))
-                    && ((string)en.Email).Equals (ObtenerEMAIL (decodedToken))) {
+                    ) {
                         result = id;
                 }
                 else throw new ModelException ("El token es incorrecto");
@@ -137,20 +137,6 @@ public long ObtenerID (string decodedToken)
                 Dictionary<string, object> results = JsonConvert.DeserializeObject<Dictionary<string, object> >(decodedToken);
                 long id = (long)results ["id"];
                 return id;
-        }
-        catch
-        {
-                throw new Exception ("El token enviado no es correcto");
-        }
-}
-
-public string ObtenerEMAIL (string decodedToken)
-{
-        try
-        {
-                Dictionary<string, object> results = JsonConvert.DeserializeObject<Dictionary<string, object> >(decodedToken);
-                string email = (string)results ["email"];
-                return email;
         }
         catch
         {

@@ -1,0 +1,235 @@
+﻿@model WebApplication_ReadRate.Models.LibroViewModel
+
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Editar Libro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            min-height: 100vh;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #ff6f00 0%, #ff9800 50%, #ffa726 100%);
+            color: #fff;
+            padding: 2.5rem 0 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 111, 0, 0.3);
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .form-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(255,111,0,0.1);
+            padding: 2.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #e65100;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #ffe0b2;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .text-danger {
+            color: #f44336;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: block;
+        }
+        
+        .validation-summary {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            color: #c62828;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+        }
+        
+        .btn-secondary {
+            background: #fff;
+            color: #ff9800;
+            border: 2px solid #ff9800;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff9800;
+            color: #fff;
+        }
+        
+        .form-hint {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1>Editar Libro</h1>
+    </div>
+    
+    <div class="container">
+        <div class="form-card">
+            <form asp-action="Edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+                
+                <input type="hidden" asp-for="Id" />
+                
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" placeholder="Ej: El misterio de la casa abandonada" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                    <small class="form-hint">Título de no más de 200 caracteres</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Genero" class="control-label"></label>
+                    <input asp-for="Genero" class="form-control" placeholder="Ej: Ficción, Fantasía, Terror..." />
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                    <small class="form-hint">Género literario de no más de 50 caracteres</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="EdadRecomendada" class="control-label"></label>
+                    <input asp-for="EdadRecomendada" class="form-control" type="number" min="0" max="100" placeholder="Ej: 13" />
+                    <span asp-validation-for="EdadRecomendada" class="text-danger"></span>
+                    <small class="form-hint">Edad mínima recomendada para leer este libro entre 0 y 100 años</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="FechaPublicacion" class="control-label"></label>
+                    <input asp-for="FechaPublicacion" class="form-control" type="date" />
+                    <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
+                    <small class="form-hint">Fecha en formato dd/mm/yyyy</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="NumPags" class="control-label"></label>
+                    <input asp-for="NumPags" class="form-control" type="number" min="1" max="10000" placeholder="Ej: 320" />
+                    <span asp-validation-for="NumPags" class="text-danger"></span>
+                    <small class="form-hint">Número de páginas entre 1 y 10000</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Sinopsis" class="control-label"></label>
+                    <textarea asp-for="Sinopsis" class="form-control" placeholder="Escribe una breve descripción del libro..."></textarea>
+                    <span asp-validation-for="Sinopsis" class="text-danger"></span>
+                    <small class="form-hint">Texto de máximo 5000 caracteres </small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="FotoPortada" class="control-label"></label>
+                    <input asp-for="FotoPortada" class="form-control" placeholder="Ej: portada_libro.jpg" />
+                    <span asp-validation-for="FotoPortada" class="text-danger"></span>
+                    <small class="form-hint">Nombre con formato del archivo de imagen de la portada</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="ValoracionMedia" class="control-label"></label>
+                    <input asp-for="ValoracionMedia" class="form-control" type="number" step="0.1" min="0" max="5" placeholder="Ej: 3.5" />
+                    <span asp-validation-for="ValoracionMedia" class="text-danger"></span>
+                    <small class="form-hint">Valoración media entre 0 y 5 estrellas</small>
+                </div>
+                
+                <div class="form-actions">
+                    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

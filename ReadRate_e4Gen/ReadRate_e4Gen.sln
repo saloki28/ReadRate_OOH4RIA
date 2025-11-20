@@ -1,12 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36616.10 d17.14
+VisualStudioVersion = 17.14.36616.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeDB", "InitializeDB\InitializeDB.csproj", "{707DAD7F-5632-4AD7-860E-73A181C52EE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadRate_e4Gen.Infraestructure", "ReadRate_e4Gen.Infraestructure\ReadRate_e4Gen.Infraestructure.csproj", "{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadRate_e4Gen.ApplicationCore", "ReadRate_e4Gen.ApplicationCore\ReadRate_e4Gen.ApplicationCore.csproj", "{E092F408-282A-4FAA-9600-FE7F919781EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication-ReadRate", "WebApplication-ReadRate\WebApplication-ReadRate.csproj", "{CF060C7F-3D66-48FC-B974-3963A74E9FA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,8 +28,15 @@ Global
 		{E092F408-282A-4FAA-9600-FE7F919781EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E092F408-282A-4FAA-9600-FE7F919781EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E092F408-282A-4FAA-9600-FE7F919781EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF060C7F-3D66-48FC-B974-3963A74E9FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF060C7F-3D66-48FC-B974-3963A74E9FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF060C7F-3D66-48FC-B974-3963A74E9FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF060C7F-3D66-48FC-B974-3963A74E9FA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A60CB3F-28A7-44C7-86CE-69D9F3C335E3}
 	EndGlobalSection
 EndGlobal

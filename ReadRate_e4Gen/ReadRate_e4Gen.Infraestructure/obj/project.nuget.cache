@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "84lyhwo/0kA=",
+  "dgSpecHash": "tNgRFY4M6JA=",
   "success": true,
-  "projectFilePath": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj",
+  "projectFilePath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1534572\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\1534572\\.nuget\\packages\\iesi.collections\\4.0.4\\iesi.collections.4.0.4.nupkg.sha512",

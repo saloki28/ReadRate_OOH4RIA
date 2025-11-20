@@ -348,5 +348,34 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
 
         return result;
 }
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosOrdenadosFecha ()
+{
+        System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM LibroNH self where FROM LibroNH libro order by libro.FechaPublicacion desc";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("LibroNHdameLibrosOrdenadosFechaHQL");
+
+                result = query.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in LibroRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

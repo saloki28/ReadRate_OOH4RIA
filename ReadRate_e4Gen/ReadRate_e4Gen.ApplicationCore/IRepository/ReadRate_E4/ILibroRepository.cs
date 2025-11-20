@@ -35,5 +35,9 @@ System.Collections.Generic.IList<LibroEN> DameTodosLibros (int first, int size);
 
 
 System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosPorFiltros (string p_genero, string p_titulo, int? p_edadRecomendada, int? p_numPags, float? p_valoracionMedia, int first, int size);
+
+
+
+System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosOrdenadosFecha ();
 }
 }

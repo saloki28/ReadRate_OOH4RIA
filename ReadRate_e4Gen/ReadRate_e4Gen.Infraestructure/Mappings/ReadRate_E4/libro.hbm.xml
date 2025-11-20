@@ -103,5 +103,6 @@
 		  
 		  <query name="LibroNHReadAllHQL">from LibroNH</query>
 		  <query name="LibroNHdameLibrosPorFiltrosHQL"><![CDATA[FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_titulo is null or concat('%', lower(libro.Titulo), '%') like lower(:p_titulo))]]></query>
+		  <query name="LibroNHdameLibrosOrdenadosFechaHQL"><![CDATA[FROM LibroNH libro order by libro.FechaPublicacion desc]]></query>
 		</hibernate-mapping>
 	

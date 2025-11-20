@@ -60,7 +60,7 @@ public void ExpulsarUsuarioClub (int p_oid, int p_usuario_OID)
                 // disminuir el contador de miembros actuales del club
                 club.MiembrosActuales -= 1;
 
-                // Esta prueba no funciona porque DesuscribirDeClub() es el método que no funciona (fallo de herencia!!!!)
+                // Esta prueba no funciona porque DesuscribirDeClub() es el mï¿½todo que no funciona (fallo de herencia!!!!)
                 // usuarioCEN.get_IUsuarioRepository ().DesuscribirDeClub (p_usuario_OID, new List<int>() {p_oid});
 
                 CPSession.Commit ();

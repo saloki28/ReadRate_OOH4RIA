@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wmroeQimbcE=",
+  "dgSpecHash": "r56xFR4ifio=",
   "success": true,
-  "projectFilePath": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj",
+  "projectFilePath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1534572\\.nuget\\packages\\jose-jwt-signed\\2.3.0\\jose-jwt-signed.2.3.0.nupkg.sha512",
     "C:\\Users\\1534572\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",

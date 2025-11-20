@@ -56,5 +56,9 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
 {
         return _ILibroRepository.DameLibrosPorFiltros (p_genero, p_titulo, p_edadRecomendada, p_numPags, p_valoracionMedia, first, size);
 }
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosOrdenadosFecha ()
+{
+        return _ILibroRepository.DameLibrosOrdenadosFecha ();
+}
 }
 }

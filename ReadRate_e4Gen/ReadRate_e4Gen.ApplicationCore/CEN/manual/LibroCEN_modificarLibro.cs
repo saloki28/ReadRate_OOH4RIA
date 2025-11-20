@@ -33,7 +33,7 @@ public void ModificarLibro (int p_Libro_OID, string p_titulo, string p_genero, i
         libroEN.FechaPublicacion = fecha;
 
         if (p_numPags <= 0) {
-                throw new ModelException ("El n�mero de p�ginas debe ser mayor que 0");
+                throw new ModelException ("El numero de paginas debe ser mayor que 0");
         }
         libroEN.NumPags = p_numPags;
 

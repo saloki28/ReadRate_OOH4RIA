@@ -30,33 +30,6 @@ public IClubRepository get_IClubRepository ()
         return this._IClubRepository;
 }
 
-public int CearClub (string p_nombre, string p_enlaceDiscord, int p_miembrosMax, string p_foto, string p_descripcion, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN p_usuarioPropietario, int p_miembrosActuales)
-{
-        ClubEN clubEN = null;
-        int oid;
-
-        //Initialized ClubEN
-        clubEN = new ClubEN ();
-        clubEN.Nombre = p_nombre;
-
-        clubEN.EnlaceDiscord = p_enlaceDiscord;
-
-        clubEN.MiembrosMax = p_miembrosMax;
-
-        clubEN.Foto = p_foto;
-
-        clubEN.Descripcion = p_descripcion;
-
-        clubEN.UsuarioPropietario = p_usuarioPropietario;
-
-        clubEN.MiembrosActuales = p_miembrosActuales;
-
-
-
-        oid = _IClubRepository.CearClub (clubEN);
-        return oid;
-}
-
 public void ModificarClub (int p_Club_OID, string p_nombre, string p_enlaceDiscord, int p_miembrosMax, string p_foto, string p_descripcion, int p_miembrosActuales)
 {
         ClubEN clubEN = null;

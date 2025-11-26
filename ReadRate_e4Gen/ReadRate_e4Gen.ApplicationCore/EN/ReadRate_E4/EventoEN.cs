@@ -62,13 +62,6 @@ private int aforoMax;
 
 
 /**
- *	Atributo usuarioParticipante
- */
-private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> usuarioParticipante;
-
-
-
-/**
  *	Atributo administradorEventos
  */
 private ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AdministradorEN administradorEventos;
@@ -86,6 +79,20 @@ private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadR
  *	Atributo aforoActual
  */
 private int aforoActual;
+
+
+
+/**
+ *	Atributo autorParticipante
+ */
+private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorParticipante;
+
+
+
+/**
+ *	Atributo lectorParticipante
+ */
+private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorParticipante;
 
 
 
@@ -140,12 +147,6 @@ public virtual int AforoMax {
 
 
 
-public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> UsuarioParticipante {
-        get { return usuarioParticipante; } set { usuarioParticipante = value;  }
-}
-
-
-
 public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AdministradorEN AdministradorEventos {
         get { return administradorEventos; } set { administradorEventos = value;  }
 }
@@ -164,30 +165,43 @@ public virtual int AforoActual {
 
 
 
-
-
-public EventoEN()
-{
-        usuarioParticipante = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN>();
-        notificacionEvento = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN>();
+public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> AutorParticipante {
+        get { return autorParticipante; } set { autorParticipante = value;  }
 }
 
 
 
-public EventoEN(int id, string nombre, string foto, string descripcion, Nullable<DateTime> fecha, Nullable<DateTime> hora, string ubicacion, int aforoMax, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> usuarioParticipante, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AdministradorEN administradorEventos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionEvento, int aforoActual
+public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> LectorParticipante {
+        get { return lectorParticipante; } set { lectorParticipante = value;  }
+}
+
+
+
+
+
+public EventoEN()
+{
+        notificacionEvento = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN>();
+        autorParticipante = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN>();
+        lectorParticipante = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN>();
+}
+
+
+
+public EventoEN(int id, string nombre, string foto, string descripcion, Nullable<DateTime> fecha, Nullable<DateTime> hora, string ubicacion, int aforoMax, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AdministradorEN administradorEventos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionEvento, int aforoActual, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorParticipante, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorParticipante
                 )
 {
-        this.init (Id, nombre, foto, descripcion, fecha, hora, ubicacion, aforoMax, usuarioParticipante, administradorEventos, notificacionEvento, aforoActual);
+        this.init (Id, nombre, foto, descripcion, fecha, hora, ubicacion, aforoMax, administradorEventos, notificacionEvento, aforoActual, autorParticipante, lectorParticipante);
 }
 
 
 public EventoEN(EventoEN evento)
 {
-        this.init (evento.Id, evento.Nombre, evento.Foto, evento.Descripcion, evento.Fecha, evento.Hora, evento.Ubicacion, evento.AforoMax, evento.UsuarioParticipante, evento.AdministradorEventos, evento.NotificacionEvento, evento.AforoActual);
+        this.init (evento.Id, evento.Nombre, evento.Foto, evento.Descripcion, evento.Fecha, evento.Hora, evento.Ubicacion, evento.AforoMax, evento.AdministradorEventos, evento.NotificacionEvento, evento.AforoActual, evento.AutorParticipante, evento.LectorParticipante);
 }
 
 private void init (int id
-                   , string nombre, string foto, string descripcion, Nullable<DateTime> fecha, Nullable<DateTime> hora, string ubicacion, int aforoMax, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> usuarioParticipante, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AdministradorEN administradorEventos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionEvento, int aforoActual)
+                   , string nombre, string foto, string descripcion, Nullable<DateTime> fecha, Nullable<DateTime> hora, string ubicacion, int aforoMax, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AdministradorEN administradorEventos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionEvento, int aforoActual, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorParticipante, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorParticipante)
 {
         this.Id = id;
 
@@ -206,13 +220,15 @@ private void init (int id
 
         this.AforoMax = aforoMax;
 
-        this.UsuarioParticipante = usuarioParticipante;
-
         this.AdministradorEventos = administradorEventos;
 
         this.NotificacionEvento = notificacionEvento;
 
         this.AforoActual = aforoActual;
+
+        this.AutorParticipante = autorParticipante;
+
+        this.LectorParticipante = lectorParticipante;
 }
 
 public override bool Equals (object obj)

@@ -31,7 +31,7 @@ public IUsuarioRepository get_IUsuarioRepository ()
         return this._IUsuarioRepository;
 }
 
-private void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass)
+private void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones)
 {
         UsuarioEN usuarioEN = null;
 
@@ -46,9 +46,16 @@ private void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombr
         usuarioEN.Foto = p_foto;
         usuarioEN.Rol = p_rol;
         usuarioEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
+        usuarioEN.NumModificaciones = p_numModificaciones;
         //Call to UsuarioRepository
 
         _IUsuarioRepository.ModificarUsuario (usuarioEN);
+}
+
+public void EliminarUsuario (int id
+                             )
+{
+        _IUsuarioRepository.EliminarUsuario (id);
 }
 
 public UsuarioEN DameUsuarioPorOID (int id

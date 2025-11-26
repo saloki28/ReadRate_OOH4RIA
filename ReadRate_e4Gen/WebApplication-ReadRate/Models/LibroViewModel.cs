@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication_ReadRate.Models
 {
     public class LibroViewModel
     {
+        // Id del libro
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
@@ -25,8 +27,8 @@ namespace WebApplication_ReadRate.Models
         [Range(minimum: 0, maximum: 100, ErrorMessage = "La edad debe estar entre 0 y 100 años")]
         public int EdadRecomendada { get; set; }
 
-        // Título del libro
-        [Display(Prompt="Indica la fecha de publciación del libro", Description="Título del libro", Name = "Fecha de Publicación")]
+        // Fecha de Publicación del libro
+        [Display(Prompt="Indica la fecha de publicación del libro", Description="Fecha de publicación del libro", Name = "Fecha de Publicación")]
         [Required(ErrorMessage = "Debes indicar la fecha de publicación")]
         [DataType(DataType.Date)]
         public DateTime FechaPublicacion { get; set; }
@@ -44,11 +46,13 @@ namespace WebApplication_ReadRate.Models
         [DataType(DataType.MultilineText)]
         public string Sinopsis { get; set; } = string.Empty;
 
-        // Nombre del archivo de la portada del libro
-        [Display(Prompt="Escribe el nombre del archivo de la portada del libro", Description="Nombre del archivo de la portada del libro", Name = "Foto de Portada")]
-        [Required(ErrorMessage = "Debes indicar el nombre del archivo para la portada del libro")]
-        [StringLength(maximumLength: 255, ErrorMessage = "El nombre del archivo no puede tener más de 255 caracteres")]
-        public string? FotoPortada { get; set; }
+        // Ruta de la foto de portada guardada en BD (string)
+        [ScaffoldColumn(false)]
+        public string? FotoPortadaUrl { get; set; }
+
+        // Archivo de la foto de portada para subir (IFormFile)
+        [Display(Prompt="Selecciona el archivo de la portada del libro", Description="Archivo de la portada del libro", Name = "Foto de Portada")]
+        public IFormFile? FotoPortada { get; set; }
  
         // Valoración media del libro
         [Display(Prompt="Escribe la valoración media del libro", Description="Valoración media del libro", Name = "Valoración Media")]
@@ -57,11 +61,15 @@ namespace WebApplication_ReadRate.Models
         public float ValoracionMedia { get; set; }
 
         // Nombre del autor del libro
-        [Display(Prompt="Escribe el nombre del autor del libro", Description="Nombre del autor del libro", Name = "Autor")]
+        [Display(Prompt = "Selecciona el nombre del autor del libro", Description = "Nombre del autor del libro", Name = "Autor")]
         public string? NombreAutor { get; set; }
 
         // Id del autor del libro
         [ScaffoldColumn(false)]
-        public int? AutorPublicadorId { get; set; }
+        public int AutorId { get; set; }
+
+        // Autor del libro
+        [ScaffoldColumn(false)]
+        public AutorEN? Autor { get; set; }
     }
 }

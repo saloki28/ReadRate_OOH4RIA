@@ -27,13 +27,6 @@ private ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.ConceptoNotificaci
 
 
 /**
- *	Atributo usuarioNotificado
- */
-private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> usuarioNotificado;
-
-
-
-/**
  *	Atributo noticiaNotificada
  */
 private ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN noticiaNotificada;
@@ -55,16 +48,37 @@ private ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubNotificado;
 
 
 /**
- *	Atributo autorAvisado
+ *	Atributo reseñaNotificada
  */
-private ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorAvisado;
+private ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN reseñaNotificada;
 
 
 
 /**
- *	Atributo reseñaNotificada
+ *	Atributo autorNotificado
  */
-private ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN reseñaNotificada;
+private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorNotificado;
+
+
+
+/**
+ *	Atributo lectorNotificado
+ */
+private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorNotificado;
+
+
+
+/**
+ *	Atributo tituloResumen
+ */
+private string tituloResumen;
+
+
+
+/**
+ *	Atributo textoCuerpo
+ */
+private string textoCuerpo;
 
 
 
@@ -89,12 +103,6 @@ public virtual ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.ConceptoNot
 
 
 
-public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> UsuarioNotificado {
-        get { return usuarioNotificado; } set { usuarioNotificado = value;  }
-}
-
-
-
 public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN NoticiaNotificada {
         get { return noticiaNotificada; } set { noticiaNotificada = value;  }
 }
@@ -113,14 +121,32 @@ public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN ClubNotifica
 
 
 
-public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN AutorAvisado {
-        get { return autorAvisado; } set { autorAvisado = value;  }
+public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN ReseñaNotificada {
+        get { return reseñaNotificada; } set { reseñaNotificada = value;  }
 }
 
 
 
-public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN ReseñaNotificada {
-        get { return reseñaNotificada; } set { reseñaNotificada = value;  }
+public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> AutorNotificado {
+        get { return autorNotificado; } set { autorNotificado = value;  }
+}
+
+
+
+public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> LectorNotificado {
+        get { return lectorNotificado; } set { lectorNotificado = value;  }
+}
+
+
+
+public virtual string TituloResumen {
+        get { return tituloResumen; } set { tituloResumen = value;  }
+}
+
+
+
+public virtual string TextoCuerpo {
+        get { return textoCuerpo; } set { textoCuerpo = value;  }
 }
 
 
@@ -129,25 +155,26 @@ public virtual ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN ReseñaNo
 
 public NotificacionEN()
 {
-        usuarioNotificado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN>();
+        autorNotificado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN>();
+        lectorNotificado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN>();
 }
 
 
 
-public NotificacionEN(int id, Nullable<DateTime> fecha, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.ConceptoNotificacionEnum concepto, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> usuarioNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN noticiaNotificada, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorAvisado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN reseñaNotificada
+public NotificacionEN(int id, Nullable<DateTime> fecha, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.ConceptoNotificacionEnum concepto, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN noticiaNotificada, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN reseñaNotificada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorNotificado, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorNotificado, string tituloResumen, string textoCuerpo
                       )
 {
-        this.init (Id, fecha, concepto, usuarioNotificado, noticiaNotificada, eventoNotificado, clubNotificado, autorAvisado, reseñaNotificada);
+        this.init (Id, fecha, concepto, noticiaNotificada, eventoNotificado, clubNotificado, reseñaNotificada, autorNotificado, lectorNotificado, tituloResumen, textoCuerpo);
 }
 
 
 public NotificacionEN(NotificacionEN notificacion)
 {
-        this.init (notificacion.Id, notificacion.Fecha, notificacion.Concepto, notificacion.UsuarioNotificado, notificacion.NoticiaNotificada, notificacion.EventoNotificado, notificacion.ClubNotificado, notificacion.AutorAvisado, notificacion.ReseñaNotificada);
+        this.init (notificacion.Id, notificacion.Fecha, notificacion.Concepto, notificacion.NoticiaNotificada, notificacion.EventoNotificado, notificacion.ClubNotificado, notificacion.ReseñaNotificada, notificacion.AutorNotificado, notificacion.LectorNotificado, notificacion.TituloResumen, notificacion.TextoCuerpo);
 }
 
 private void init (int id
-                   , Nullable<DateTime> fecha, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.ConceptoNotificacionEnum concepto, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> usuarioNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN noticiaNotificada, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorAvisado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN reseñaNotificada)
+                   , Nullable<DateTime> fecha, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.ConceptoNotificacionEnum concepto, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN noticiaNotificada, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubNotificado, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN reseñaNotificada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorNotificado, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorNotificado, string tituloResumen, string textoCuerpo)
 {
         this.Id = id;
 
@@ -156,17 +183,21 @@ private void init (int id
 
         this.Concepto = concepto;
 
-        this.UsuarioNotificado = usuarioNotificado;
-
         this.NoticiaNotificada = noticiaNotificada;
 
         this.EventoNotificado = eventoNotificado;
 
         this.ClubNotificado = clubNotificado;
 
-        this.AutorAvisado = autorAvisado;
-
         this.ReseñaNotificada = reseñaNotificada;
+
+        this.AutorNotificado = autorNotificado;
+
+        this.LectorNotificado = lectorNotificado;
+
+        this.TituloResumen = tituloResumen;
+
+        this.TextoCuerpo = textoCuerpo;
 }
 
 public override bool Equals (object obj)

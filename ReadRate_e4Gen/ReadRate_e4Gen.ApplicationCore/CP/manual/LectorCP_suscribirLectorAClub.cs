@@ -10,56 +10,52 @@ using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 
 
 
-/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_suscribirAClub) ENABLED START*/
+/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Lector_suscribirLectorAClub) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 {
-public partial class UsuarioCP : GenericBasicCP
+public partial class LectorCP : GenericBasicCP
 {
-public void SuscribirAClub (int p_Usuario_OID, System.Collections.Generic.IList<int> p_clubSuscrito_OIDs)
+public void SuscribirLectorAClub (int p_Lector_OID, System.Collections.Generic.IList<int> p_clubSuscritoLector_OIDs)
 {
-        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_suscribirAClub) ENABLED START*/
+        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Lector_suscribirLectorAClub) ENABLED START*/
 
-        UsuarioCEN usuarioCEN = null;
+        LectorCEN lectorCEN = null;
         ClubCEN clubCEN = null;
         ClubEN clubEN = null;
-
-
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
-                usuarioCEN = new  UsuarioCEN (CPSession.UnitRepo.UsuarioRepository);
+                lectorCEN = new LectorCEN (CPSession.UnitRepo.LectorRepository);
                 clubCEN = new ClubCEN (CPSession.UnitRepo.ClubRepository);
-                LectorCEN lectorCEN = new LectorCEN (CPSession.UnitRepo.LectorRepository);
-                LectorEN lectorEN = lectorCEN.DameLectorPorOID (p_Usuario_OID);
+                LectorEN lectorEN = lectorCEN.DameLectorPorOID (p_Lector_OID);
 
-
-                //comprobar aforo maximo y aumentar aforo actual
-                foreach (int clubId in p_clubSuscrito_OIDs) { //club a suscribir
+                // Comprobar aforo maximo y aumentar aforo actual
+                foreach (int clubId in p_clubSuscritoLector_OIDs) { //club a suscribir
                         clubEN = clubCEN.DameClubPorOID (clubId);
 
                         if (clubEN.MiembrosActuales >= clubEN.MiembrosMax) { //aforo maximo alcanzado
                                 throw new ModelException ("No se puede suscribir al club " + clubEN.Nombre + " porque ha alcanzado su aforo máximo.");
                         }
 
-                        if (clubEN.UsuarioPropietario.Id == p_Usuario_OID) {
+                        if (clubEN.LectorPropietario.Id == p_Lector_OID) {
                                 throw new ModelException ("No se puede suscribir al club " + clubEN.Nombre + " porque el usuario es el propietario del club.");
                         }
 
-                        if (clubEN.UsuarioMiembro.Contains (usuarioCEN.DameUsuarioPorOID (p_Usuario_OID))) {
+                        if (clubEN.LectorMiembro.Contains (lectorCEN.DameLectorPorOID (p_Lector_OID))) {
                                 throw new ModelException ("No se puede suscribir al club " + clubEN.Nombre + " porque el usuario ya es miembro del club.");
                         }
 
-                        clubEN.MiembrosActuales += 1; //aumentar miembros actuales
-                        lectorEN.CantClubsSuscritos += 1; //aumentar contador de clubs suscritos
+                        clubEN.MiembrosActuales += 1; // Aumentar miembros actuales de Club
+                        lectorEN.CantClubsSuscritos += 1; // Aumentar contador de clubs suscritos en Lector
                         lectorCEN.get_ILectorRepository ().ModificarLector (lectorEN);
-                        clubCEN.get_IClubRepository ().ModificarClub (clubEN); //guardar cambios
+                        clubCEN.get_IClubRepository ().ModificarClub (clubEN); // Guardar cambios
                 }
 
-                usuarioCEN.get_IUsuarioRepository ().SuscribirAClub (p_Usuario_OID, p_clubSuscrito_OIDs);
+                lectorCEN.get_ILectorRepository ().SuscribirLectorAClub (p_Lector_OID, p_clubSuscritoLector_OIDs);
 
                 CPSession.Commit ();
         }

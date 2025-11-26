@@ -31,10 +31,10 @@ public int CrearLibro (string p_titulo, string p_genero, int p_edadRecomendada, 
 
         libroEN.EdadRecomendada = p_edadRecomendada;
 
-        libroEN.FechaPublicacion = DateTime.Now;
+        libroEN.FechaPublicacion = p_fechaPublicacion ?? DateTime.Now;
 
         if (p_numPags <= 0) {
-                throw new ModelException ("El n�mero de p�ginas debe ser mayor que 0");
+                throw new ModelException ("El numero de paginas debe ser mayor que 0");
         }
 
         libroEN.NumPags = p_numPags;

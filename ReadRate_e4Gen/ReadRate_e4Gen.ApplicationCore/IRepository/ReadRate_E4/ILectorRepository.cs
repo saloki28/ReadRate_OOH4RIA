@@ -46,5 +46,13 @@ void DesasignarLibroListaGuardados (int p_Lector_OID, System.Collections.Generic
 void AsignarLibroListaEnCurso (int p_Lector_OID, System.Collections.Generic.IList<int> p_libroEnCurso_OIDs);
 
 void DesasignarLibroListaEnCurso (int p_Lector_OID, System.Collections.Generic.IList<int> p_libroEnCurso_OIDs);
+
+void InscribirLectorAEvento (int p_Lector_OID, System.Collections.Generic.IList<int> p_eventoLector_OIDs);
+
+void DesinscribirLectorDeEvento (int p_Lector_OID, System.Collections.Generic.IList<int> p_eventoLector_OIDs);
+
+void SuscribirLectorAClub (int p_Lector_OID, System.Collections.Generic.IList<int> p_clubSuscritoLector_OIDs);
+
+void DesuscribirLectorDeClub (int p_Lector_OID, System.Collections.Generic.IList<int> p_clubSuscritoLector_OIDs);
 }
 }

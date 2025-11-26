@@ -62,37 +62,16 @@ private ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol
 
 
 /**
- *	Atributo evento
- */
-private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> evento;
-
-
-
-/**
- *	Atributo notificacion
- */
-private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacion;
-
-
-
-/**
- *	Atributo clubSuscrito
- */
-private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubSuscrito;
-
-
-
-/**
- *	Atributo clubCreado
- */
-private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubCreado;
-
-
-
-/**
  *	Atributo pass
  */
 private String pass;
+
+
+
+/**
+ *	Atributo numModificaciones
+ */
+private int numModificaciones;
 
 
 
@@ -147,32 +126,14 @@ public virtual ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioE
 
 
 
-public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> Evento {
-        get { return evento; } set { evento = value;  }
-}
-
-
-
-public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> Notificacion {
-        get { return notificacion; } set { notificacion = value;  }
-}
-
-
-
-public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> ClubSuscrito {
-        get { return clubSuscrito; } set { clubSuscrito = value;  }
-}
-
-
-
-public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> ClubCreado {
-        get { return clubCreado; } set { clubCreado = value;  }
-}
-
-
-
 public virtual String Pass {
         get { return pass; } set { pass = value;  }
+}
+
+
+
+public virtual int NumModificaciones {
+        get { return numModificaciones; } set { numModificaciones = value;  }
 }
 
 
@@ -181,28 +142,24 @@ public virtual String Pass {
 
 public UsuarioEN()
 {
-        evento = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN>();
-        notificacion = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN>();
-        clubSuscrito = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN>();
-        clubCreado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN>();
 }
 
 
 
-public UsuarioEN(int id, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> evento, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacion, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubSuscrito, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubCreado, String pass
+public UsuarioEN(int id, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones
                  )
 {
-        this.init (Id, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, evento, notificacion, clubSuscrito, clubCreado, pass);
+        this.init (Id, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass, numModificaciones);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (usuario.Id, usuario.Email, usuario.NombreUsuario, usuario.FechaNacimiento, usuario.CiudadResidencia, usuario.PaisResidencia, usuario.Foto, usuario.Rol, usuario.Evento, usuario.Notificacion, usuario.ClubSuscrito, usuario.ClubCreado, usuario.Pass);
+        this.init (usuario.Id, usuario.Email, usuario.NombreUsuario, usuario.FechaNacimiento, usuario.CiudadResidencia, usuario.PaisResidencia, usuario.Foto, usuario.Rol, usuario.Pass, usuario.NumModificaciones);
 }
 
 private void init (int id
-                   , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> evento, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacion, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubSuscrito, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubCreado, String pass)
+                   , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones)
 {
         this.Id = id;
 
@@ -221,15 +178,9 @@ private void init (int id
 
         this.Rol = rol;
 
-        this.Evento = evento;
-
-        this.Notificacion = notificacion;
-
-        this.ClubSuscrito = clubSuscrito;
-
-        this.ClubCreado = clubCreado;
-
         this.Pass = pass;
+
+        this.NumModificaciones = numModificaciones;
 }
 
 public override bool Equals (object obj)

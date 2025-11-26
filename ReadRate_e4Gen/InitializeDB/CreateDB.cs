@@ -121,43 +121,44 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Usuario Lector ------------------");
 
                 int usuarioId1 = lectorcen.CrearLector (
- p_email: "paco.lector@example.com",
- p_nombreUsuario: "PacoLector",
- p_fechaNacimiento: new DateTime (1980, 11, 10),
- p_ciudadResidencia: "Barcelona", p_paisResidencia: "España",
- p_foto: "pacoFoto.png",
- p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
- p_pass: "password123",
+                        p_email: "paco.lector@email.com",
+                        p_nombreUsuario: "Paco Lector",
+                        p_fechaNacimiento: new DateTime (1980, 11, 10),
+                        p_ciudadResidencia: "Barcelona", p_paisResidencia: "España",
+                        p_foto: "pacoFoto.png",
+                        p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
+                        p_pass: "passPaco",
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
                         p_cantAutoresSeguidos: 0,
+                        p_numModificaciones: 0,
                         p_cantClubsSuscritos: 0);
-                Console.WriteLine ("Usuario 'PacoLector' creado correctamente.");
+                Console.WriteLine ("Usuario lector 'Paco Lector' creado correctamente.");
 
                 // LOGIN DE USURIO POR DEFECTO - Lector 1
                 Console.WriteLine ("\n------------------ Comprobación de login por defecto ------------------");
 
-                string token1 = usuariocen.Login (usuarioId1, "password123");
+                string token1 = usuariocen.Login (usuarioId1, "passPaco");
                 if (!string.IsNullOrEmpty (token1)) {
                         Console.WriteLine ("Login exitoso para el usuario 'PacoLector'. Token: " + token1);
                 }
                 else{
-                        Console.WriteLine ("Error de login para el usuario 'PacoLector'.");
+                        Console.WriteLine ("Error de login para el usuario 'Paco Lector'.");
                 }
 
                 // LOGIN DE USURIO PERSONALIZADO - Lector 1
                 Console.WriteLine ("\n------------------ Comprobación de login personalizado ------------------");
 
-                if (usuariocen.Login ("paco.lector@example.com", "password123") != null) {
-                        Console.WriteLine ("Login exitoso para el usuario 'PacoLector'.");
+                if (usuariocen.Login ("paco.lector@email.com", "passPaco") != null) {
+                        Console.WriteLine ("Login exitoso para el usuario 'Paco Lector'.");
                 }
                 else{
-                        Console.WriteLine ("Error de login para el usuario 'PacoLector'.");
+                        Console.WriteLine ("Error de login para el usuario 'Paco Lector'.");
                 }
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN Y LOGIN DE LECTOR:");
-                Console.WriteLine ("- Usuario 'PacoLector' creado correctamente");
+                Console.WriteLine ("- Usuario 'Paco Lector' creado correctamente");
                 Console.WriteLine ("- Login por defecto: Exitoso");
                 Console.WriteLine ("- Login personalizado: Exitoso");
                 Console.WriteLine ("====================================================================================");
@@ -168,27 +169,27 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Administrador ------------------");
 
                 int administradorId1 = administradorcen.CrearAdministador (
- p_nombre: "Admin1",
- p_pass: "adminpass",
- p_email: "admin@example.com"
+                p_nombre: "Admin1",
+                p_pass: "passAdmin1",
+                p_email: "admin@email.com"
                         );
                 Console.WriteLine ("Administrador 'Admin' creado correctamente.");
 
                 // LOGIN DE ADMINISTRADOR POR DEFECTO - Administrador 1
                 Console.WriteLine ("\n------------------ Comprobación de login por defecto ------------------");
 
-                string token2 = administradorcen.Login (administradorId1, "adminpass");
+                string token2 = administradorcen.Login (administradorId1, "passAdmin1");
                 if (!string.IsNullOrEmpty (token2)) {
                         Console.WriteLine ("Login exitoso para el adminsitrador 'Admin'. Token: " + token2);
                 }
                 else{
-                        Console.WriteLine ("Error de login para el usuario 'PacoLector'.");
+                        Console.WriteLine ("Error de login para el adminsitrador 'Admin'.");
                 }
 
                 // LOGIN DE ADMINISTRADOR PERSONALIZADO - Administrador 1 (Credenciales incorrectas)
                 Console.WriteLine ("\n------------------ Comprobación de login personalizado (Esperado: Mensaje de error) ------------------");
 
-                if (administradorcen.Login ("paco.lector@example.com", "adminpass") != null) {
+                if (administradorcen.Login ("paco.lector@email.com", "passAdmin1") != null) {
                         Console.WriteLine ("Login exitoso para el usuario 'Admin1'.");
                 }
                 else{
@@ -198,7 +199,7 @@ public static void InitializeData ()
                 // LOGIN DE ADMINISTRADOR PERSONALIZADO - Administrador 1 (Credenciales correctas)
                 Console.WriteLine ("\n------------------ Comprobación de login personalizado (Esperado: Login Correcto) ------------------");
 
-                if (administradorcen.Login ("admin@example.com", "adminpass") != null) {
+                if (administradorcen.Login ("admin@email.com", "passAdmin1") != null) {
                         Console.WriteLine ("Login exitoso para el usuario 'Admin1'.");
                 }
                 else{
@@ -220,322 +221,363 @@ public static void InitializeData ()
 
                 // Autor 1 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId = autorcen.CrearAutor (
- p_email: "autor@example.com",
- p_nombreUsuario: "AutorEjemplo",
- p_fechaNacimiento: new DateTime (1975, 3, 20),
- p_ciudadResidencia: "Madrid",
- p_paisResidencia: "España",
- p_foto: "autorFoto.png",
- p_valoracionMedia: 3.5f,
+ p_email: "leighbardugo@email.com",
+ p_nombreUsuario: "Leigh Bardugo",
+ p_fechaNacimiento: new DateTime (1975, 4, 6),
+ p_ciudadResidencia: "Jerusalén",
+ p_paisResidencia: "Israel/EE.UU.",
+ p_foto: "leighBardugo.webp",
+ p_valoracionMedia: 5.0f,
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "autorpass123",
+ p_pass: "passLeigh",
+                        p_numModificaciones: 0,
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autora creada correctamente con ID: " + autorId);
 
                 // Libro 1 (usa el id del autor anterior)
                 var idLibro1 = librocen.CrearLibro (
- p_titulo: "El misterio de la casa abandonada",
- p_genero: "Ficcion",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 13,
- p_fechaPublicacion: new DateTime (2020, 10, 10),
-                        p_numPags: 320,
- p_sinopsis: "Una emocionante novela de misterio y suspenso.",
- p_fotoPortada: "portada_misterio.jpg",
+ p_titulo: "Seis de Cuervos",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 5.0f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (2015, 9, 29),
+                        p_numPags: 480,
+ p_sinopsis: "Seis peligrosos marginados deben unir fuerzas para realizar un robo imposible en el mundo del Grishaverse.",
+ p_fotoPortada: "/images/portadasLibros/seisDeCuervos.webp",
  p_autorPublicador: autorId
                         );
-                Console.WriteLine ("Libro 1 'El misterio de la casa abandonada' creado correctamente.");
+                Console.WriteLine ("Libro 'Seis de Cuervos' creado correctamente.");
 
                 // Autor 2 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId2 = autorcen.CrearAutor (
- p_email: "maria.escritora@example.com",
- p_nombreUsuario: "MariaEscritora",
- p_valoracionMedia: 3.5f,
- p_fechaNacimiento: new DateTime (1982, 7, 15),
- p_ciudadResidencia: "Valencia",
- p_paisResidencia: "España",
- p_foto: "mariaFoto.png",
+ p_email: "robertjordan@email.com",
+                        p_numModificaciones: 0,
+ p_nombreUsuario: "Robert Jordan",
+ p_valoracionMedia: 4.5f,
+ p_fechaNacimiento: new DateTime (1948, 10, 17),
+ p_ciudadResidencia: "Charleston",
+ p_paisResidencia: "Estados Unidos",
+ p_foto: "robertJordan.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "maria123",
+ p_pass: "passRobert",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId2);
 
                 // Libro 2 (usa el id del autor anterior)
                 var idLibro2 = librocen.CrearLibro (
- p_titulo: "Aventuras en el bosque encantado",
- p_genero: "Fantasia",
+ p_titulo: "La Rueda Del Tiempo 1: El Ojo del Mundo",
+ p_genero: "Fantasía",
  p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 10,
- p_fechaPublicacion: new DateTime (2021, 3, 15),
-                        p_numPags: 250,
- p_sinopsis: "Un viaje mágico lleno de criaturas fantásticas.",
- p_fotoPortada: "portada_bosque_encantado.jpg",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1990, 1, 15),
+                        p_numPags: 814,
+ p_sinopsis: "Un grupo de jóvenes se ve arrastrado a un viaje épico donde el destino del mundo depende de ellos, dando inicio a la monumental saga de La Rueda del Tiempo.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo.webp",
  p_autorPublicador: autorId2
                         );
-                Console.WriteLine ("Libro 2 'Aventuras en el bosque encantado' creado correctamente.");
+                Console.WriteLine ("Libro 'El Ojo del Mundo' creado correctamente.");
 
                 // Autor 3 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId3 = autorcen.CrearAutor (
- p_email: "carlos.novelista@example.com",
- p_nombreUsuario: "CarlosNovelista",
- p_fechaNacimiento: new DateTime (1970, 5, 20),
- p_ciudadResidencia: "Sevilla",
- p_paisResidencia: "España",
- p_valoracionMedia: 3.5f,
- p_foto: "carlosFoto.png",
+ p_email: "brandonsanderson@email.com",
+ p_nombreUsuario: "Brandon Sanderson",
+ p_fechaNacimiento: new DateTime (1975, 12, 19),
+ p_ciudadResidencia: "Lincoln",
+ p_paisResidencia: "Estados Unidos",
+ p_valoracionMedia: 4.5f,
+ p_foto: "brandonSanderson.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "carlos123",
+ p_pass: "passBrandon",
                         p_numeroSeguidores: 0,
+                        p_numModificaciones: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId3);
 
                 // Libro 3 (usa el id del autor anterior)
                 var idLibro3 = librocen.CrearLibro (
- p_titulo: "Historia de dos ciudades modernas",
- p_genero: "Historia",
-                        p_edadRecomendada: 16,
- p_fechaPublicacion: new DateTime (2019, 8, 22),
-                        p_numPags: 450,
- p_sinopsis: "Un análisis histórico de la evolución urbana.",
- p_fotoPortada: "portada_dos_ciudades.jpg",
- p_valoracionMedia: 3.5f,
+ p_titulo: "Mistborn 1: El Imperio Final",
+ p_genero: "Fantasía",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2006, 7, 17),
+                        p_numPags: 672,
+ p_sinopsis: "En un mundo dominado por cenizas y brumas, una joven ladrona descubre que posee un poder único que podría cambiar el destino del Imperio Final gobernado por el tiránico Lord Legislador.",
+ p_fotoPortada: "/images/portadasLibros/imperioFinal.webp",
+ p_valoracionMedia: 5.0f,
  p_autorPublicador: autorId3
                         );
-                Console.WriteLine ("Libro 3 'Historia de dos ciudades modernas' creado correctamente.");
+                Console.WriteLine ("Libro 'El Imperio Final' creado correctamente.");
 
                 // Autor 4 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId4 = autorcen.CrearAutor (
- p_email: "laura.ciencia@example.com",
- p_nombreUsuario: "LauraCiencia",
- p_fechaNacimiento: new DateTime (1988, 2, 10),
- p_ciudadResidencia: "Bilbao",
- p_valoracionMedia: 3.5f,
+ p_email: "cervantes@email.com",
+ p_nombreUsuario: "Miguel De Cervantes",
+                        p_numModificaciones: 0,
+ p_fechaNacimiento: new DateTime (1753, 9, 29),
+ p_ciudadResidencia: "Alcalá de Henares",
+ p_valoracionMedia: 3.0f,
  p_paisResidencia: "España",
- p_foto: "lauraFoto.png",
+ p_foto: "cervantes.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "laura123",
+ p_pass: "passCervantes",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId4);
 
                 // Libro 4 (usa el id del autor anterior)
                 var idLibro4 = librocen.CrearLibro (
- p_titulo: "Viaje al centro de la Tierra",
- p_genero: "Ciencia Ficcion",
- p_valoracionMedia: 3.5f,
+ p_titulo: "Don Quijote de la Mancha",
+ p_genero: "Literatura Clásica",
+ p_valoracionMedia: 4.0f,
                         p_edadRecomendada: 14,
- p_fechaPublicacion: new DateTime (2022, 5, 30),
-                        p_numPags: 380,
- p_sinopsis: "Una expedición científica que cambiará todo.",
- p_fotoPortada: "portada_viaje_tierra.jpg",
+ p_fechaPublicacion: new DateTime (1753, 1, 16),
+                        p_numPags: 863,
+ p_sinopsis: "La historia de un caballero idealista que, acompañado de su fiel escudero Sancho Panza, lucha contra la realidad misma impulsado por sus sueños de justicia y valentía.",
+ p_fotoPortada: "/images/portadasLibros/donQuijote.webp",
  p_autorPublicador: autorId4
                         );
-                Console.WriteLine ("Libro 4 'Viaje al centro de la Tierra' creado correctamente.");
+                Console.WriteLine ("Libro 'Don Quijote de la Mancha' creado correctamente.");
 
                 // Autor 5 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId5 = autorcen.CrearAutor (
- p_email: "pedro.romance@example.com",
- p_nombreUsuario: "PedroRomance",
- p_fechaNacimiento: new DateTime (1985, 12, 5),
- p_ciudadResidencia: "Málaga",
- p_paisResidencia: "España",
- p_valoracionMedia: 3.5f,
- p_foto: "pedroFoto.png",
+ p_email: "lucymontgomery@email.com",
+ p_nombreUsuario: "Lucy Maud Montgomery",
+ p_fechaNacimiento: new DateTime (1874, 11, 30),
+ p_ciudadResidencia: "Clifton (actual New London), Isla del Príncipe Eduardo",
+                        p_numModificaciones: 0,
+ p_paisResidencia: "Canadá",
+ p_valoracionMedia: 4.0f,
+ p_foto: "lucyMontgomery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "pedro123",
+ p_pass: "passLucy",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autora creada correctamente con ID: " + autorId5);
 
                 // Libro 5 (usa el id del autor anterior)
                 var idLibro5 = librocen.CrearLibro (
- p_titulo: "Amor en tiempos modernos",
- p_genero: "Romance",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 18,
- p_fechaPublicacion: new DateTime (2023, 2, 14),
-                        p_numPags: 290,
- p_sinopsis: "Una historia de amor contemporánea y conmovedora.",
- p_fotoPortada: "portada_amor_moderno.jpg",
+ p_titulo: "Ana de las Tejas Verdes",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 3.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1908, 6, 13),
+                        p_numPags: 320,
+ p_sinopsis: "La historia de Anne Shirley, una huérfana soñadora que llega por accidente a la casa de los hermanos Cuthbert en Tejas Verdes, donde transformará la vida de todos con su imaginación y corazón.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes.webp",
  p_autorPublicador: autorId5
                         );
-                Console.WriteLine ("Libro 5 'Amor en tiempos modernos' creado correctamente.");
+                Console.WriteLine ("Libro 'Ana de las Tejas Verdes' creado correctamente.");
 
                 // Auotor 6 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId6 = autorcen.CrearAutor (
- p_email: "ana.terror@example.com",
- p_nombreUsuario: "AnaTerror",
- p_fechaNacimiento: new DateTime (1979, 10, 31),
- p_ciudadResidencia: "Zaragoza",
- p_paisResidencia: "España",
- p_valoracionMedia: 3.5f,
- p_foto: "anaFoto.png",
+ p_email: "ggmarquez@email.com",
+ p_nombreUsuario: "Gabriel Garcia Marquez",
+ p_fechaNacimiento: new DateTime (1927, 3, 6),
+ p_ciudadResidencia: "Aracataca",
+                        p_numModificaciones: 0,
+ p_paisResidencia: "Colombia",
+ p_valoracionMedia: 4.0f,
+ p_foto: "garciaMarquez.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "ana123",
+ p_pass: "passGabriel",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId6);
 
                 // Libro 6 (usa el id del autor anterior)
                 var idLibro6 = librocen.CrearLibro (
- p_titulo: "La mansión del horror",
- p_genero: "Terror",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 18,
- p_fechaPublicacion: new DateTime (2021, 10, 31),
-                        p_numPags: 340,
- p_sinopsis: "Una terrorífica historia que te mantendrá despierto.",
- p_fotoPortada: "portada_mansion_horror.jpg",
+ p_titulo: "Cien años de soledad",
+ p_genero: "Literatura Clásica",
+ p_valoracionMedia: 4.0f,
+                        p_edadRecomendada: 16,
+ p_fechaPublicacion: new DateTime (1967, 5, 30),
+                        p_numPags: 471,
+ p_sinopsis: "La historia mítica de la familia Buendía en el pueblo de Macondo, donde lo extraordinario convive con lo cotidiano en una obra maestra del realismo mágico.",
+ p_fotoPortada: "/images/portadasLibros/cienAnosSoledad.webp",
  p_autorPublicador: autorId6
                         );
-                Console.WriteLine ("Libro 6 'La mansión del horror' creado correctamente.");
+                Console.WriteLine ("Libro 'Cien años de soledad' creado correctamente.");
 
                 // Autor 7 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId7 = autorcen.CrearAutor (
- p_email: "javier.aventura@example.com",
- p_nombreUsuario: "JavierAventura",
- p_fechaNacimiento: new DateTime (1983, 4, 18),
- p_ciudadResidencia: "Granada",
- p_valoracionMedia: 3.5f,
- p_paisResidencia: "España",
- p_foto: "javierFoto.png",
+ p_email: "danbrown@email.com",
+ p_nombreUsuario: "Dan Brown",
+ p_fechaNacimiento: new DateTime (1964, 6, 22),
+ p_ciudadResidencia: "New Hampshire",
+ p_valoracionMedia: 4.5f,
+ p_paisResidencia: "Estados Unidos",
+                        p_numModificaciones: 0,
+ p_foto: "danBrown.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "javier123",
+ p_pass: "passDan",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId7);
 
                 // Libro 7 (usa el id del autor anterior)
                 var idLibro7 = librocen.CrearLibro (
- p_titulo: "Expedición al Amazonas",
- p_genero: "Aventura",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 12,
- p_fechaPublicacion: new DateTime (2020, 6, 15),
-                        p_numPags: 310,
- p_sinopsis: "Una emocionante aventura en la selva amazónica.",
- p_fotoPortada: "portada_amazonas.jpg",
+ p_titulo: "El Código Da Vinci",
+ p_genero: "Misterio",
+ p_valoracionMedia: 2.0f,
+                        p_edadRecomendada: 16,
+ p_fechaPublicacion: new DateTime (2003, 3, 18),
+                        p_numPags: 592,
+ p_sinopsis: "Tras un misterioso asesinato en el Museo del Louvre, el profesor Robert Langdon descubre una serie de pistas ocultas en obras de arte que lo conducen a un secreto guardado durante siglos.",
+ p_fotoPortada: "/images/portadasLibros/codigoDaVinci.webp",
  p_autorPublicador: autorId7
                         );
-                Console.WriteLine ("Libro 7 'Expedición al Amazonas' creado correctamente.");
+                Console.WriteLine ("Libro 'El Código Da Vinci' creado correctamente.");
 
                 // Autor 8 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId8 = autorcen.CrearAutor (
- p_email: "sofia.biografia@example.com",
- p_nombreUsuario: "SofiaBiografia",
- p_fechaNacimiento: new DateTime (1977, 9, 25),
- p_ciudadResidencia: "Murcia",
- p_paisResidencia: "España",
- p_valoracionMedia: 3.5f,
- p_foto: "sofiaFoto.png",
+ p_email: "julioverne@email.com",
+ p_nombreUsuario: "Julio Verne",
+ p_fechaNacimiento: new DateTime (1828, 2, 8),
+ p_ciudadResidencia: "Nantes",
+ p_paisResidencia: "Francia",
+                        p_numModificaciones: 0,
+ p_valoracionMedia: 3.0f,
+ p_foto: "julioVerne.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "sofia123",
+ p_pass: "passJulio",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId8);
 
                 // Libro 8 (usa el id del autor anterior)
                 var idLibro8 = librocen.CrearLibro (
- p_titulo: "La vida de Einstein",
- p_genero: "Biografia",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 15,
- p_fechaPublicacion: new DateTime (2019, 11, 20),
-                        p_numPags: 420,
- p_sinopsis: "La fascinante historia del genio científico.",
- p_fotoPortada: "portada_einstein.jpg",
+ p_titulo: "Viaje al centro de la Tierra",
+ p_genero: "Aventura",
+ p_valoracionMedia: 2.5f,
+                        p_edadRecomendada: 12,
+ p_fechaPublicacion: new DateTime (1864, 11, 25),
+                        p_numPags: 300,
+ p_sinopsis: "El profesor Otto Lidenbrock descubre un manuscrito que revela un camino hacia las profundidades de la Tierra, iniciando una extraordinaria expedición al mundo subterráneo lleno de criaturas y paisajes sorprendentes.",
+ p_fotoPortada: "/images/portadasLibros/viajeCentroTierra.webp",
  p_autorPublicador: autorId8
                         );
-                Console.WriteLine ("Libro 8 'La vida de Einstein' creado correctamente.");
+                Console.WriteLine ("Libro 'Viaje al centro de la Tierra' creado correctamente.");
 
                 // Autor 9 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId9 = autorcen.CrearAutor (
- p_email: "miguel.poesia@example.com",
- p_nombreUsuario: "MiguelPoesia",
- p_fechaNacimiento: new DateTime (1990, 1, 8),
- p_ciudadResidencia: "Salamanca",
- p_paisResidencia: "España",
- p_foto: "miguelFoto.png",
- p_valoracionMedia: 3.5f,
+ p_email: "saintexupery@email.com",
+ p_nombreUsuario: "Antoine Saint Exupery",
+ p_fechaNacimiento: new DateTime (1900, 6, 29),
+ p_ciudadResidencia: "Lyon",
+ p_paisResidencia: "Francia",
+                        p_numModificaciones: 0,
+ p_valoracionMedia: 4.0f,
+ p_foto: "saintExupery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "miguel123",
+ p_pass: "passAntoine",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId9);
 
                 // Libro 9 (usa el id del autor anterior)
                 var idLibro9 = librocen.CrearLibro (
- p_titulo: "Versos del alma",
- p_genero: "Poesia",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 16,
- p_fechaPublicacion: new DateTime (2023, 4, 23),
-                        p_numPags: 180,
- p_sinopsis: "Una colección de poemas sobre el amor y la vida.",
- p_fotoPortada: "portada_versos_alma.jpg",
+ p_titulo: "El Principito",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 5.0f,
+                        p_edadRecomendada: 5,
+ p_fechaPublicacion: new DateTime (1943, 4, 6),
+                        p_numPags: 96,
+ p_sinopsis: "Un joven príncipe de otro planeta viaja por el universo, aprendiendo sobre la amistad, el amor y la naturaleza humana, en una historia llena de ternura y reflexión.",
+ p_fotoPortada: "/images/portadasLibros/elPrincipito.webp",
  p_autorPublicador: autorId9
                         );
-                Console.WriteLine ("Libro 9 'Versos del alma' creado correctamente.");
+                Console.WriteLine ("Libro 'El Principito' creado correctamente.");
 
                 // Auotor 10 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId10 = autorcen.CrearAutor (
- p_email: "elena.drama@example.com",
- p_nombreUsuario: "ElenaDrama",
- p_fechaNacimiento: new DateTime (1986, 6, 12),
- p_ciudadResidencia: "Alicante",
+ p_email: "carlosruizzafon@email.com",
+ p_nombreUsuario: "Carlos Ruiz Zafón",
+ p_fechaNacimiento: new DateTime (1964, 9, 25),
+ p_ciudadResidencia: "Barcelona",
  p_paisResidencia: "España",
- p_foto: "elenaFoto.png",
- p_valoracionMedia: 3.5f,
+                        p_numModificaciones: 0,
+ p_valoracionMedia: 4.5f,
+ p_foto: "carlosRuizZafon.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "elena123",
+ p_pass: "passCarlos",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
-                Console.WriteLine ("Autor creado correctamente con ID: " + autorId);
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId10);
 
                 // Libro 10 (usa el id del autor anterior)
                 var idLibro10 = librocen.CrearLibro (
- p_titulo: "El peso del silencio",
- p_genero: "Drama",
- p_valoracionMedia: 3.5f,
-                        p_edadRecomendada: 18,
- p_fechaPublicacion: new DateTime (2022, 9, 10),
-                        p_numPags: 365,
- p_sinopsis: "Un drama intenso sobre secretos familiares.",
- p_fotoPortada: "portada_peso_silencio.jpg",
+ p_titulo: "La Sombra del Viento (Antes de Modificar)",
+ p_genero: "Aventura",
+ p_valoracionMedia: 4.0f,
+                        p_edadRecomendada: 20,
+ p_fechaPublicacion: new DateTime (2000, 4, 1),
+                        p_numPags: 100,
+ p_sinopsis: "En la Barcelona de la posguerra, Daniel Sempere descubre un libro olvidado que lo introduce en un misterio literario que cambiará su vida y desvelará secretos del pasado.",
+ p_fotoPortada: "/images/portadasLibros/sombraDelViento.webp",
  p_autorPublicador: autorId10
                         );
-                Console.WriteLine ("Libro 10 'El peso del silencio' creado correctamente.");
+                Console.WriteLine ("Libro 'La Sombra del Viento' creado correctamente.");
 
                 // Libro 11 (usa el mismo id que Libro 10, es decir, que el autor tiene 2 libros)
                 var idLibro11 = librocen.CrearLibro (
- p_titulo: "Cuentos clásicos renovados",
- p_genero: "Ficcion",
-                        p_edadRecomendada: 8,
- p_fechaPublicacion: new DateTime (2024, 1, 15),
-                        p_numPags: 200,
- p_sinopsis: "Versiones modernas de los cuentos clásicos.",
- p_fotoPortada: "portada_cuentos_clasicos.jpg",
+ p_titulo: "El Juego del Ángel",
+ p_genero: "Misterio",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2008, 9, 17),
+                        p_numPags: 592,
+ p_sinopsis: "David Martín, un joven escritor en la Barcelona de los años 20, recibe la oferta de un misterioso editor que lo llevará a descubrir secretos oscuros y peligrosos mientras escribe un libro que cambiará su destino.",
+ p_fotoPortada: "/images/portadasLibros/juegoDelAngel.webp",
  p_valoracionMedia: 3.5f,
  p_autorPublicador: autorId10
                         );
-                Console.WriteLine ("Libro 11 'Cuentos clásicos renovados' creado correctamente.");
+                Console.WriteLine ("Libro 'El Juego del Ángel' creado correctamente.");
+
+                // Auotor 12 (devuelve su id para ser usado a continuación en la creación del libro)
+                int autorId12 = autorcen.CrearAutor (
+ p_email: "jrrtolkien@email.com",
+ p_nombreUsuario: "JRR Tolkien",
+ p_fechaNacimiento: new DateTime (1892, 1, 3),
+ p_ciudadResidencia: "Bloemfontein",
+ p_paisResidencia: "Reino Unido",
+                        p_numModificaciones: 0,
+ p_valoracionMedia: 4.5f,
+ p_foto: "tolkien.webp",
+ p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
+ p_pass: "passTolkien",
+                        p_numeroSeguidores: 0,
+                        p_cantidadLibrosPublicados: 0
+                        );
+                Console.WriteLine ("Autor creado correctamente con ID: " + autorId12);
+
+                // Libro 12 (usa el id del autor anterior)
+                var idLibro12 = librocen.CrearLibro (
+ p_titulo: "El Señor de los Anillos",
+ p_genero: "Aventura",
+ p_valoracionMedia: 4.5f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1954, 7, 29),
+                        p_numPags: 1178,
+ p_sinopsis: "La Tierra Media está al borde de la guerra mientras un hobbit llamado Frodo Bolsón debe destruir un anillo único que posee un poder maligno inmenso, acompañado de su leal Compañía del Anillo.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos.webp",
+ p_autorPublicador: autorId12
+                        );
+                Console.WriteLine ("Libro 'El Señor de los Anillos' creado correctamente.");
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN DE AUTORES Y LIBROS:");
-                Console.WriteLine ("- 10 Autores creados correctamente");
-                Console.WriteLine ("- 11 Libros creados correctamente");
+                Console.WriteLine ("- 11 Autores creados correctamente");
+                Console.WriteLine ("- 12 Libros creados correctamente");
                 Console.WriteLine ("- Libros con diferentes géneros, edades recomendadas y valoraciones");
                 Console.WriteLine ("====================================================================================");
 
@@ -543,6 +585,10 @@ public static void InitializeData ()
 
                 // CREACIÓN DE EVENTOS PARA PRUEBAS DE ReadFilter
                 Console.WriteLine ("\n\n------------------ Creación de Eventos ------------------");
+
+                // Inicializar NotificacionCP para crear notificaciones
+                SessionCPNHibernate sessionCPNotificacion = new SessionCPNHibernate();
+                var notificacionCP = new NotificacionCP(sessionCPNotificacion);
 
                 int eventoId1 = eventocen.CrearEvento (
  p_nombre: "Feria del Libro 2026",
@@ -555,7 +601,7 @@ public static void InitializeData ()
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
                         );
-                Console.WriteLine ("Evento 'Feria del Libro 2024' creado correctamente.");
+                Console.WriteLine ("Evento 'Feria del Libro 2026' creado correctamente.");
 
                 int eventoId2 = eventocen.CrearEvento (
  p_nombre: "Encuentro de Lectores",
@@ -596,11 +642,22 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Evento 'Presentación Libro Nuevo' creado correctamente.");
 
+                int notificacionId3 = notificacionCP.CrearNotificacion (
+ p_fecha: new DateTime (2025, 11, 15),
+ p_concepto: ConceptoNotificacionEnum.evento_anunciado,
+ p_OID_destino: eventoId4,
+ p_tituloResumen: "Anuncio de un nuevo evento",
+ p_textoCuerpo: "Se ha anunciado un nuevo evento llamado '" + eventocen.DameEventoPorOID(eventoId4).Nombre + "'."
+                        ).Id;
+                Console.WriteLine ("Notificación 'Nuevo evento anunciado' creada correctamente.");
+
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN DE EVENTOS:");
                 Console.WriteLine ("- 4 Eventos creados");
                 Console.WriteLine ("- Fechas (hoy o en adelante)");
                 Console.WriteLine ("- Aforos: 50, 50, 200, 100 personas");
+                Console.WriteLine ("RESUMEN - NOTIFICACIÓN DE EVENTO:");
+                Console.WriteLine ("- Notificación creada para el evento 'Presentación Libro Nuevo'");
                 Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -609,19 +666,20 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Usuario Lector ------------------");
 
                 int usuarioId3 = lectorcen.CrearLector (
- p_email: "niko.lector@example.com",
- p_nombreUsuario: "NikoLector",
- p_fechaNacimiento: new DateTime (1980, 11, 10),
+ p_email: "niko.lector@email.com",
+ p_nombreUsuario: "Niko Lector",
+ p_fechaNacimiento: new DateTime (2003, 05, 20),
  p_ciudadResidencia: "Elche",
+                        p_numModificaciones: 0,
  p_paisResidencia: "España",
  p_foto: "nikoFoto.png",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
- p_pass: "password456",
+ p_pass: "passNiko",
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
                         p_cantAutoresSeguidos: 0,
                         p_cantClubsSuscritos: 0);
-                Console.WriteLine ("Usuario 'NikoLector' creado correctamente.");
+                Console.WriteLine ("Usuario 'Niko Lector' creado correctamente.");
 
                 // CREACIÓN DE CLUBS PARA PRUEBAS DE ReadFilter
                 Console.WriteLine ("\n\n------------------ Creación de Clubs ------------------");
@@ -637,19 +695,20 @@ public static void InitializeData ()
                 try
                 {
                         sessionCPNHibernate1.SessionInitializeTransaction ();
-                        var usuarioCEN = new UsuarioCEN (sessionCPNHibernate1.UnitRepo.UsuarioRepository);
+                        var lectorCEN = new LectorCEN (sessionCPNHibernate1.UnitRepo.LectorRepository);
                         var clubCEN = new ClubCEN (sessionCPNHibernate1.UnitRepo.ClubRepository);
 
-                        UsuarioEN propietario1 = usuarioCEN.DameUsuarioPorOID (usuarioId1);
+                        LectorEN propietario1 = lectorCEN.DameLectorPorOID (usuarioId1);
 
-                        clubId1 = clubCEN.CearClub (
+                        clubId1 = clubCEN.CrearClub (
  p_nombre: "Club de Ciencia Ficción",
  p_enlaceDiscord: "https://discord.gg/cienciaficcion",
                                 p_miembrosMax: 50,
  p_foto: "club_cienciaficcion.png",
  p_descripcion: "Un club para los entusiastas de la ciencia ficción, donde exploramos mundos futuristas y tecnologías avanzadas.",
                                 p_miembrosActuales: 0,
- p_usuarioPropietario: propietario1
+ p_lectorPropietario: propietario1
+
                                 );
 
                         sessionCPNHibernate1.Commit ();
@@ -669,19 +728,19 @@ public static void InitializeData ()
                 try
                 {
                         sessionCPNHibernate1.SessionInitializeTransaction ();
-                        var usuarioCEN = new UsuarioCEN (sessionCPNHibernate1.UnitRepo.UsuarioRepository);
+                        var lectorCEN = new LectorCEN (sessionCPNHibernate1.UnitRepo.LectorRepository);
                         var clubCEN = new ClubCEN (sessionCPNHibernate1.UnitRepo.ClubRepository);
 
-                        UsuarioEN propietario2 = usuarioCEN.DameUsuarioPorOID (usuarioId3);
+                        LectorEN propietario2 = lectorCEN.DameLectorPorOID (usuarioId3);
 
-                        clubId2 = clubCEN.CearClub (
+                        clubId2 = clubCEN.CrearClub (
  p_nombre: "Club de Misterio y Suspense",
  p_enlaceDiscord: "https://discord.gg/misterio",
                                 p_miembrosMax: 30,
  p_foto: "club_misterio.png",
  p_descripcion: "Amantes del misterio, el suspense y las tramas que te mantienen en vilo hasta la última página.",
                                 p_miembrosActuales: 12,
- p_usuarioPropietario: propietario2
+ p_lectorPropietario: propietario2
                                 );
 
                         sessionCPNHibernate1.Commit ();
@@ -701,19 +760,19 @@ public static void InitializeData ()
                 try
                 {
                         sessionCPNHibernate1.SessionInitializeTransaction ();
-                        var usuarioCEN = new UsuarioCEN (sessionCPNHibernate1.UnitRepo.UsuarioRepository);
+                        var lectorCEN = new LectorCEN (sessionCPNHibernate1.UnitRepo.LectorRepository);
                         var clubCEN = new ClubCEN (sessionCPNHibernate1.UnitRepo.ClubRepository);
 
-                        UsuarioEN propietario3 = usuarioCEN.DameUsuarioPorOID (usuarioId1);
+                        LectorEN propietario3 = lectorCEN.DameLectorPorOID (usuarioId1);
 
-                        clubId3 = clubCEN.CearClub (
+                        clubId3 = clubCEN.CrearClub (
  p_nombre: "Club de Romance Contemporáneo",
  p_enlaceDiscord: "https://discord.gg/romance",
                                 p_miembrosMax: 75,
  p_foto: "club_romance.png",
  p_descripcion: "Para quienes disfrutan de historias de amor modernas, emotivas y llenas de sentimientos.",
                                 p_miembrosActuales: 45,
- p_usuarioPropietario: propietario3
+ p_lectorPropietario: propietario3
                                 );
 
                         sessionCPNHibernate1.Commit ();
@@ -733,23 +792,34 @@ public static void InitializeData ()
                 try
                 {
                         sessionCPNHibernate1.SessionInitializeTransaction ();
-                        var usuarioCEN = new UsuarioCEN (sessionCPNHibernate1.UnitRepo.UsuarioRepository);
+                        var lectorCEN = new LectorCEN (sessionCPNHibernate1.UnitRepo.LectorRepository);
                         var clubCEN = new ClubCEN (sessionCPNHibernate1.UnitRepo.ClubRepository);
 
-                        UsuarioEN propietario4 = usuarioCEN.DameUsuarioPorOID (usuarioId3);
+                        LectorEN propietario4 = lectorCEN.DameLectorPorOID (usuarioId3);
 
-                        clubId4 = clubCEN.CearClub (
+                        clubId4 = clubCEN.CrearClub (
  p_nombre: "Club de Aventuras Épicas",
  p_enlaceDiscord: "https://discord.gg/aventuras",
                                 p_miembrosMax: 100,
  p_foto: "club_aventuras.png",
  p_descripcion: "Exploradores literarios que buscan viajes épicos, mundos fantásticos y personajes heroicos.",
                                 p_miembrosActuales: 67,
- p_usuarioPropietario: propietario4
+ p_lectorPropietario: propietario4
                                 );
 
                         sessionCPNHibernate1.Commit ();
                         Console.WriteLine ("Club 'Club de Aventuras Épicas' creado correctamente con ID: " + clubId4);
+
+                        // Crear notificación para el club 4
+                        int notificacionId4 = notificacionCP.CrearNotificacion (
+ p_fecha: new DateTime (2025, 11, 15),
+ p_concepto: ConceptoNotificacionEnum.aviso_club_lectura,
+ p_OID_destino: clubId4,
+ p_tituloResumen: "Aviso de creación de nuevo club de lectura",
+ p_textoCuerpo: "Aviso de creación del club '" + clubCEN.DameClubPorOID(clubId4).Nombre + "'."
+                        ).Id;
+                Console.WriteLine ("Notificación 'Aviso de creación de nuevo club de lectura' creada correctamente.");
+                
                 }
                 catch (Exception ex)
                 {
@@ -767,6 +837,8 @@ public static void InitializeData ()
                 Console.WriteLine ("Total: 4 clubs creados");
                 Console.WriteLine ("Clubs: Ciencia Ficción (50 max), Misterio y Suspense (30 max), Romance Contemporáneo (75 max), Aventuras Épicas (100 max)");
                 Console.WriteLine ("Miembros actuales: 0, 12, 45, 67 respectivamente");
+                Console.WriteLine ("RESUMEN - CREACIÓN DE NOTIFICACIÓN DE CLUB");
+                Console.WriteLine ("Notificación creada para el club 'Aventuras Épicas'");
                 Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -785,7 +857,6 @@ public static void InitializeData ()
  p_administradorNoticias: administradorId1
                         );
 
-
                 // Obtener objetos Libro para las reseñas
                 LibroEN libro1 = librocen.DameLibroPorOID (idLibro1);
                 LibroEN libro2 = librocen.DameLibroPorOID (idLibro2);
@@ -793,23 +864,23 @@ public static void InitializeData ()
                 LibroEN libro4 = librocen.DameLibroPorOID (idLibro4);
                 LibroEN libro5 = librocen.DameLibroPorOID (idLibro5);
 
-                Console.WriteLine ("Reseña para libro 1 creada correctamente.");
+                // Reseña 1 con notificación
                 int reseñaId1 = reseñacen.CrearReseña (p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
  p_valoracion: 5.0f,
  p_lectorValorador: lector3.Id,
  p_libroReseñado: libro1.Id,
- p_fecha: new DateTime (2024, 10, 1));
+ p_fecha: new DateTime (2024, 11, 10));
+                Console.WriteLine ("Reseña para libro 1 creada correctamente.");
 
-                int notificacionId1 = notificacioncen.CrearNotificacion (
- p_fecha: new DateTime (1980, 11, 10),
- p_concepto: ConceptoNotificacionEnum.noticia_publicada,
- p_noticiaNotificada: noticiaId1,
- p_eventoNotificado: eventoId1,
- p_clubNotificado: clubId1,
- p_reseñaNotificada: reseñaId1,
- p_autorAvisado: autorId
-                        );
+                int notificacionId1 = notificacionCP.CrearNotificacion (
+ p_fecha: new DateTime (2025, 11, 10),
+ p_concepto: ConceptoNotificacionEnum.nueva_reseña,
+ p_OID_destino: reseñaId1,
+ p_tituloResumen: "Nueva reseña creada",
+ p_textoCuerpo: "Se ha creado una nueva reseña para el libro '" + libro1.Titulo + "' con una valoración de 5.0 estrellas."
+                        ).Id;
 
+                // Reseña 2
                 int reseñaId2 = reseñacen.CrearReseña (
  p_textoOpinion: "Recomendado para todos. Lectura muy entretenida.",
  p_valoracion: 4.0f,
@@ -819,6 +890,7 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Reseña para libro 2 creada correctamente.");
 
+                // Reseña 3
                 int reseñaId3 = reseñacen.CrearReseña (
  p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
  p_valoracion: 3.0f,
@@ -828,6 +900,7 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Reseña para libro 3 creada correctamente.");
 
+                // Reseña 4
                 int reseñaId4 = reseñacen.CrearReseña (
  p_textoOpinion: "Esperaba más de este libro. No cumplió mis expectativas.",
  p_valoracion: 2.0f,
@@ -837,6 +910,7 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Reseña para libro 4 creada correctamente.");
 
+                // Reseña 5
                 int reseñaId5 = reseñacen.CrearReseña (
  p_textoOpinion: "Uno de los mejores libros que he leído. Obra maestra.",
  p_valoracion: 5.0f,
@@ -851,7 +925,7 @@ public static void InitializeData ()
                 Console.WriteLine ("RESUMEN - CREACIÓN DE RESEÑAS");
                 Console.WriteLine ("Total: 5 reseñas creadas");
                 Console.WriteLine ("Valoraciones: 5.0, 4.0, 3.0, 2.0, 5.0");
-                Console.WriteLine ("Rango de fechas: 1 de octubre - 15 de octubre 2024");
+                Console.WriteLine ("Rango de fechas: 5 de octubre - 10 de noviembre 2024");
                 Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -860,13 +934,13 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Noticias ------------------");
 
                 int noticiaId7 = noticiacen.CrearNoticia (
- p_titulo: "Nuevo libro de AutorEjemplo",
+ p_titulo: "Nuevo libro de Brandon Sanderson",
  p_fechaPublicacion: new DateTime (2024, 11, 1),
  p_foto: "noticia_nuevo_libro.jpg",
  p_textoContenido: "El reconocido autor publicará su nueva obra el próximo mes. Se trata de una novela de misterio que promete mantener a los lectores en vilo hasta la última página.",
  p_administradorNoticias: administradorId1
                         );
-                Console.WriteLine ("Noticia 'Nuevo libro de AutorEjemplo' creada correctamente.");
+                Console.WriteLine ("Noticia 'Nuevo libro de Brandon Sanderson' creada correctamente.");
 
                 int noticiaId2 = noticiacen.CrearNoticia (
  p_titulo: "Feria del Libro 2024",
@@ -878,13 +952,13 @@ public static void InitializeData ()
                 Console.WriteLine ("Noticia 'Feria del Libro 2024' creada correctamente.");
 
                 int noticiaId3 = noticiacen.CrearNoticia (
- p_titulo: "Entrevista exclusiva con MariaEscritora",
+ p_titulo: "Entrevista exclusiva con Leigh Bardugo",
  p_fechaPublicacion: new DateTime (2024, 11, 10),
- p_foto: "noticia_entrevista_maria.jpg",
+ p_foto: "noticia_entrevista_leigh.jpg",
  p_textoContenido: "Hablamos con la autora sobre su proceso creativo, sus influencias literarias y sus próximos proyectos. Una conversación íntima sobre el arte de escribir.",
  p_administradorNoticias: administradorId1
                         );
-                Console.WriteLine ("Noticia 'Entrevista exclusiva con MariaEscritora' creada correctamente.");
+                Console.WriteLine ("Noticia 'Entrevista exclusiva con Leigh Bardugo' creada correctamente.");
 
                 int noticiaId4 = noticiacen.CrearNoticia (
  p_titulo: "Bestsellers del mes",
@@ -895,12 +969,24 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Noticia 'Bestsellers del mes' creada correctamente.");
 
+                int notificacionId2 = notificacionCP.CrearNotificacion (
+ p_fecha: new DateTime (2025, 11, 15),
+ p_concepto: ConceptoNotificacionEnum.noticia_publicada,
+ p_OID_destino: noticiaId4,
+ p_tituloResumen: "Nueva noticia publicada",
+ p_textoCuerpo: "Se ha publicado una nueva noticia titulada '" + noticiacen.DameNoticiaPorOID(noticiaId4).Titulo + "'."
+                        ).Id;
+                Console.WriteLine ("Notificación 'Nueva noticia publicada' creada correctamente.");
+
                 // Resumen de Noticias creadas:
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN DE NOTICIAS");
                 Console.WriteLine ("Total: 4 noticias creadas");
-                Console.WriteLine ("Títulos: Nuevo libro de AutorEjemplo, Feria del Libro 2024, Entrevista exclusiva con MariaEscritora, Bestsellers del mes");
+                Console.WriteLine ("Títulos: Nuevo libro de Brandon Sanderson, Feria del Libro 2024, Entrevista con Leigh Bardugo, Bestsellers del mes");
                 Console.WriteLine ("Fechas de publicación: 1, 5, 10, 15 de noviembre 2024");
+                Console.WriteLine ("RESUMEN - CREACIÓN DE NOTIFICACIÓN ASOCIADA A NOTICIA");
+                Console.WriteLine ("Total: 1 notificación creada");
+                Console.WriteLine ("Título resumen: Nueva noticia publicada");
                 Console.WriteLine ("====================================================================================");
 
                 Console.WriteLine ("\n\n\n====================================================================================");
@@ -917,10 +1003,10 @@ public static void InitializeData ()
                 var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
                 Console.WriteLine ("Libros encontrados sin filtro: " + (librosSinFiltro != null ? librosSinFiltro.Count.ToString () : "0"));
 
-                // PRUEBA 2: Filtro por género "Ficcion"
-                Console.WriteLine ("\n------------------ Prueba 2: Filtro por género 'Ficcion' ------------------");
-                var librosFiccion = librocen.DameLibrosPorFiltros (p_genero: "Ficcion", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
-                Console.WriteLine ("Libros de 'Ficcion' encontrados: " + (librosFiccion != null ? librosFiccion.Count.ToString () : "0"));
+                // PRUEBA 2: Filtro por género "Fantasía"
+                Console.WriteLine ("\n------------------ Prueba 2: Filtro por género 'Fantasía' ------------------");
+                var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                Console.WriteLine ("Libros de 'Fantasía' encontrados: " + (librosFantasía != null ? librosFantasía.Count.ToString () : "0"));
 
                 // PRUEBA 3: Filtro por edad recomendada = 12
                 Console.WriteLine ("\n------------------ Prueba 3: Filtro por edad recomendada >= 12 años ------------------");
@@ -937,20 +1023,20 @@ public static void InitializeData ()
                 var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, 0, 20);
                 Console.WriteLine ("Libros con valoración >= 4.0 encontrados: " + (librosValoracion4 != null ? librosValoracion4.Count.ToString () : "0"));
 
-                // PRUEBA 6: Filtro combinado - Género "Ficcion" y edad > 10
-                Console.WriteLine ("\n------------------ Prueba 6: Filtro combinado - Género 'Ficcion' y edad >= 10 ------------------");
-                var librosFiccion10 = librocen.DameLibrosPorFiltros (p_genero: "Ficcion", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, 0, 20);
-                Console.WriteLine ("Libros de 'Ficcion' para edad >= 10 años encontrados: " + (librosFiccion10 != null ? librosFiccion10.Count.ToString () : "0"));
+                // PRUEBA 6: Filtro combinado - Género "Fantasía" y edad > 10
+                Console.WriteLine ("\n------------------ Prueba 6: Filtro combinado - Género 'Fantasía' y edad >= 10 ------------------");
+                var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                Console.WriteLine ("Libros de 'Fantasía' para edad >= 10 años encontrados: " + (librosFantasía10 != null ? librosFantasía10.Count.ToString () : "0"));
 
-                // PRUEBA 7: Filtro combinado - Género "Ficcion", valoración >= 1.0, >= 100 páginas
-                Console.WriteLine ("\n------------------ Prueba 7: Filtro combinado - Ficcion + valoración >= 4.5, >= 250 páginas ------------------");
-                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Ficcion", p_titulo: null, p_edadRecomendada: null, p_numPags: 100, p_valoracionMedia: 1.0f, 0, 20);
+                // PRUEBA 7: Filtro combinado - Género "Fantasía", valoración >= 1.0, >= 500 páginas
+                Console.WriteLine ("\n------------------ Prueba 7: Filtro combinado - Fantasía + valoración >= 4.5, >= 400 páginas ------------------");
+                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, 0, 20);
                 Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosRestrictivo != null ? librosRestrictivo.Count.ToString () : "0"));
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - PRUEBAS DE FILTRO DE LIBROS:");
                 Console.WriteLine ("- Prueba 1: Sin filtros - Todos los libros");
-                Console.WriteLine ("- Prueba 2: Por género 'Ficcion'");
+                Console.WriteLine ("- Prueba 2: Por género 'Fantasía'");
                 Console.WriteLine ("- Prueba 3: Por edad recomendada >= 12");
                 Console.WriteLine ("- Prueba 4: Por número de páginas >= 200");
                 Console.WriteLine ("- Prueba 5: Por valoración >= 4.0");
@@ -963,20 +1049,20 @@ public static void InitializeData ()
                 // PRUEBAS DE READFILTERS dameEventosPorFecha()
                 Console.WriteLine ("\n\n==================== PRUEBAS DE ReadFilter - dameEventosPorFecha() ====================");
 
-                // PRUEBA 1: Buscar eventos en fecha específica (15 de noviembre de 2024)
-                Console.WriteLine ("\n------------------ Prueba 1: Eventos en fecha 15/11/2024 y en adelante ------------------");
-                var eventosNov15 = eventocen.DameEventosPorFecha (new DateTime (2024, 11, 15), 0, 20);
-                Console.WriteLine ("Eventos encontrados para 15/11/2024 o más: " + (eventosNov15 != null ? eventosNov15.Count.ToString () : "0"));
+                // PRUEBA 1: Buscar eventos en fecha específica (15 de noviembre de 2026)
+                Console.WriteLine ("\n------------------ Prueba 1: Eventos en fecha 15/11/2026 y en adelante ------------------");
+                var eventosNov15 = eventocen.DameEventosPorFecha (new DateTime (2026, 11, 15), 0, 20);
+                Console.WriteLine ("Eventos encontrados para 15/11/2026 o más: " + (eventosNov15 != null ? eventosNov15.Count.ToString () : "0"));
 
-                // PRUEBA 2: Buscar eventos en fecha sin eventos (1 de enero de 2025)
-                Console.WriteLine ("\n------------------ Prueba 2: Eventos en fecha 01/01/2025 y en adelante (sin eventos) ------------------");
-                var eventosEne01 = eventocen.DameEventosPorFecha (new DateTime (2025, 10, 10), 0, 20);
-                Console.WriteLine ("Eventos encontrados para 10/10/2027 o más: " + (eventosEne01 != null ? eventosEne01.Count.ToString () : "0"));
+                // PRUEBA 2: Buscar eventos en fecha sin eventos (1 de enero de 2028)
+                Console.WriteLine ("\n------------------ Prueba 2: Eventos en fecha 01/01/2028 y en adelante (sin eventos) ------------------");
+                var eventosEne01 = eventocen.DameEventosPorFecha (new DateTime (2028, 1, 1), 0, 20);
+                Console.WriteLine ("Eventos encontrados para 01/01/2028 o más: " + (eventosEne01 != null ? eventosEne01.Count.ToString () : "0"));
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - PRUEBAS dameEventosPorFecha():");
-                Console.WriteLine ("- Prueba 1: Buscar eventos el 15/11/2024");
-                Console.WriteLine ("- Prueba 2: Buscar eventos el 01/01/2025 (sin resultados esperados)");
+                Console.WriteLine ("- Prueba 1: Buscar eventos el 15/11/2026");
+                Console.WriteLine ("- Prueba 2: Buscar eventos el 01/01/2028 (sin resultados esperados)");
                 Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -984,18 +1070,18 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n==================== PRUEBAS DE ReadFilter - dameUsuarioPorEmail() ====================");
 
                 // PRUEBA 1: Buscar usuario lector existente por email
-                Console.WriteLine ("\n------------------ Prueba 1: Buscar lector por email 'paco.lector@example.com' ------------------");
-                List<UsuarioEN> usuarioPaco = usuariocen.DameUsuarioPorEmail ("paco.lector@example.com") as List<UsuarioEN>;
+                Console.WriteLine ("\n------------------ Prueba 1: Buscar lector por email 'paco.lector@email.com' ------------------");
+                List<UsuarioEN> usuarioPaco = usuariocen.DameUsuarioPorEmail ("paco.lector@email.com") as List<UsuarioEN>;
                 Console.WriteLine ("Usuario encontrado: " + (usuarioPaco.Count > 0 ? usuarioPaco [0].NombreUsuario : "No encontrado"));
 
                 // PRUEBA 2: Buscar autor existente por email
-                Console.WriteLine ("\n------------------ Prueba 2: Buscar autor por email 'autor@example.com' ------------------");
-                List<UsuarioEN> usuarioAutor = usuariocen.DameUsuarioPorEmail ("autor@example.com") as List<UsuarioEN>;
+                Console.WriteLine ("\n------------------ Prueba 2: Buscar autor por email 'leighbardugo@email.com' ------------------");
+                List<UsuarioEN> usuarioAutor = usuariocen.DameUsuarioPorEmail ("leighbardugo@email.com") as List<UsuarioEN>;
                 Console.WriteLine ("Usuario encontrado: " + (usuarioAutor.Count > 0 ? usuarioAutor [0].NombreUsuario : "No encontrado"));
 
                 // PRUEBA 3: Buscar usuario que no existe
-                Console.WriteLine ("\n------------------ Prueba 3: Buscar usuario no existente 'noexiste@example.com' ------------------");
-                List<UsuarioEN> usuarioNoExiste = usuariocen.DameUsuarioPorEmail ("noexiste@example.com") as List<UsuarioEN>;
+                Console.WriteLine ("\n------------------ Prueba 3: Buscar usuario no existente 'noexiste@email.com' ------------------");
+                List<UsuarioEN> usuarioNoExiste = usuariocen.DameUsuarioPorEmail ("noexiste@email.com") as List<UsuarioEN>;
                 Console.WriteLine ("Usuario encontrado: " + (usuarioNoExiste.Count > 0 ? usuarioNoExiste [0].NombreUsuario : "No encontrado"));
 
                 Console.WriteLine ("\n====================================================================================");
@@ -1093,9 +1179,9 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n==================== PRUEBAS DE ReadFilter - dameNoticiasPorTitulo() ====================");
 
                 // PRUEBA 1: Buscar noticias con "libro" en el título
-                Console.WriteLine ("\n------------------ Prueba 1: Noticias con título 'Nuevo libro de AutorEjemplo' ------------------");
-                List <NoticiaEN> noticiasLibro = noticiacen.DameNoticiasPorTitulo (p_titulo: "Nuevo libro de AutorEjemplo") as List<NoticiaEN>;
-                Console.WriteLine ("Noticias encontradas con 'Nuevo libro de AutorEjemplo': " + (noticiasLibro != null ? noticiasLibro.Count.ToString () : "0"));
+                Console.WriteLine ("\n------------------ Prueba 1: Noticias con título 'Nuevo libro de Brandon Sanderson' ------------------");
+                List <NoticiaEN> noticiasLibro = noticiacen.DameNoticiasPorTitulo (p_titulo: "Nuevo libro de Brandon Sanderson") as List<NoticiaEN>;
+                Console.WriteLine ("Noticias encontradas con 'Nuevo libro de Brandon Sanderson': " + (noticiasLibro != null ? noticiasLibro.Count.ToString () : "0"));
 
                 // PRUEBA 2: Buscar noticias con "Feria" en el título
                 Console.WriteLine ("\n------------------ Prueba 2: Noticias que contienen 'Feria' en el título ------------------");
@@ -1110,7 +1196,7 @@ public static void InitializeData ()
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - PRUEBAS dameNoticiasPorTitulo():");
                 Console.WriteLine ("- Prueba 1: Buscar 'libro' en títulos (Se espera 1 resultado encontrado)");
-                Console.WriteLine ("- Prueba 2: Buscar 'Feria' en títulos");
+                Console.WriteLine ("- Prueba 2: Buscar 'Feria' en títulos (Se espera 1 resultado encontrado)");
                 Console.WriteLine ("- Prueba 3: Buscar palabra inexistente (Sin resultados)");
                 Console.WriteLine ("====================================================================================");
 
@@ -1143,18 +1229,18 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n==================== PRUEBAS DE ReadFilter - dameAdministradorPorEmail() ====================");
 
                 // PRUEBA 1: Buscar administrador existente por email
-                Console.WriteLine ("\n------------------ Prueba 1: Buscar administrador por email 'admin@example.com' ------------------");
-                List<AdministradorEN> adminEncontrado = administradorcen.DameAdministradoresPorEmail ("admin@example.com") as List<AdministradorEN>;
+                Console.WriteLine ("\n------------------ Prueba 1: Buscar administrador por email 'admin@email.com' ------------------");
+                List<AdministradorEN> adminEncontrado = administradorcen.DameAdministradoresPorEmail ("admin@email.com") as List<AdministradorEN>;
                 Console.WriteLine ("Administrador encontrado: " + (adminEncontrado.Count > 0 ? adminEncontrado [0].Nombre : "No encontrado"));
 
                 // PRUEBA 2: Buscar con email que no corresponde a un administrador
-                Console.WriteLine ("\n------------------ Prueba 2: Buscar con email de lector 'paco.lector@example.com' (no es admin) ------------------");
-                List<AdministradorEN> noAdmin = administradorcen.DameAdministradoresPorEmail ("paco.lector@example.com") as List<AdministradorEN>;
+                Console.WriteLine ("\n------------------ Prueba 2: Buscar con email de lector 'paco.lector@email.com' (no es admin) ------------------");
+                List<AdministradorEN> noAdmin = administradorcen.DameAdministradoresPorEmail ("paco.lector@email.com") as List<AdministradorEN>;
                 Console.WriteLine ("Administrador encontrado: " + (noAdmin.Count > 0 ? noAdmin [0].Nombre : "No encontrado"));
 
                 // PRUEBA 3: Buscar con email que no existe
-                Console.WriteLine ("\n------------------ Prueba 3: Buscar con email inexistente 'admin.falso@example.com' ------------------");
-                List<AdministradorEN> adminNoExiste = administradorcen.DameAdministradoresPorEmail ("admin.falso@example.com") as List<AdministradorEN>;
+                Console.WriteLine ("\n------------------ Prueba 3: Buscar con email inexistente 'admin.falso@email.com' ------------------");
+                List<AdministradorEN> adminNoExiste = administradorcen.DameAdministradoresPorEmail ("admin.falso@email.com") as List<AdministradorEN>;
                 Console.WriteLine ("Administrador encontrado: " + (adminNoExiste.Count > 0 ? adminNoExiste [0].Nombre : "No encontrado"));
 
                 Console.WriteLine ("\n====================================================================================");
@@ -1175,23 +1261,47 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Usuario Lector ------------------");
 
                 int usuarioId2 = lectorcen.CrearLector (
- p_email: "marina.lector@example.com",
- p_nombreUsuario: "MarinaLectora",
+ p_email: "marina.lectora@email.com",
+ p_nombreUsuario: "Marina Antes de Modificar",
+                        p_numModificaciones: 0,
  p_fechaNacimiento: new DateTime (1980, 11, 10),
  p_ciudadResidencia: "Villajoyosa", p_paisResidencia: "España",
  p_foto: "marinaFoto.png", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
- p_pass: "password123",
+ p_pass: "passMarina",
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
                         p_cantAutoresSeguidos: 0,
                         p_cantClubsSuscritos: 0);
-                Console.WriteLine ("Usuario 'MarinaLectora' creado correctamente.");
+
+                LectorEN pruebaModificarLector = lectorcen.DameLectorPorOID (usuarioId2);
+
+                // MODIFICACIÓN USURIO - Lector 2 (Cambiar nombre de usuario)
+                lectorcen.ModificarLector (
+                        usuarioId2,
+ p_email: pruebaModificarLector.Email,
+ p_nombreUsuario: "Marina Lectora",
+ p_numModificaciones: pruebaModificarLector.NumModificaciones + 1,
+ p_fechaNacimiento: pruebaModificarLector.FechaNacimiento,
+ p_ciudadResidencia: pruebaModificarLector.CiudadResidencia,
+ p_paisResidencia: pruebaModificarLector.PaisResidencia,
+ p_foto: pruebaModificarLector.Foto,
+ p_rol: pruebaModificarLector.Rol,
+ p_pass: pruebaModificarLector.Pass,
+ p_cantLibrosCurso: pruebaModificarLector.CantLibrosCurso,
+ p_cantLibrosLeidos: pruebaModificarLector.CantLibrosLeidos,
+ p_cantAutoresSeguidos: pruebaModificarLector.CantAutoresSeguidos,
+ p_cantClubsSuscritos: pruebaModificarLector.CantClubsSuscritos
+                        );
+
+                Console.WriteLine ("Usuario 'MarinaLectora' creado y modificado correctamente.");
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN DE LECTOR PARA PRUEBAS:");
-                Console.WriteLine ("- Usuario 'MarinaLectora' creado correctamente");
+                Console.WriteLine ("- Usuario 'MarinaLectora' creado y modificado correctamente");
                 Console.WriteLine ("- Se utilizará para probar asignar/desasignar libros en listas");
                 Console.WriteLine ("====================================================================================");
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 // PRUEBAS PARA ASIGNAR UN PRIMER LIBRO A LA LISTA DE LIBROS EN CURSO
                 Console.WriteLine ("\n==================== PRUEBAS ASIGNAR LIBRO A LISTA DE LIBROS EN CURSO ====================");
@@ -1227,6 +1337,14 @@ public static void InitializeData ()
                 lectorCP.AsignarLibroListaEnCurso (usuarioId2, new List<int> { idLibro7 });
                 Console.WriteLine ("Libro 7 añadido correctamente a la lista en curso.");
 
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN - PRUEBAS DE ASIGNAR LIBROS A LISTAS EN CURSO:");
+                Console.WriteLine ("- PRUEBA 1: Asignar libro 11 a lista en curso (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Asignar libro 11 a lista en curso (Incorrecto - Duplicado)");
+                Console.WriteLine ("- PRUEBA 3: Asignar libro 10 a lista en curso (Correcto)");
+                Console.WriteLine ("- PRUEBA 4: Asignar libro 7 a lista en curso (Correcto)");
+                Console.WriteLine ("====================================================================================");
+
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 // PRUEBAS PARA ASIGNAR LIBRO A LISTA DE LIBROS GUARDADOS
@@ -1254,6 +1372,13 @@ public static void InitializeData ()
                 Console.WriteLine ("\n------------------ Asignar segundo libro a lista guardados del Lector usando Custom CP (Esperado: Correcto) ------------------");
                 lectorCP.AsignarLibroListaGuardados (usuarioId2, new List<int> { idLibro8 });
                 Console.WriteLine ("Libro 8 añadido correctamente a la lista de guardados.");
+
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN - PRUEBAS DE ASIGNAR LIBROS A LISTA DE GUARDADOS:");
+                Console.WriteLine ("- PRUEBA 1: Asignar libro 9 a lista guardados (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Asignar libro 9 a lista guardados (Incorrecto - Duplicado)");
+                Console.WriteLine ("- PRUEBA 3: Asignar libro 8 a lista guardados (Correcto)");
+                Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1284,6 +1409,13 @@ public static void InitializeData ()
                 lectorCP.DesasignarLibroListaEnCurso (usuarioId2, new List<int> { idLibro11 });
                 Console.WriteLine ("Libro 11 eliminado correctamente de la lista en curso.");
 
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN - PRUEBAS DE DESASIGNAR LIBROS DE LISTA EN CURSO:");
+                Console.WriteLine ("- PRUEBA 1: Desasignar libro 10 de lista en curso (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Desasignar libro 10 de lista en curso (Incorrecto - No está en la lista)");
+                Console.WriteLine ("- PRUEBA 3: Desasignar libro 11 de lista en curso (Correcto)");
+                Console.WriteLine ("====================================================================================");
+
                 // NOTA: idLibro7 NO se desasigna, se queda en la lista
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1312,10 +1444,18 @@ public static void InitializeData ()
 
                 // NOTA: idLibro9 NO se desasigna, debe quedar en la lista
 
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN - PRUEBAS DE DESASIGNAR LIBROS DE LISTA GUARDADOS:");
+                Console.WriteLine ("- PRUEBA 1: Desasignar libro 8 de lista guardados (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Desasignar libro 8 de lista guardados (Incorrecto - No está en la lista)");
+                Console.WriteLine ("====================================================================================");
+
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+                Console.WriteLine ("\n\n====================================================================================\n\n");
+
                 Console.WriteLine ("\n\n====================================================================================");
-                Console.WriteLine ("RESUMEN FINAL DE PRUEBAS:");
+                Console.WriteLine ("ESTADO FINAL DE LAS LISTAS DE LIBROS:");
                 Console.WriteLine ("- Lista EN CURSO: 1 libro (idLibro7) - Se han asignado 3 y se han desasignado 2");
                 Console.WriteLine ("- Lista GUARDADOS: 1 libro (idLibro9) - Se han asignado 2 y se han desasignado 1");
                 Console.WriteLine ("====================================================================================");
@@ -1413,6 +1553,14 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN - PRUEBAS DE CREAR EVENTOS:");
+                Console.WriteLine ("- PRUEBA 1: Crear evento lleno (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Crear evento vacío (Correcto)");
+                Console.WriteLine ("- PRUEBA 3: Crear evento sin administrador (Incorrecto)");
+                Console.WriteLine ("- PRUEBA 4: Crear evento con fecha pasada (Incorrecto)");
+                Console.WriteLine ("====================================================================================");
+
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1427,17 +1575,17 @@ public static void InitializeData ()
 
                 librocen.ModificarLibro (
                         idLibro10,
- p_titulo: "El peso del silencio - Edición Revisada",
- p_genero: "Drama",
-                        p_edadRecomendada: 18,
- p_fechaPublicacion: new DateTime (2022, 9, 10),
-                        p_numPags: 370,
- p_sinopsis: "Un drama intenso sobre secretos familiares y redención.",
- p_fotoPortada: "portada_peso_silencio_revisada.jpg",
- p_valoracionMedia: 4.0f
+ p_titulo: "La Sombra del Viento",
+ p_genero: "Misterio",
+ p_valoracionMedia: 5.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2001, 4, 1),
+                        p_numPags: 487,
+ p_sinopsis: "En la Barcelona de la posguerra, Daniel Sempere descubre un libro olvidado que lo introduce en un misterio literario que cambiará su vida y desvelará secretos del pasado.",
+ p_fotoPortada: "/images/portadasLibros/sombraDelViento.webp"
                         );
 
-                Console.WriteLine ("Libro 'El peso del silencio' modificado correctamente (ID: " + idLibro10 + ")");
+                Console.WriteLine ("Libro 'La Sombra del Viento' modificado correctamente (ID: " + idLibro10 + ")");
 
                 // MODIFICAR LIBRO - Cambiar número de páginas a un número negativo
                 Console.WriteLine ("\n------------------ Modificación de Libro con páginas negativas (Resultado esperado: Incorrecto) ------------------");
@@ -1446,14 +1594,14 @@ public static void InitializeData ()
                 {
                         librocen.ModificarLibro (
                                 idLibro10,
- p_titulo: "El peso del silencio - Edición Revisada",
- p_genero: "Drama",
-                                p_edadRecomendada: 18,
- p_fechaPublicacion: new DateTime (2022, 9, 10),
- p_numPags: -50,                                  // Número de páginas negativo (INVÁLIDO)
- p_sinopsis: "Un drama intenso sobre secretos familiares y redención.",
- p_fotoPortada: "portada_peso_silencio_revisada.jpg",
- p_valoracionMedia: 4.0f
+ p_titulo: "La Sombra del Viento",
+ p_genero: "Misterio",
+                                p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2001, 4, 1),
+ p_numPags: -50,                // Número de páginas negativo (INVÁLIDO)
+ p_sinopsis: "En la Barcelona de la posguerra, Daniel Sempere descubre un libro olvidado que lo introduce en un misterio literario que cambiará su vida y desvelará secretos del pasado.",
+ p_fotoPortada: "/images/portadasLibros/sombraDelViento.webp",
+ p_valoracionMedia: 5.0f
                                 );
                         Console.WriteLine ("ERROR: Se permitió modificar el libro con páginas negativas (no debería suceder)");
                 }
@@ -1470,9 +1618,10 @@ public static void InitializeData ()
                 Console.WriteLine ("RESUMEN DE LAS PRUEBAS DE MODIFICACIÓN DE LIBRO:");
                 Console.WriteLine ("Prueba 1 - Modificación correcta del libro con ID: " + idLibro10);
                 Console.WriteLine ("  Cambios aplicados:");
-                Console.WriteLine ("    - Título: 'El peso del silencio' - 'El peso del silencio - Edición Revisada'");
-                Console.WriteLine ("    - Número de páginas: 350 → 370");
-                Console.WriteLine ("    - Foto de portada actualizada");
+                Console.WriteLine ("    - Título actualizado a 'La Sombra del Viento'");
+                Console.WriteLine ("    - Género cambiado a 'Misterio'");
+                Console.WriteLine ("    - Valoración media actualizada a 5.0");
+                Console.WriteLine ("    - Número de páginas actualizado a 487");
                 Console.WriteLine ("");
                 Console.WriteLine ("Prueba 2 - Modificación incorrecta (páginas negativas)");
                 Console.WriteLine ("  - Se intentó establecer número de páginas = -50");
@@ -1490,7 +1639,7 @@ public static void InitializeData ()
  p_nombre: "Club de Lectura de Novela Negra - Edición Especial",
  p_foto: "evento_novela_negra_especial.jpg",
  p_descripcion: "Únete a nuestro club para discutir las mejores obras del género negro - Edición Especial con invitados",
- p_fecha: new DateTime (2026, 12, 20),                         // Fecha futura
+ p_fecha: new DateTime (2026, 12, 20),                // Fecha futura
  p_hora: new DateTime (2026, 12, 20, 19, 30, 0),
  p_ubicacion: "Biblioteca Municipal - Sala Premium",
                         p_aforoMax: 50,
@@ -1509,7 +1658,7 @@ public static void InitializeData ()
  p_nombre: "Club de Lectura de Novela Negra - Evento Pasado",
  p_foto: "evento_novela_negra.jpg",
  p_descripcion: "Descripción del evento",
- p_fecha: new DateTime (2020, 1, 1),                                 // Fecha pasada (INVÁLIDA)
+ p_fecha: new DateTime (2020, 1, 1),                         // Fecha pasada (INVÁLIDA)
  p_hora: new DateTime (2020, 1, 1, 18, 0, 0),
  p_ubicacion: "Biblioteca Central",
                                 p_aforoMax: 30,
@@ -1534,7 +1683,7 @@ public static void InitializeData ()
                 Console.WriteLine ("    - Fecha futura válida (20/12/2026)");
                 Console.WriteLine ("");
                 Console.WriteLine ("Prueba 2 - Modificación incorrecta (fecha pasada)");
-                Console.WriteLine ("  - Se intentó establecer fecha = 01/01/2020 (pasada)");
+                Console.WriteLine ("  - Se ha intentado establecer fecha = 01/01/2020 (pasada)");
                 Console.WriteLine ("  - Resultado: ModelException capturada correctamente");
                 Console.WriteLine ("====================================================================================");
 
@@ -1547,7 +1696,7 @@ public static void InitializeData ()
                 reseñacen.ModificarReseña (
                         reseñaId1,
  p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada. Actualización: Sigue siendo excelente tras una segunda lectura.",
- p_valoracion: 4.5f,                         // Valoración válida entre 0 y 5
+ p_valoracion: 4.5f,                // Valoración válida entre 0 y 5
  p_fecha: new DateTime (2024, 10, 1)
                         );
 
@@ -1561,7 +1710,7 @@ public static void InitializeData ()
                         reseñacen.ModificarReseña (
                                 reseñaId2,
  p_textoOpinion: "Esta es una reseña modificada",
- p_valoracion: -2.0f,                                 // Valoración negativa (INVÁLIDA)
+ p_valoracion: -2.0f,                        // Valoración negativa (INVÁLIDA)
  p_fecha: new DateTime (2024, 10, 5)
                                 );
                         Console.WriteLine ("ERROR: Se permitió modificar la reseña con valoración negativa (no debería suceder)");
@@ -1582,7 +1731,7 @@ public static void InitializeData ()
                         reseñacen.ModificarReseña (
                                 reseñaId3,
  p_textoOpinion: "Reseña con valoración fuera de rango",
- p_valoracion: 10.0f,                                 // Valoración mayor a 5 (INVÁLIDA)
+ p_valoracion: 10.0f,                        // Valoración mayor a 5 (INVÁLIDA)
  p_fecha: new DateTime (2024, 10, 10)
                                 );
                         Console.WriteLine ("ERROR: Se permitió modificar la reseña con valoración > 5 (no debería suceder)");
@@ -1611,6 +1760,7 @@ public static void InitializeData ()
                 Console.WriteLine ("  - Resultado: Excepción capturada correctamente");
                 Console.WriteLine ("====================================================================================");
 
+
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 Console.WriteLine ("\n\n\n====================================================================================");
@@ -1627,16 +1777,16 @@ public static void InitializeData ()
                 try
                 {
                         int idLibroInvalido1 = librocen.CrearLibro (
- p_titulo: "Libro con Páginas Negativas",
- p_genero: "Prueba",
-                                p_edadRecomendada: 12,
- p_fechaPublicacion: new DateTime (2024, 1, 1),
- p_numPags: -100,                                 // Número de páginas negativo (INVÁLIDO)
- p_sinopsis: "Libro de prueba con validación incorrecta",
- p_fotoPortada: "portada_invalida.jpg",
- p_autorPublicador: autorId,
- p_valoracionMedia: 0.0f
-                                );
+                        p_titulo: "Libro con Páginas Negativas",
+                        p_genero: "Prueba",
+                        p_edadRecomendada: 12,
+                        p_fechaPublicacion: new DateTime (2024, 1, 1),
+                        p_numPags: -100,  // Número de páginas negativo (INVÁLIDO)
+                        p_sinopsis: "Libro de prueba con validación incorrecta",
+                        p_fotoPortada: "portada_invalida.jpg",
+                        p_autorPublicador: autorId,
+                        p_valoracionMedia: 0.0f
+                        );
                         Console.WriteLine ("ERROR: Se permitió crear un libro con páginas negativas (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1653,15 +1803,15 @@ public static void InitializeData ()
                 try
                 {
                         int idLibroInvalido2 = librocen.CrearLibro (
- p_titulo: "Libro sin Autor",
- p_genero: "Prueba",
-                                p_edadRecomendada: 15,
- p_fechaPublicacion: new DateTime (2024, 2, 1),
-                                p_numPags: 200,
- p_sinopsis: "Libro de prueba sin autor asociado",
- p_fotoPortada: "portada_sin_autor.jpg",
- p_autorPublicador: -1,                                 // Sin autor asociado (INVÁLIDO)
- p_valoracionMedia: 0.0f
+                        p_titulo: "Libro sin Autor",
+                        p_genero: "Prueba",
+                        p_edadRecomendada: 15,
+                        p_fechaPublicacion: new DateTime (2024, 2, 1),
+                        p_numPags: 200,
+                        p_sinopsis: "Libro de prueba sin autor asociado",
+                        p_fotoPortada: "portada_sin_autor.jpg",
+                        p_autorPublicador: -1, // Sin autor asociado (INVÁLIDO)
+                        p_valoracionMedia: 0.0f
                                 );
                         Console.WriteLine ("ERROR: Se permitió crear un libro sin autor asociado (no debería suceder)");
                 }
@@ -1692,12 +1842,12 @@ public static void InitializeData ()
                 try
                 {
                         int idNoticiaInvalida = noticiacen.CrearNoticia (
- p_titulo: "Noticia sin Administrador",
- p_fechaPublicacion: new DateTime (2024, 11, 1),
- p_foto: "noticia_sin_admin.jpg",
- p_textoContenido: "Esta es una noticia de prueba sin administrador asociado",
- p_administradorNoticias: -1                                 // Sin administrador asociado (INVÁLIDO)
-                                );
+                        p_titulo: "Noticia sin Administrador",
+                        p_fechaPublicacion: new DateTime (2024, 11, 1),
+                        p_foto: "noticia_sin_admin.jpg",
+                        p_textoContenido: "Esta es una noticia de prueba sin administrador asociado",
+                        p_administradorNoticias: -1 // Sin administrador asociado (INVÁLIDO)
+                        );
                         Console.WriteLine ("ERROR: Se permitió crear una noticia sin administrador asociado (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1723,12 +1873,12 @@ public static void InitializeData ()
                 try
                 {
                         int idReseñaInvalida1 = reseñacen.CrearReseña (
- p_textoOpinion: "Esta es una reseña de prueba sin lector",
- p_valoracion: 4.0f,
- p_lectorValorador: -1,                                 // Sin lector valorador (INVÁLIDO)
- p_libroReseñado: idLibro1,
- p_fecha: new DateTime (2024, 11, 1)
-                                );
+                        p_textoOpinion: "Esta es una reseña de prueba sin lector",
+                        p_valoracion: 4.0f,
+                        p_lectorValorador: -1, // Sin lector valorador (INVÁLIDO)
+                        p_libroReseñado: idLibro1,
+                        p_fecha: new DateTime (2024, 11, 1)
+                        );
                         Console.WriteLine ("ERROR: Se permitió crear una reseña sin lector valorador (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1745,12 +1895,12 @@ public static void InitializeData ()
                 try
                 {
                         int idReseñaInvalida2 = reseñacen.CrearReseña (
- p_textoOpinion: "Esta es una reseña de prueba sin libro",
- p_valoracion: 3.5f,
- p_lectorValorador: usuarioId1,
- p_libroReseñado: -1,                                 // Sin libro reseñado (INVÁLIDO)
- p_fecha: new DateTime (2024, 11, 1)
-                                );
+                        p_textoOpinion: "Esta es una reseña de prueba sin libro",
+                        p_valoracion: 3.5f,
+                        p_lectorValorador: usuarioId1,
+                        p_libroReseñado: -1, // Sin libro reseñado (INVÁLIDO)
+                        p_fecha: new DateTime (2024, 11, 1)
+                        );
                         Console.WriteLine ("ERROR: Se permitió crear una reseña sin libro reseñado (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1780,15 +1930,15 @@ public static void InitializeData ()
 
                 Console.WriteLine ("\n\n==================== PRUEBAS DE EVENTOS - INSCRIBIR Y DESINSCRIBIR MIEMBROS ====================");
 
-                //INSCRIBIR USUARIO AL EVENTO CREADO CON AFORO ACTUAL = 0
+                // INSCRIBIR USUARIO AL EVENTO CREADO CON AFORO ACTUAL = 0
                 Console.WriteLine ("\n------------------ Inscripción de Usuario al Evento (Resulatado esperado: Correcto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate2 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP = new UsuarioCP (sessionCPNHibernate2);
+                LectorCP lectorCP1 = new LectorCP (sessionCPNHibernate2);
 
                 try
                 {
-                        usuarioCP.InscribirAEvento (usuarioId1, new List<int> { eventoId1 });
+                        lectorCP1.InscribirLectorAEvento (usuarioId1, new List<int> { eventoId1 });
                         Console.WriteLine ("Usuario inscrito correctamente al evento 'Club de Lectura de Novela Negra'.");
                 }
                 catch (ModelException ex)
@@ -1798,15 +1948,15 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                //INSCRIBIR USUARIO AL MISMO EVENTO OTRA VEZ
-                Console.WriteLine ("\n------------------ Inscripción de Usuario al mismo Evento otra vez (Resulatado: Incorrecto");
+                // INSCRIBIR USUARIO AL MISMO EVENTO OTRA VEZ
+                Console.WriteLine ("\n------------------ Inscripción de Usuario al mismo Evento otra vez (Resulatado: Incorrecto)");
 
                 SessionCPNHibernate sessionCPNHibernate3 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP2 = new UsuarioCP (sessionCPNHibernate2);
+                LectorCP lectorCP2 = new LectorCP (sessionCPNHibernate3);
 
                 try
                 {
-                        usuarioCP2.InscribirAEvento (usuarioId1, new List<int> { eventoId1 });
+                        lectorCP2.InscribirLectorAEvento (usuarioId1, new List<int> { eventoId1 });
                         Console.WriteLine ("Usuario inscrito correctamente al evento 'Club de Lectura de Novela Negra'.");
                 }
                 catch (ModelException ex)
@@ -1816,15 +1966,15 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                //INSCRIBIR USUARIO AL EVENTO CREADO CON CAPACIDAD AFORO ACTUAL = AFORO MAXIMO
+                // INSCRIBIR USUARIO AL EVENTO CREADO CON CAPACIDAD AFORO ACTUAL = AFORO MAXIMO
                 Console.WriteLine ("\n------------------ Inscripción de Usuario al Evento lleno (Resultado Esperado: Incorrecto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate5 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP5 = new UsuarioCP (sessionCPNHibernate2);
+                LectorCP lectorCP3 = new LectorCP (sessionCPNHibernate5);
 
                 try
                 {
-                        usuarioCP5.InscribirAEvento (usuarioId1, new List<int> { eventoId3 });
+                        lectorCP3.InscribirLectorAEvento (usuarioId1, new List<int> { eventoId3 });
                         Console.WriteLine ("Usuario inscrito correctamente al evento 'Evento3");
                 }
                 catch (ModelException ex)
@@ -1835,14 +1985,14 @@ public static void InitializeData ()
                 }
 
 
-                //DESINSCRIBIR USUARIO DEL EVENTO CREADO
+                // DESINSCRIBIR USUARIO DEL EVENTO CREADO
                 Console.WriteLine ("\n------------------ Desinscripción de Usuario del Evento (Resulatado esperado: Correcto) ------------------");
                 SessionCPNHibernate sessionCPNHibernate4 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP3 = new UsuarioCP (sessionCPNHibernate2);
+                LectorCP lectorCP4 = new LectorCP (sessionCPNHibernate4);
 
                 try
                 {
-                        usuarioCP3.DesinscribirDeEvento (usuarioId1, new List<int> { eventoId1 });
+                        lectorCP4.DesinscribirLectorDeEvento (usuarioId1, new List<int> { eventoId1 });
                         Console.WriteLine ("Usuario desinscrito correctamente del evento 'Club de Lectura de Novela Negra'.");
                 }
                 catch (ModelException ex)
@@ -1852,14 +2002,14 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                //DESINSCRIBIR USUARIO DE UN EVENTO AL QUE NO ESTA SUSCRITO
+                // DESINSCRIBIR USUARIO DE UN EVENTO AL QUE NO ESTA SUSCRITO
                 Console.WriteLine ("\n------------------ Desinscripción de Usuario del Evento al que no está suscrito (Resulatado esperado: Inorrecto) ------------------");
                 SessionCPNHibernate sessionCPNHibernate6 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP6 = new UsuarioCP (sessionCPNHibernate2);
+                LectorCP lectorCP5 = new LectorCP (sessionCPNHibernate6);
 
                 try
                 {
-                        usuarioCP6.DesinscribirDeEvento (usuarioId1, new List<int> { eventoId5 });
+                        lectorCP5.DesinscribirLectorDeEvento (usuarioId1, new List<int> { eventoId5 });
                         Console.WriteLine ("Usuario dessuscrito correctamente del evento vacio");
                 }
                 catch (ModelException ex)
@@ -1868,6 +2018,15 @@ public static void InitializeData ()
                         Console.WriteLine ("Se ha capturado una ModelException al intentar desinscribirse de un evento: " + ex);
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
+
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN DE LAS PRUEBAS DE SUSCRIBIR Y DESUSCRIBIR USUARIOS DE EVENTOS:");
+                Console.WriteLine ("- PRUEBA 1: Inscripción al evento con aforo disponible (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Inscripción al mismo evento otra vez (Incorrecto)");
+                Console.WriteLine ("- PRUEBA 3: Inscripción al evento lleno (Incorrecto)");
+                Console.WriteLine ("- PRUEBA 4: Desinscripción del evento (Correcto)");
+                Console.WriteLine ("- PRUEBA 5: Desinscripción de evento al que no está suscrito (Incorrecto)");
+                Console.WriteLine ("====================================================================================");
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1879,14 +2038,14 @@ public static void InitializeData ()
 
                 // Nota: Para la suscripción y desuscripción de usuarios a club usamos el primer club definido en las pruebas de ReadFilter de Clubs
 
-                //SUSCRIBIR USUARIO AL CLUB CREADO
+                // SUSCRIBIR USUARIO AL CLUB CREADO
                 Console.WriteLine ("\n------------------ Suscripción de Usuario al Club (Resulatado esperado: Correcto) ------------------");
                 SessionCPNHibernate sessionCPNHibernate9 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP4 = new UsuarioCP (sessionCPNHibernate4);
+                LectorCP lectorCP6 = new LectorCP (sessionCPNHibernate3);
 
                 try
                 {
-                        usuarioCP4.SuscribirAClub (usuarioId3, new List<int> { clubId1 });
+                        lectorCP6.SuscribirLectorAClub (usuarioId3, new List<int> { clubId1 });
                         Console.WriteLine ("Usuario suscrito correctamente al club 'Club de Ciencia Ficción'.");
                 }
                 catch (ModelException ex)
@@ -1899,10 +2058,10 @@ public static void InitializeData ()
                 // DESUSCRIBIR USUARIO DEL CLUB CREADO
                 Console.WriteLine ("\n------------------ Desuscripción de Usuario del Club (Resulatado esperado: Correcto) ------------------");
                 SessionCPNHibernate sessionCPNHibernate7 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP7 = new UsuarioCP (sessionCPNHibernate5);
+                LectorCP lectorCP7 = new LectorCP (sessionCPNHibernate3);
                 try
                 {
-                        usuarioCP7.DesuscribirDeClub (usuarioId3, new List<int> { clubId1 });
+                        lectorCP7.DesuscribirLectorDeClub (usuarioId3, new List<int> { clubId1 });
                         Console.WriteLine ("Usuario desuscrito correctamente del club 'Club de Ciencia Ficción'.");
                 }
                 catch (ModelException ex)
@@ -1911,6 +2070,12 @@ public static void InitializeData ()
                         Console.WriteLine ("Se ha capturado una ModelException al intentar desuscribirse de un club: " + ex);
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
+
+                Console.WriteLine ("\n====================================================================================");
+                Console.WriteLine ("RESUMEN DE LAS PRUEBAS DE SUSCRIBIR Y DESUSCRIBIR USUARIOS DE CLUBS:");
+                Console.WriteLine ("- PRUEBA 1: Suscripción al club (Correcto)");
+                Console.WriteLine ("- PRUEBA 2: Desuscripción del club (Correcto)");
+                Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1965,7 +2130,7 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n==================== PRUEBAS DE SEGUIR A UN AUTOR ====================");
 
                 SessionCPNHibernate sessionCPNHibernate14 = new SessionCPNHibernate ();
-                LectorCP lectorCP2 = new LectorCP (sessionCPNHibernate14);
+                LectorCP lectorCP8 = new LectorCP (sessionCPNHibernate14);
 
                 // PRUEBA 1: Lector sigue a un autor (Caso Correcto)
                 Console.WriteLine ("\n------------------ Prueba 1: Lector sigue a Autor (Resultado esperado: Correcto) ------------------");
@@ -1984,7 +2149,7 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                // PRUEBA 1: Lector sigue a otro autor (Caso Correcto)
+                // PRUEBA 2: Lector sigue a otro autor (Caso Correcto)
                 Console.WriteLine ("\n------------------ Prueba 2: Lector sigue a otro Autor (Resultado esperado: Correcto) ------------------");
 
                 try
@@ -2001,11 +2166,11 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                // PRUEBA 2: Intentar seguir al mismo autor otra vez (Caso Incorrecto)
+                // PRUEBA 3: Intentar seguir al mismo autor otra vez (Caso Incorrecto)
                 Console.WriteLine ("\n------------------ Prueba 3: Intentar seguir al mismo Autor otra vez (Resultado esperado: Incorrecto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate15 = new SessionCPNHibernate ();
-                LectorCP lectorCP3 = new LectorCP (sessionCPNHibernate15);
+                LectorCP lectorCP9 = new LectorCP (sessionCPNHibernate15);
 
                 try
                 {
@@ -2020,11 +2185,11 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                // PRUEBA 3: Intentar seguir a un autor inexistente (Caso Incorrecto)
+                // PRUEBA 4: Intentar seguir a un autor inexistente (Caso Incorrecto)
                 Console.WriteLine ("\n------------------ Prueba 4: Intentar seguir a Autor inexistente (Resultado esperado: Incorrecto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate16 = new SessionCPNHibernate ();
-                LectorCP lectorCP4 = new LectorCP (sessionCPNHibernate16);
+                LectorCP lectorCP10 = new LectorCP (sessionCPNHibernate16);
 
                 try
                 {
@@ -2047,11 +2212,11 @@ public static void InitializeData ()
 
                 Console.WriteLine ("\n\n==================== PRUEBAS DE DEJAR DE SEGUIR A UN AUTOR ====================");
 
-                // PRUEBA 4: Dejar de seguir a un autor que se está siguiendo (Caso Correcto)
+                // PRUEBA 5: Dejar de seguir a un autor que se está siguiendo (Caso Correcto)
                 Console.WriteLine ("\n------------------ Prueba 5: Dejar de seguir a Autor (Resultado esperado: Correcto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate17 = new SessionCPNHibernate ();
-                LectorCP lectorCP5 = new LectorCP (sessionCPNHibernate17);
+                LectorCP lectorCP11 = new LectorCP (sessionCPNHibernate17);
 
                 try
                 {
@@ -2067,11 +2232,11 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                // PRUEBA 5: Intentar dejar de seguir a un autor que NO se está siguiendo (Caso Incorrecto)
+                // PRUEBA 6: Intentar dejar de seguir a un autor que NO se está siguiendo (Caso Incorrecto)
                 Console.WriteLine ("\n------------------ Prueba 6: Intentar dejar de seguir a Autor que NO se sigue (Resultado esperado: Incorrecto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate18 = new SessionCPNHibernate ();
-                LectorCP lectorCP6 = new LectorCP (sessionCPNHibernate18);
+                LectorCP lectorCP12 = new LectorCP (sessionCPNHibernate18);
 
                 try
                 {
@@ -2086,11 +2251,11 @@ public static void InitializeData ()
                         Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
-                // PRUEBA 6: Intentar dejar de seguir a un autor inexistente (Caso Incorrecto)
+                // PRUEBA 7: Intentar dejar de seguir a un autor inexistente (Caso Incorrecto)
                 Console.WriteLine ("\n------------------ Prueba 7: Intentar dejar de seguir a Autor inexistente (Resultado esperado: Incorrecto) ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate19 = new SessionCPNHibernate ();
-                LectorCP lectorCP7 = new LectorCP (sessionCPNHibernate19);
+                LectorCP lectorCP13 = new LectorCP (sessionCPNHibernate19);
 
                 try
                 {
@@ -2126,7 +2291,7 @@ public static void InitializeData ()
 
                 Console.WriteLine ("\n\n\n====================================================================================");
                 Console.WriteLine ("====================================================================================");
-                Console.WriteLine ("====================================================================================");
+                Console.WriteLine ("====================================================================================\n");
 
                 Console.WriteLine ("\n\n==================== PRUEBAS DE CAMBIO DE CONTRASEÑA DE USUARIO ====================");
 
@@ -2138,10 +2303,10 @@ public static void InitializeData ()
 
                 try
                 {
-                        usuarioCP20.CambiarPassword (usuarioId1, "password123", "newPassword456");
+                        usuarioCP20.CambiarPassword (usuarioId1, "passPaco", "passPacoLector");
                         Console.WriteLine ("Contraseña cambiada correctamente");
-                        Console.WriteLine ("  - Contraseña antigua: 'password123'");
-                        Console.WriteLine ("  - Contraseña nueva: 'newPassword456'");
+                        Console.WriteLine ("  - Contraseña antigua: 'passPaco'");
+                        Console.WriteLine ("  - Contraseña nueva: 'passPacoLector'");
                 }
                 catch (ModelException ex)
                 {
@@ -2158,7 +2323,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        usuarioCP21.CambiarPassword (usuarioId1, "passwordIncorrecto", "anotherPassword789");
+                        usuarioCP21.CambiarPassword (usuarioId1, "passwordIncorrecto", "otroPassword123");
                         Console.WriteLine ("ERROR: Se permitió cambiar la contraseña con contraseña antigua incorrecta (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2177,7 +2342,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        usuarioCP23.CambiarPassword (usuarioId1, "", "newPassword789");
+                        usuarioCP23.CambiarPassword (usuarioId1, "", "nuevaPassword123");
                         Console.WriteLine ("ERROR: Se permitió cambiar con contraseña vacía (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2195,8 +2360,6 @@ public static void InitializeData ()
                 Console.WriteLine ("Prueba 3 - Intentar usar la misma contraseña como nueva (Error");
                 Console.WriteLine ("====================================================================================");
 
-
-
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 Console.WriteLine ("\n\n\n====================================================================================");
@@ -2213,14 +2376,14 @@ public static void InitializeData ()
                 // PREPARACIÓN: Suscribir usuarios al club para luego expulsarlos
                 Console.WriteLine ("\n------------------ Preparación: Suscribir usuarios al Club de Ciencia Ficción para las pruebas de expulsión ------------------");
 
-                SessionCPNHibernate sessionCPNHibernate13 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP13 = new UsuarioCP (sessionCPNHibernate13);
-                ClubCP clubCP = new ClubCP (sessionCPNHibernate13);
+                SessionCPNHibernate sessionCPNHibernate22 = new SessionCPNHibernate ();
+                LectorCP lectorCP22 = new LectorCP (sessionCPNHibernate22);
+                ClubCP clubCP1 = new ClubCP (sessionCPNHibernate22);
 
                 // Suscribir usuarioId2 al club
                 try
                 {
-                        //usuarioCP13.SuscribirAClub (usuarioId2, new List<int> { clubId1 });
+                        lectorCP22.SuscribirLectorAClub (usuarioId2, new List<int> { clubId1 });
                         Console.WriteLine ("Usuario 2 (Marina Lectora) suscrito al Club de Ciencia Ficción");
                 }
                 catch (ModelException ex)
@@ -2234,7 +2397,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        //clubCP.ExpulsarUsuarioClub (clubId1, usuarioId2);
+                    clubCP1.ExpulsarUsuarioClub (clubId1, usuarioId2);
                         Console.WriteLine ("Usuario 2 (Marina Lectora) expulsado correctamente del Club de Ciencia Ficción");
                 }
                 catch (ModelException ex)
@@ -2249,7 +2412,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        clubCP.ExpulsarUsuarioClub (clubId1, usuarioId2);
+                        clubCP1.ExpulsarUsuarioClub (clubId1, usuarioId2);
                         Console.WriteLine ("ERROR: Se permitió expulsar a un usuario que no está en el club (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2265,7 +2428,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        clubCP.ExpulsarUsuarioClub (99999, usuarioId2);
+                        clubCP1.ExpulsarUsuarioClub (99999, usuarioId2);
                         Console.WriteLine ("ERROR: Se permitió expulsar usuario de un club inexistente (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2311,12 +2474,12 @@ public static void InitializeData ()
                 Console.WriteLine ("\n------------------ Preparación: Suscribir usuarios al Club de Ciencia Ficción ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate11 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP11 = new UsuarioCP (sessionCPNHibernate11);
+                LectorCP lectorCP16 = new LectorCP (sessionCPNHibernate3);
 
                 // Suscribir usuarioId2 (Marina Lectora)
                 try
                 {
-                        usuarioCP11.SuscribirAClub (usuarioId2, new List<int> { clubId1 });
+                        lectorCP16.SuscribirLectorAClub (usuarioId2, new List<int> { clubId1 });
                         Console.WriteLine ("Usuario 2 (Marina Lectora) suscrito al Club de Ciencia Ficción");
                 }
                 catch (ModelException ex)
@@ -2327,41 +2490,41 @@ public static void InitializeData ()
                 // PRUEBA 1: Obtener lista de miembros del Club de Ciencia Ficción
                 Console.WriteLine ("\n------------------ Prueba 1: Obtener lista de miembros del Club de Ciencia Ficción ------------------");
 
-                //IList<UsuarioEN> miembrosClub1 = clubcen.ObtenerListaMiembros (clubId1);
+                IList<LectorEN> miembrosClub1 = clubCP1.ObtenerListaMiembros (clubId1);
 
-                //if (miembrosClub1 != null && miembrosClub1.Count > 0) {
-                //        Console.WriteLine ("Total de miembros en el Club de Ciencia Ficción: " + miembrosClub1.Count);
-                //        Console.WriteLine ("\nListado de miembros:");
-                //        for (int i = 0; i < miembrosClub1.Count; i++) {
-                //                Console.WriteLine ("  " + (i + 1) + ". ID: " + miembrosClub1 [i].Id + " - Nombre: " + miembrosClub1 [i].NombreUsuario + " - Email: " + miembrosClub1 [i].Email);
-                //        }
-                //}
-                //else {
-                //        Console.WriteLine ("El club no tiene miembros o la lista es nula");
-                //}
+                if (miembrosClub1 != null && miembrosClub1.Count > 0) {
+                        Console.WriteLine ("Total de miembros en el Club de Ciencia Ficción: " + miembrosClub1.Count);
+                        Console.WriteLine ("\nListado de miembros:");
+                        for (int i = 0; i < miembrosClub1.Count; i++) {
+                                Console.WriteLine ("  " + (i + 1) + ". ID: " + miembrosClub1 [i].Id + " - Nombre: " + miembrosClub1 [i].NombreUsuario + " - Email: " + miembrosClub1 [i].Email);
+                        }
+                }
+                else {
+                        Console.WriteLine ("El club no tiene miembros o la lista es nula");
+                }
 
-                // PRUEBA 2: Obtener lista de miembros del Club de Misterio y Suspense (probablemente vacío)
-                Console.WriteLine ("\n------------------ Prueba 2: Obtener lista de miembros del Club de Misterio y Suspense ------------------");
+                // PRUEBA 2: Obtener lista de miembros del Club de Misterio y Suspense (Vacío)
+                Console.WriteLine ("\n------------------ Prueba 2: Obtener lista de miembros del Club de Misterio y Suspense (Vacío) ------------------");
 
-                //IList<UsuarioEN> miembrosClub2 = clubcen.ObtenerListaMiembros (clubId2);
+                IList<LectorEN> miembrosClub2 = clubCP1.ObtenerListaMiembros (clubId2);
 
-                //if (miembrosClub2 != null && miembrosClub2.Count > 0) {
-                //        Console.WriteLine ("Total de miembros en el Club de Misterio y Suspense: " + miembrosClub2.Count);
-                //        Console.WriteLine ("\nListado de miembros:");
-                //        for (int i = 0; i < miembrosClub2.Count; i++) {
-                //                Console.WriteLine ("  " + (i + 1) + ". ID: " + miembrosClub2 [i].Id + " - Nombre: " + miembrosClub2 [i].NombreUsuario);
-                //        }
-                //}
-                //else {
-                //        Console.WriteLine ("El Club de Misterio y Suspense no tiene miembros (lista vacía o nula)");
-                //}
+                if (miembrosClub2 != null && miembrosClub2.Count > 0) {
+                        Console.WriteLine ("Total de miembros en el Club de Misterio y Suspense: " + miembrosClub2.Count);
+                        Console.WriteLine ("\nListado de miembros:");
+                        for (int i = 0; i < miembrosClub2.Count; i++) {
+                                Console.WriteLine ("  " + (i + 1) + ". ID: " + miembrosClub2 [i].Id + " - Nombre: " + miembrosClub2 [i].NombreUsuario);
+                        }
+                }
+                else {
+                        Console.WriteLine ("El Club de Misterio y Suspense no tiene miembros (lista vacía o nula)");
+                }
 
                 // PRUEBA 3: Intentar obtener lista de miembros de un club que no existe
                 Console.WriteLine ("\n------------------ Prueba 3: Obtener lista de miembros de un club inexistente (Resultado esperado: Incorrecto) ------------------");
 
                 try
                 {
-                        IList<UsuarioEN> miembrosClubInexistente = clubcen.ObtenerListaMiembros (99999);
+                        IList<LectorEN> miembrosClubInexistente = clubCP1.ObtenerListaMiembros (99999);
                         Console.WriteLine ("ERROR: Se obtuvo lista de un club inexistente (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2381,15 +2544,15 @@ public static void InitializeData ()
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN DE LAS PRUEBAS DE ObtenerListaMiembros():");
                 Console.WriteLine ("Prueba 1 - Obtener miembros de club con usuarios suscritos");
-                Console.WriteLine ("  - Se listaron todos los usuarios miembros del Club de Ciencia Ficción");
-                Console.WriteLine ("  - Se mostraron sus IDs, nombres de usuario y emails");
+                Console.WriteLine ("  - Se listan todos los usuarios miembros del Club de Ciencia Ficción");
+                Console.WriteLine ("  - Se muestran sus IDs, nombres de usuario y emails");
                 Console.WriteLine ("");
                 Console.WriteLine ("Prueba 2 - Obtener miembros de club sin usuarios suscritos");
-                Console.WriteLine ("  - Se verificó correctamente el estado del Club de Misterio y Suspense");
+                Console.WriteLine ("  - Se verifica correctamente el estado del Club de Misterio y Suspense");
                 Console.WriteLine ("");
                 Console.WriteLine ("Prueba 3 - Intentar obtener miembros de club inexistente");
-                Console.WriteLine ("  - Se validó correctamente que el club no existe");
-                Console.WriteLine ("  - Se capturó la excepción esperada");
+                Console.WriteLine ("  - Se valida correctamente que el club no existe");
+                Console.WriteLine ("  - Se captura la excepción esperada");
                 Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2404,24 +2567,24 @@ public static void InitializeData ()
                 Console.WriteLine ("\n------------------ Preparación: Inscribir usuarios al evento 'Club de Lectura de Novela Negra' ------------------");
 
                 SessionCPNHibernate sessionCPNHibernate12 = new SessionCPNHibernate ();
-                UsuarioCP usuarioCP12 = new UsuarioCP (sessionCPNHibernate12);
+                LectorCP lectorCP14 = new LectorCP (sessionCPNHibernate3);
 
                 // Inscribir usuarioId2 (Marina Lectora) al evento
                 try
                 {
-                        usuarioCP12.InscribirAEvento (usuarioId2, new List<int> { eventoId1 });
-                        Console.WriteLine ("Usuario 2 (Marina Lectora) inscrito al evento");
+                        lectorCP14.InscribirLectorAEvento (usuarioId2, new List<int> { eventoId1 });
+                        Console.WriteLine ("Usuario 2 (Marina Lectora) inscrito al evento \n");
                 }
                 catch (ModelException ex)
                 {
                         Console.WriteLine ("Usuario 2 ya estaba inscrito o error: " + ex.Message);
                 }
 
-                // Inscribir usuarioId3 al evento
+                // Inscribir usuarioId3 (Niko Lector) al evento
                 try
                 {
-                        usuarioCP12.InscribirAEvento (usuarioId3, new List<int> { eventoId1 });
-                        Console.WriteLine ("Usuario 3 inscrito al evento");
+                        lectorCP14.InscribirLectorAEvento (usuarioId3, new List<int> { eventoId1 });
+                        Console.WriteLine ("Usuario 3 (Niko Lector) inscrito al evento");
                 }
                 catch (ModelException ex)
                 {
@@ -2431,42 +2594,44 @@ public static void InitializeData ()
                 // PRUEBA 1: Obtener lista de participantes del evento 'Club de Lectura de Novela Negra'
                 Console.WriteLine ("\n------------------ Prueba 1: Obtener lista de participantes del evento 'Club de Lectura de Novela Negra' ------------------");
 
-                //IList<UsuarioEN> participantesEvento1 = eventocen.ObtenerListaParticipantes (eventoId1);
+                SessionCPNHibernate sessionCPNHibernate001 = new SessionCPNHibernate ();
+                EventoCP eventoCP = new EventoCP (sessionCPNHibernate001);
 
-                //if (participantesEvento1 != null && participantesEvento1.Count > 0) {
-                //        Console.WriteLine ("Total de participantes en el evento: " + participantesEvento1.Count);
-                //        Console.WriteLine ("\nListado de participantes:");
-                //        for (int i = 0; i < participantesEvento1.Count; i++) {
-                //                Console.WriteLine ("  " + (i + 1) + ". ID: " + participantesEvento1 [i].Id + " - Nombre: " + participantesEvento1 [i].NombreUsuario + " - Email: " + participantesEvento1 [i].Email);
-                //        }
-                //}
-                //else {
-                //        Console.WriteLine ("El evento no tiene participantes o la lista es nula");
-                //}
+                IList<UsuarioEN> participantesEvento1 = eventoCP.ObtenerListaParticipantes (eventoId1);
+
+                if (participantesEvento1 != null && participantesEvento1.Count > 0) {
+                        Console.WriteLine ("Total de participantes en el evento: " + participantesEvento1.Count);
+                        Console.WriteLine ("\nListado de participantes:");
+                        for (int i = 0; i < participantesEvento1.Count; i++) {
+                                Console.WriteLine ("  " + (i + 1) + ". ID: " + participantesEvento1 [i].Id + " - Nombre: " + participantesEvento1 [i].NombreUsuario + " - Email: " + participantesEvento1 [i].Email);
+                        }
+                }
+                else {
+                        Console.WriteLine ("El evento no tiene participantes o la lista es nula");
+                }
 
                 // PRUEBA 2: Obtener lista de participantes del evento vacío (Evento5)
-                Console.WriteLine ("\n------------------ Prueba 2: Obtener lista de participantes del Evento5 (sin participantes) ------------------");
+                Console.WriteLine ("\n------------------ Prueba 2: Obtener lista de participantes del Evento5 (Sin participantes) ------------------");
 
-                //IList<UsuarioEN> participantesEvento5 = eventocen.ObtenerListaParticipantes (eventoId6);
+                IList<UsuarioEN> participantesEvento5 = eventoCP.ObtenerListaParticipantes (eventoId6);
 
-                //if (participantesEvento5 != null && participantesEvento5.Count > 0) {
-                //        Console.WriteLine ("Total de participantes en Evento5: " + participantesEvento5.Count);
-                //        Console.WriteLine ("\nListado de participantes:");
-                //        for (int i = 0; i < participantesEvento5.Count; i++) {
-                //                Console.WriteLine ("  " + (i + 1) + ". ID: " + participantesEvento5 [i].Id + " - Nombre: " + participantesEvento5 [i].NombreUsuario);
-                //        }
-                //}
-                //else {
-                //        Console.WriteLine ("El Evento5 no tiene participantes (lista vacía o nula)");
-
-                //}
+                if (participantesEvento5 != null && participantesEvento5.Count > 0) {
+                        Console.WriteLine ("Total de participantes en Evento5: " + participantesEvento5.Count);
+                        Console.WriteLine ("\nListado de participantes:");
+                        for (int i = 0; i < participantesEvento5.Count; i++) {
+                                Console.WriteLine ("  " + (i + 1) + ". ID: " + participantesEvento5 [i].Id + " - Nombre: " + participantesEvento5 [i].NombreUsuario);
+                        }
+                }
+                else {
+                        Console.WriteLine ("El Evento5 no tiene participantes (lista vacía o nula)");
+                }
 
                 // PRUEBA 3: Intentar obtener lista de participantes de un evento que no existe
                 Console.WriteLine ("\n------------------ Prueba 3: Obtener lista de participantes de un evento inexistente (Resultado esperado: Incorrecto) ------------------");
 
                 try
                 {
-                        IList<UsuarioEN> participantesEventoInexistente = eventocen.ObtenerListaParticipantes (99999);
+                        IList<UsuarioEN> participantesEventoInexistente = eventoCP.ObtenerListaParticipantes (99999);
                         Console.WriteLine ("ERROR: Se obtuvo lista de un evento inexistente (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2486,15 +2651,15 @@ public static void InitializeData ()
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN DE LAS PRUEBAS DE ObtenerListaParticipantes():");
                 Console.WriteLine ("Prueba 1 - Obtener participantes de evento con usuarios inscritos");
-                Console.WriteLine ("  - Se listaron todos los usuarios participantes del evento");
-                Console.WriteLine ("  - Se mostraron sus IDs, nombres de usuario y emails");
+                Console.WriteLine ("  - Se listan todos los usuarios participantes del evento");
+                Console.WriteLine ("  - Se muestran sus IDs, nombres de usuario y emails");
                 Console.WriteLine ("");
                 Console.WriteLine ("Prueba 2 - Obtener participantes de evento sin usuarios inscritos");
-                Console.WriteLine ("  - Se verificó correctamente que el evento no tiene participantes");
+                Console.WriteLine ("  - Se verifica correctamente que el evento no tiene participantes");
                 Console.WriteLine ("");
                 Console.WriteLine ("Prueba 3 - Intentar obtener participantes de evento inexistente");
-                Console.WriteLine ("  - Se validó correctamente que el evento no existe");
-                Console.WriteLine ("  - Se capturó la excepción esperada");
+                Console.WriteLine ("  - Se valida correctamente que el evento no existe");
+                Console.WriteLine ("  - Se captura la excepción esperada");
                 Console.WriteLine ("====================================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////

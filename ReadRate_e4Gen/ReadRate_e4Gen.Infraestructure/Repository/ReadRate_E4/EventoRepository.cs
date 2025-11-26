@@ -120,8 +120,9 @@ public void ModifyDefault (EventoEN evento)
 
 
 
-
                 eventoNH.AforoActual = evento.AforoActual;
+
+
 
                 session.Update (eventoNH);
                 SessionCommit ();

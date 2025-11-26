@@ -108,6 +108,7 @@ public void ModifyDefault (AutorEN autor)
 
 
 
+
                 session.Update (autorNH);
                 SessionCommit ();
         }
@@ -184,6 +185,9 @@ public void ModificarAutor (AutorEN autor)
 
 
                 autorNH.Pass = autor.Pass;
+
+
+                autorNH.NumModificaciones = autor.NumModificaciones;
 
 
                 autorNH.NumeroSeguidores = autor.NumeroSeguidores;
@@ -290,6 +294,84 @@ public System.Collections.Generic.IList<AutorEN> DameTodosAutores (int first, in
         }
 
         return result;
+}
+
+public void InscribirAutorAEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs)
+{
+        ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                autorEN = (AutorEN)session.Load (typeof(AutorNH), p_Autor_OID);
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoAutorENAux = null;
+                if (autorEN.EventoAutor == null) {
+                        autorEN.EventoAutor = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN>();
+                }
+
+                foreach (int item in p_eventoAutor_OIDs) {
+                        eventoAutorENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN ();
+                        eventoAutorENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH), item);
+                        eventoAutorENAux.AutorParticipante.Add (autorEN);
+
+                        autorEN.EventoAutor.Add (eventoAutorENAux);
+                }
+
+
+                session.Update (autorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in AutorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DesinscribirAutorDeEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorEN = null;
+                autorEN = (AutorEN)session.Load (typeof(AutorNH), p_Autor_OID);
+
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoAutorENAux = null;
+                if (autorEN.EventoAutor != null) {
+                        foreach (int item in p_eventoAutor_OIDs) {
+                                eventoAutorENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH), item);
+                                if (autorEN.EventoAutor.Contains (eventoAutorENAux) == true) {
+                                        autorEN.EventoAutor.Remove (eventoAutorENAux);
+                                        eventoAutorENAux.AutorParticipante.Remove (autorEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_eventoAutor_OIDs you are trying to unrelationer, doesn't exist in AutorEN");
+                        }
+                }
+
+                session.Update (autorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in AutorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

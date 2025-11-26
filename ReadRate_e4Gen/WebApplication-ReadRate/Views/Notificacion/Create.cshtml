@@ -1,0 +1,226 @@
+﻿@model WebApplication_ReadRate.Models.NotificacionViewModel
+
+@{
+    ViewData["Title"] = "Crear Notificación";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Crear Notificación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            min-height: 100vh;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #ff6f00 0%, #ff9800 50%, #ffa726 100%);
+            color: #fff;
+            padding: 2.5rem 0 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 111, 0, 0.3);
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .form-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(255,111,0,0.1);
+            padding: 2.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #e65100;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #ffe0b2;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 2.5rem 0.8rem 1rem;
+            border: 2px solid #ffe0b2;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: #fff;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23e65100' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .text-danger {
+            color: #f44336;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: block;
+        }
+        
+        .validation-summary {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            color: #c62828;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+        }
+        
+        .btn-secondary {
+            background: #fff;
+            color: #ff9800;
+            border: 2px solid #ff9800;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff9800;
+            color: #fff;
+        }
+        
+        .form-hint {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1>Crear Nueva Notificación</h1>
+    </div>
+    
+    <div class="container">
+        <div class="form-card">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+                
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" placeholder="Ej: Nueva actualización disponible" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                    <small class="form-hint">Título de no más de 200 caracteres</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Texto" class="control-label"></label>
+                    <textarea asp-for="Texto" class="form-control" placeholder="Escribe el contenido de la notificación..."></textarea>
+                    <span asp-validation-for="Texto" class="text-danger"></span>
+                    <small class="form-hint">Texto de máximo 5000 caracteres</small>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Concepto" class="control-label"></label>
+                    <select asp-for="Concepto" class="form-select">
+                        <option value="">-- Selecciona un concepto --</option>
+                        <option value="nueva_reseña">Nueva Reseña</option>
+                        <option value="evento_anunciado">Evento Anunciado</option>
+                        <option value="noticia_publicada">Noticia Publicada</option>
+                        <option value="aviso_club_lectura">Aviso Club de Lectura</option>
+                    </select>
+                    <span asp-validation-for="Concepto" class="text-danger"></span>
+                    <small class="form-hint">Tipo de notificación</small>
+                </div>
+                
+                <div class="form-actions">
+                    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                    <input type="submit" value="Crear notificación" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

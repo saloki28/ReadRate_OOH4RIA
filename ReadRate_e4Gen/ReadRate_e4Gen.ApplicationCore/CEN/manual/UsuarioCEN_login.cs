@@ -22,7 +22,17 @@ public string Login (string p_email, string p_pass)
 
         UsuarioEN en = enList.Count > 0 ? enList [0] : null;
 
-        if (en != null && en.Pass.Equals (Utils.Util.GetEncondeMD5 (p_pass)))
+        if (en == null) {
+                return result;
+        }
+
+        string pass1 = p_pass;
+
+        for (int i = 0; i <= en.NumModificaciones; i++) {
+                pass1 = Utils.Util.GetEncondeMD5 (pass1);
+        }
+
+        if (en != null && en.Pass.Equals (pass1))
                 result = this.GetToken (en.Id);
 
         return result;

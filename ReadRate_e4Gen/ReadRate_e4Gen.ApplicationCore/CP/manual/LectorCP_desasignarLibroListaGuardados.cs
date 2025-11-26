@@ -46,7 +46,7 @@ public void DesasignarLibroListaGuardados (int p_Lector_OID, System.Collections.
 
 
                 lectorCEN.get_ILectorRepository ().DesasignarLibroListaGuardados (p_Lector_OID, librosQuitar);
-                lectorCEN.ModificarLector (lectorEN.Id, lectorEN.Email, lectorEN.NombreUsuario, lectorEN.FechaNacimiento, lectorEN.CiudadResidencia, lectorEN.PaisResidencia, lectorEN.Foto, lectorEN.Rol, lectorEN.Pass, lectorEN.CantLibrosCurso, lectorEN.CantLibrosLeidos, lectorEN.CantAutoresSeguidos, lectorEN.CantClubsSuscritos);
+                lectorCEN.ModificarLector (lectorEN.Id, lectorEN.Email, lectorEN.NombreUsuario, lectorEN.FechaNacimiento, lectorEN.CiudadResidencia, lectorEN.PaisResidencia, lectorEN.Foto, lectorEN.Rol, lectorEN.Pass, lectorEN.NumModificaciones + 1, lectorEN.CantLibrosCurso, lectorEN.CantLibrosLeidos, lectorEN.CantAutoresSeguidos, lectorEN.CantClubsSuscritos);
 
 
                 CPSession.Commit ();

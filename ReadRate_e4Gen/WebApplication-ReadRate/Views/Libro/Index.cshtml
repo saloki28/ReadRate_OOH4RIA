@@ -36,7 +36,7 @@
         
         .container {
             max-width: 1200px;
-            margin: 0 auto 3rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
         
@@ -102,7 +102,7 @@
         
         .book-cover {
             width: 100%;
-            height: 200px;
+            height: 250px;
             background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
             display: flex;
             align-items: center;
@@ -266,14 +266,20 @@
             {
                 <div class="book-card">
                     <div class="book-cover">
-                        FotoLibro
+                        @if(!string.IsNullOrEmpty(item.FotoPortadaUrl))
+                        {
+                            <img src="@item.FotoPortadaUrl" alt="Portada de @item.Titulo" style="width: 110%; height: 110%; object-fit: contain;">
+                        }
+                        else
+                        {
+                            <span>FotoLibro</span>
+                        }
                     </div>
                     <div class="book-info">
                         <div class="book-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
-                        <div class="book-author">@Html.DisplayFor(modelItem => item.NombreAutor)</div>
                         <div class="book-meta">
                             <div class="book-meta-item">
-                                <strong>Autor:</strong> @Html.DisplayFor(modelItem => item.AutorPublicadorId)
+                                <strong>Autor/a:</strong> @Html.DisplayFor(modelItem => item.NombreAutor)
                             </div>
                             <div class="book-meta-item">
                                 <strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)
@@ -289,9 +295,6 @@
                             </div>
                             <div class="book-meta-item">
                                 <strong>Publicado:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
-                            </div>
-                            <div class="book-meta-item">
-                                <strong>Nombre de la foto de portada:</strong> @Html.DisplayFor(modelItem => item.FotoPortada)
                             </div>
                             <div class="book-meta-item">
                                 <strong>Sinopsis:</strong> @Html.DisplayFor(modelItem => item.Sinopsis)

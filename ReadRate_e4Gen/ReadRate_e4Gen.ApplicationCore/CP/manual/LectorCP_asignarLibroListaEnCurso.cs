@@ -46,7 +46,21 @@ public void AsignarLibroListaEnCurso (int p_Lector_OID, System.Collections.Gener
 
 
                 lectorCEN.get_ILectorRepository ().AsignarLibroListaEnCurso (p_Lector_OID, librosAgregar);
-                lectorCEN.ModificarLector (lectorEN.Id, lectorEN.Email, lectorEN.NombreUsuario, lectorEN.FechaNacimiento, lectorEN.CiudadResidencia, lectorEN.PaisResidencia, lectorEN.Foto, lectorEN.Rol, lectorEN.Pass, lectorEN.CantLibrosCurso, lectorEN.CantLibrosLeidos, lectorEN.CantAutoresSeguidos, lectorEN.CantClubsSuscritos);
+                lectorCEN.ModificarLector (
+ p_Lector_OID: lectorEN.Id,
+ p_email: lectorEN.Email,
+ p_nombreUsuario: lectorEN.NombreUsuario,
+ p_fechaNacimiento: lectorEN.FechaNacimiento,
+ p_ciudadResidencia: lectorEN.CiudadResidencia,
+ p_paisResidencia: lectorEN.PaisResidencia,
+ p_foto:  lectorEN.Foto,
+ p_rol:  lectorEN.Rol,
+ p_pass:  lectorEN.Pass,
+ p_cantLibrosCurso: lectorEN.CantLibrosCurso,
+ p_cantLibrosLeidos:  lectorEN.CantLibrosLeidos,
+ p_cantAutoresSeguidos: lectorEN.CantAutoresSeguidos,
+ p_cantClubsSuscritos: lectorEN.CantClubsSuscritos,
+ p_numModificaciones: lectorEN.NumModificaciones + 1);
 
 
 

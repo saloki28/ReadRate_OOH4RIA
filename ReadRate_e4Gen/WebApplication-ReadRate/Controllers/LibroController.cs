@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+// using ReadRate_e4Gen.ApplicationCore.CEN.Reusing Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing.Constraints;
 using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
@@ -10,6 +15,13 @@ namespace WebApplication_ReadRate.Controllers
 {
     public class LibroController : BasicController
     {
+        private readonly IWebHostEnvironment _webHost;
+
+        public LibroController(IWebHostEnvironment webHost)
+        {
+            _webHost = webHost;
+        }
+
         // GET: LibroController
         public ActionResult Index()
         {   
@@ -33,6 +45,14 @@ namespace WebApplication_ReadRate.Controllers
             LibroCEN libroCEN = new LibroCEN(libroRepository);
 
             LibroEN libroEN = libroCEN.DameLibroPorOID(id);
+            
+            // Forzar la carga del Autor antes de cerrar la sesión
+            if (libroEN?.AutorPublicador != null)
+            {
+                var autorCargado = libroEN.AutorPublicador.Id;
+                var nombreAutor = libroEN.AutorPublicador.NombreUsuario;
+            }
+            
             LibroViewModel libroVM = new LibroAssembler().ConvertirENToViewModel(libroEN);
 
             SessionClose();
@@ -42,24 +62,61 @@ namespace WebApplication_ReadRate.Controllers
         // GET: LibroController/Create
         public ActionResult Create()
         {
+            AutorRepository autorRepository = new AutorRepository();
+            AutorCEN autorCEN = new AutorCEN(autorRepository);
+
+            IList<AutorEN> listaAutoresEN = autorCEN.DameTodosAutores(0, -1);
+            IList<SelectListItem> listaAutores = new List<SelectListItem>();
+
+            foreach (AutorEN autorEN in listaAutoresEN)
+            {
+                listaAutores.Add(new SelectListItem
+                {
+                    Value = autorEN.Id.ToString(),
+                    Text = autorEN.NombreUsuario
+                });
+            }
+
+            ViewData["listaAutores"] = listaAutores;
+
             return View();
         }
 
         // POST: LibroController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(LibroViewModel libroVM)
+        public async Task<ActionResult> Create(LibroViewModel libroVM)
         {
+            // Nombre del archivo de la portada
+            string fotoPortadaFileName = "sinPortada.webp";
+            string path = "";
+
+            // Guardar la imagen de la portada si se ha subido un archivo
+            if(libroVM.FotoPortada != null && libroVM.FotoPortada.Length > 0)
+            {
+                // Guardar el archivo en wwwroot/images/portadas
+                fotoPortadaFileName = Path.GetFileName(libroVM.FotoPortada.FileName).Trim();
+
+                string directory = _webHost.WebRootPath + "/images/portadasLibros";
+                path = Path.Combine((directory), fotoPortadaFileName);
+
+                if(!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                using (var stream = System.IO.File.Create(path))
+                {
+                    await libroVM.FotoPortada.CopyToAsync(stream);
+                }
+            }
+
             try
             {
                 if (ModelState.IsValid)
                 {
-                    // Validación de AutorPublicadorId
-                    if (!libroVM.AutorPublicadorId.HasValue || libroVM.AutorPublicadorId.Value <= 0)
-                    {
-                        ModelState.AddModelError("AutorPublicadorId", "Debe seleccionar un autor válido (ID mayor que 0)");
-                        return View(libroVM);
-                    }
+                    // Añadir el prefijo de la ruta para acceder a la imagen
+                    fotoPortadaFileName = "/images/portadasLibros/" + fotoPortadaFileName;
 
                     // No usar sesión compartida para operaciones de escritura
                     LibroRepository libroRepository = new LibroRepository();
@@ -71,11 +128,11 @@ namespace WebApplication_ReadRate.Controllers
                         p_titulo: libroVM.Titulo, 
                         p_genero: libroVM.Genero, 
                         p_edadRecomendada: libroVM.EdadRecomendada, 
-                        p_fechaPublicacion: libroVM.FechaPublicacion, 
+                        p_fechaPublicacion: DateTime.Now, 
                         p_numPags: libroVM.NumPags, 
                         p_sinopsis: libroVM.Sinopsis, 
-                        p_fotoPortada: libroVM.FotoPortada ?? "default.jpg",
-                        p_autorPublicador: libroVM.AutorPublicadorId.Value, 
+                        p_fotoPortada: fotoPortadaFileName,
+                        p_autorPublicador: libroVM.AutorId, 
                         p_valoracionMedia: libroVM.ValoracionMedia
                     );
                     
@@ -108,13 +165,44 @@ namespace WebApplication_ReadRate.Controllers
         // POST: LibroController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, LibroViewModel libro)
+        public async Task<ActionResult> Edit(int id, LibroViewModel libro)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    // No usar sesión compartida para operaciones de escritura
+                    // Usar la foto actual del ViewModel (que viene de la BD)
+                    string fotoPortadaFileName = libro.FotoPortadaUrl ?? string.Empty;
+
+                    // Si se subió una nueva foto, procesarla
+                    if (libro.FotoPortada != null && libro.FotoPortada.Length > 0)
+                    {
+                        // Guardar el archivo en wwwroot/images/portadasLibros
+                        string nombreArchivo = Path.GetFileName(libro.FotoPortada.FileName).Trim();
+                        string directory = _webHost.WebRootPath + "/images/portadasLibros";
+                        string path = Path.Combine(directory, nombreArchivo);
+
+                        if (!Directory.Exists(directory))
+                        {
+                            Directory.CreateDirectory(directory);
+                        }
+
+                        using (var stream = System.IO.File.Create(path))
+                        {
+                            await libro.FotoPortada.CopyToAsync(stream);
+                        }
+
+                        // Actualizar con la nueva ruta
+                        fotoPortadaFileName = "/images/portadasLibros/" + nombreArchivo;
+                    }
+
+                    // Si no hay foto actual ni nueva, usar la imagen por defecto
+                    if (string.IsNullOrEmpty(fotoPortadaFileName))
+                    {
+                        fotoPortadaFileName = "/images/portadasLibros/sinPortada.webp";
+                    }
+
+                    // Modificar el libro con la foto correspondiente
                     LibroRepository libroRepository = new LibroRepository();
                     LibroCEN libroCEN = new LibroCEN(libroRepository);
                     libroCEN.ModificarLibro(
@@ -125,7 +213,7 @@ namespace WebApplication_ReadRate.Controllers
                         p_fechaPublicacion: libro.FechaPublicacion,
                         p_numPags: libro.NumPags,
                         p_sinopsis: libro.Sinopsis,
-                        p_fotoPortada: libro.FotoPortada,
+                        p_fotoPortada: fotoPortadaFileName,
                         p_valoracionMedia: libro.ValoracionMedia
                     );
                     return RedirectToAction(nameof(Index));
@@ -143,12 +231,22 @@ namespace WebApplication_ReadRate.Controllers
         // GET: LibroController/Delete/5
         public ActionResult Delete(int id)
         {
-            LibroRepository libroRepository = new LibroRepository();
+            SessionInitialize();
+            LibroRepository libroRepository = new LibroRepository(session);
             LibroCEN libroCEN = new LibroCEN(libroRepository);
 
             LibroEN libroEN = libroCEN.DameLibroPorOID(id);
+            
+            // Forzar la carga del Autor antes de cerrar la sesión
+            if (libroEN?.AutorPublicador != null)
+            {
+                var autorCargado = libroEN.AutorPublicador.Id;
+                var nombreAutor = libroEN.AutorPublicador.NombreUsuario;
+            }
+            
             LibroViewModel libroVM = new LibroAssembler().ConvertirENToViewModel(libroEN);
 
+            SessionClose();
             return View(libroVM);
         }
 

@@ -32,5 +32,10 @@ AutorEN DameAutorPorOID (int id
 
 
 System.Collections.Generic.IList<AutorEN> DameTodosAutores (int first, int size);
+
+
+void InscribirAutorAEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs);
+
+void DesinscribirAutorDeEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs);
 }
 }

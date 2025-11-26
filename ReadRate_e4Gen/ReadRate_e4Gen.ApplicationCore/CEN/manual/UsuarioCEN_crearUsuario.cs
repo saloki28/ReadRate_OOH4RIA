@@ -15,7 +15,7 @@ namespace ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4
 {
 public partial class UsuarioCEN
 {
-private int CrearUsuario (string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass)
+private int CrearUsuario (string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones)
 {
         /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4_Usuario_crearUsuario_customized) ENABLED START*/
 

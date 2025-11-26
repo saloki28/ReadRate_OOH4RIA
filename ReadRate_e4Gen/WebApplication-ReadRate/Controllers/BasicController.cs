@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-// using ISession = Microsoft.AspNetCore.Http.ISession;
 using ISession = NHibernate.ISession;
 
 namespace WebApplication_ReadRate.Controllers

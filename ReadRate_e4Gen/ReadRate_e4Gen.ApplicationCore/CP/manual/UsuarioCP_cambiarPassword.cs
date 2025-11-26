@@ -52,18 +52,12 @@ public void CambiarPassword (int p_oid, string p_oldPass, string p_newPass)
 
                 usuario.Pass = Utils.Util.GetEncondeMD5 (p_newPass);
 
-                //Console.WriteLine("---------------");
-                //Console.WriteLine(usuario.GetType().Name);
-                //Console.WriteLine(typeof(LectorEN));
-                //Console.WriteLine(usuario.GetType().Name == "LectorNH");
-
                 if (usuario.GetType ().Name == "LectorNH") {
                         lectorCEN.get_ILectorRepository ().ModificarLector (usuario as LectorEN);
                 }
                 else{
                         autorCEN.get_IAutorRepository ().ModificarAutor (usuario as AutorEN);
                 }
-                //usuarioCEN.get_IUsuarioRepository().ModificarUsuario (usuario);
 
                 CPSession.Commit ();
         }

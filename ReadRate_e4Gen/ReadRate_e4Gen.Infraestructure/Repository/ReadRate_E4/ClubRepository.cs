@@ -114,8 +114,8 @@ public void ModifyDefault (ClubEN club)
 
 
 
-
                 clubNH.MiembrosActuales = club.MiembrosActuales;
+
 
                 session.Update (clubNH);
                 SessionCommit ();
@@ -136,17 +136,17 @@ public void ModifyDefault (ClubEN club)
 }
 
 
-public int CearClub (ClubEN club)
+public int CrearClub (ClubEN club)
 {
         ClubNH clubNH = new ClubNH (club);
 
         try
         {
                 SessionInitializeTransaction ();
-                if (club.UsuarioPropietario != null) {
-                        // p_usuarioPropietario
-                        club.UsuarioPropietario.ClubCreado.Add (clubNH);
-                        session.Save (clubNH.UsuarioPropietario);
+                if (club.LectorPropietario != null) {
+                        // p_lectorPropietario
+                        club.LectorPropietario.ClubCreado.Add (clubNH);
+                        session.Save (clubNH.LectorPropietario);
                 }
 
                 session.Save (clubNH);

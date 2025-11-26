@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReadRate_e4Gen.ApplicationCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc4d5144110a38e0a1ba7865794d91aaa611ec4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+add1f97ed17018612502817b77be6ebe6c292e83")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReadRate_e4Gen.ApplicationCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReadRate_e4Gen.ApplicationCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

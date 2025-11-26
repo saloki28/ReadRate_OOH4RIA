@@ -10,44 +10,39 @@ using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 
 
 
-/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_desuscribirDeClub) ENABLED START*/
+/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Lector_desuscribirLectorDeClub) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 {
-public partial class UsuarioCP : GenericBasicCP
+public partial class LectorCP : GenericBasicCP
 {
-public void DesuscribirDeClub (int p_Usuario_OID, System.Collections.Generic.IList<int> p_clubSuscrito_OIDs)
+public void DesuscribirLectorDeClub (int p_Lector_OID, System.Collections.Generic.IList<int> p_clubSuscritoLector_OIDs)
 {
-        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_desuscribirDeClub) ENABLED START*/
+        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Lector_desuscribirLectorDeClub) ENABLED START*/
 
-        UsuarioCEN usuarioCEN = null;
         LectorCEN lectorCEN = null;
-
-
         ClubCEN clubCEN = null;
         ClubEN clubEN = null;
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
-                usuarioCEN = new UsuarioCEN (CPSession.UnitRepo.UsuarioRepository);
-                clubCEN = new ClubCEN (CPSession.UnitRepo.ClubRepository);
                 lectorCEN = new LectorCEN (CPSession.UnitRepo.LectorRepository);
+                clubCEN = new ClubCEN (CPSession.UnitRepo.ClubRepository);
 
-                UsuarioEN usuarioEN = usuarioCEN.DameUsuarioPorOID (p_Usuario_OID);
-                LectorEN lectorEN = lectorCEN.DameLectorPorOID (p_Usuario_OID);
+                LectorEN lectorEN = lectorCEN.DameLectorPorOID (p_Lector_OID);
                 var existe = false;
 
-                foreach (int clubId in p_clubSuscrito_OIDs) {
+                foreach (int clubId in p_clubSuscritoLector_OIDs) {
                         existe = false;
-                        foreach (ClubEN clubUsuarioEN in usuarioEN.ClubSuscrito) {
-                                if (clubUsuarioEN.Id == clubId) {
+                        foreach (ClubEN clubLectorEN in lectorEN.ClubSuscritoLector) {
+                                if (clubLectorEN.Id == clubId) {
                                         existe = true;
-                                        clubUsuarioEN.MiembrosActuales -= 1; //disminuir miembros actuales
-                                        clubCEN.get_IClubRepository ().ModificarClub (clubUsuarioEN); //guardar cambios
-                                        lectorEN.CantClubsSuscritos -= 1; //disminuir contador de clubs suscritos
+                                        clubLectorEN.MiembrosActuales -= 1; // Disminuir miembros actuales en Club
+                                        clubCEN.get_IClubRepository ().ModificarClub (clubLectorEN); // Guardar cambios
+                                        lectorEN.CantClubsSuscritos -= 1; // Disminuir contador de clubs suscritos en lector
                                         break;
                                 }
                         }
@@ -74,6 +69,7 @@ public void DesuscribirDeClub (int p_Usuario_OID, System.Collections.Generic.ILi
         {
                 CPSession.SessionClose ();
         }
+
 
 
         /*PROTECTED REGION END*/

@@ -35,14 +35,6 @@ System.Collections.Generic.IList<UsuarioEN> DameTodosUsuarios (int first, int si
 
 
 
-void SuscribirAClub (int p_Usuario_OID, System.Collections.Generic.IList<int> p_clubSuscrito_OIDs);
-
-void DesuscribirDeClub (int p_Usuario_OID, System.Collections.Generic.IList<int> p_clubSuscrito_OIDs);
-
-void InscribirAEvento (int p_Usuario_OID, System.Collections.Generic.IList<int> p_evento_OIDs);
-
-void DesinscribirDeEvento (int p_Usuario_OID, System.Collections.Generic.IList<int> p_evento_OIDs);
-
 System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorEmail (string p_email);
 }
 }

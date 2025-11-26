@@ -108,6 +108,12 @@ public void ModifyDefault (NotificacionEN notificacion)
 
 
 
+
+                notificacionNH.TituloResumen = notificacion.TituloResumen;
+
+
+                notificacionNH.TextoCuerpo = notificacion.TextoCuerpo;
+
                 session.Update (notificacionNH);
                 SessionCommit ();
         }
@@ -134,46 +140,6 @@ public int CrearNotificacion (NotificacionEN notificacion)
         try
         {
                 SessionInitializeTransaction ();
-                if (notificacion.NoticiaNotificada != null) {
-                        // Argumento OID y no colección.
-                        notificacionNH
-                        .NoticiaNotificada = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN)session.Load (typeof(ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN), notificacion.NoticiaNotificada.Id);
-
-                        notificacionNH.NoticiaNotificada.NotificacionNoticia
-                        .Add (notificacionNH);
-                }
-                if (notificacion.EventoNotificado != null) {
-                        // Argumento OID y no colección.
-                        notificacionNH
-                        .EventoNotificado = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN), notificacion.EventoNotificado.Id);
-
-                        notificacionNH.EventoNotificado.NotificacionEvento
-                        .Add (notificacionNH);
-                }
-                if (notificacion.ClubNotificado != null) {
-                        // Argumento OID y no colección.
-                        notificacionNH
-                        .ClubNotificado = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN)session.Load (typeof(ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN), notificacion.ClubNotificado.Id);
-
-                        notificacionNH.ClubNotificado.NotificacionClub
-                        .Add (notificacionNH);
-                }
-                if (notificacion.AutorAvisado != null) {
-                        // Argumento OID y no colección.
-                        notificacionNH
-                        .AutorAvisado = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN)session.Load (typeof(ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN), notificacion.AutorAvisado.Id);
-
-                        notificacionNH.AutorAvisado.AvisoReseña
-                        .Add (notificacionNH);
-                }
-                if (notificacion.ReseñaNotificada != null) {
-                        // Argumento OID y no colección.
-                        notificacionNH
-                        .ReseñaNotificada = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN)session.Load (typeof(ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN), notificacion.ReseñaNotificada.Id);
-
-                        notificacionNH.ReseñaNotificada.NotificacionReseña
-                        .Add (notificacionNH);
-                }
 
                 session.Save (notificacionNH);
                 SessionCommit ();
@@ -206,6 +172,12 @@ public void ModificarNotificacion (NotificacionEN notificacion)
 
 
                 notificacionNH.Concepto = notificacion.Concepto;
+
+
+                notificacionNH.TituloResumen = notificacion.TituloResumen;
+
+
+                notificacionNH.TextoCuerpo = notificacion.TextoCuerpo;
 
                 session.Update (notificacionNH);
                 SessionCommit ();
@@ -305,24 +277,24 @@ public System.Collections.Generic.IList<NotificacionEN> DameTodosNotificaciones 
         return result;
 }
 
-public void VincularNotificacionAUsuario (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_usuarioNotificado_OIDs)
+public void VincularNotificacionAutor (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_autorNotificado_OIDs)
 {
         ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN notificacionEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN usuarioNotificadoENAux = null;
-                if (notificacionEN.UsuarioNotificado == null) {
-                        notificacionEN.UsuarioNotificado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN>();
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorNotificadoENAux = null;
+                if (notificacionEN.AutorNotificado == null) {
+                        notificacionEN.AutorNotificado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN>();
                 }
 
-                foreach (int item in p_usuarioNotificado_OIDs) {
-                        usuarioNotificadoENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN ();
-                        usuarioNotificadoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH), item);
-                        usuarioNotificadoENAux.Notificacion.Add (notificacionEN);
+                foreach (int item in p_autorNotificado_OIDs) {
+                        autorNotificadoENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN ();
+                        autorNotificadoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH), item);
+                        autorNotificadoENAux.NotificacionAutor.Add (notificacionEN);
 
-                        notificacionEN.UsuarioNotificado.Add (usuarioNotificadoENAux);
+                        notificacionEN.AutorNotificado.Add (autorNotificadoENAux);
                 }
 
 
@@ -344,7 +316,7 @@ public void VincularNotificacionAUsuario (int p_Notificacion_OID, System.Collect
         }
 }
 
-public void DesvincularNotificacionAUsuario (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_usuarioNotificado_OIDs)
+public void DesvincularNotificacionAutor (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_autorNotificado_OIDs)
 {
         try
         {
@@ -352,16 +324,93 @@ public void DesvincularNotificacionAUsuario (int p_Notificacion_OID, System.Coll
                 ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN notificacionEN = null;
                 notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
 
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN usuarioNotificadoENAux = null;
-                if (notificacionEN.UsuarioNotificado != null) {
-                        foreach (int item in p_usuarioNotificado_OIDs) {
-                                usuarioNotificadoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH), item);
-                                if (notificacionEN.UsuarioNotificado.Contains (usuarioNotificadoENAux) == true) {
-                                        notificacionEN.UsuarioNotificado.Remove (usuarioNotificadoENAux);
-                                        usuarioNotificadoENAux.Notificacion.Remove (notificacionEN);
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN autorNotificadoENAux = null;
+                if (notificacionEN.AutorNotificado != null) {
+                        foreach (int item in p_autorNotificado_OIDs) {
+                                autorNotificadoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH), item);
+                                if (notificacionEN.AutorNotificado.Contains (autorNotificadoENAux) == true) {
+                                        notificacionEN.AutorNotificado.Remove (autorNotificadoENAux);
+                                        autorNotificadoENAux.NotificacionAutor.Remove (notificacionEN);
                                 }
                                 else
-                                        throw new ModelException ("The identifier " + item + " in p_usuarioNotificado_OIDs you are trying to unrelationer, doesn't exist in NotificacionEN");
+                                        throw new ModelException ("The identifier " + item + " in p_autorNotificado_OIDs you are trying to unrelationer, doesn't exist in NotificacionEN");
+                        }
+                }
+
+                session.Update (notificacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in NotificacionRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void VincularNotificacionLector (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_lectorNotificado_OIDs)
+{
+        ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN notificacionEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorNotificadoENAux = null;
+                if (notificacionEN.LectorNotificado == null) {
+                        notificacionEN.LectorNotificado = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN>();
+                }
+
+                foreach (int item in p_lectorNotificado_OIDs) {
+                        lectorNotificadoENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN ();
+                        lectorNotificadoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH), item);
+                        lectorNotificadoENAux.NotificacionLector.Add (notificacionEN);
+
+                        notificacionEN.LectorNotificado.Add (lectorNotificadoENAux);
+                }
+
+
+                session.Update (notificacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in NotificacionRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DesvincularNotificacionLector (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_lectorNotificado_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN notificacionEN = null;
+                notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
+
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorNotificadoENAux = null;
+                if (notificacionEN.LectorNotificado != null) {
+                        foreach (int item in p_lectorNotificado_OIDs) {
+                                lectorNotificadoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH), item);
+                                if (notificacionEN.LectorNotificado.Contains (lectorNotificadoENAux) == true) {
+                                        notificacionEN.LectorNotificado.Remove (lectorNotificadoENAux);
+                                        lectorNotificadoENAux.NotificacionLector.Remove (notificacionEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_lectorNotificado_OIDs you are trying to unrelationer, doesn't exist in NotificacionEN");
                         }
                 }
 

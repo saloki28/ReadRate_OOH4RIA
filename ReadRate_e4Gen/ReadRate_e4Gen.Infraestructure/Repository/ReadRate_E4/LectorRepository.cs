@@ -112,6 +112,10 @@ public void ModifyDefault (LectorEN lector)
 
 
 
+
+
+
+
                 session.Update (lectorNH);
                 SessionCommit ();
         }
@@ -188,6 +192,9 @@ public void ModificarLector (LectorEN lector)
 
 
                 lectorNH.Pass = lector.Pass;
+
+
+                lectorNH.NumModificaciones = lector.NumModificaciones;
 
 
                 lectorNH.CantLibrosCurso = lector.CantLibrosCurso;
@@ -510,6 +517,160 @@ public void DesasignarLibroListaEnCurso (int p_Lector_OID, System.Collections.Ge
                                 }
                                 else
                                         throw new ModelException ("The identifier " + item + " in p_libroEnCurso_OIDs you are trying to unrelationer, doesn't exist in LectorEN");
+                        }
+                }
+
+                session.Update (lectorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in LectorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void InscribirLectorAEvento (int p_Lector_OID, System.Collections.Generic.IList<int> p_eventoLector_OIDs)
+{
+        ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                lectorEN = (LectorEN)session.Load (typeof(LectorNH), p_Lector_OID);
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoLectorENAux = null;
+                if (lectorEN.EventoLector == null) {
+                        lectorEN.EventoLector = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN>();
+                }
+
+                foreach (int item in p_eventoLector_OIDs) {
+                        eventoLectorENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN ();
+                        eventoLectorENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH), item);
+                        eventoLectorENAux.LectorParticipante.Add (lectorEN);
+
+                        lectorEN.EventoLector.Add (eventoLectorENAux);
+                }
+
+
+                session.Update (lectorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in LectorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DesinscribirLectorDeEvento (int p_Lector_OID, System.Collections.Generic.IList<int> p_eventoLector_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorEN = null;
+                lectorEN = (LectorEN)session.Load (typeof(LectorNH), p_Lector_OID);
+
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoLectorENAux = null;
+                if (lectorEN.EventoLector != null) {
+                        foreach (int item in p_eventoLector_OIDs) {
+                                eventoLectorENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH), item);
+                                if (lectorEN.EventoLector.Contains (eventoLectorENAux) == true) {
+                                        lectorEN.EventoLector.Remove (eventoLectorENAux);
+                                        eventoLectorENAux.LectorParticipante.Remove (lectorEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_eventoLector_OIDs you are trying to unrelationer, doesn't exist in LectorEN");
+                        }
+                }
+
+                session.Update (lectorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in LectorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void SuscribirLectorAClub (int p_Lector_OID, System.Collections.Generic.IList<int> p_clubSuscritoLector_OIDs)
+{
+        ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                lectorEN = (LectorEN)session.Load (typeof(LectorNH), p_Lector_OID);
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubSuscritoLectorENAux = null;
+                if (lectorEN.ClubSuscritoLector == null) {
+                        lectorEN.ClubSuscritoLector = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN>();
+                }
+
+                foreach (int item in p_clubSuscritoLector_OIDs) {
+                        clubSuscritoLectorENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN ();
+                        clubSuscritoLectorENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH), item);
+                        clubSuscritoLectorENAux.LectorMiembro.Add (lectorEN);
+
+                        lectorEN.ClubSuscritoLector.Add (clubSuscritoLectorENAux);
+                }
+
+
+                session.Update (lectorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in LectorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DesuscribirLectorDeClub (int p_Lector_OID, System.Collections.Generic.IList<int> p_clubSuscritoLector_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorEN = null;
+                lectorEN = (LectorEN)session.Load (typeof(LectorNH), p_Lector_OID);
+
+                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubSuscritoLectorENAux = null;
+                if (lectorEN.ClubSuscritoLector != null) {
+                        foreach (int item in p_clubSuscritoLector_OIDs) {
+                                clubSuscritoLectorENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH), item);
+                                if (lectorEN.ClubSuscritoLector.Contains (clubSuscritoLectorENAux) == true) {
+                                        lectorEN.ClubSuscritoLector.Remove (clubSuscritoLectorENAux);
+                                        clubSuscritoLectorENAux.LectorMiembro.Remove (lectorEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_clubSuscritoLector_OIDs you are trying to unrelationer, doesn't exist in LectorEN");
                         }
                 }
 

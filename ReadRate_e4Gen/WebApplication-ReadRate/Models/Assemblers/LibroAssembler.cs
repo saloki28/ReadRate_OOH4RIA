@@ -11,11 +11,13 @@ namespace WebApplication_ReadRate.Models.Assemblers
             libroVM.Titulo = libroEN.Titulo;
             libroVM.Genero = libroEN.Genero;
             libroVM.EdadRecomendada = libroEN.EdadRecomendada;
-            libroVM.FechaPublicacion = libroEN.FechaPublicacion.HasValue ? libroEN.FechaPublicacion.Value : DateTime.MinValue;
+            libroVM.FechaPublicacion = libroEN.FechaPublicacion ?? DateTime.MinValue;
             libroVM.NumPags = libroEN.NumPags;
             libroVM.Sinopsis = libroEN.Sinopsis;
-            libroVM.FotoPortada = libroEN.FotoPortada;
+            libroVM.FotoPortadaUrl = libroEN.FotoPortada; // String de la BD
             libroVM.ValoracionMedia = libroEN.ValoracionMedia;
+            libroVM.AutorId = libroEN.AutorPublicador.Id;
+            libroVM.NombreAutor = libroEN.AutorPublicador.NombreUsuario != null ? libroEN.AutorPublicador.NombreUsuario : string.Empty;
             return libroVM;
         }
 

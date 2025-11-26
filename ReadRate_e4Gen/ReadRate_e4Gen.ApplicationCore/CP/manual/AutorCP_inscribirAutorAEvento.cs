@@ -10,34 +10,33 @@ using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 
 
 
-/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_inscribirAEvento) ENABLED START*/
+/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Autor_inscribirAutorAEvento) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 {
-public partial class UsuarioCP : GenericBasicCP
+public partial class AutorCP : GenericBasicCP
 {
-public void InscribirAEvento (int p_Usuario_OID, System.Collections.Generic.IList<int> p_evento_OIDs)
+public void InscribirAutorAEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs)
 {
-        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_inscribirAEvento) ENABLED START*/
+        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Autor_inscribirAutorAEvento) ENABLED START*/
 
-        IUsuarioRepository usuarioRepository = null;
+        IAutorRepository autorRepository = null;
         IEventoRepository eventoRepository = null;
 
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
-                usuarioRepository = CPSession.UnitRepo.UsuarioRepository;
+                autorRepository = CPSession.UnitRepo.AutorRepository;
                 eventoRepository = CPSession.UnitRepo.EventoRepository;
 
-
-                //comprobar aforo maximo, verificar que no está inscrito y aumentar aforo actual
-                foreach (int eventoId in p_evento_OIDs) { //evento a inscribir
+                // Comprobar aforo maximo, verificar que no está inscrito y aumentar aforo actual
+                foreach (int eventoId in p_eventoAutor_OIDs) { // Evento a inscribir
                         EventoEN eventoEN = eventoRepository.DameEventoPorOID (eventoId);
 
-                        if (eventoEN.AforoActual >= eventoEN.AforoMax) { //aforo maximo alcanzado
+                        if (eventoEN.AforoActual >= eventoEN.AforoMax) { // Aforo maximo alcanzado
                                 throw new ModelException ("No se puede inscribir al evento " + eventoEN.Nombre + " porque ha alcanzado su aforo máximo.");
                         }
 
@@ -45,9 +44,9 @@ public void InscribirAEvento (int p_Usuario_OID, System.Collections.Generic.ILis
                         bool usuarioYaInscrito = false;
 
                         try {
-                                if (eventoEN.UsuarioParticipante != null && eventoEN.UsuarioParticipante.Count > 0) {
-                                        foreach (var participante in eventoEN.UsuarioParticipante) {
-                                                if (participante.Id == p_Usuario_OID) {
+                                if (eventoEN.AutorParticipante != null && eventoEN.AutorParticipante.Count > 0) {
+                                        foreach (var participante in eventoEN.AutorParticipante) {
+                                                if (participante.Id == p_Autor_OID) {
                                                         usuarioYaInscrito = true;
                                                         break;
                                                 }
@@ -61,12 +60,11 @@ public void InscribirAEvento (int p_Usuario_OID, System.Collections.Generic.ILis
                                 throw new ModelException ("No se puede inscribir al evento " + eventoEN.Nombre + " porque el usuario ya está inscrito en el evento.");
                         }
 
-                        eventoEN.AforoActual += 1; //aumentar aforo actual
+                        eventoEN.AforoActual += 1; // Aumentar aforo actual
                 }
 
                 // Ejecutar la inscripción
-                usuarioRepository.InscribirAEvento (p_Usuario_OID, p_evento_OIDs);
-
+                autorRepository.InscribirAutorAEvento (p_Autor_OID, p_eventoAutor_OIDs);
 
                 CPSession.Commit ();
         }

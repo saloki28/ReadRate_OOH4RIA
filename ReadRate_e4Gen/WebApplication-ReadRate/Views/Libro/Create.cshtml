@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Crear Libro";
+
+    IEnumerable<SelectListItem> listaAutores = (IEnumerable<SelectListItem>)ViewData["listaAutores"];   
 }
 
 <!DOCTYPE html>
@@ -43,7 +45,7 @@
         
         .container {
             max-width: 800px;
-            margin: 0 auto 3rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
         
@@ -77,6 +79,26 @@
         }
         
         .form-control:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
+        }
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 2.5rem 0.8rem 1rem;
+            border: 2px solid #ffe0b2;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: #fff;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23e65100' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+        }
+        .form-select:focus {
             outline: none;
             border-color: #ff9800;
             box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
@@ -159,7 +181,7 @@
     
     <div class="container">
         <div class="form-card">
-            <form asp-action="Create" method="post">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
                 
                 <div class="form-group">
@@ -184,13 +206,6 @@
                 </div>
                 
                 <div class="form-group">
-                    <label asp-for="FechaPublicacion" class="control-label"></label>
-                    <input asp-for="FechaPublicacion" class="form-control" type="date" />
-                    <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
-                    <small class="form-hint">Fecha en formato dd/mm/yyyy</small>
-                </div>
-                
-                <div class="form-group">
                     <label asp-for="NumPags" class="control-label"></label>
                     <input asp-for="NumPags" class="form-control" type="number" min="1" max="10000" placeholder="Ej: 320" />
                     <span asp-validation-for="NumPags" class="text-danger"></span>
@@ -206,9 +221,9 @@
                 
                 <div class="form-group">
                     <label asp-for="FotoPortada" class="control-label"></label>
-                    <input asp-for="FotoPortada" class="form-control" placeholder="Ej: portada_libro.jpg" />
+                    <input asp-for="FotoPortada" class="form-control" type="file" />
                     <span asp-validation-for="FotoPortada" class="text-danger"></span>
-                    <small class="form-hint">Nombre con fromato del archivo de imagen de la portada</small>
+                    <small class="form-hint">Imagen de la portada (formatos aceptados: .jpg, .png, .gif)</small>
                 </div>
                 
                 <div class="form-group">
@@ -219,10 +234,10 @@
                 </div>
                 
                 <div class="form-group">
-                    <label asp-for="AutorPublicadorId" class="control-label">ID del Autor</label>
-                    <input asp-for="AutorPublicadorId" class="form-control" type="number" placeholder="Ej: 32774" />
-                    <span asp-validation-for="AutorPublicadorId" class="text-danger"></span>
-                    <small class="form-hint">Identificador del autor que publica el libro</small>
+                    <label asp-for="AutorId" class="control-label">Autor/a del Libro</label>
+                    <select class="form-select" asp-for="AutorId" asp-items="listaAutores"></select>
+                    <span asp-validation-for="AutorId" class="text-danger"></span>
+                    <small class="form-hint">Nombre del autor/a del libro</small>
                 </div>
                 
                 <div class="form-actions">

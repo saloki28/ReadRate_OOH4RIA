@@ -47,17 +47,6 @@
 			
 			
 		  			
-						<bag name="UsuarioParticipante" table="[usuario_evento]" inverse="true" >
-							<key>
-								
-									<column name="FK_idEvento_idEvento"/> 
-							</key>
-      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH">
-									<column name="FK_idUsuario_idUsuarioParticipante"/> 
-      						</many-to-many>
-    					</bag>
-			
-		  			
 						<many-to-one name="AdministradorEventos" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AdministradorNH" >	
 								<column name="FK_idAdministrador_idAdministrador"/> 
 						</many-to-one>
@@ -74,6 +63,29 @@
 					    </bag>
 					
 			
+			
+		  			
+						<bag name="AutorParticipante" table="[autor_evento]" inverse="true" >
+							<key>
+								
+									<column name="FK_idEvento_idEventoAutor"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH">
+									<column name="FK_idUsuario_idAutorParticipante"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="LectorParticipante" table="[lector_evento]" inverse="true" >
+							<key>
+								
+									<column name="FK_idEvento_idEventoLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH">
+									<column name="FK_idUsuario_idLectorParticipante"/> 
+      						</many-to-many>
+    					</bag>
+					
 					
 					
 					

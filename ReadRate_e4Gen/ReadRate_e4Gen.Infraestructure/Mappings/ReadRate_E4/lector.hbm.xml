@@ -77,6 +77,54 @@
 							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ReseñaNH"/>
 					    </bag>
 					
+			
+		  			
+						<bag name="EventoLector" table="[lector_evento]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idLectorParticipante"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH">
+									<column name="FK_idEvento_idEventoLector"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="ClubSuscritoLector" table="[lector_club]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idLectorMiembro"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH">
+									<column name="FK_idClub_idClubSuscritoLector"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="NotificacionLector" table="[lector_notificacion]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idLectorNotificado"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NotificacionNH">
+									<column name="FK_idNotificacion_idNotificacionLector"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="ClubCreado" >
+							<key>
+							
+								
+								<column name="FK_idUsuario_idLectorPopietario"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH"/>
+					    </bag>
+					
+					
+					
+					
+					
 					
 					
 					

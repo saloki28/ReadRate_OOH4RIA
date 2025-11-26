@@ -43,7 +43,7 @@
         
         .container {
             max-width: 800px;
-            margin: 0 auto 3rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
         
@@ -59,6 +59,14 @@
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 2px solid #ffe0b2;
+        }
+
+        .detail-row-foto {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #ffe0b2;
+            justify-content: center;
         }
         
         .detail-row:last-child {
@@ -135,6 +143,14 @@
     
     <div class="container">
         <div class="details-card">
+
+            @if(Model != null && !string.IsNullOrEmpty(Model.FotoPortadaUrl))
+            {
+                <div class="detail-row-foto">
+                    <img src="@Model.FotoPortadaUrl" alt="Portada del libro" style="max-width: 200px; height: auto; border-radius: 10px;">
+                </div>
+            }
+            
             <div class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Titulo)</div>
@@ -166,17 +182,12 @@
             </div>
             
             <div class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.FotoPortada)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.FotoPortada)</div>
-            </div>
-            
-            <div class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.ValoracionMedia) / 5.0</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.ValoracionMedia) / 5</div>
             </div>
             
             <div class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.NombreAutor)</div>
+                <div class="detail-label">Nombre del Autor/a</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.NombreAutor)</div>
             </div>
             

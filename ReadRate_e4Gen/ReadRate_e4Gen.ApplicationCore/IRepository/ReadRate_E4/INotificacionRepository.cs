@@ -34,8 +34,12 @@ NotificacionEN DameNotificacionPorOID (int id
 System.Collections.Generic.IList<NotificacionEN> DameTodosNotificaciones (int first, int size);
 
 
-void VincularNotificacionAUsuario (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_usuarioNotificado_OIDs);
+void VincularNotificacionAutor (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_autorNotificado_OIDs);
 
-void DesvincularNotificacionAUsuario (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_usuarioNotificado_OIDs);
+void DesvincularNotificacionAutor (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_autorNotificado_OIDs);
+
+void VincularNotificacionLector (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_lectorNotificado_OIDs);
+
+void DesvincularNotificacionLector (int p_Notificacion_OID, System.Collections.Generic.IList<int> p_lectorNotificado_OIDs);
 }
 }

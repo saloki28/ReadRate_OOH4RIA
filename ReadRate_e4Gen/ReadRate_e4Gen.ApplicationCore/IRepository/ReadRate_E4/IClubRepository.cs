@@ -18,7 +18,7 @@ System.Collections.Generic.IList<ClubEN> ReadAllDefault (int first, int size);
 
 
 
-int CearClub (ClubEN club);
+int CrearClub (ClubEN club);
 
 void ModificarClub (ClubEN club);
 

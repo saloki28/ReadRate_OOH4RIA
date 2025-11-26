@@ -18,21 +18,16 @@
 					<property name="Concepto" > 
 						<column name="concepto"  not-null="true"/>
 					</property>
+					<property name="TituloResumen" type="string"> 
+						<column name="tituloResumen"  not-null="true"/>
+					</property>
+					<property name="TextoCuerpo" type="string"> 
+						<column name="textoCuerpo"  not-null="true"/>
+					</property>
 			
 			
 			
 			
-			
-		  			
-						<bag name="UsuarioNotificado" table="[usuario_notificacion]" inverse="true" >
-							<key>
-								
-									<column name="FK_idNotificacion_idNotificacion"/> 
-							</key>
-      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.UsuarioNH">
-									<column name="FK_idUsuario_idUsuarioNotificado"/> 
-      						</many-to-many>
-    					</bag>
 			
 		  			
 						<many-to-one name="NoticiaNotificada" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NoticiaNH" >	
@@ -53,16 +48,36 @@
 											 					
 			
 		  			
-						<many-to-one name="AutorAvisado" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH" >	
-								<column name="FK_idUsuario_idAutor"/> 
-						</many-to-one>
-											 					
-			
-		  			
 						<many-to-one name="ReseñaNotificada" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ReseñaNH" >	
 								<column name="FK_idReseña_idReseña"/> 
 						</many-to-one>
 											 					
+			
+		  			
+						<bag name="AutorNotificado" table="[autor_notificacion]" inverse="true" >
+							<key>
+								
+									<column name="FK_idNotificacion_idNotificacionAutor"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH">
+									<column name="FK_idUsuario_idAutorNotificado"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="LectorNotificado" table="[lector_notificacion]" inverse="true" >
+							<key>
+								
+									<column name="FK_idNotificacion_idNotificacionLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH">
+									<column name="FK_idUsuario_idLectorNotificado"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+					
+					
 					
 					
 					

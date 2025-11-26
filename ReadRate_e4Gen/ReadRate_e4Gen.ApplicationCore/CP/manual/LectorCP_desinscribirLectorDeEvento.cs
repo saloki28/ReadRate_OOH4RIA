@@ -10,46 +10,46 @@ using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 
 
 
-/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_desinscribirDeEvento) ENABLED START*/
+/*PROTECTED REGION ID(usingReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Lector_desinscribirLectorDeEvento) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 {
-public partial class UsuarioCP : GenericBasicCP
+public partial class LectorCP : GenericBasicCP
 {
-public void DesinscribirDeEvento (int p_Usuario_OID, System.Collections.Generic.IList<int> p_evento_OIDs)
+public void DesinscribirLectorDeEvento (int p_Lector_OID, System.Collections.Generic.IList<int> p_eventoLector_OIDs)
 {
-        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Usuario_desinscribirDeEvento) ENABLED START*/
+        /*PROTECTED REGION ID(ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4_Lector_desinscribirLectorDeEvento) ENABLED START*/
 
-        IUsuarioRepository usuarioRepository = null;
+        ILectorRepository lectorRepository = null;
         IEventoRepository eventoRepository = null;
 
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
-                usuarioRepository = CPSession.UnitRepo.UsuarioRepository;
+                lectorRepository = CPSession.UnitRepo.LectorRepository;
                 eventoRepository = CPSession.UnitRepo.EventoRepository;
 
                 //diminuir aforo actual y validar inscripción
-                foreach (int eventoId in p_evento_OIDs) { //evento a desinscribir
+                foreach (int eventoId in p_eventoLector_OIDs) { // Evento a desinscribir
                         EventoEN eventoEN = eventoRepository.DameEventoPorOID (eventoId);
 
-                        if (eventoEN.AforoActual <= 0) { //no hay gente inscrita
-                                throw new ModelException ("No hay gente inscrita en el evento: " + eventoEN.Nombre);
+                        if (eventoEN.AforoActual <= 0) { // No hay gente inscrita
+                                throw new ModelException ("No hay usuarios inscritos en el evento: " + eventoEN.Nombre);
                         }
 
-                        // Obtener el evento con sus usuarios participantes para verificar inscripción
-                        // Nota: Esto puede causar lazy loading de la colección UsuarioParticipante
-                        bool usuarioInscrito = false;
+                        // Obtener el evento con sus lectores participantes para verificar inscripción
+                        // Nota: Esto puede causar lazy loading de la colección LectorParticipante
+                        bool lectorInscrito = false;
 
                         // Intentar buscar en la colección de participantes
                         try {
-                                if (eventoEN.UsuarioParticipante != null && eventoEN.UsuarioParticipante.Count > 0) {
-                                        foreach (var participante in eventoEN.UsuarioParticipante) {
-                                                if (participante.Id == p_Usuario_OID) {
-                                                        usuarioInscrito = true;
+                                if (eventoEN.LectorParticipante != null && eventoEN.LectorParticipante.Count > 0) {
+                                        foreach (var participante in eventoEN.LectorParticipante) {
+                                                if (participante.Id == p_Lector_OID) {
+                                                        lectorInscrito = true;
                                                         break;
                                                 }
                                         }
@@ -59,7 +59,7 @@ public void DesinscribirDeEvento (int p_Usuario_OID, System.Collections.Generic.
                                 // (esto no debería pasar si la relación está bien configurada)
                         }
 
-                        if (!usuarioInscrito) {
+                        if (!lectorInscrito) {
                                 throw new ModelException ("El usuario no está inscrito en el evento: " + eventoEN.Nombre);
                         }
 
@@ -67,7 +67,7 @@ public void DesinscribirDeEvento (int p_Usuario_OID, System.Collections.Generic.
                 }
 
                 // Ejecutar la desinscripción
-                usuarioRepository.DesinscribirDeEvento (p_Usuario_OID, p_evento_OIDs);
+                lectorRepository.DesinscribirLectorDeEvento (p_Lector_OID, p_eventoLector_OIDs);
 
                 CPSession.Commit ();
         }

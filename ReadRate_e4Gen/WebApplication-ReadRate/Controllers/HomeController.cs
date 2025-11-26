@@ -18,14 +18,31 @@ namespace WebApplication_ReadRate.Controllers
 
         public IActionResult Index()
         {
-            LibroRepository libroRepo = new LibroRepository();
-            LibroCEN libroCEN = new LibroCEN(libroRepo);
-            IList<LibroEN> listaLibros = libroCEN.DameLibrosOrdenadosFecha();
-            
-            // Tomar solo los últimos 5 libros
-            var ultimos5Libros = listaLibros.Take(5).ToList();
-            
-            return View(ultimos5Libros);
+            var session = NHibernateHelper.OpenSession();
+            try
+            {
+                // Hacer la consulta directamente con la sesión abierta
+                var query = session.GetNamedQuery("LibroNHdameLibrosOrdenadosFechaHQL");
+                IList<LibroEN> listaLibros = query.List<LibroEN>();
+                
+                // Tomar solo los últimos 5 libros y forzar la carga del autor
+                var ultimos5Libros = listaLibros.Take(5).ToList();
+                
+                foreach (var libro in ultimos5Libros)
+                {
+                    var autorNombre = libro.AutorPublicador?.NombreUsuario;
+                }
+                
+                return View(ultimos5Libros);
+            }
+            finally
+            {
+                if (session != null && session.IsOpen)
+                {
+                    session.Close();
+                    session.Dispose();
+                }
+            }
         }
 
         public IActionResult Privacy()

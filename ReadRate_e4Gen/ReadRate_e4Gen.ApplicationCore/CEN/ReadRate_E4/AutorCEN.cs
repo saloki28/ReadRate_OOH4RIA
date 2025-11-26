@@ -30,7 +30,7 @@ public IAutorRepository get_IAutorRepository ()
         return this._IAutorRepository;
 }
 
-public int CrearAutor (string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numeroSeguidores, int p_cantidadLibrosPublicados, float p_valoracionMedia)
+public int CrearAutor (string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones, int p_numeroSeguidores, int p_cantidadLibrosPublicados, float p_valoracionMedia)
 {
         AutorEN autorEN = null;
         int oid;
@@ -53,6 +53,8 @@ public int CrearAutor (string p_email, string p_nombreUsuario, Nullable<DateTime
 
         autorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
 
+        autorEN.NumModificaciones = p_numModificaciones;
+
         autorEN.NumeroSeguidores = p_numeroSeguidores;
 
         autorEN.CantidadLibrosPublicados = p_cantidadLibrosPublicados;
@@ -65,7 +67,7 @@ public int CrearAutor (string p_email, string p_nombreUsuario, Nullable<DateTime
         return oid;
 }
 
-public void ModificarAutor (int p_Autor_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numeroSeguidores, int p_cantidadLibrosPublicados, float p_valoracionMedia)
+public void ModificarAutor (int p_Autor_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones, int p_numeroSeguidores, int p_cantidadLibrosPublicados, float p_valoracionMedia)
 {
         AutorEN autorEN = null;
 
@@ -80,18 +82,13 @@ public void ModificarAutor (int p_Autor_OID, string p_email, string p_nombreUsua
         autorEN.Foto = p_foto;
         autorEN.Rol = p_rol;
         autorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
+        autorEN.NumModificaciones = p_numModificaciones;
         autorEN.NumeroSeguidores = p_numeroSeguidores;
         autorEN.CantidadLibrosPublicados = p_cantidadLibrosPublicados;
         autorEN.ValoracionMedia = p_valoracionMedia;
         //Call to AutorRepository
 
         _IAutorRepository.ModificarAutor (autorEN);
-}
-
-public void EliminarAutor (int id
-                           )
-{
-        _IAutorRepository.EliminarAutor (id);
 }
 
 public AutorEN DameAutorPorOID (int id

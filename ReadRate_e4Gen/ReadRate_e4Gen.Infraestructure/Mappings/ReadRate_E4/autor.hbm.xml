@@ -53,14 +53,26 @@
 					
 			
 		  			
-						<bag name="AvisoReseña" >
+						<bag name="EventoAutor" table="[autor_evento]"  >
 							<key>
-							
 								
-								<column name="FK_idUsuario_idAutor"/>
-					      	</key>
-							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NotificacionNH"/>
-					    </bag>
+									<column name="FK_idUsuario_idAutorParticipante"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH">
+									<column name="FK_idEvento_idEventoAutor"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="NotificacionAutor" table="[autor_notificacion]"  >
+							<key>
+								
+									<column name="FK_idUsuario_idAutorNotificado"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NotificacionNH">
+									<column name="FK_idNotificacion_idNotificacionAutor"/> 
+      						</many-to-many>
+    					</bag>
 					
 					
 					

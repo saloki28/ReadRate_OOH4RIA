@@ -118,11 +118,10 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioNH.Rol = usuario.Rol;
 
 
-
-
-
-
                 usuarioNH.Pass = usuario.Pass;
+
+
+                usuarioNH.NumModificaciones = usuario.NumModificaciones;
 
                 session.Update (usuarioNH);
                 SessionCommit ();
@@ -200,6 +199,9 @@ public void ModificarUsuario (UsuarioEN usuario)
 
 
                 usuarioNH.Pass = usuario.Pass;
+
+
+                usuarioNH.NumModificaciones = usuario.NumModificaciones;
 
                 session.Update (usuarioNH);
                 SessionCommit ();
@@ -299,160 +301,6 @@ public System.Collections.Generic.IList<UsuarioEN> DameTodosUsuarios (int first,
         return result;
 }
 
-public void SuscribirAClub (int p_Usuario_OID, System.Collections.Generic.IList<int> p_clubSuscrito_OIDs)
-{
-        ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN usuarioEN = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioNH), p_Usuario_OID);
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubSuscritoENAux = null;
-                if (usuarioEN.ClubSuscrito == null) {
-                        usuarioEN.ClubSuscrito = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN>();
-                }
-
-                foreach (int item in p_clubSuscrito_OIDs) {
-                        clubSuscritoENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN ();
-                        clubSuscritoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH), item);
-                        clubSuscritoENAux.UsuarioMiembro.Add (usuarioEN);
-
-                        usuarioEN.ClubSuscrito.Add (clubSuscritoENAux);
-                }
-
-
-                session.Update (usuarioEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
-
-public void DesuscribirDeClub (int p_Usuario_OID, System.Collections.Generic.IList<int> p_clubSuscrito_OIDs)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN usuarioEN = null;
-                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioNH), p_Usuario_OID);
-
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN clubSuscritoENAux = null;
-                if (usuarioEN.ClubSuscrito != null) {
-                        foreach (int item in p_clubSuscrito_OIDs) {
-                                clubSuscritoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH), item);
-                                if (usuarioEN.ClubSuscrito.Contains (clubSuscritoENAux) == true) {
-                                        usuarioEN.ClubSuscrito.Remove (clubSuscritoENAux);
-                                        clubSuscritoENAux.UsuarioMiembro.Remove (usuarioEN);
-                                }
-                                else
-                                        throw new ModelException ("The identifier " + item + " in p_clubSuscrito_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
-                        }
-                }
-
-                session.Update (usuarioEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
-public void InscribirAEvento (int p_Usuario_OID, System.Collections.Generic.IList<int> p_evento_OIDs)
-{
-        ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN usuarioEN = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioNH), p_Usuario_OID);
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoENAux = null;
-                if (usuarioEN.Evento == null) {
-                        usuarioEN.Evento = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN>();
-                }
-
-                foreach (int item in p_evento_OIDs) {
-                        eventoENAux = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN ();
-                        eventoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH), item);
-                        eventoENAux.UsuarioParticipante.Add (usuarioEN);
-
-                        usuarioEN.Evento.Add (eventoENAux);
-                }
-
-
-                session.Update (usuarioEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
-
-public void DesinscribirDeEvento (int p_Usuario_OID, System.Collections.Generic.IList<int> p_evento_OIDs)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN usuarioEN = null;
-                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioNH), p_Usuario_OID);
-
-                ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN eventoENAux = null;
-                if (usuarioEN.Evento != null) {
-                        foreach (int item in p_evento_OIDs) {
-                                eventoENAux = (ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN)session.Load (typeof(ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH), item);
-                                if (usuarioEN.Evento.Contains (eventoENAux) == true) {
-                                        usuarioEN.Evento.Remove (eventoENAux);
-                                        eventoENAux.UsuarioParticipante.Remove (usuarioEN);
-                                }
-                                else
-                                        throw new ModelException ("The identifier " + item + " in p_evento_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
-                        }
-                }
-
-                session.Update (usuarioEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
 public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorEmail (string p_email)
 {
         System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> result;

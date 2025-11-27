@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReadRate_e4Gen.Infraestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1eacb2fe9ed75532a6360d0cb816470f000a11c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4bde4270a947d90348401283b1e9bb046e642ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReadRate_e4Gen.Infraestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReadRate_e4Gen.Infraestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,6 +3,50 @@
   "WorkspaceRootPath": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\rese\u00F1aviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\rese\u00F1aviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\notificacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\notificacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\noticiaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\noticiaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\libroviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\libroviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\lectorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\lectorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\eventoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\eventoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\clubviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\clubviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\autorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\autorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\administradorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\administradorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,14 +95,6 @@
       "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\assemblers\\libroassembler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\notificacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\notificacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\webapplication-readrate\\models\\libroviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\libroviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E092F408-282A-4FAA-9600-FE7F919781EC}|ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj|c:\\ooh4ria\\dsm2025\\readrate_e4gen\\readrate_e4gen.applicationcore\\cp\\manual\\notificacioncp_crearnotificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E092F408-282A-4FAA-9600-FE7F919781EC}|ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj|solutionrelative:readrate_e4gen.applicationcore\\cp\\manual\\notificacioncp_crearnotificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -83,6 +119,115 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UsuarioViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\UsuarioViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\UsuarioViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\UsuarioViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\UsuarioViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:27:25.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Rese\u00F1aViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\Rese\u00F1aViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\Rese\u00F1aViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\Rese\u00F1aViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\Rese\u00F1aViewModel.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwBsAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:27:09.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NoticiaViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\NoticiaViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\NoticiaViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\NoticiaViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\NoticiaViewModel.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:26:35.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LectorViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\LectorViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\LectorViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\LectorViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\LectorViewModel.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:25:52.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventoViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\EventoViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\EventoViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\EventoViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\EventoViewModel.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:25:40.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:25:38.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClubViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\ClubViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\ClubViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\ClubViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\ClubViewModel.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAA/wC0AAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:25:18.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AutorViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\AutorViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\AutorViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\AutorViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\AutorViewModel.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:25:09.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdministradorViewModel.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\AdministradorViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\AdministradorViewModel.cs",
+              "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\AdministradorViewModel.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Models\\AdministradorViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T11:25:02.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "AdministradorController.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\AdministradorController.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Controllers\\AdministradorController.cs",
@@ -90,12 +235,11 @@
               "RelativeToolTip": "WebApplication-ReadRate\\Controllers\\AdministradorController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAowF8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T22:28:07.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T22:28:07.67Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "LibroCP_crearLibro.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\CP\\manual\\LibroCP_crearLibro.cs",
               "RelativeDocumentMoniker": "ReadRate_e4Gen.ApplicationCore\\CP\\manual\\LibroCP_crearLibro.cs",
@@ -107,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Notificacion\\Details.cshtml",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Notificacion\\Details.cshtml",
@@ -119,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Notificacion\\Delete.cshtml",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Notificacion\\Delete.cshtml",
@@ -131,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 16,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Notificacion\\Edit.cshtml",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Notificacion\\Edit.cshtml",
@@ -143,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 18,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Notificacion\\Create.cshtml",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Notificacion\\Create.cshtml",
@@ -155,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Notificacion\\Index.cshtml",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Notificacion\\Index.cshtml",
@@ -167,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "LibroController.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\LibroController.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Controllers\\LibroController.cs",
@@ -179,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 19,
               "Title": "NotificacionController.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\NotificacionController.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Controllers\\NotificacionController.cs",
@@ -191,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "NotificacionAssembler.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\Assemblers\\NotificacionAssembler.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\Assemblers\\NotificacionAssembler.cs",
@@ -203,31 +347,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 4,
               "Title": "LibroViewModel.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\LibroViewModel.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\LibroViewModel.cs",
               "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\LibroViewModel.cs",
               "RelativeToolTip": "WebApplication-ReadRate\\Models\\LibroViewModel.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwC0AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAADwvywAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-26T02:13:50.196Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "NotificacionViewModel.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\NotificacionViewModel.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\NotificacionViewModel.cs",
               "ToolTip": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\NotificacionViewModel.cs",
               "RelativeToolTip": "WebApplication-ReadRate\\Models\\NotificacionViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwBMAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-26T02:13:20.371Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "CreateDB.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\InitializeDB\\CreateDB.cs",
               "RelativeDocumentMoniker": "InitializeDB\\CreateDB.cs",
@@ -239,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Home\\Index.cshtml",
@@ -251,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 22,
               "Title": "LibroAssembler.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\Assemblers\\LibroAssembler.cs",
               "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\Assemblers\\LibroAssembler.cs",
@@ -263,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "LibroCEN_modificarLibro.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\CEN\\manual\\LibroCEN_modificarLibro.cs",
               "RelativeDocumentMoniker": "ReadRate_e4Gen.ApplicationCore\\CEN\\manual\\LibroCEN_modificarLibro.cs",
@@ -275,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "NotificacionCP_crearNotificacion.cs",
               "DocumentMoniker": "C:\\OOH4RIA\\DSM2025\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\CP\\manual\\NotificacionCP_crearNotificacion.cs",
               "RelativeDocumentMoniker": "ReadRate_e4Gen.ApplicationCore\\CP\\manual\\NotificacionCP_crearNotificacion.cs",

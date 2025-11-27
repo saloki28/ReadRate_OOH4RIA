@@ -47,6 +47,13 @@ private string email;
 
 
 
+/**
+ *	Atributo foto
+ */
+private string foto;
+
+
+
 
 
 
@@ -86,6 +93,12 @@ public virtual string Email {
 
 
 
+public virtual string Foto {
+        get { return foto; } set { foto = value;  }
+}
+
+
+
 
 
 public AdministradorEN()
@@ -96,20 +109,20 @@ public AdministradorEN()
 
 
 
-public AdministradorEN(int id, string nombre, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN> noticiaAdministrada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAdministrado, String pass, string email
+public AdministradorEN(int id, string nombre, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN> noticiaAdministrada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAdministrado, String pass, string email, string foto
                        )
 {
-        this.init (Id, nombre, noticiaAdministrada, eventoAdministrado, pass, email);
+        this.init (Id, nombre, noticiaAdministrada, eventoAdministrado, pass, email, foto);
 }
 
 
 public AdministradorEN(AdministradorEN administrador)
 {
-        this.init (administrador.Id, administrador.Nombre, administrador.NoticiaAdministrada, administrador.EventoAdministrado, administrador.Pass, administrador.Email);
+        this.init (administrador.Id, administrador.Nombre, administrador.NoticiaAdministrada, administrador.EventoAdministrado, administrador.Pass, administrador.Email, administrador.Foto);
 }
 
 private void init (int id
-                   , string nombre, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN> noticiaAdministrada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAdministrado, String pass, string email)
+                   , string nombre, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NoticiaEN> noticiaAdministrada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAdministrado, String pass, string email, string foto)
 {
         this.Id = id;
 
@@ -123,6 +136,8 @@ private void init (int id
         this.Pass = pass;
 
         this.Email = email;
+
+        this.Foto = foto;
 }
 
 public override bool Equals (object obj)

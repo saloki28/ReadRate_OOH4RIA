@@ -116,18 +116,21 @@ public static void InitializeData ()
                 // You must write the initialisation of the entities inside the PROTECTED comments.
                 // IMPORTANT:please do not delete them.
 
+                // Inicializar LibroCP para crear libros
+                SessionCPNHibernate sessionCPLibro = new SessionCPNHibernate ();
+                LibroCP librocp = new LibroCP (sessionCPLibro);
 
                 // CREACIÓN USURIO - Lector 1
                 Console.WriteLine ("\n\n------------------ Creación de Usuario Lector ------------------");
 
                 int usuarioId1 = lectorcen.CrearLector (
-                        p_email: "paco.lector@email.com",
-                        p_nombreUsuario: "Paco Lector",
-                        p_fechaNacimiento: new DateTime (1980, 11, 10),
-                        p_ciudadResidencia: "Barcelona", p_paisResidencia: "España",
-                        p_foto: "pacoFoto.png",
-                        p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
-                        p_pass: "passPaco",
+ p_email: "paco.lector@email.com",
+ p_nombreUsuario: "Paco Lector",
+ p_fechaNacimiento: new DateTime (1980, 11, 10),
+ p_ciudadResidencia: "Barcelona", p_paisResidencia: "España",
+ p_foto: "/images/fotosUsuarios/usuarioDefault.webp",
+ p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
+ p_pass: "passPaco",
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
                         p_cantAutoresSeguidos: 0,
@@ -169,9 +172,10 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Administrador ------------------");
 
                 int administradorId1 = administradorcen.CrearAdministador (
-                p_nombre: "Admin1",
-                p_pass: "passAdmin1",
-                p_email: "admin@email.com"
+ p_nombre: "Admin1",
+ p_pass: "passAdmin1",
+ p_email: "admin@email.com",
+ p_foto: "/images/fotosUsuarios/usuarioDefault.webp"
                         );
                 Console.WriteLine ("Administrador 'Admin' creado correctamente.");
 
@@ -226,7 +230,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1975, 4, 6),
  p_ciudadResidencia: "Jerusalén",
  p_paisResidencia: "Israel/EE.UU.",
- p_foto: "leighBardugo.webp",
+ p_foto: "/images/fotosUsuarios/leighBardugo.webp",
  p_valoracionMedia: 5.0f,
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passLeigh",
@@ -237,7 +241,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autora creada correctamente con ID: " + autorId);
 
                 // Libro 1 (usa el id del autor anterior)
-                var idLibro1 = librocen.CrearLibro (
+                var libro1 = librocp.CrearLibro (
  p_titulo: "Seis de Cuervos",
  p_genero: "Fantasía",
  p_valoracionMedia: 5.0f,
@@ -248,6 +252,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/seisDeCuervos.webp",
  p_autorPublicador: autorId
                         );
+                var idLibro1 = libro1.Id;
                 Console.WriteLine ("Libro 'Seis de Cuervos' creado correctamente.");
 
                 // Autor 2 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -259,7 +264,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1948, 10, 17),
  p_ciudadResidencia: "Charleston",
  p_paisResidencia: "Estados Unidos",
- p_foto: "robertJordan.webp",
+ p_foto: "/images/fotosUsuarios/robertJordan.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passRobert",
                         p_numeroSeguidores: 0,
@@ -268,7 +273,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId2);
 
                 // Libro 2 (usa el id del autor anterior)
-                var idLibro2 = librocen.CrearLibro (
+                var libro2 = librocp.CrearLibro (
  p_titulo: "La Rueda Del Tiempo 1: El Ojo del Mundo",
  p_genero: "Fantasía",
  p_valoracionMedia: 3.5f,
@@ -279,6 +284,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo.webp",
  p_autorPublicador: autorId2
                         );
+                var idLibro2 = libro2.Id;
                 Console.WriteLine ("Libro 'El Ojo del Mundo' creado correctamente.");
 
                 // Autor 3 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -289,7 +295,7 @@ public static void InitializeData ()
  p_ciudadResidencia: "Lincoln",
  p_paisResidencia: "Estados Unidos",
  p_valoracionMedia: 4.5f,
- p_foto: "brandonSanderson.webp",
+ p_foto: "/images/fotosUsuarios/brandonSanderson.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passBrandon",
                         p_numeroSeguidores: 0,
@@ -299,7 +305,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId3);
 
                 // Libro 3 (usa el id del autor anterior)
-                var idLibro3 = librocen.CrearLibro (
+                var libro3 = librocp.CrearLibro (
  p_titulo: "Mistborn 1: El Imperio Final",
  p_genero: "Fantasía",
                         p_edadRecomendada: 15,
@@ -310,6 +316,7 @@ public static void InitializeData ()
  p_valoracionMedia: 5.0f,
  p_autorPublicador: autorId3
                         );
+                var idLibro3 = libro3.Id;
                 Console.WriteLine ("Libro 'El Imperio Final' creado correctamente.");
 
                 // Autor 4 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -321,7 +328,7 @@ public static void InitializeData ()
  p_ciudadResidencia: "Alcalá de Henares",
  p_valoracionMedia: 3.0f,
  p_paisResidencia: "España",
- p_foto: "cervantes.webp",
+ p_foto: "/images/fotosUsuarios/cervantes.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passCervantes",
                         p_numeroSeguidores: 0,
@@ -330,7 +337,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId4);
 
                 // Libro 4 (usa el id del autor anterior)
-                var idLibro4 = librocen.CrearLibro (
+                var libro4 = librocp.CrearLibro (
  p_titulo: "Don Quijote de la Mancha",
  p_genero: "Literatura Clásica",
  p_valoracionMedia: 4.0f,
@@ -341,6 +348,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/donQuijote.webp",
  p_autorPublicador: autorId4
                         );
+                var idLibro4 = libro4.Id;
                 Console.WriteLine ("Libro 'Don Quijote de la Mancha' creado correctamente.");
 
                 // Autor 5 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -352,7 +360,7 @@ public static void InitializeData ()
                         p_numModificaciones: 0,
  p_paisResidencia: "Canadá",
  p_valoracionMedia: 4.0f,
- p_foto: "lucyMontgomery.webp",
+ p_foto: "/images/fotosUsuarios/lucyMontgomery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passLucy",
                         p_numeroSeguidores: 0,
@@ -361,7 +369,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autora creada correctamente con ID: " + autorId5);
 
                 // Libro 5 (usa el id del autor anterior)
-                var idLibro5 = librocen.CrearLibro (
+                var libro5 = librocp.CrearLibro (
  p_titulo: "Ana de las Tejas Verdes",
  p_genero: "Literatura Infantil",
  p_valoracionMedia: 3.0f,
@@ -372,6 +380,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/anaTejasVerdes.webp",
  p_autorPublicador: autorId5
                         );
+                var idLibro5 = libro5.Id;
                 Console.WriteLine ("Libro 'Ana de las Tejas Verdes' creado correctamente.");
 
                 // Auotor 6 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -383,7 +392,7 @@ public static void InitializeData ()
                         p_numModificaciones: 0,
  p_paisResidencia: "Colombia",
  p_valoracionMedia: 4.0f,
- p_foto: "garciaMarquez.webp",
+ p_foto: "/images/fotosUsuarios/garciaMarquez.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passGabriel",
                         p_numeroSeguidores: 0,
@@ -392,7 +401,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId6);
 
                 // Libro 6 (usa el id del autor anterior)
-                var idLibro6 = librocen.CrearLibro (
+                var libro6 = librocp.CrearLibro (
  p_titulo: "Cien años de soledad",
  p_genero: "Literatura Clásica",
  p_valoracionMedia: 4.0f,
@@ -403,6 +412,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/cienAnosSoledad.webp",
  p_autorPublicador: autorId6
                         );
+                var idLibro6 = libro6.Id;
                 Console.WriteLine ("Libro 'Cien años de soledad' creado correctamente.");
 
                 // Autor 7 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -414,7 +424,7 @@ public static void InitializeData ()
  p_valoracionMedia: 4.5f,
  p_paisResidencia: "Estados Unidos",
                         p_numModificaciones: 0,
- p_foto: "danBrown.webp",
+ p_foto: "/images/fotosUsuarios/danBrown.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passDan",
                         p_numeroSeguidores: 0,
@@ -423,7 +433,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId7);
 
                 // Libro 7 (usa el id del autor anterior)
-                var idLibro7 = librocen.CrearLibro (
+                var libro7 = librocp.CrearLibro (
  p_titulo: "El Código Da Vinci",
  p_genero: "Misterio",
  p_valoracionMedia: 2.0f,
@@ -434,6 +444,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/codigoDaVinci.webp",
  p_autorPublicador: autorId7
                         );
+                var idLibro7 = libro7.Id;
                 Console.WriteLine ("Libro 'El Código Da Vinci' creado correctamente.");
 
                 // Autor 8 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -445,7 +456,7 @@ public static void InitializeData ()
  p_paisResidencia: "Francia",
                         p_numModificaciones: 0,
  p_valoracionMedia: 3.0f,
- p_foto: "julioVerne.webp",
+ p_foto: "/images/fotosUsuarios/julioVerne.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passJulio",
                         p_numeroSeguidores: 0,
@@ -454,7 +465,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId8);
 
                 // Libro 8 (usa el id del autor anterior)
-                var idLibro8 = librocen.CrearLibro (
+                var libro8 = librocp.CrearLibro (
  p_titulo: "Viaje al centro de la Tierra",
  p_genero: "Aventura",
  p_valoracionMedia: 2.5f,
@@ -465,6 +476,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/viajeCentroTierra.webp",
  p_autorPublicador: autorId8
                         );
+                var idLibro8 = libro8.Id;
                 Console.WriteLine ("Libro 'Viaje al centro de la Tierra' creado correctamente.");
 
                 // Autor 9 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -476,7 +488,7 @@ public static void InitializeData ()
  p_paisResidencia: "Francia",
                         p_numModificaciones: 0,
  p_valoracionMedia: 4.0f,
- p_foto: "saintExupery.webp",
+ p_foto: "/images/fotosUsuarios/saintExupery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passAntoine",
                         p_numeroSeguidores: 0,
@@ -485,7 +497,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId9);
 
                 // Libro 9 (usa el id del autor anterior)
-                var idLibro9 = librocen.CrearLibro (
+                var libro9 = librocp.CrearLibro (
  p_titulo: "El Principito",
  p_genero: "Literatura Infantil",
  p_valoracionMedia: 5.0f,
@@ -496,6 +508,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/elPrincipito.webp",
  p_autorPublicador: autorId9
                         );
+                var idLibro9 = libro9.Id;
                 Console.WriteLine ("Libro 'El Principito' creado correctamente.");
 
                 // Auotor 10 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -507,7 +520,7 @@ public static void InitializeData ()
  p_paisResidencia: "España",
                         p_numModificaciones: 0,
  p_valoracionMedia: 4.5f,
- p_foto: "carlosRuizZafon.webp",
+ p_foto: "/images/fotosUsuarios/carlosRuizZafon.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passCarlos",
                         p_numeroSeguidores: 0,
@@ -516,7 +529,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId10);
 
                 // Libro 10 (usa el id del autor anterior)
-                var idLibro10 = librocen.CrearLibro (
+                var libro10 = librocp.CrearLibro (
  p_titulo: "La Sombra del Viento (Antes de Modificar)",
  p_genero: "Aventura",
  p_valoracionMedia: 4.0f,
@@ -527,10 +540,11 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/sombraDelViento.webp",
  p_autorPublicador: autorId10
                         );
+                var idLibro10 = libro10.Id;
                 Console.WriteLine ("Libro 'La Sombra del Viento' creado correctamente.");
 
                 // Libro 11 (usa el mismo id que Libro 10, es decir, que el autor tiene 2 libros)
-                var idLibro11 = librocen.CrearLibro (
+                var libro11 = librocp.CrearLibro (
  p_titulo: "El Juego del Ángel",
  p_genero: "Misterio",
                         p_edadRecomendada: 15,
@@ -541,6 +555,7 @@ public static void InitializeData ()
  p_valoracionMedia: 3.5f,
  p_autorPublicador: autorId10
                         );
+                var idLibro11 = libro11.Id;
                 Console.WriteLine ("Libro 'El Juego del Ángel' creado correctamente.");
 
                 // Auotor 12 (devuelve su id para ser usado a continuación en la creación del libro)
@@ -552,7 +567,7 @@ public static void InitializeData ()
  p_paisResidencia: "Reino Unido",
                         p_numModificaciones: 0,
  p_valoracionMedia: 4.5f,
- p_foto: "tolkien.webp",
+ p_foto: "/images/fotosUsuarios/tolkien.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passTolkien",
                         p_numeroSeguidores: 0,
@@ -561,7 +576,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId12);
 
                 // Libro 12 (usa el id del autor anterior)
-                var idLibro12 = librocen.CrearLibro (
+                var libro12 = librocp.CrearLibro (
  p_titulo: "El Señor de los Anillos",
  p_genero: "Aventura",
  p_valoracionMedia: 4.5f,
@@ -572,6 +587,7 @@ public static void InitializeData ()
  p_fotoPortada: "/images/portadasLibros/senorAnillos.webp",
  p_autorPublicador: autorId12
                         );
+                var idLibro12 = libro12.Id;
                 Console.WriteLine ("Libro 'El Señor de los Anillos' creado correctamente.");
 
                 Console.WriteLine ("\n====================================================================================");
@@ -587,16 +603,16 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Creación de Eventos ------------------");
 
                 // Inicializar NotificacionCP para crear notificaciones
-                SessionCPNHibernate sessionCPNotificacion = new SessionCPNHibernate();
-                var notificacionCP = new NotificacionCP(sessionCPNotificacion);
+                SessionCPNHibernate sessionCPNotificacion = new SessionCPNHibernate ();
+                var notificacionCP = new NotificacionCP (sessionCPNotificacion);
 
                 int eventoId1 = eventocen.CrearEvento (
  p_nombre: "Feria del Libro 2026",
  p_fecha: new DateTime (2026, 11, 15),
  p_hora: new DateTime (2026, 11, 15, 10, 0, 0),
- p_ubicacion: "Biblioteca Central, Sala 3",
+ p_ubicacion: "Teruel",
  p_descripcion: "Feria anual del libro con firmas de autores",
- p_foto: "feria_libro_2024.jpg",
+ p_foto: "/images/imagenEvento/feria_libro_2026.webp",
                         p_aforoMax: 50,
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
@@ -609,7 +625,7 @@ public static void InitializeData ()
  p_hora: new DateTime (2026, 12, 20, 18, 0, 0),
  p_ubicacion: "Madrid",
  p_descripcion: "Reunión mensual de club de lectura",
- p_foto: "encuentro_lectores.jpg",
+ p_foto: "/images/imagenEvento/encuentro_lectores.webp",
                         p_aforoMax: 50,
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
@@ -622,7 +638,7 @@ public static void InitializeData ()
  p_hora: new DateTime (2027, 1, 10, 16, 0, 0),
  p_ubicacion: "Valencia",
  p_descripcion: "Conferencia sobre técnicas de escritura creativa",
- p_foto: "conferencia_escritores.jpg",
+ p_foto: "/images/imagenEvento/conferencia_escritores.webp",
                         p_aforoMax: 200,
                         p_aforoActual: 200,
  p_administradorEventos: administradorId1
@@ -635,7 +651,7 @@ public static void InitializeData ()
  p_hora: new DateTime (2027, 2, 5, 19, 30, 0),
  p_ubicacion: "Sevilla",
  p_descripcion: "Presentación del nuevo libro de AutorEjemplo",
- p_foto: "presentacion_libro.jpg",
+ p_foto: "/images/imagenEvento/presentacion_libro.webp",
                         p_aforoMax: 100,
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
@@ -647,7 +663,7 @@ public static void InitializeData ()
  p_concepto: ConceptoNotificacionEnum.evento_anunciado,
  p_OID_destino: eventoId4,
  p_tituloResumen: "Anuncio de un nuevo evento",
- p_textoCuerpo: "Se ha anunciado un nuevo evento llamado '" + eventocen.DameEventoPorOID(eventoId4).Nombre + "'."
+ p_textoCuerpo: "Se ha anunciado un nuevo evento llamado '" + eventocen.DameEventoPorOID (eventoId4).Nombre + "'."
                         ).Id;
                 Console.WriteLine ("Notificación 'Nuevo evento anunciado' creada correctamente.");
 
@@ -672,7 +688,7 @@ public static void InitializeData ()
  p_ciudadResidencia: "Elche",
                         p_numModificaciones: 0,
  p_paisResidencia: "España",
- p_foto: "nikoFoto.png",
+ p_foto: "/images/fotosUsuarios/usuarioDefault.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
  p_pass: "passNiko",
                         p_cantLibrosCurso: 0,
@@ -704,7 +720,7 @@ public static void InitializeData ()
  p_nombre: "Club de Ciencia Ficción",
  p_enlaceDiscord: "https://discord.gg/cienciaficcion",
                                 p_miembrosMax: 50,
- p_foto: "club_cienciaficcion.png",
+ p_foto: "/images/imagenClub/club_cienciaficcion.webp",
  p_descripcion: "Un club para los entusiastas de la ciencia ficción, donde exploramos mundos futuristas y tecnologías avanzadas.",
                                 p_miembrosActuales: 0,
  p_lectorPropietario: propietario1
@@ -737,7 +753,7 @@ public static void InitializeData ()
  p_nombre: "Club de Misterio y Suspense",
  p_enlaceDiscord: "https://discord.gg/misterio",
                                 p_miembrosMax: 30,
- p_foto: "club_misterio.png",
+ p_foto: "/images/imagenClub/club_misterio.webp",
  p_descripcion: "Amantes del misterio, el suspense y las tramas que te mantienen en vilo hasta la última página.",
                                 p_miembrosActuales: 12,
  p_lectorPropietario: propietario2
@@ -769,7 +785,7 @@ public static void InitializeData ()
  p_nombre: "Club de Romance Contemporáneo",
  p_enlaceDiscord: "https://discord.gg/romance",
                                 p_miembrosMax: 75,
- p_foto: "club_romance.png",
+ p_foto: "/images/imagenClub/club_romance.webp",
  p_descripcion: "Para quienes disfrutan de historias de amor modernas, emotivas y llenas de sentimientos.",
                                 p_miembrosActuales: 45,
  p_lectorPropietario: propietario3
@@ -801,7 +817,7 @@ public static void InitializeData ()
  p_nombre: "Club de Aventuras Épicas",
  p_enlaceDiscord: "https://discord.gg/aventuras",
                                 p_miembrosMax: 100,
- p_foto: "club_aventuras.png",
+ p_foto: "/images/imagenClub/club_aventuras.webp",
  p_descripcion: "Exploradores literarios que buscan viajes épicos, mundos fantásticos y personajes heroicos.",
                                 p_miembrosActuales: 67,
  p_lectorPropietario: propietario4
@@ -816,10 +832,9 @@ public static void InitializeData ()
  p_concepto: ConceptoNotificacionEnum.aviso_club_lectura,
  p_OID_destino: clubId4,
  p_tituloResumen: "Aviso de creación de nuevo club de lectura",
- p_textoCuerpo: "Aviso de creación del club '" + clubCEN.DameClubPorOID(clubId4).Nombre + "'."
-                        ).Id;
-                Console.WriteLine ("Notificación 'Aviso de creación de nuevo club de lectura' creada correctamente.");
-                
+ p_textoCuerpo: "Aviso de creación del club '" + clubCEN.DameClubPorOID (clubId4).Nombre + "'."
+                                ).Id;
+                        Console.WriteLine ("Notificación 'Aviso de creación de nuevo club de lectura' creada correctamente.");
                 }
                 catch (Exception ex)
                 {
@@ -852,17 +867,12 @@ public static void InitializeData ()
                 int noticiaId1 = noticiacen.CrearNoticia (
  p_titulo: "Lanzamiento de nueva plataforma ReadRate",
  p_fechaPublicacion: new DateTime (2024, 10, 15),
- p_foto: "noticia_lanzamiento.jpg",
+ p_foto: "/images/imagenNoticia/noticia_lanzamiento.webp",
  p_textoContenido: "Estamos emocionados de presentar ReadRate, la nueva plataforma de lectura social donde podrás compartir tus opiniones sobre libros y conectar con otros lectores.",
  p_administradorNoticias: administradorId1
                         );
 
-                // Obtener objetos Libro para las reseñas
-                LibroEN libro1 = librocen.DameLibroPorOID (idLibro1);
-                LibroEN libro2 = librocen.DameLibroPorOID (idLibro2);
-                LibroEN libro3 = librocen.DameLibroPorOID (idLibro3);
-                LibroEN libro4 = librocen.DameLibroPorOID (idLibro4);
-                LibroEN libro5 = librocen.DameLibroPorOID (idLibro5);
+                // Los libros a reseñar ya fueron creados anteriormente
 
                 // Reseña 1 con notificación
                 int reseñaId1 = reseñacen.CrearReseña (p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
@@ -936,7 +946,7 @@ public static void InitializeData ()
                 int noticiaId7 = noticiacen.CrearNoticia (
  p_titulo: "Nuevo libro de Brandon Sanderson",
  p_fechaPublicacion: new DateTime (2024, 11, 1),
- p_foto: "noticia_nuevo_libro.jpg",
+ p_foto: "/images/imagenNoticia/noticia_nuevo_libro.webp",
  p_textoContenido: "El reconocido autor publicará su nueva obra el próximo mes. Se trata de una novela de misterio que promete mantener a los lectores en vilo hasta la última página.",
  p_administradorNoticias: administradorId1
                         );
@@ -945,7 +955,7 @@ public static void InitializeData ()
                 int noticiaId2 = noticiacen.CrearNoticia (
  p_titulo: "Feria del Libro 2024",
  p_fechaPublicacion: new DateTime (2024, 11, 5),
- p_foto: "noticia_feria_libro.jpg",
+ p_foto: "/images/imagenNoticia/noticia_feria_libro.webp",
  p_textoContenido: "Se celebrará la feria anual del libro con la participación de más de 200 autores nacionales e internacionales. Habrá firmas de libros, charlas y actividades para toda la familia.",
  p_administradorNoticias: administradorId1
                         );
@@ -954,7 +964,7 @@ public static void InitializeData ()
                 int noticiaId3 = noticiacen.CrearNoticia (
  p_titulo: "Entrevista exclusiva con Leigh Bardugo",
  p_fechaPublicacion: new DateTime (2024, 11, 10),
- p_foto: "noticia_entrevista_leigh.jpg",
+ p_foto: "/images/imagenNoticia/noticia_entrevista_leigh.webp",
  p_textoContenido: "Hablamos con la autora sobre su proceso creativo, sus influencias literarias y sus próximos proyectos. Una conversación íntima sobre el arte de escribir.",
  p_administradorNoticias: administradorId1
                         );
@@ -963,7 +973,7 @@ public static void InitializeData ()
                 int noticiaId4 = noticiacen.CrearNoticia (
  p_titulo: "Bestsellers del mes",
  p_fechaPublicacion: new DateTime (2024, 11, 15),
- p_foto: "noticia_bestsellers.jpg",
+ p_foto: "/images/imagenNoticia/noticia_bestsellers.webp",
  p_textoContenido: "Los libros más vendidos de este mes incluyen títulos de ficción, romance y ciencia ficción. Descubre cuáles son las lecturas favoritas de los usuarios en noviembre.",
  p_administradorNoticias: administradorId1
                         );
@@ -974,7 +984,7 @@ public static void InitializeData ()
  p_concepto: ConceptoNotificacionEnum.noticia_publicada,
  p_OID_destino: noticiaId4,
  p_tituloResumen: "Nueva noticia publicada",
- p_textoCuerpo: "Se ha publicado una nueva noticia titulada '" + noticiacen.DameNoticiaPorOID(noticiaId4).Titulo + "'."
+ p_textoCuerpo: "Se ha publicado una nueva noticia titulada '" + noticiacen.DameNoticiaPorOID (noticiaId4).Titulo + "'."
                         ).Id;
                 Console.WriteLine ("Notificación 'Nueva noticia publicada' creada correctamente.");
 
@@ -1266,7 +1276,7 @@ public static void InitializeData ()
                         p_numModificaciones: 0,
  p_fechaNacimiento: new DateTime (1980, 11, 10),
  p_ciudadResidencia: "Villajoyosa", p_paisResidencia: "España",
- p_foto: "marinaFoto.png", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
+ p_foto: "/images/fotosUsuarios/usuarioDefault.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
  p_pass: "passMarina",
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
@@ -1472,12 +1482,12 @@ public static void InitializeData ()
                 Console.WriteLine ("\n------------------ Crear Evento lleno ------------------");
 
                 int eventoId5 = eventocen.CrearEvento (
- p_nombre: "Evento3",
- p_foto: "Evento3.png",
- p_descripcion: "Evento3",
+ p_nombre: "Nueva Actividad Cultural",
+ p_foto: "/images/imagenEvento/nueva_actividad_cultural.webp",
+ p_descripcion: "Una jornada dedicada a explorar diversas formas de arte y cultura local.",
  p_fecha: new DateTime (2026, 7, 1),
  p_hora: new DateTime (2026, 7, 1, 18, 0, 0),
- p_ubicacion: "Biblioteca Central, Sala 3",
+ p_ubicacion: "Alicante",
                         p_aforoMax: 20,
                         p_aforoActual: 20,
  p_administradorEventos: administradorId1
@@ -1490,12 +1500,12 @@ public static void InitializeData ()
 
 
                 int eventoId6 = eventocen.CrearEvento (
- p_nombre: "Evento5",
- p_foto: "Evento5.png",
- p_descripcion: "Evento5",
+ p_nombre: "Inauguración nueva librería en San Sebastián",
+ p_foto: "/images/imagenEvento/inauguracion_nueva_libreria.webp",
+ p_descripcion: "Únete a nosotros para la apertura de una nueva librería. Habrá descuentos especiales y actividades para todos los amantes de los libros.",
  p_fecha: new DateTime (2026, 7, 1),
  p_hora: new DateTime (2026, 7, 1, 18, 0, 0),
- p_ubicacion: "Biblioteca Central, Sala 3",
+ p_ubicacion: "San Sebastián",
                         p_aforoMax: 20,
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
@@ -1514,7 +1524,7 @@ public static void InitializeData ()
  p_descripcion: "evento 2",
  p_fecha: new DateTime (2026, 7, 1),
  p_hora: new DateTime (2026, 7, 1, 18, 0, 0),
- p_ubicacion: "Biblioteca Central, Sala 3",
+ p_ubicacion: "Teruel",
                                 p_aforoMax: 20,
                                 p_aforoActual: 0,
  p_administradorEventos: -1
@@ -1636,12 +1646,12 @@ public static void InitializeData ()
 
                 eventocen.ModificarEvento (
                         eventoId1,
- p_nombre: "Club de Lectura de Novela Negra - Edición Especial",
- p_foto: "evento_novela_negra_especial.jpg",
- p_descripcion: "Únete a nuestro club para discutir las mejores obras del género negro - Edición Especial con invitados",
+ p_nombre: "Actividad en el Club de Lectura de Novela Negra",
+ p_foto: "/images/imagenEvento/evento_novela_negra_especial.webp",
+ p_descripcion: "Únete a nuestro club para discutir las mejores obras del género negro. Edición especial con autor invitado.",
  p_fecha: new DateTime (2026, 12, 20),                // Fecha futura
  p_hora: new DateTime (2026, 12, 20, 19, 30, 0),
- p_ubicacion: "Biblioteca Municipal - Sala Premium",
+ p_ubicacion: "Teruel",
                         p_aforoMax: 50,
                         p_aforoActual: 15
                         );
@@ -1776,17 +1786,17 @@ public static void InitializeData ()
 
                 try
                 {
-                        int idLibroInvalido1 = librocen.CrearLibro (
-                        p_titulo: "Libro con Páginas Negativas",
-                        p_genero: "Prueba",
-                        p_edadRecomendada: 12,
-                        p_fechaPublicacion: new DateTime (2024, 1, 1),
-                        p_numPags: -100,  // Número de páginas negativo (INVÁLIDO)
-                        p_sinopsis: "Libro de prueba con validación incorrecta",
-                        p_fotoPortada: "portada_invalida.jpg",
-                        p_autorPublicador: autorId,
-                        p_valoracionMedia: 0.0f
-                        );
+                        var libroInvalido1 = librocp.CrearLibro (
+ p_titulo: "Libro con Páginas Negativas",
+ p_genero: "Prueba",
+                                p_edadRecomendada: 12,
+ p_fechaPublicacion: new DateTime (2024, 1, 1),
+ p_numPags: -100,                         // Número de páginas negativo (INVÁLIDO)
+ p_sinopsis: "Libro de prueba con validación incorrecta",
+ p_fotoPortada: "portada_invalida.jpg",
+ p_autorPublicador: autorId,
+ p_valoracionMedia: 0.0f
+                                );
                         Console.WriteLine ("ERROR: Se permitió crear un libro con páginas negativas (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1802,16 +1812,16 @@ public static void InitializeData ()
 
                 try
                 {
-                        int idLibroInvalido2 = librocen.CrearLibro (
-                        p_titulo: "Libro sin Autor",
-                        p_genero: "Prueba",
-                        p_edadRecomendada: 15,
-                        p_fechaPublicacion: new DateTime (2024, 2, 1),
-                        p_numPags: 200,
-                        p_sinopsis: "Libro de prueba sin autor asociado",
-                        p_fotoPortada: "portada_sin_autor.jpg",
-                        p_autorPublicador: -1, // Sin autor asociado (INVÁLIDO)
-                        p_valoracionMedia: 0.0f
+                        var libroInvalido2 = librocp.CrearLibro (
+ p_titulo: "Libro sin Autor",
+ p_genero: "Prueba",
+                                p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2024, 2, 1),
+                                p_numPags: 200,
+ p_sinopsis: "Libro de prueba sin autor asociado",
+ p_fotoPortada: "portada_sin_autor.jpg",
+ p_autorPublicador: -1,                        // Sin autor asociado (INVÁLIDO)
+ p_valoracionMedia: 0.0f
                                 );
                         Console.WriteLine ("ERROR: Se permitió crear un libro sin autor asociado (no debería suceder)");
                 }
@@ -1842,12 +1852,12 @@ public static void InitializeData ()
                 try
                 {
                         int idNoticiaInvalida = noticiacen.CrearNoticia (
-                        p_titulo: "Noticia sin Administrador",
-                        p_fechaPublicacion: new DateTime (2024, 11, 1),
-                        p_foto: "noticia_sin_admin.jpg",
-                        p_textoContenido: "Esta es una noticia de prueba sin administrador asociado",
-                        p_administradorNoticias: -1 // Sin administrador asociado (INVÁLIDO)
-                        );
+ p_titulo: "Noticia sin Administrador",
+ p_fechaPublicacion: new DateTime (2024, 11, 1),
+ p_foto: "/images/imagenNoticia/noticia_sin_admin.webp",
+ p_textoContenido: "Esta es una noticia de prueba sin administrador asociado",
+ p_administradorNoticias: -1                        // Sin administrador asociado (INVÁLIDO)
+                                );
                         Console.WriteLine ("ERROR: Se permitió crear una noticia sin administrador asociado (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1873,12 +1883,12 @@ public static void InitializeData ()
                 try
                 {
                         int idReseñaInvalida1 = reseñacen.CrearReseña (
-                        p_textoOpinion: "Esta es una reseña de prueba sin lector",
-                        p_valoracion: 4.0f,
-                        p_lectorValorador: -1, // Sin lector valorador (INVÁLIDO)
-                        p_libroReseñado: idLibro1,
-                        p_fecha: new DateTime (2024, 11, 1)
-                        );
+ p_textoOpinion: "Esta es una reseña de prueba sin lector",
+ p_valoracion: 4.0f,
+ p_lectorValorador: -1,                        // Sin lector valorador (INVÁLIDO)
+ p_libroReseñado: idLibro1,
+ p_fecha: new DateTime (2024, 11, 1)
+                                );
                         Console.WriteLine ("ERROR: Se permitió crear una reseña sin lector valorador (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -1895,12 +1905,12 @@ public static void InitializeData ()
                 try
                 {
                         int idReseñaInvalida2 = reseñacen.CrearReseña (
-                        p_textoOpinion: "Esta es una reseña de prueba sin libro",
-                        p_valoracion: 3.5f,
-                        p_lectorValorador: usuarioId1,
-                        p_libroReseñado: -1, // Sin libro reseñado (INVÁLIDO)
-                        p_fecha: new DateTime (2024, 11, 1)
-                        );
+ p_textoOpinion: "Esta es una reseña de prueba sin libro",
+ p_valoracion: 3.5f,
+ p_lectorValorador: usuarioId1,
+ p_libroReseñado: -1,                        // Sin libro reseñado (INVÁLIDO)
+ p_fecha: new DateTime (2024, 11, 1)
+                                );
                         Console.WriteLine ("ERROR: Se permitió crear una reseña sin libro reseñado (no debería suceder)");
                 }
                 catch (ModelException ex)
@@ -2397,7 +2407,7 @@ public static void InitializeData ()
 
                 try
                 {
-                    clubCP1.ExpulsarUsuarioClub (clubId1, usuarioId2);
+                        clubCP1.ExpulsarUsuarioClub (clubId1, usuarioId2);
                         Console.WriteLine ("Usuario 2 (Marina Lectora) expulsado correctamente del Club de Ciencia Ficción");
                 }
                 catch (ModelException ex)

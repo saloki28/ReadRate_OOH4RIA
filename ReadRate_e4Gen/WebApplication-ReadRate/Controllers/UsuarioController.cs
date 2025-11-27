@@ -23,8 +23,8 @@ namespace WebApplication_ReadRate.Controllers
 
             if(usuarioCEN.Login(login.Email, login.Password) == null){
                 ModelState.AddModelError("", "Email o contraseña incorrectos");
-                //return View();
-                return RedirectToAction("Index", "Home");
+                return View();
+                //return RedirectToAction("Index", "Home");
             }
             else{
                 return RedirectToAction("Index", "Home");

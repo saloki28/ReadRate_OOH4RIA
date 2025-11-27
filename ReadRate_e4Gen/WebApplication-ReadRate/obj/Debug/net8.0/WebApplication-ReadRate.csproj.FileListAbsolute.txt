@@ -246,10 +246,10 @@ C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\stati
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\staticwebassets.development.json
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\WebAppli.17BB2691.Up2Date
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\WebApplication-ReadRate.dll
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\refint\WebApplication-ReadRate.dll
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\WebApplication-ReadRate.pdb
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\WebApplication-ReadRate.genruntimeconfig.cache
 C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\ref\WebApplication-ReadRate.dll
+C:\OOH4RIA\DSM2025\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -1,0 +1,322 @@
+﻿@model IEnumerable<WebApplication_ReadRate.Models.NoticiaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+        min-height: 100vh;
+    }
+
+    .page-header {
+        background: linear-gradient(135deg, #ff6f00 0%, #ff9800 50%, #ffa726 100%);
+        color: #fff;
+        padding: 2.5rem 0 2rem 0;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(255, 111, 0, 0.3);
+        margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin: 0 0 1rem 0;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+    }
+
+    .action-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(255,111,0,0.1);
+    }
+
+    .section-title {
+        color: #e65100;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .btn-create {
+        background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+    }
+
+    .btn-create:hover {
+        background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+    }
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .news-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(255,111,0,0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 36px rgba(255,111,0,0.2);
+    }
+
+    .news-cover {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 3px solid #ff9800;
+    }
+
+    .news-cover-placeholder {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+        color: rgba(255,111,0,0.3);
+        border-bottom: 3px solid #ff9800;
+    }
+
+    .news-info {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        color: #e65100;
+        line-height: 1.4;
+        min-height: 2.8rem;
+    }
+
+    .news-meta {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.7;
+        flex: 1;
+    }
+
+    .news-meta-item {
+        margin-bottom: 0.4rem;
+    }
+
+    .news-meta strong {
+        color: #ff9800;
+        font-weight: 600;
+    }
+
+    .news-preview {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 4rem;
+    }
+
+    .news-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .btn-action {
+        background: #fff;
+        color: #ff9800;
+        border: 2px solid #ff9800;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+        flex: 1;
+        text-align: center;
+    }
+
+    .btn-action:hover {
+        background: #ff9800;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    .btn-action.edit {
+        border-color: #2196F3;
+        color: #2196F3;
+    }
+
+    .btn-action.edit:hover {
+        background: #2196F3;
+        color: #fff;
+    }
+
+    .btn-action.delete {
+        border-color: #f44336;
+        color: #f44336;
+    }
+
+    .btn-action.delete:hover {
+        background: #f44336;
+        color: #fff;
+    }
+
+    .no-news {
+        grid-column: 1/-1;
+        text-align: center;
+        color: #999;
+        font-size: 1.2rem;
+        padding: 3rem;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .book-cover {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+        color: rgba(255,111,0,0.3);
+        border-bottom: 3px solid #ff9800;
+    }
+
+    @@media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .action-bar {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .news-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h1>Listado de Noticias</h1>
+</div>
+
+<div class="container">
+    <div class="action-bar">
+        <h2 class="section-title">Todas las Noticias</h2>
+        <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
+    </div>
+
+    <div class="news-grid">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="news-card">
+                    <div class="book-cover">
+                        @if (!string.IsNullOrEmpty(item.Foto))
+                        {
+                            <img src="@item.Foto" alt="@item.Titulo" class="news-cover" />
+                        }
+                        else
+                        {
+                            <div class="news-cover-placeholder">
+                                Foto Noticia
+                            </div>
+                        }
+                    </div>
+
+                    <div class="news-info">
+                        <div class="news-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
+
+                        <div class="news-meta">
+                            <div class="news-meta-item">
+                                <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                            </div>
+
+                            <div class="news-preview">
+                                @Html.DisplayFor(modelItem => item.TextoContenido)
+                            </div>
+                        </div>
+
+                        <div class="news-actions">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="no-news">
+                No hay noticias en el listado.
+                ¡Añade la primera!
+            </div>
+        }
+    </div>
+</div>

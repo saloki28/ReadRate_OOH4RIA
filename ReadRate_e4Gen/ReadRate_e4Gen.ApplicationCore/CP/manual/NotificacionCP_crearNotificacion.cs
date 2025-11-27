@@ -43,7 +43,7 @@ public ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN CrearNotific
                 NotificacionEN notificacionEN = null;
 
                 //Initialized NotificacionEN
-                notificacionEN = new NotificacionEN();
+                notificacionEN = new NotificacionEN ();
                 notificacionEN.Fecha = p_fecha ?? DateTime.Now;
                 notificacionEN.Concepto = p_concepto;
                 notificacionEN.TituloResumen = p_tituloResumen;

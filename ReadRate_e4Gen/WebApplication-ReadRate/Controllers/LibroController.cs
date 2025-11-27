@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Routing.Constraints;
 using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
+using ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
+using ReadRate_e4Gen.Infraestructure.CP;
 using WebApplication_ReadRate.Models;
 using WebApplication_ReadRate.Models.Assemblers;
 
@@ -118,13 +120,12 @@ namespace WebApplication_ReadRate.Controllers
                     // Añadir el prefijo de la ruta para acceder a la imagen
                     fotoPortadaFileName = "/images/portadasLibros/" + fotoPortadaFileName;
 
-                    // No usar sesión compartida para operaciones de escritura
-                    LibroRepository libroRepository = new LibroRepository();
-                    LibroCEN libroCEN = new LibroCEN(libroRepository);
+                    // Usar LibroCP en lugar de LibroCEN para manejar la lógica de negocio
+                    LibroCP libroCP = new LibroCP(new SessionCPNHibernate());
                     
-                    // Orden correcto de parámetros según LibroCEN_crearLibro.cs:
+                    // Orden correcto de parámetros según LibroCP_crearLibro.cs:
                     // (titulo, genero, edadRecomendada, fechaPublicacion, numPags, sinopsis, fotoPortada, autorPublicador, valoracionMedia)
-                    libroCEN.CrearLibro(
+                    libroCP.CrearLibro(
                         p_titulo: libroVM.Titulo, 
                         p_genero: libroVM.Genero, 
                         p_edadRecomendada: libroVM.EdadRecomendada, 

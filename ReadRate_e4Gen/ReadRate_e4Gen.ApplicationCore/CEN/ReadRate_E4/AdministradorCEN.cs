@@ -31,7 +31,7 @@ public IAdministradorRepository get_IAdministradorRepository ()
         return this._IAdministradorRepository;
 }
 
-public int CrearAdministador (string p_nombre, String p_pass, string p_email)
+public int CrearAdministador (string p_nombre, String p_pass, string p_email, string p_foto)
 {
         AdministradorEN administradorEN = null;
         int oid;
@@ -44,13 +44,15 @@ public int CrearAdministador (string p_nombre, String p_pass, string p_email)
 
         administradorEN.Email = p_email;
 
+        administradorEN.Foto = p_foto;
+
 
 
         oid = _IAdministradorRepository.CrearAdministador (administradorEN);
         return oid;
 }
 
-public void ModificarAdministador (int p_Administrador_OID, string p_nombre, String p_pass, string p_email)
+public void ModificarAdministador (int p_Administrador_OID, string p_nombre, String p_pass, string p_email, string p_foto)
 {
         AdministradorEN administradorEN = null;
 
@@ -60,6 +62,7 @@ public void ModificarAdministador (int p_Administrador_OID, string p_nombre, Str
         administradorEN.Nombre = p_nombre;
         administradorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
         administradorEN.Email = p_email;
+        administradorEN.Foto = p_foto;
         //Call to AdministradorRepository
 
         _IAdministradorRepository.ModificarAdministador (administradorEN);

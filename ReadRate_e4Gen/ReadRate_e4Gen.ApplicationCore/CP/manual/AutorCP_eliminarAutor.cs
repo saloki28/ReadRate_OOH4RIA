@@ -32,30 +32,27 @@ public void EliminarAutor (int p_Autor_OID)
                 autorCEN = new  AutorCEN (CPSession.UnitRepo.AutorRepository);
                 AutorEN autor = autorCEN.DameAutorPorOID (p_Autor_OID); // Obtener el autor a eliminar
 
-                //-------------------------------------------------------------------
-                List<EventoEN> eventosInscritos = new List<EventoEN>(); // Lista para almacenar los eventos en los que el usuario está inscrito
+                // Verificar si el autor tiene eventos inscritos y desinscribirlo de ellos
+                if (autor.EventoAutor != null && autor.EventoAutor.Count > 0) {
+                        List<int> eventosIds = new List<int>();
 
-                if (autor.EventoAutor != null) { // Verificar si el usuario tiene eventos inscritos
-                        eventosInscritos = autor.EventoAutor as List<EventoEN>;
+                        foreach (EventoEN evento in autor.EventoAutor) {
+                                eventosIds.Add (evento.Id);
+                        }
 
-                        // Eliminar al usuario de los eventos en los que está inscrito
-                        foreach (EventoEN evento in eventosInscritos) {
-                                autorCEN.get_IAutorRepository ().DesinscribirAutorDeEvento (p_Autor_OID, new List<int>() {
-                                                evento.Id
-                                        });
+                        if (eventosIds.Count > 0) {
+                                autorCEN.get_IAutorRepository ().DesinscribirAutorDeEvento (p_Autor_OID, eventosIds);
                         }
                 }
-
-                //-------------------------------------------------------------------
 
                 autorCEN.get_IAutorRepository ().EliminarAutor (p_Autor_OID); // Eliminar el autor
 
                 CPSession.Commit ();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
                 CPSession.RollBack ();
-                throw ex;
+                throw;
         }
         finally
         {

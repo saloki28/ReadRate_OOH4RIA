@@ -21,6 +21,9 @@
 					<property name="Email" type="string"> 
 						<column name="email"  not-null="true"/>
 					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -48,6 +51,8 @@
 					
 			
 			
+			
+					
 					
 					
 					

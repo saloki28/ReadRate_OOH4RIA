@@ -28,12 +28,112 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Administrador/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Administrador/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Administrador/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Administrador/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Administrador/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Autor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Autor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Autor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Autor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Autor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Club/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Club/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Club/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Club/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Club/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Evento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Evento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Evento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Evento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Evento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Lector/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdG9yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Lector/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdG9yXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Lector/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdG9yXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Lector/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdG9yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Lector/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Libro/Create.cshtml]
@@ -56,6 +156,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Noticia/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Noticia/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Noticia/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Noticia/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Noticia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNpYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Notificacion/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2FjaW9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +194,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Notificacion/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2FjaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Reseña/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZcOxYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Reseña/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZcOxYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Reseña/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZcOxYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Reseña/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZcOxYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Reseña/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZcOxYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/1534572/ReadRate_OOH4RIA/ReadRate_e4Gen/WebApplication-ReadRate/Views/Shared/Error.cshtml]

@@ -43,7 +43,7 @@ public void EliminarLector (int p_Lector_OID)
                 List<EventoEN> eventosInscritos = new List<EventoEN>(); // Lista para almacenar los eventos en los que el usuario está inscrito
 
                 if (lector.EventoLector != null) { // Verificar si el usuario tiene eventos inscritos
-                        eventosInscritos = lector.EventoLector as List<EventoEN>;
+                        eventosInscritos = new List<EventoEN>(lector.EventoLector);
 
                         // Eliminar al usuario de los eventos en los que está inscrito
                         foreach (EventoEN evento in eventosInscritos) {
@@ -57,7 +57,7 @@ public void EliminarLector (int p_Lector_OID)
                 List<ClubEN> clubesSuscritos = new List<ClubEN>(); // Lista para almacenar los clubes a los que el usuario está suscrito
 
                 if (lector.ClubSuscritoLector != null) { // Verificar si el usuario tiene clubes suscritos
-                        clubesSuscritos = lector.ClubSuscritoLector as List<ClubEN>;
+                        clubesSuscritos = new List<ClubEN>(lector.ClubSuscritoLector);
 
                         // Eliminar al usuario de los clubes a los que está suscrito
                         foreach (ClubEN club in clubesSuscritos) {

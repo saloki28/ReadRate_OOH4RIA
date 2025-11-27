@@ -107,6 +107,9 @@ public void ModifyDefault (AdministradorEN administrador)
 
                 administradorNH.Email = administrador.Email;
 
+
+                administradorNH.Foto = administrador.Foto;
+
                 session.Update (administradorNH);
                 SessionCommit ();
         }
@@ -168,6 +171,9 @@ public void ModificarAdministador (AdministradorEN administrador)
 
 
                 administradorNH.Email = administrador.Email;
+
+
+                administradorNH.Foto = administrador.Foto;
 
                 session.Update (administradorNH);
                 SessionCommit ();

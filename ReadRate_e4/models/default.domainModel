@@ -61,7 +61,7 @@
       <enumerationLiterals xmi:type="es.ua.dlsi.ooh:EnumerationLiteral" xmi:id="_apGBkK38EfCc-vpnvRqFgQ" name="lector" value="2"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_UUtgIK4BEfCc-vpnvRqFgQ" name="Libro" alias="Libro" asociationTarget="_j_-TkK4LEfCc-vpnvRqFgQ _vNGTUK4LEfCc-vpnvRqFgQ _2EArUK4MEfCc-vpnvRqFgQ" associationOrigin="_AQYGwK4PEfCc-vpnvRqFgQ">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_WV1DUa4BEfCc-vpnvRqFgQ" name="crearLibro" operationType="New" type="Object" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ" customized="true">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_WV1DUa4BEfCc-vpnvRqFgQ" name="crearLibro" operationType="New" type="Object" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_99mh0MpoEfCb19lLzfP2Mg" name="p_titulo"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_99mh0cpoEfCb19lLzfP2Mg" name="p_genero"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_99mh0spoEfCb19lLzfP2Mg" name="p_edadRecomendada" type="Integer"/>
@@ -194,26 +194,28 @@
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_1GPAAK4CEfCc-vpnvRqFgQ" name="Administrador" alias="Administrador" stereotyped="User" associationOrigin="_NNZzUK4OEfCc-vpnvRqFgQ _kEijIK4OEfCc-vpnvRqFgQ">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_2rZnAa4CEfCc-vpnvRqFgQ" name="crearAdministador" operationType="New" type="Object" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGkMX-EfCpL60BqOvjxA" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGkcX-EfCpL60BqOvjxA" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGksX-EfCpL60BqOvjxA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1goz8MsVEfCzw52nlUWx4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1goz8csVEfCzw52nlUWx4A" name="p_pass" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1goz8ssVEfCzw52nlUWx4A" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1goz88sVEfCzw52nlUWx4A" name="p_foto"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_2rZnAq4CEfCc-vpnvRqFgQ" name="modificarAdministador" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGk8X-EfCpL60BqOvjxA" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGlMX-EfCpL60BqOvjxA" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGlcX-EfCpL60BqOvjxA" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGlsX-EfCpL60BqOvjxA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbAMsVEfCzw52nlUWx4A" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbAcsVEfCzw52nlUWx4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbAssVEfCzw52nlUWx4A" name="p_pass" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbA8sVEfCzw52nlUWx4A" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbBMsVEfCzw52nlUWx4A" name="p_foto"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_2rZnBK4CEfCc-vpnvRqFgQ" name="eliminarAdministador" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQGl8X-EfCpL60BqOvjxA" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gqCEMsVEfCzw52nlUWx4A" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_3FAZ0K4CEfCc-vpnvRqFgQ" name="dameAdministradorPorOID" operationType="ReadOID" type="Object" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQtoMX-EfCpL60BqOvjxA" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gqCEcsVEfCzw52nlUWx4A" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_3FBA4a4CEfCc-vpnvRqFgQ" name="dameTodosAdministradores" operationType="ReadAll" type="Object" collectionType="List" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_silHobV7EfCzI6zxd4GUpw" name="login" operationType="Login">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQtocX-EfCpL60BqOvjxA" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_OwQtosX-EfCpL60BqOvjxA" name="p_pass"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gqpIMsVEfCzw52nlUWx4A" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gqpIcsVEfCzw52nlUWx4A" name="p_pass"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_rP79kLppEfCAqvbBJrMqWA" name="dameAdministradoresPorEmail" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ" filter="FROM AdministradorNH administrador where lower(administrador.Email) like concat('%', lower(:p_email), '%')" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_VMSY0LpsEfCAqvbBJrMqWA" name="p_email"/>
@@ -224,6 +226,7 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_kEijIa4OEfCc-vpnvRqFgQ" alias="idEvento" lower="0" upper="*" associationOrigin="_kEijIK4OEfCc-vpnvRqFgQ" name="eventoAdministrado" type="Object"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_silHoLV7EfCzI6zxd4GUpw" alias="pass" name="pass" type="Password"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_pbC4gLppEfCAqvbBJrMqWA" alias="email" name="email"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_0cw8IMsVEfCzw52nlUWx4A" alias="foto" name="foto"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_Ijr3MK4DEfCc-vpnvRqFgQ" name="Noticia" alias="Noticia" asociationTarget="_NNZzUK4OEfCc-vpnvRqFgQ _7ghagK4QEfCc-vpnvRqFgQ">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_J6Aw8a4DEfCc-vpnvRqFgQ" name="crearNoticia" operationType="New" type="Object" typeObject="_Ijr3MK4DEfCc-vpnvRqFgQ" customized="true">
@@ -1025,6 +1028,10 @@
         <children xmi:type="notation:Shape" xmi:id="_pbkc8LppEfCAqvbBJrMqWA" type="3003" element="_pbC4gLppEfCAqvbBJrMqWA" fontName="Segoe UI">
           <children xmi:type="notation:DecorationNode" xmi:id="_pblEALppEfCAqvbBJrMqWA" type="5007"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pbkc8bppEfCAqvbBJrMqWA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_0dYnMMsVEfCzw52nlUWx4A" type="3003" element="_0cw8IMsVEfCzw52nlUWx4A" fontName="Segoe UI">
+          <children xmi:type="notation:DecorationNode" xmi:id="_0dYnMssVEfCzw52nlUWx4A" type="5007"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0dYnMcsVEfCzw52nlUWx4A"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_1GSDUa4CEfCc-vpnvRqFgQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_1GSDUq4CEfCc-vpnvRqFgQ"/>

@@ -25,7 +25,7 @@ namespace WebApplication_ReadRate.Models
         //Opinión
         [Display(Prompt = "Opinión personal", Description = "Opinión personal sobre el libro", Name = "Opinión del lector")]
         [Required(ErrorMessage = "Debes incluir una opinión")]
-        [StringLength(maximumLength: 600, ErrorMessage = "La reseña no puede tener más de 600 caracteres")]
+        [StringLength(maximumLength: 255, ErrorMessage = "La reseña no puede tener más de 255 caracteres")]
         public string Opinion { get; set; }
 
         //Lector que ha realizado la reseña

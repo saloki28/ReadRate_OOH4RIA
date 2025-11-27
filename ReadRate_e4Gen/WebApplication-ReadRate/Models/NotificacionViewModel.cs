@@ -17,7 +17,7 @@ namespace WebApplication_ReadRate.Models
         // Texto del cuerpo de la notificación
         [Display(Prompt = "Escribe el texto del cuerpo de la notificación", Description = "Texto del cuerpo de la notificación", Name = "Texto")]
         [Required(ErrorMessage = "Debes indicar un texto para la notificación")]
-        [StringLength(maximumLength: 5000, ErrorMessage = "El texto no puede tener más de 5000 caracteres")]
+        [StringLength(maximumLength: 255, ErrorMessage = "El texto no puede tener más de 255 caracteres")]
         [DataType(DataType.MultilineText)]
         public string Texto { get; set; } = string.Empty;
 

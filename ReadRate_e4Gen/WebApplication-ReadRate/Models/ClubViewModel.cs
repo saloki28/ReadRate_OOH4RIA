@@ -43,7 +43,7 @@ namespace WebApplication_ReadRate.Models
         //Descripcion
         [Display(Prompt = "Descripcion del club", Description = "Descripción sobre lo que trata el club", Name = "Descripción")]
         [Required(ErrorMessage = "Debes incluir una descripción")]
-        [StringLength(maximumLength: 600, ErrorMessage = "La descripción no puede tener más de 600 caracteres")]
+        [StringLength(maximumLength: 255, ErrorMessage = "La descripción no puede tener más de 255 caracteres")]
         public string Descripcion { get; set; } = string.Empty;
 
         //Miembros actuales

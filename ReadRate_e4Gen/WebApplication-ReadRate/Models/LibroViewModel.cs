@@ -42,7 +42,7 @@ namespace WebApplication_ReadRate.Models
         // Sinopsis del libro
         [Display(Prompt="Escribe la sinopsis del libro", Description="Sinopsis del libro", Name = "Sinopsis")]
         [Required(ErrorMessage = "Debes indicar una sinopsis para el libro")]
-        [StringLength(maximumLength: 5000, ErrorMessage = "La sinopsis no puede tener más de 5000 caracteres")]
+        [StringLength(maximumLength: 255, ErrorMessage = "La sinopsis no puede tener más de 255 caracteres")]
         [DataType(DataType.MultilineText)]
         public string Sinopsis { get; set; } = string.Empty;
 

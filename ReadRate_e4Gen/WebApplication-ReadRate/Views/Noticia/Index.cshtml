@@ -264,59 +264,73 @@
     <h1>Listado de Noticias</h1>
 </div>
 
-<div class="container">
-    <div class="action-bar">
-        <h2 class="section-title">Todas las Noticias</h2>
-        <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
-    </div>
+    <div class="container">
+        <div class="action-bar">
+            <h2 class="section-title">Todas las Noticias</h2>
+            <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
+        </div>
 
-    <div class="news-grid">
-        @if (Model != null && Model.Any())
-        {
-            foreach (var item in Model)
+        <div class="news-grid">
+            @if (Model != null && Model.Any())
             {
-                <div class="news-card">
-                    <div class="book-cover">
-                        @if (!string.IsNullOrEmpty(item.Foto))
-                        {
-                            <img src="@item.Foto" alt="@item.Titulo" class="news-cover" />
-                        }
-                        else
-                        {
-                            <div class="news-cover-placeholder">
-                                Foto Noticia
-                            </div>
-                        }
-                    </div>
-
-                    <div class="news-info">
-                        <div class="news-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
-
-                        <div class="news-meta">
-                            <div class="news-meta-item">
-                                <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
-                            </div>
-
-                            <div class="news-preview">
-                                @Html.DisplayFor(modelItem => item.TextoContenido)
-                            </div>
+                foreach (var item in Model)
+                {
+                    <div class="news-card">
+                        <div class="book-cover">
+                            @if (!string.IsNullOrEmpty(item.Foto))
+                            {
+                                <img src="@item.Foto" alt="@item.Titulo" class="news-cover" />
+                            }
+                            else
+                            {
+                                <div class="news-cover-placeholder">
+                                    Foto Noticia
+                                </div>
+                            }
                         </div>
 
-                        <div class="news-actions">
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
+                        <div class="news-info">
+                            <div class="news-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
+
+                            <div class="news-meta">
+                                <div class="news-meta-item">
+                                    <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                                </div>
+
+                                <div class="news-preview">
+                                    @Html.DisplayFor(modelItem => item.TextoContenido)
+                                </div>
+                            </div>
+
+                            @{
+                                var usuarioRol = Context.Session.GetString("UsuarioRol");
+                                var usuarioNombre = Context.Session.GetString("UsuarioNombre");
+                            }
+                            @if (usuarioRol == "admin" || usuarioRol == "administrador") // ajusta según tus roles
+                            {
+                                <div class="news-actions">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="news-actions">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
+                                </div>
+                            }
+
                         </div>
                     </div>
+                }
+            }
+            else
+            {
+                <div class="no-news">
+                    No hay noticias en el listado.
+                    ¡Añade la primera!
                 </div>
             }
-        }
-        else
-        {
-            <div class="no-news">
-                No hay noticias en el listado.
-                ¡Añade la primera!
-            </div>
-        }
+        </div>
     </div>
-</div>

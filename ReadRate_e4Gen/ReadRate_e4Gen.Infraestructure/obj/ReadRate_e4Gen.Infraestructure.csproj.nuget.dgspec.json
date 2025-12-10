@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj": {}
+    "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj": {
+    "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj",
+        "projectUniqueName": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj",
         "projectName": "ReadRate_e4Gen.ApplicationCore",
-        "projectPath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\1534572\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\obj\\",
+        "projectPath": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1534572\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -75,20 +75,20 @@
         }
       }
     },
-    "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj": {
+    "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj",
+        "projectUniqueName": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj",
         "projectName": "ReadRate_e4Gen.Infraestructure",
-        "projectPath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj",
-        "packagesPath": "C:\\Users\\1534572\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\obj\\",
+        "projectPath": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\ReadRate_e4Gen.Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1534572\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -103,8 +103,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj": {
-                "projectPath": "C:\\Users\\1534572\\ReadRate_OOH4RIA\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj"
+              "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj": {
+                "projectPath": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\ReadRate_e4Gen.ApplicationCore\\ReadRate_e4Gen.ApplicationCore.csproj"
               }
             }
           }

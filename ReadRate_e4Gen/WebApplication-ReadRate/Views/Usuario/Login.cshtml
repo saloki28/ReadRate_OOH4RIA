@@ -142,6 +142,29 @@
             box-shadow: 0 6px 16px rgba(255,111,0,0.4);
         }
         
+        .btn-secondary {
+            width: 100%;
+            padding: 0.9rem 2rem;
+            border: 2px solid #ff9800;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fff;
+            color: #ff9800;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: #fff5e6;
+            border-color: #ff6f00;
+            color: #ff6f00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,111,0,0.2);
+        }
+        
         .footer-text {
             color: #999;
             font-size: 0.85rem;
@@ -179,6 +202,12 @@
                     <input type="submit" value="Iniciar Sesión" class="btn btn-primary" />
                 </div>
             </form>
+            
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="@Url.Action("HomeVisitante", "Usuario")" class="btn btn-secondary">
+                     Entrar como Visitante
+                </a>
+            </div>
             
             <p class="footer-text">Tu plataforma de lectura y valoración de libros</p>
         </div>

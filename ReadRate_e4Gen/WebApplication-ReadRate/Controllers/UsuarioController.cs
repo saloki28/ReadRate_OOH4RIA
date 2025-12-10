@@ -21,14 +21,44 @@ namespace WebApplication_ReadRate.Controllers
             UsuarioRepository usuarioRepository = new UsuarioRepository();
             UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
 
-            if(usuarioCEN.Login(login.Email, login.Password) == null){
+            string token = usuarioCEN.Login(login.Email, login.Password);
+            
+            if(token == null){
                 ModelState.AddModelError("", "Email o contraseña incorrectos");
                 return View();
-                //return RedirectToAction("Index", "Home");
             }
             else{
+                // Obtener el usuario completo para conocer su rol
+                var listaUsuarios = usuarioCEN.DameUsuarioPorEmail(login.Email);
+                if (listaUsuarios != null && listaUsuarios.Count > 0)
+                {
+                    var usuario = listaUsuarios[0];
+                    
+                    // Guardar información del usuario en sesión
+                    HttpContext.Session.SetString("UsuarioEmail", usuario.Email);
+                    HttpContext.Session.SetString("UsuarioNombre", usuario.NombreUsuario);
+                    HttpContext.Session.SetInt32("UsuarioId", usuario.Id);
+                    HttpContext.Session.SetString("UsuarioRol", usuario.Rol.ToString());
+                }
+                
                 return RedirectToAction("Index", "Home");
             }
+        }
+        
+        // GET: UsuarioController/HomeVisitante
+        public ActionResult HomeVisitante()
+        {
+            // Establecer rol de visitante en sesión
+            HttpContext.Session.SetString("UsuarioRol", "visitante");
+            return RedirectToAction("Index", "Home");
+        }
+        
+        // GET: UsuarioController/Logout
+        public ActionResult Logout()
+        {
+            // Limpiar la sesión
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Usuario");
         }
 
         // GET: UsuarioController

@@ -22,6 +22,13 @@
             background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
             min-height: 100vh;
         }
+
+        .separador{
+            border: none;
+            display: block;
+            height: 10px;
+            background-color: #e65100;
+        }
         
         .header {
             background: linear-gradient(135deg, #ff6f00 0%, #ff9800 50%, #ffa726 100%);
@@ -267,7 +274,7 @@
         <p>Descubre los últimos libros publicados y comparte tu opinión</p>
     </div>
     <div class="container">
-        <h2 class="section-title">Últimos 5 libros publicados</h2>
+        <h2 class="section-title">TOP 5 LIBROS DE LA SEMANA</h2>
         <div class="books-grid">
             @if (Model != null && Model.Any())
             {
@@ -309,6 +316,44 @@
                 </div>
             }
         </div>
+        <hr class="separador">
+
+        @* PARTE DE AUTOR *@
+        <h2 class="section-title">AUTORES BEST SELLER DEL MOMENTO</h2> @* incluir la parte de niko de autores*@
+        @* <div class="books-grid">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <div class="book-card">
+                        <div class="book-cover">
+                            @if (!string.IsNullOrEmpty(item.FotoPortada))
+                            {
+                                <img src="@item.FotoPerfil" alt="Foto del autor @item.NombreUsuario" style="width: 110%; height: 110%; object-fit: contain;">
+                            }
+                            else
+                            {
+                                <span>FotoPerfil</span>
+                            }
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">@Html.DisplayFor(modelItem => item.NombreUsuario)</div>
+                            <div class="book-author">@Html.DisplayFor(modelItem => item.AutorPublicador.NombreUsuario)</div>
+                            <strong>Libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantLibros) <br />
+                            <div class="book-actions">
+                                <a class="btn" asp-controller="Autor" asp-action="Details" asp-route-id="@item.Id">Visitar perfil</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="no-books">
+                    No existen autores best seller por ahora
+                </div>
+            }
+        </div> *@
     </div>
 </body>
 </html>

@@ -22,71 +22,86 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
                     <ul class="navbar-nav gap-2">
+                        @{
+                            var usuarioRol = Context.Session.GetString("UsuarioRol");
+                            var usuarioNombre = Context.Session.GetString("UsuarioNombre");
+                        }
+
+                        <!-- Menú común para todos -->
                         <li class="nav-item">
                             <a class="nav-link home" asp-area="" asp-controller="Home" asp-action="Index">
-                                <span class="fa-solid fa-house"></span> Inicio
+                                <span class="fa-solid fa-house"></span> HOME
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link autor" asp-area="" asp-controller="Autor" asp-action="Index">
-                                <span class="fa-solid fa-user-pen"></span> Autores
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link lector" asp-area="" asp-controller="Lector" asp-action="Index">
-                                <span class="fa-solid fa-user"></span> Lectores
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link administrador" asp-area="" asp-controller="Administrador" asp-action="Index">
-                                <span class="fa-solid fa-user-shield"></span> Administradores
-                            </a>
-                        </li>
-
                         <li class="nav-item">
                             <a class="nav-link libro" asp-area="" asp-controller="Libro" asp-action="Index">
-                                <span class="fa-solid fa-book"></span> Libros
+                                <span class="fa-solid fa-book"></span> BUSCAR
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link reseña" asp-area="" asp-controller="Evento" asp-action="Index">
+                                <span class="fa-solid fa-star"></span> EVENTOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link evento" asp-area="" asp-controller="Noticia" asp-action="Index">
+                                <span class="fa-solid fa-calendar"></span> NOTICIAS
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link reseña" asp-area="" asp-controller="Reseña" asp-action="Index">
-                                <span class="fa-solid fa-star"></span> Reseñas
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link club" asp-area="" asp-controller="Club" asp-action="Index">
-                                <span class="fa-solid fa-users"></span> Clubes
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link evento" asp-area="" asp-controller="Evento" asp-action="Index">
-                                <span class="fa-solid fa-calendar"></span> Eventos
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link noticia" asp-area="" asp-controller="Noticia" asp-action="Index">
-                                <span class="fa-solid fa-newspaper"></span> Noticias
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link notificacion" asp-area="" asp-controller="Notificacion" asp-action="Index">
-                                <span class="fa-solid fa-bell"></span> Notificaciones
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link privacy" asp-area="" asp-controller="Home" asp-action="Privacy">
-                                <span class="fa-solid fa-user-secret"></span> Privacidad
-                            </a>
-                        </li>
+                        @if (usuarioRol == "visitante" || string.IsNullOrEmpty(usuarioRol))
+                        {
+                            <!-- Menú para VISITANTE -->
+                            <li class="nav-item">
+                                <a class="nav-link libro" asp-area="" asp-controller="Club" asp-action="Index">
+                                    <span class="fa-solid fa-book"></span> CLUBES
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Login">
+                                    <span class="fa-solid fa-right-to-bracket"></span> Iniciar Sesión
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Login">
+                                    <span class="fa-solid fa-right-to-bracket"></span> Crear cuenta
+                                </a>
+                            </li>
+                        }
+                        else if (usuarioRol == "autor")
+                        {
+                            <!-- Menú para AUTOR -->
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: #ff9800;" asp-area="" asp-controller="Autor" asp-action="Index">
+                                    <span class="fa-solid fa-user"></span> @usuarioNombre
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Logout">
+                                    <span class="fa-solid fa-right-from-bracket"></span> Cerrar Sesión
+                                </a>
+                            </li>
+                        }
+                        else if (usuarioRol == "lector")
+                        {
+                            <!-- Menú para LECTOR -->
+                            <li class="nav-item">
+                                <a class="nav-link club" asp-area="" asp-controller="Club" asp-action="Index">
+                                    <span class="fa-solid fa-users"></span> CLUBES
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link lector"  asp-area="" asp-controller="Lector" asp-action="Index">
+                                    <span class="fa-solid fa-user"></span> @usuarioNombre
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Logout">
+                                    <span class="fa-solid fa-right-from-bracket"></span> Cerrar Sesión
+                                </a>
+                            </li>
+                           
+                        }
                     </ul>
                 </div>
             </div>

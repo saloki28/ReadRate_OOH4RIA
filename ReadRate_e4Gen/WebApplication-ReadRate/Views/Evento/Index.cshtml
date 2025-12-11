@@ -3,11 +3,11 @@
 @{
     ViewData["Title"] = "Index Eventos";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Eventos</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todos los Eventos</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
@@ -18,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="event-card">
+                <article class="event-card">
                     <div class="book-cover">
                         @if (!string.IsNullOrEmpty(item.Foto))
                         {
@@ -33,26 +33,26 @@
                     </div>
 
                     <div class="event-info">
-                        <div class="event-title">@Html.DisplayFor(modelItem => item.Nombre)</div>
+                        <div class="book-title">@Html.DisplayFor(modelItem => item.Nombre)</div>
 
-                        <div class="event-meta">
-                            <div class="event-meta-item">
-                                <strong>Ubicación:</strong> @Html.DisplayFor(modelItem => item.Ubicacion)
+                        <div class="book-meta">
+                            <div class="book-meta-item">
+                                <strong>UbicaciÃ³n:</strong> @Html.DisplayFor(modelItem => item.Ubicacion)
                             </div>
-                            <div class="event-meta-item">
+                            <div class="book-meta-item">
                                 <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
                             </div>
-                            <div class="event-meta-item">
+                            <div class="book-meta-item">
                                 <strong>Hora:</strong> @item.HoraEvento.ToString("HH:mm")
                             </div>
-                            <div class="event-meta-item">
+                            <div class="book-meta-item">
                                 <strong>Organizador:</strong> @Html.DisplayFor(modelItem => item.AdminNombre)
                             </div>
-                            <div class="event-meta-item">
+                            <div class="book-meta-item">
                                 <strong>Aforo:</strong> @Html.DisplayFor(modelItem => item.AforoActual) / @Html.DisplayFor(modelItem => item.AforoMaximo) Personas
                             </div>
-                            <div class="event-meta-item">
-                                <strong>Descripción:</strong> @Html.DisplayFor(modelItem => item.TextoDescripcion)
+                            <div class="book-meta-item">
+                                <strong>DescripciÃ³n:</strong> @Html.DisplayFor(modelItem => item.TextoDescripcion)
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
@@ -72,4 +72,4 @@
             </div>
         }
     </div>
-</div>
+</section>

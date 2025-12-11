@@ -14,42 +14,39 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Detalles de la Noticia</h1>
-    </div>
-    
-    <div class="container">
-        <div class="details-card">
+    </header>
+
+    <main class="container">
+        <section class="details-card">
             @if (!string.IsNullOrEmpty(Model.Foto))
             {
-                <div class="detail-row">
-                    <div class="detail-label">Foto</div>
-                    <div class="detail-value">
-                        <img src="@Model.Foto" alt="Foto de la noticia" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
-                    </div>
+                <div class="detail-row-foto">
+                    <img src="@Model.Foto" alt="Foto de la noticia" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
                 </div>
             }
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Titulo)</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.FechaPublicacion)</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.TextoContenido)</div>
                 <div class="detail-value synopsis">@Html.DisplayFor(model => model.TextoContenido)</div>
-            </div>
+            </article>
 
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar noticia</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

@@ -18,27 +18,27 @@
         <h1>Editar Libro</h1>
     </div>
     
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Edit" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
                 
                 <input type="hidden" asp-for="Id" />
             
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Titulo" class="control-label"></label>
                     <input asp-for="Titulo" class="form-control" placeholder="Ej: Nuevo libro publicado"/>
                     <span asp-validation-for="Titulo" class="text-danger"></span>
                     <small class="form-hint">Título de no más de 200 caracteres</small>
-                </div>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Texto" class="control-label"></label>
                     <textarea asp-for="Texto" class="form-control" placeholder="Introduce el contenido de la notificación aquí..."></textarea>
                     <span asp-validation-for="Texto" class="text-danger"></span>
-                </div> 
+                </article> 
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Concepto" class="control-label"></label>
                     <select asp-for="Concepto" class="form-control">
                         <option value="nueva_reseña">Nueva Reseña</option>
@@ -48,15 +48,15 @@
                     </select>
                     <span asp-validation-for="Concepto" class="text-danger"></span>
                     <small class="form-hint">Tipo de notificación</small>
-                </div>
+                </article>
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

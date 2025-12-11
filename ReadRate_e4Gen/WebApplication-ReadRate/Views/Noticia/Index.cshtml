@@ -3,11 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Noticias</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todas las Noticias</h2>
         <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
@@ -18,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="news-card">
+                <article class="news-card">
                     <div class="book-cover">
                         @if (!string.IsNullOrEmpty(item.Foto))
                         {
@@ -33,16 +33,16 @@
                     </div>
 
                     <div class="news-info">
-                        <div class="news-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
+                        <div class="book-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
 
-                        <div class="news-meta">
-                            <div class="news-meta-item">
+                        <div class="book-meta">
+                            <div class="book-meta-item">
                                 <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
                             </div>
+                        </div>
 
-                            <div class="news-preview">
-                                @Html.DisplayFor(modelItem => item.TextoContenido)
-                            </div>
+                        <div class="news-preview">
+                            @Html.DisplayFor(modelItem => item.TextoContenido)
                         </div>
 
                         <div class="news-actions">
@@ -51,15 +51,15 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
         {
             <div class="no-news">
                 No hay noticias en el listado.
-                ¡Añade la primera!
+                Â¡AÃ±ade la primera!
             </div>
         }
     </div>
-</div>
+</section>

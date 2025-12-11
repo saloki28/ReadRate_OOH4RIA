@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Detalles del Libro</h1>
-    </div>
-    
-    <div class="container">
-        <div class="details-card">
+    </header>
 
+    <main class="container">
+        <section class="details-card">
             @if(Model != null && !string.IsNullOrEmpty(Model.FotoPortadaUrl))
             {
                 <div class="detail-row-foto">
@@ -28,51 +27,51 @@
                 </div>
             }
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Titulo)</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Genero)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Genero)</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.EdadRecomendada)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.EdadRecomendada) aÒos</div>
-            </div>
+                <div class="detail-value">@Html.DisplayFor(model => model.EdadRecomendada) a√±os</div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.FechaPublicacion)</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.NumPags)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.NumPags) p·ginas</div>
-            </div>
+                <div class="detail-value">@Html.DisplayFor(model => model.NumPags) p√°ginas</div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Sinopsis)</div>
                 <div class="detail-value synopsis">@Html.DisplayFor(model => model.Sinopsis)</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.ValoracionMedia) / 5</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">Nombre del Autor/a</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.NombreAutor)</div>
-            </div>
+            </article>
             
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar libro</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

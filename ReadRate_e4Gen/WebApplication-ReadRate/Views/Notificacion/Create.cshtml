@@ -14,30 +14,30 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Crear Nueva Notificación</h1>
-    </div>
-    
-    <div class="container">
-        <div class="form-card">
+    </header>
+
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Create" method="post">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Titulo" class="control-label"></label>
                     <input asp-for="Titulo" class="form-control" placeholder="Ej: Nueva actualización disponible" />
                     <span asp-validation-for="Titulo" class="text-danger"></span>
                     <small class="form-hint">Título de no más de 200 caracteres</small>
-                </div>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Texto" class="control-label"></label>
                     <textarea asp-for="Texto" class="form-control" placeholder="Escribe el contenido de la notificación..."></textarea>
                     <span asp-validation-for="Texto" class="text-danger"></span>
                     <small class="form-hint">Texto de máximo 5000 caracteres</small>
-                </div>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Concepto" class="control-label"></label>
                     <select asp-for="Concepto" class="form-control">
                         <option value="">-- Selecciona un concepto --</option>
@@ -48,15 +48,15 @@
                     </select>
                     <span asp-validation-for="Concepto" class="text-danger"></span>
                     <small class="form-hint">Tipo de notificación</small>
-                </div>
+                </article>
                 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Crear notificación" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

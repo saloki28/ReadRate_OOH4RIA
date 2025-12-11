@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Notificaciones</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todas las Notificaciones</h2>
-        <a asp-action="Create" class="btn-create">+ Crear nueva notificación</a>
+        <a asp-action="Create" class="btn-create">+ Crear nueva notificaciÃ³n</a>
     </div>
     
     <div class="notifications-grid">
@@ -18,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="notification-card">
+                <article class="notification-card">
                     <div class="notification-header">
                         <div class="notification-concept">@item.Concepto.Replace("_", " ").ToUpper()</div>
                     </div>
@@ -36,7 +36,7 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div> 
                     </div>
-                </div>
+                </article>
             }
         }
         else
@@ -46,4 +46,4 @@
             </div>
         }
     </div>
-</div>
+</section>

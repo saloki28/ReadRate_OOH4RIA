@@ -14,63 +14,60 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Detalles del Evento</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="details-card">
+    <main class="container">
+        <section class="details-card">
 
             @if (!string.IsNullOrEmpty(Model.Foto))
             {
-                <div class="detail-row">
-                    <div class="detail-label">Foto</div>
-                    <div class="detail-value">
-                        <img src="@Model.Foto" alt="Foto del evento" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
-                    </div>
+                <div class="detail-row-foto">
+                    <img src="@Model.Foto" alt="Foto del evento" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
                 </div>
             }
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Nombre)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Nombre)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.TextoDescripcion)</div>
                 <div class="detail-value synopsis">@Html.DisplayFor(model => model.TextoDescripcion)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.FechaPublicacion)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.HoraEvento)</div>
                 <div class="detail-value">@Model.HoraEvento.ToString("HH:mm")</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Ubicacion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Ubicacion)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">Aforo</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.AforoActual) / @Html.DisplayFor(model => model.AforoMaximo) Personas</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">Organizador</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.AdminNombre)</div>
-            </div>
+            </article>
 
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar evento</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

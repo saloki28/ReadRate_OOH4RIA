@@ -3,12 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Autores</h1>
-</div>
+</header>
 
-
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todos los Autores</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo autor</a>
@@ -19,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="book-card">
+                <article class="book-card">
                     <div class="book-cover">
                         @if(!string.IsNullOrEmpty(item.FotoUrl))
                         {
@@ -50,7 +49,7 @@
                                 <strong>Cantidad de seguidores:</strong> @Html.DisplayFor(modelItem => item.NumeroSeguidores)
                             </div>
                             <div class="book-meta-item">
-                                <strong>Valoración media:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia) / 5
+                                <strong>ValoraciÃ³n media:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia) / 5
                             </div>
                         </div>
                         <div class="book-actions">
@@ -59,14 +58,14 @@
                             <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
         {
             <div class="no-books">
-                No hay autores en el listado. ¡Añade el primero!
+                No hay autores en el listado. Â¡AÃ±ade el primero!
             </div>
         }
     </div>
-</div>
+</section>

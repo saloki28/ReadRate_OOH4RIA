@@ -14,73 +14,73 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Crear Nuevo Lector</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Create" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
 
-                @* Campo oculto para el rol - siempre ser· "lector" (valor 2) *@
+                @* Campo oculto para el rol - siempre ser√° "lector" (valor 2) *@
                 <input type="hidden" asp-for="Rol" value="2" />
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Email" class="control-label"></label>
                     <input asp-for="Email" class="form-control" placeholder="Ej: lector@gmail.com" />
                     <span asp-validation-for="Email" class="text-danger"></span>
-                    <small class="form-hint">Formato correo electrÛnico</small>
-                </div>
+                    <small class="form-hint">Formato correo electr√≥nico</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="NombreUsuario" class="control-label"></label>
                     <input asp-for="NombreUsuario" class="form-control" placeholder="Ej: Juan123" />
                     <span asp-validation-for="NombreUsuario" class="text-danger"></span>
-                    <small class="form-hint">Nombre de usuario de no m·s de 255 caracteres</small>
-                </div>
+                    <small class="form-hint">Nombre de usuario de no m√°s de 255 caracteres</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FechaNacimiento" class="control-label"></label>
                     <input asp-for="FechaNacimiento" class="form-control" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
                     <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
                     <small class="form-hint">Fecha en formato dd/mm/yyyy</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="CiudadResidencia" class="control-label"></label>
                     <input asp-for="CiudadResidencia" class="form-control" placeholder="Elche, Alicante..."/>
                     <span asp-validation-for="CiudadResidencia" class="text-danger"></span>
-                    <small class="form-hint">Texto de m·ximo 255 caracteres</small>
-                </div>
+                    <small class="form-hint">Texto de m√°ximo 255 caracteres</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="PaisResidencia" class="control-label"></label>
-                    <input asp-for="PaisResidencia" class="form-control" placeholder="EspaÒa, Portugal..." />
+                    <input asp-for="PaisResidencia" class="form-control" placeholder="Espa√±a, Portugal..." />
                     <span asp-validation-for="PaisResidencia" class="text-danger"></span>
-                    <small class="form-hint">Texto de m·ximo 255 caracteres</small>
-                </div>
+                    <small class="form-hint">Texto de m√°ximo 255 caracteres</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Pass" class="control-label"></label>
                     <input asp-for="Pass" class="form-control" placeholder="Ej: password123"/>
                     <span asp-validation-for="Pass" class="text-danger"></span>
-                    <small class="form-hint">ContraseÒa de acceso</small>
-                </div>
+                    <small class="form-hint">Contrase√±a de acceso</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FotoFile" class="control-label">Foto del lector</label>
                     <input asp-for="FotoFile" type="file" class="form-control" />
                     <span asp-validation-for="FotoFile" class="text-danger"></span>
-                </div>
+                </article>
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Crear lector" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

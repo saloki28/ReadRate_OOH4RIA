@@ -1,34 +1,34 @@
-@model WebApplication_ReadRate.Models.ReseñaViewModel
+@model WebApplication_ReadRate.Models.ReseÃ±aViewModel
 
 @{
-    ViewData["Title"] = "Eliminar Reseña";
+    ViewData["Title"] = "Eliminar ReseÃ±a";
 }
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Read&Rate - Eliminar Reseña</title>
+    <title>Read&Rate - Eliminar ReseÃ±a</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
-    </head>
+</head>
 <body>
-    <div class="confirmation-card">
-        <div class="warning-icon">¡AVISO!</div>
-        <h2 class="confirmation-title">¿Eliminar reseña?</h2>
-        <p class="confirmation-message">¿Seguro que quieres borrar la siguiente reseña?</p>
+    <article class="confirmation-card">
+        <div class="warning-icon">Â¡AVISO!</div>
+        <h2 class="confirmation-title">Â¿Eliminar reseÃ±a?</h2>
+        <p class="confirmation-message">Â¿Seguro que quieres borrar la siguiente reseÃ±a?</p>
         <div class="book-title">"@Model.LibroNombre"</div>
         <div class="book-title">"@Model.Opinion"</div>
-        <p class="warning-text">Esta acción no se puede deshacer</p>
+        <p class="warning-text">Esta acciÃ³n no se puede deshacer</p>
 
         <form asp-action="Delete" method="post">
             <input type="hidden" asp-for="Id" />
             <div class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">No, volver</a>
-                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <button type="submit" class="btn btn-danger">SÃ­, eliminar</button>
             </div>
         </form>
-    </div>
+    </article>
 </body>
 </html>

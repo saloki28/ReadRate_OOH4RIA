@@ -1,14 +1,14 @@
 @model WebApplication_ReadRate.Models.NotificacionViewModel
 
 @{
-    ViewData["Title"] = "Detalles de la Notificación";
+    ViewData["Title"] = "Detalles de la NotificaciÃ³n";
 }
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Read&Rate - Detalles de la Notificación</title>
+    <title>Read&Rate - Detalles de la NotificaciÃ³n</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
@@ -19,33 +19,33 @@
     </div>
     
     <div class="container">
-        <div class="details-card">
+        <section class="details-card">
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Concepto)</div>
                 <div class="detail-value">@Model.Concepto.Replace("_", " ").ToUpper()</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
                 <div class="detail-value">@Model.Titulo</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Texto)</div>
                 <div class="detail-value">@Model.Texto</div>
-            </div>
+            </article>
             
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">Fecha</div>
                 <div class="detail-value">@Model.Fecha.ToString("dd/MM/yyyy")</div>
-            </div>
+            </article>
             
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar libro</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

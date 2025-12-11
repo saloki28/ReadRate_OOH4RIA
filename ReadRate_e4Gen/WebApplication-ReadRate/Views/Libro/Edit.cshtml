@@ -14,67 +14,67 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Editar Libro</h1>
-    </div>
-    
-    <div class="container">
-        <div class="form-card">
+    </header>
+
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Edit" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
                 
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="FotoPortadaUrl" />
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Titulo" class="control-label"></label>
                     <input asp-for="Titulo" class="form-control" placeholder="Ej: El misterio de la casa abandonada" />
                     <span asp-validation-for="Titulo" class="text-danger"></span>
-                    <small class="form-hint">TÌtulo de no m·s de 200 caracteres</small>
-                </div>
+                    <small class="form-hint">T√≠tulo de no m√°s de 200 caracteres</small>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Genero" class="control-label"></label>
-                    <input asp-for="Genero" class="form-control" placeholder="Ej: FicciÛn, FantasÌa, Terror..." />
+                    <input asp-for="Genero" class="form-control" placeholder="Ej: Ficci√≥n, Fantas√≠a, Terror..." />
                     <span asp-validation-for="Genero" class="text-danger"></span>
-                    <small class="form-hint">GÈnero literario de no m·s de 50 caracteres</small>
-                </div>
+                    <small class="form-hint">G√©nero literario de no m√°s de 50 caracteres</small>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="EdadRecomendada" class="control-label"></label>
                     <input asp-for="EdadRecomendada" class="form-control" type="number" min="0" max="100" placeholder="Ej: 13" />
                     <span asp-validation-for="EdadRecomendada" class="text-danger"></span>
-                    <small class="form-hint">Edad mÌnima recomendada para leer este libro entre 0 y 100 aÒos</small>
-                </div>
+                    <small class="form-hint">Edad m√≠nima recomendada para leer este libro entre 0 y 100 a√±os</small>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="NumPags" class="control-label"></label>
                     <input asp-for="NumPags" class="form-control" type="number" min="1" max="10000" placeholder="Ej: 320" />
                     <span asp-validation-for="NumPags" class="text-danger"></span>
-                    <small class="form-hint">N˙mero de p·ginas entre 1 y 10000</small>
-                </div>
+                    <small class="form-hint">N√∫mero de p√°ginas entre 1 y 10000</small>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Sinopsis" class="control-label"></label>
-                    <textarea asp-for="Sinopsis" class="form-control" placeholder="Escribe una breve descripciÛn del libro..."></textarea>
+                    <textarea asp-for="Sinopsis" class="form-control" placeholder="Escribe una breve descripci√≥n del libro..."></textarea>
                     <span asp-validation-for="Sinopsis" class="text-danger"></span>
-                    <small class="form-hint">Texto de m·ximo 5000 caracteres </small>
-                </div>
+                    <small class="form-hint">Texto de m√°ximo 5000 caracteres </small>
+                </article>
                 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FotoPortada" class="control-label"></label>
                     <input asp-for="FotoPortada" class="form-control" type="file" />
                     <span asp-validation-for="FotoPortada" class="text-danger"></span>
                     <small class="form-hint">Imagen de la portada (formatos aceptados: .jpg, .png, .gif)</small>
-                </div>
+                </article>
                 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

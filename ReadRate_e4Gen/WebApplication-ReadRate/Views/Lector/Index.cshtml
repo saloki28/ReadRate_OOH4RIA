@@ -3,12 +3,10 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Lectores</h1>
-</div>
-
-
-<div class="container">
+</header>
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todos los Lectores</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo lector</a>
@@ -19,7 +17,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="book-card">
+                <article class="book-card">
                     <div class="book-cover">
                         @if(!string.IsNullOrEmpty(item.FotoUrl))
                         {
@@ -47,7 +45,7 @@
                                 <strong>Cantidad de libros en curso:</strong> @Html.DisplayFor(modelItem => item.CantLibrosCurso)
                             </div>
                             <div class="book-meta-item">
-                                <strong>Cantidad de libros leídos:</strong> @Html.DisplayFor(modelItem => item.CantLibrosLeidos)
+                                <strong>Cantidad de libros leÃ­dos:</strong> @Html.DisplayFor(modelItem => item.CantLibrosLeidos)
                             </div>
                             <div class="book-meta-item">
                                 <strong>Cantidad de autores seguidos:</strong> @Html.DisplayFor(modelItem => item.CantAutoresSeguidos)
@@ -62,14 +60,14 @@
                             <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
         {
             <div class="no-books">
-                No hay lectores en el listado. ¡Añade el primero!
+                No hay lectores en el listado. Â¡AÃ±ade el primero!
             </div>
         }
     </div>
-</div>
+</section>

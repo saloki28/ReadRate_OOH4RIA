@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Detalles del Lector</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="details-card">
+    <main class="container">
+        <section class="details-card">
             @if(Model != null && !string.IsNullOrEmpty(Model.FotoUrl))
             {
                 <div class="detail-label">Foto</div>
@@ -27,61 +27,61 @@
                     <img src="@Model.FotoUrl" alt="Foto del lector" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
                 </div>
             }
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Email)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Email)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.NombreUsuario)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.NombreUsuario)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.FechaNacimiento)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.FechaNacimiento)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.CiudadResidencia)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.CiudadResidencia)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.PaisResidencia)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.PaisResidencia)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Rol) de Usuario</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Rol)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.CantLibrosCurso)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.CantLibrosCurso)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.CantLibrosLeidos)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.CantLibrosLeidos)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.CantAutoresSeguidos)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.CantAutoresSeguidos)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.CantClubsSuscritos)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.CantClubsSuscritos)</div>
-            </div>
+            </article>
 
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn btn-primary">Editar lector</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

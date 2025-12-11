@@ -14,90 +14,81 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Editar Evento</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Edit" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
 
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="Foto" />
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Nombre" class="control-label"></label>
                     <input asp-for="Nombre" class="form-control" placeholder="Introduce el nombre..." />
                     <span asp-validation-for="Nombre" class="text-danger"></span>
-                    <small class="form-hint">Nombre de no m·s de 255 caracteres</small>
-                </div>
+                    <small class="form-hint">Nombre de no m√°s de 255 caracteres</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="TextoDescripcion" class="control-label"></label>
-                    <textarea asp-for="TextoDescripcion" class="form-control" placeholder="Escribe aquÌ el cuerpo del evento..."></textarea>
+                    <textarea asp-for="TextoDescripcion" class="form-control" placeholder="Escribe aqu√≠ el cuerpo del evento..."></textarea>
                     <span asp-validation-for="TextoDescripcion" class="text-danger"></span>
-                    <small class="form-hint">Texto de m·ximo 255 caracteres </small>
-                </div>
+                    <small class="form-hint">Texto de m√°ximo 255 caracteres </small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FechaPublicacion" class="control-label"></label>
                     <input asp-for="FechaPublicacion" class="form-control" type="date" />
                     <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
                     <small class="form-hint">Fecha en formato dd/mm/yyyy</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="HoraEvento" class="control-label"></label>
                     <input asp-for="HoraEvento" class="form-control" type="time" value="@Model.HoraEvento.ToString("HH:mm")" />
                     <span asp-validation-for="HoraEvento" class="text-danger"></span>
                     <small class="form-hint">Hora en formato HH:MM</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Ubicacion" class="control-label"></label>
-                    <textarea asp-for="Ubicacion" class="form-control" placeholder="Escribe aquÌ la ubicaciÛn..."></textarea>
+                    <textarea asp-for="Ubicacion" class="form-control" placeholder="Escribe aqu√≠ la ubicaci√≥n..."></textarea>
                     <span asp-validation-for="Ubicacion" class="text-danger"></span>
-                    <small class="form-hint">Texto de m·ximo 255 caracteres </small>
-                </div>
+                    <small class="form-hint">Texto de m√°ximo 255 caracteres </small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="AforoMaximo" class="control-label"></label>
                     <input asp-for="AforoMaximo" class="form-control" type="number" min="1" max="10000" placeholder="Ej: 320" />
                     <span asp-validation-for="AforoMaximo" class="text-danger"></span>
                     <small class="form-hint">Aforo entre 1 y 10000</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="AforoActual" class="control-label"></label>
                     <input asp-for="AforoActual" class="form-control" type="number" min="0" max="10000" placeholder="Ej: 320" />
                     <span asp-validation-for="AforoActual" class="text-danger"></span>
                     <small class="form-hint">Aforo entre 0 y 10000</small>
-                </div>
+                </article>
 
-                <!-- FOTO -->
-                @if (!string.IsNullOrEmpty(Model.Foto))
-                {
-                    <div class="current-image">
-                        <p>Foto actual:</p>
-                        <img src="@Model.Foto" alt="Foto actual" />
-                    </div>
-                }
-
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FotoFichero" class="control-label">Cambiar Imagen del Evento</label>
                     <input asp-for="FotoFichero" class="form-control" type="file" accept="image/*" />
                     <span asp-validation-for="FotoFichero" class="text-danger"></span>
                     <small class="form-hint">Deja en blanco para mantener la foto actual</small>
-                </div>
+                </article>
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

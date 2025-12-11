@@ -13,41 +13,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="page-header">
-        <h1>Detalles del administrador</h1>
-    </div>
+    <header class="page-header">
+        <h1>Detalles del Administrador</h1>
+    </header>
 
-    <div class="container">
-        <div class="details-card">
-            <div class="detail-row">
+    <main class="container">
+        <section class="details-card">
+            @if(Model != null && !string.IsNullOrEmpty(Model.FotoUrl))
+            {
                 <div class="detail-label">Foto</div>
-                <div class="detail-value">
-                    @if(!string.IsNullOrEmpty(Model.FotoUrl))
-                    {
-                        <img src="@Model.FotoUrl" alt="Foto de @Model.Nombre" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
-                    }
-                    else
-                    {
-                        <span style="color: #999;">Foto Admin</span>
-                    }
+                <div class="detail-row-foto" style="display: flex; justify-content: center; align-items: center; margin-bottom: 2.5rem;">
+                    <img src="@Model.FotoUrl" alt="Foto de @Model.Nombre" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
                 </div>
-            </div>
-
-            <div class="detail-row">
+            }
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Nombre)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Nombre)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Email)</div>
                 <div class="detail-value"><a href="mailto:@Model.Email">@Model.Email</a></div>
-            </div>
+            </article>
 
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar administador</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

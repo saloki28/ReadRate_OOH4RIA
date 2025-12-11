@@ -1,56 +1,56 @@
-@model WebApplication_ReadRate.Models.ReseñaViewModel
+@model WebApplication_ReadRate.Models.ReseÃ±aViewModel
 
 @{
-    ViewData["Title"] = "Detalles de la reseña";
+    ViewData["Title"] = "Detalles de la reseÃ±a";
 }
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Read&Rate - Detalles de la reseña</title>
+    <title>Read&Rate - Detalles de la reseÃ±a</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
     <div class="page-header">
-        <h1>Detalles de reseña</h1>
+        <h1>Detalles de reseÃ±a</h1>
     </div>
 
-    <div class="container">
-        <div class="details-card">
-            <div class="detail-row">
+    <main class="container">
+        <section class="details-card">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.LibroNombre)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.LibroNombre)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Valoracion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Valoracion) / 5</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Opinion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Opinion)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
                 <div class="detail-value">@Model.FechaPublicacion?.ToString("dd/MM/yyyy")</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.LectorNombre)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.LectorNombre)</div>
-            </div>
+            </article>
 
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar reseña</a>
-            </div>
-        </div>
-    </div>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar reseÃ±a</a>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
 

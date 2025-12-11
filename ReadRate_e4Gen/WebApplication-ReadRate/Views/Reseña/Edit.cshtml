@@ -1,52 +1,52 @@
-@model WebApplication_ReadRate.Models.ReseñaViewModel
+@model WebApplication_ReadRate.Models.ReseÃ±aViewModel
 
 @{
-    ViewData["Title"] = "Editar Reseña";
+    ViewData["Title"] = "Editar ReseÃ±a";
 }
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Read&Rate - Editar Reseña</title>
+    <title>Read&Rate - Editar ReseÃ±a</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
     <div class="page-header">
-        <h1>Editar Reseña</h1>
+        <h1>Editar ReseÃ±a</h1>
     </div>
 
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Edit" method="post">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
 
                 <input type="hidden" asp-for="Id" />
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Valoracion" class="control-label"></label>
                     <input asp-for="Valoracion" class="form-control" type="number" min="0" max="5" step="0.1" />
                     <span asp-validation-for="Valoracion" class="text-danger"></span>
-                    <small class="form-hint">Valora el libro (número entre 0 y 5)</small>
-                </div>
+                    <small class="form-hint">Valora el libro (nÃºmero entre 0 y 5)</small>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Opinion" class="control-label"></label>
                     <input asp-for="Opinion" class="form-control" maxlength="600" />
                     <span asp-validation-for="Opinion" class="text-danger"></span>
-                    <small class="form-hint">Da tu opiníon sobre el libro (máximo 600 caracteres)</small>
-                </div>
+                    <small class="form-hint">Da tu opiniÃ³n sobre el libro (mÃ¡ximo 600 caracteres)</small>
+                </article>
 
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

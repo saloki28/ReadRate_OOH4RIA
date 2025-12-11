@@ -1,14 +1,14 @@
-﻿@model IEnumerable<WebApplication_ReadRate.Models.AdministradorViewModel>
+@model IEnumerable<WebApplication_ReadRate.Models.AdministradorViewModel>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Administradores</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todas los clubs de lectura </h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo administrador</a>
@@ -19,7 +19,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="book-card">
+                <article class="book-card">
                     <div class="book-cover">
                         @if(!string.IsNullOrEmpty(item.FotoUrl))
                         {
@@ -39,7 +39,7 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
@@ -49,4 +49,4 @@
             </div>
         }
     </div>
-</div>
+</section>

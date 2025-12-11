@@ -3,11 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Libros</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todos los Libros</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo libro</a>
@@ -18,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="book-card">
+                <article class="book-card">
                     <div class="book-cover">
                         @if(!string.IsNullOrEmpty(item.FotoPortadaUrl))
                         {
@@ -36,16 +36,16 @@
                                 <strong>Autor/a:</strong> @Html.DisplayFor(modelItem => item.NombreAutor)
                             </div>
                             <div class="book-meta-item">
-                                <strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)
+                                <strong>GÃ©nero:</strong> @Html.DisplayFor(modelItem => item.Genero)
                             </div>
                             <div class="book-meta-item">
-                                <strong>Edad:</strong> +@Html.DisplayFor(modelItem => item.EdadRecomendada) años
+                                <strong>Edad:</strong> +@Html.DisplayFor(modelItem => item.EdadRecomendada) aÃ±os
                             </div>
                             <div class="book-meta-item">
-                                <strong>Páginas:</strong> @Html.DisplayFor(modelItem => item.NumPags)
+                                <strong>PÃ¡ginas:</strong> @Html.DisplayFor(modelItem => item.NumPags)
                             </div>
                             <div class="book-meta-item">
-                                <strong>Valoración:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia)
+                                <strong>ValoraciÃ³n:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia)
                             </div>
                             <div class="book-meta-item">
                                 <strong>Publicado:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
@@ -60,14 +60,14 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
         {
             <div class="no-books">
-                No hay libros en el listado. ¡Añade el primero!
+                No hay libros en el listado. Â¡AÃ±ade el primero!
             </div>
         }
     </div>
-</div>
+</section>

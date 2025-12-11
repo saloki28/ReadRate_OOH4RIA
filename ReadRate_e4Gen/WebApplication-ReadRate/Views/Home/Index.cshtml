@@ -13,18 +13,19 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <h1>Read&Rate</h1>
         <p>Descubre los últimos libros publicados y comparte tu opinión</p>
-    </div>
-    <div class="container">
-        <h2 class="section-title">Últimos 5 libros publicados</h2>
-        <div class="books-grid">
+    </header>
+    <main class="container">
+        <section>
+            <h2 class="section-title">Últimos 5 libros publicados</h2>
+            <div class="books-grid">
             @if (Model != null && Model.Any())
             {
                 foreach (var item in Model)
                 {
-                    <div class="book-card">
+                    <article class="book-card">
                         <div class="book-cover">
                             @if(!string.IsNullOrEmpty(item.FotoPortada))
                             {
@@ -45,12 +46,12 @@
                                 <strong>Valoración Media:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia) / 5 <br/>
                                 <strong>Publicación:</strong> @item.FechaPublicacion?.ToString("dd/MM/yyyy")
                             </div>
-                            <div class="book-sinopsis">@Html.DisplayFor(modelItem => item.Sinopsis)</div>
+                            <div class="book-meta">@Html.DisplayFor(modelItem => item.Sinopsis)</div>
                             <div class="book-actions">
                                 <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 }
             }
             else
@@ -60,6 +61,7 @@
                 </div>
             }
         </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>

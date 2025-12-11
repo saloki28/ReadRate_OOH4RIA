@@ -13,50 +13,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Crear Nuevo Administrador</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Create" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Nombre" class="control-label"></label>
                     <input asp-for="Nombre" class="form-control" />
                     <span asp-validation-for="Nombre" class="text-danger"></span>
                     <small class="form-hint"> Escribe el nombre del administrador (máximo 200 caracteres) </small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Email" class="control-label"></label>
                     <input asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                     <small class="form-hint">Escribe el email </small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Password" class="control-label"></label>
                     <input asp-for="Password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                     <small class="form-hint">Escribe la contraseña</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FotoFile" class="control-label">Foto del Administrador</label>
                     <input asp-for="FotoFile" type="file" class="form-control" accept="image/*" />
                     <span asp-validation-for="FotoFile" class="text-danger"></span>
                     <small class="form-hint">Selecciona una foto para el administrador (opcional, por defecto se usará usuarioDefault.webp)</small>
-                </div>
+                </article>
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Crear administrador" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

@@ -41,6 +41,7 @@ body.login-page {
     align-items: center;
     justify-content: center;
     padding: 0 2rem;
+    zoom: 1.2;
 }
 
 .login-container {
@@ -774,11 +775,10 @@ select.form-control::-ms-expand {
 }
 
 .news-preview {
-    font-size: 0.95rem;
-    color: #555;
-    margin-top: 0.5rem;
-    line-height: 1.6;
-    display: -webkit-box;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.7;
 }
 .book-actions {
     display: flex;

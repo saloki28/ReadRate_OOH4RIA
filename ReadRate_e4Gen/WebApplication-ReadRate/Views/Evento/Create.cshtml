@@ -14,86 +14,86 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Crear Nuevo Evento</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Create" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Nombre" class="control-label"></label>
                     <input asp-for="Nombre" class="form-control" placeholder="Introduce el nombre..." />
                     <span asp-validation-for="Nombre" class="text-danger"></span>
                     <small class="form-hint">Nombre de no más de 255 caracteres</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="TextoDescripcion" class="control-label"></label>
                     <textarea asp-for="TextoDescripcion" class="form-control" placeholder="Escribe aquí el cuerpo del evento..."></textarea>
                     <span asp-validation-for="TextoDescripcion" class="text-danger"></span>
                     <small class="form-hint">Texto de máximo 255 caracteres </small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FechaPublicacion" class="control-label"></label>
                     <input asp-for="FechaPublicacion" class="form-control" type="date" />
                     <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
                     <small class="form-hint">Fecha en formato dd/mm/yyyy</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="HoraEvento" class="control-label"></label>
                     <input asp-for="HoraEvento" class="form-control" type="time" />
                     <span asp-validation-for="HoraEvento" class="text-danger"></span>
                     <small class="form-hint">Hora en formato HH:MM</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Ubicacion" class="control-label"></label>
                     <input asp-for="Ubicacion" class="form-control" placeholder="Escribe aquí la ubicación..." />
                     <span asp-validation-for="Ubicacion" class="text-danger"></span>
                     <small class="form-hint">Texto de máximo 255 caracteres </small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="AforoMaximo" class="control-label"></label>
                     <input asp-for="AforoMaximo" class="form-control" type="number" min="1" max="10000" step="1" placeholder="Ej: 320" />
                     <span asp-validation-for="AforoMaximo" class="text-danger"></span>
                     <small class="form-hint">Aforo entre 1 y 10000</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="AforoActual" class="control-label"></label>
                     <input asp-for="AforoActual" class="form-control" type="number" min="0" max="10000" step="1" placeholder="Ej: 0" />
                     <span asp-validation-for="AforoActual" class="text-danger"></span>
                     <small class="form-hint">Aforo entre 0 y 10000</small>
-                </div>
+                </article>
 
                 <!--FOTO-->
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="FotoFichero" class="control-label">Imagen del Evento</label>
                     <input asp-for="FotoFichero" class="form-control" type="file" accept="image/*" />
                     <span asp-validation-for="FotoFichero" class="text-danger"></span>
                     <small class="form-hint">Imagen opcional para el evento</small>
-                </div>
+                </article>
 
                 <!--Codigo Select -->
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="AdminPublicadorID" class="control-label">Nombre del Administrador</label>
                     <select class="form-control" asp-for="AdminPublicadorID" asp-items='(IEnumerable<SelectListItem>)ViewData["Administradores"]'></select>
                     <span asp-validation-for="AdminPublicadorID" class="text-danger"></span>
-                </div>
+                </article>
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Crear evento" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

@@ -18,8 +18,8 @@
         <h1>Detalles del club de lectura</h1>
     </div>
 
-    <div class="container">
-        <div class="details-card">
+    <main class="container">
+        <section class="details-card">
             @if(Model != null && !string.IsNullOrEmpty(Model.FotoUrl))
             {
                 <div class="detail-label">Foto</div>
@@ -28,41 +28,41 @@
                 </div>
             }
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Nombre)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Nombre)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Descripcion)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Descripcion)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.PropietarioNombre)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.PropietarioNombre)</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.NumeroMax)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.NumeroMax) Lectores</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Miembros)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Miembros) Lectores</div>
-            </div>
+            </article>
 
-            <div class="detail-row">
+            <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.Enlace)</div>
                 <div class="detail-value">@Html.DisplayFor(model => model.Enlace)</div>
-            </div>
+            </article>
 
-            <div class="form-actions">
+            <article class="form-actions">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar Club</a>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

@@ -17,62 +17,50 @@
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Crear Nueva Reseña</h1>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="form-card">
+    <main class="container">
+        <section class="form-card">
             <form asp-action="Create" method="post">
                 <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Valoracion" class="control-label"></label>
                     <input asp-for="Valoracion" class="form-control" min="0" max="5" step="0.1" type="number" />
                     <span asp-validation-for="Valoracion" class="text-danger"></span>
                     <small class="form-hint">Valora el libro (número entre 0 y 5)</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="Opinion" class="control-label"></label>
                     <input asp-for="Opinion" class="form-control" placeholder="Escribe tu opinión aquí..." maxlength="600" />
                     <span asp-validation-for="Opinion" class="text-danger"></span>
                     <small class="form-hint">Da tu opinión sobre el libro (máximo 600 caracteres)</small> 
-                </div>
+                </article>
 
-                @* <div class="form-group">
-                    <label asp-for="FechaPublicacion" class="control-label"></label>
-                    <input type="text"
-                           value="@Model.FechaPublicacion?.ToString("dd/MM/yyyy HH:mm")"
-                           class="form-control"
-                           readonly
-                           style="background-color: #f8f9fa;" />
-                    <input type="hidden" asp-for="FechaPublicacion" />
-                    <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
-                    <small class="form-hint">Fecha de creación automática</small>
-                </div> *@
-
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="LibroId" class="control-label"></label>
                     <select class="form-control" asp-for="LibroId" asp-items="librosItem"></select>
                     <span asp-validation-for="LibroId" class="text-danger"></span>
                     <small class="form-hint">Selecciona el libro sobre el que vas a dar tu opinión</small>
-                </div>
+                </article>
 
-                <div class="form-group">
+                <article class="form-group">
                     <label asp-for="LectorId" class="control-label"></label>
                     <select class="form-control" asp-for="LectorId" asp-items="lectorItem"></select>
                     <span asp-validation-for="LectorId" class="text-danger"></span>
                     <small class="form-hint">Selecciona el autor de la reseña</small>
-                </div>
+                </article>
 
-                <div class="form-actions">
+                <article class="form-actions">
                     <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                     <input type="submit" value="Crear reseña" class="btn btn-primary" />
-                </div>
+                </article>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
 

@@ -3,11 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Reseñas recientes </h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Listado de Reseñas </h2>
         <a asp-action="Create" class="btn-create">+ Crear nueva reseña</a>
@@ -18,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="book-card">
+                <article class="book-card">
                     <div class="notification-header">
                         <div class="book-title">@Html.DisplayFor(modelItem => item.LibroNombre)</div>
                     </div>
@@ -43,7 +43,7 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
@@ -53,4 +53,4 @@
             </div>
         }
     </div>
-</div>
+</section>

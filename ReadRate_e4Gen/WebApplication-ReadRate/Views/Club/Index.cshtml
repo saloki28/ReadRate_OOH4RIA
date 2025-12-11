@@ -3,11 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="page-header">
+<header class="page-header">
     <h1>Listado de Clubs de Lectura</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     <div class="action-bar">
         <h2 class="section-title">Todos los Clubs de Lectura</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo club</a>
@@ -18,7 +18,7 @@
         {
             foreach (var item in Model)
             {
-                <div class="book-card">
+                <article class="book-card">
                     <div class="book-cover">
                         @if(!string.IsNullOrEmpty(item.FotoUrl))
                         {
@@ -33,13 +33,13 @@
                         <div class="book-title">@Html.DisplayFor(modelItem => item.Nombre)</div>
                         <div class="book-meta">
                             <div class="book-meta-item">
-                                <strong>Descripción:</strong> @Html.DisplayFor(modelItem => item.Descripcion)
+                                <strong>DescripciÃ³n:</strong> @Html.DisplayFor(modelItem => item.Descripcion)
                             </div>
                             <div class="book-meta-item">
-                                <strong>Número Máximo de Miembros:</strong> @Html.DisplayFor(modelItem => item.NumeroMax) Lectores
+                                <strong>NÃºmero MÃ¡ximo de Miembros:</strong> @Html.DisplayFor(modelItem => item.NumeroMax) Lectores
                             </div>
                             <div class="book-meta-item">
-                                <strong>Número de Miembros Actuales:</strong> @Html.DisplayFor(modelItem => item.Miembros) Lectores
+                                <strong>NÃºmero de Miembros Actuales:</strong> @Html.DisplayFor(modelItem => item.Miembros) Lectores
                             </div>
                             <div class="book-meta-item">
                                 <strong>Enlace a Discord:</strong>  @Html.DisplayFor(modelItem => item.Enlace)
@@ -51,14 +51,14 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
                         </div>
                     </div>
-                </div>
+                </article>
             }
         }
         else
         {
             <div class="no-books">
-                No hay clubs en el listado. ¡Añade el primero!
+                No hay clubs en el listado. Â¡AÃ±ade el primero!
             </div>
         }
     </div>
-</div>
+</section>

@@ -281,11 +281,206 @@ public static void InitializeData ()
  p_fechaPublicacion: new DateTime (1990, 1, 15),
                         p_numPags: 814,
  p_sinopsis: "Un grupo de jóvenes se ve arrastrado a un viaje épico donde el destino del mundo depende de ellos, dando inicio a la monumental saga de La Rueda del Tiempo.",
- p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo.webp",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo1.webp",
  p_autorPublicador: autorId2
                         );
                 var idLibro2 = libro2.Id;
                 Console.WriteLine ("Libro 'El Ojo del Mundo' creado correctamente.");
+
+                // Libro 2_2 (usa el id del autor anterior)
+                var libro2_2 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 2: La Gran Cacería",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1990, 11, 15),
+                        p_numPags: 705,
+ p_sinopsis: "Los jóvenes héroes comienzan una búsqueda épica del mítico cuerno de Valere. Mientras tanto, fuerzas oscuras se movilizan, y la guerra por el destino del mundo comienza a despertar.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo2.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_2 = libro2_2.Id;
+                Console.WriteLine ("Libro 'La Gran Cacería' creado correctamente.");
+
+                // Libro 2_3 (usa el id del autor anterior)
+                var libro2_3 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 3: El Dragón Renacido",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1991, 10, 5),
+                        p_numPags: 624,
+ p_sinopsis: "Rand al’Thor asume su papel como el “Dragón Renacido”, lo cual lo convierte en pieza clave del destino del mundo; debe aceptar su poder, pese al miedo y al peligro que ello trae.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo3.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_3 = libro2_3.Id;
+                Console.WriteLine ("Libro 'El Dragón Renacido' creado correctamente.");
+
+                // Libro 2_4 (usa el id del autor anterior)
+                var libro2_4 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 4: El Ascenso de la Sombra",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1992, 9, 27),
+                        p_numPags: 1007,
+ p_sinopsis: "Las sombras y los antiguos enemigos resurgen con fuerza. Los protagonistas enfrentan nuevas amenazas internas y externas, y el equilibrio del mundo empieza a pender de un hilo.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo4.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_4 = libro2_4.Id;
+                Console.WriteLine ("Libro 'El Ascenso de la Sombra' creado correctamente.");
+
+                // Libro 2_5 (usa el id del autor anterior)
+                var libro2_5 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 5: Cielo en Llamas",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1993, 11, 15),
+                        p_numPags: 989,
+ p_sinopsis: "Las tensiones aumentan: conflictos políticos, viejos enemigos y magias oscuras complican aún más el destino del mundo. Las fuerzas del bien y del mal se preparan para una confrontación épica.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo5.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_5 = libro2_5.Id;
+                Console.WriteLine ("Libro 'Cielo en Llamas' creado correctamente.");
+
+                // Libro 2_6 (usa el id del autor anterior)
+                var libro2_6 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 6: El Señor del Caos",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1994, 6, 13),
+                        p_numPags: 1011,
+ p_sinopsis: "Con el caos extendiéndose, los héroes deben lidiar con traiciones, guerras internas y la inseguridad de si podrán resistir ante un mal creciente. La lucha por el poder y el orden se intensifica.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo6.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_6 = libro2_6.Id;
+                Console.WriteLine ("Libro 'El Señor del Caos' creado correctamente.");
+
+                // Libro 2_7 (usa el id del autor anterior)
+                var libro2_7 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 7: Corona de Espadas",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1996, 5, 3),
+                        p_numPags: 880,
+ p_sinopsis: "Rand, como Dragón Renacido, debe enfrentarse a enemigos tanto abiertos como ocultos. Mientras tanto, intrigas políticas y poderes mágicos se entrecruzan.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo7.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_7 = libro2_7.Id;
+                Console.WriteLine ("Libro 'Corona de Espadas' creado correctamente.");
+
+                // Libro 2_8 (usa el id del autor anterior)
+                var libro2_8 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 8: El Camino de Dagas",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1998, 7, 15),
+                        p_numPags: 672,
+ p_sinopsis: "El conflicto se intensifica: invasiones, engaños y manipulaciones mágicas amenazan la estabilidad política y social del mundo. Los protagonistas deben tomar decisiones difíciles.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo8.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_8 = libro2_8.Id;
+                Console.WriteLine ("Libro 'El Camino de Dagas' creado correctamente.");
+
+                // Libro 2_9 (usa el id del autor anterior)
+                var libro2_9 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 9: El Corazón del Invierno",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2000, 8, 11),
+                        p_numPags: 668,
+ p_sinopsis: "A medida que las fuerzas del mal buscan destruir todo, los héroes deben afrontar sus miedos internos y externos. El clima político, mágico y social se vuelve más inestable.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo9.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_9 = libro2_9.Id;
+                Console.WriteLine ("Libro 'El Corazón del Invierno' creado correctamente.");
+
+                // Libro 2_10 (usa el id del autor anterior)
+                var libro2_10 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 10: Encrucijada en el Crepúsculo",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2003, 1, 15),
+                        p_numPags: 832,
+ p_sinopsis: "Las consecuencias de decisiones anteriores empiezan a notarse: traiciones, luchas de poder, tensiones crecientes. El mundo se prepara para lo inevitable: una confrontación final.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo10.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_10 = libro2_10.Id;
+                Console.WriteLine ("Libro 'Encrucijada en el Crepúsculo' creado correctamente.");
+
+                // Libro 2_11 (usa el id del autor anterior)
+                var libro2_11 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 11: Cuchillo de Sueños",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2005, 6, 7),
+                        p_numPags: 837,
+ p_sinopsis: "La saga se acerca a su clímax: amenazas mayores emergen, y los protagonistas deben unir fuerzas. Se revelan secretos cruciales y alianzas impensadas.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo11.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_11 = libro2_11.Id;
+                Console.WriteLine ("Libro 'Cuchillo de Sueños' creado correctamente.");
+
+                // Libro 2_12 (usa el id del autor anterior)
+                var libro2_12 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 12: La Tormenta",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2009, 1, 10),
+                        p_numPags: 783,
+ p_sinopsis: "El mundo se rompe: el protagonista lucha con su destino, la corrupción del poder y la inminente guerra final se aproxima.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo12.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_12 = libro2_12.Id;
+                Console.WriteLine ("Libro 'La Tormenta' creado correctamente.");
+
+                // Libro 2_13 (usa el id del autor anterior)
+                var libro2_13 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 13: Torres de Medianoche",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2010, 2, 12),
+                        p_numPags: 861,
+ p_sinopsis: "Todos los hilos de la trama convergen: conspiraciones, poderes antiguos, alianzas decisivas. El mundo entero se prepara para la batalla final contra la Sombra.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo13.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_13 = libro2_13.Id;
+                Console.WriteLine ("Libro 'Torres de Medianoche' creado correctamente.");
+
+                // Libro 2_14 (usa el id del autor anterior)
+                var libro2_14 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 14: Un Recuerdo de Luz",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 3.5f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2013, 11, 19),
+                        p_numPags: 912,
+ p_sinopsis: "Las fuerzas de la Luz y la Sombra chocan en la legendaria batalla final. Todos los destinos se definen: salvación o destrucción para la humanidad.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo14.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_14 = libro2_14.Id;
+                Console.WriteLine ("Libro 'Un Recuerdo de Luz' creado correctamente.");
 
                 // Autor 3 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId3 = autorcen.CrearAutor (
@@ -318,6 +513,36 @@ public static void InitializeData ()
                         );
                 var idLibro3 = libro3.Id;
                 Console.WriteLine ("Libro 'El Imperio Final' creado correctamente.");
+
+                // Libro 3.2 (usa el id del autor anterior)
+                var libro3_2 = librocp.CrearLibro (
+ p_titulo: "Mistborn 2: El Pozo de la Ascensión",
+ p_genero: "Fantasía",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2007, 8, 21),
+                        p_numPags: 784,
+ p_sinopsis: "Vin y sus aliados deben enfrentar el caos de un Imperio en ruinas. Mientras las fuerzas externas amenazan la ciudad y entidades misteriosas manipulan los acontecimientos, Vin siente la llamada de un antiguo poder.",
+ p_fotoPortada: "/images/portadasLibros/pozoAscension.webp",
+ p_valoracionMedia: 5.0f,
+ p_autorPublicador: autorId3
+                        );
+                var idLibro3_2 = libro3_2.Id;
+                Console.WriteLine ("Libro 'El Pozo de la Ascensión' creado correctamente.");
+
+                // Libro 3.3 (usa el id del autor anterior)
+                var libro3_3 = librocp.CrearLibro (
+ p_titulo: "Mistborn 3: El Héroe de las Eras",
+ p_genero: "Fantasía",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2008, 9, 23),
+                        p_numPags: 848,
+ p_sinopsis: "Con el mundo al borde de la destrucción, Vin y Elend luchan por descubrir la verdad detrás del legendario Héroe de las Eras. Solo entendiendo los secretos perdidos de la alomancia podrán enfrentar a una amenaza que lleva mil años preparándose.",
+ p_fotoPortada: "/images/portadasLibros/heroeEras.webp",
+ p_valoracionMedia: 5.0f,
+ p_autorPublicador: autorId3
+                        );
+                var idLibro3_3 = libro3_3.Id;
+                Console.WriteLine ("Libro 'El Héroe de las Eras' creado correctamente.");
 
                 // Autor 4 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId4 = autorcen.CrearAutor (
@@ -368,7 +593,7 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Autora creada correctamente con ID: " + autorId5);
 
-                // Libro 5 (usa el id del autor anterior)
+                // Libro 5.1 (usa el id del autor anterior)
                 var libro5 = librocp.CrearLibro (
  p_titulo: "Ana de las Tejas Verdes",
  p_genero: "Literatura Infantil",
@@ -377,11 +602,86 @@ public static void InitializeData ()
  p_fechaPublicacion: new DateTime (1908, 6, 13),
                         p_numPags: 320,
  p_sinopsis: "La historia de Anne Shirley, una huérfana soñadora que llega por accidente a la casa de los hermanos Cuthbert en Tejas Verdes, donde transformará la vida de todos con su imaginación y corazón.",
- p_fotoPortada: "/images/portadasLibros/anaTejasVerdes.webp",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes1.webp",
  p_autorPublicador: autorId5
                         );
                 var idLibro5 = libro5.Id;
                 Console.WriteLine ("Libro 'Ana de las Tejas Verdes' creado correctamente.");
+
+                // Libro 5.2 (usa el id del autor anterior)
+                var libro5_2 = librocp.CrearLibro (
+ p_titulo: "Ana de Avonlea",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 3.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1909, 8, 22),
+                        p_numPags: 350,
+ p_sinopsis: "Anne comienza su vida adulta como maestra en Avonlea, donde deberá lidiar con alumnos difíciles, nuevos vecinos y responsabilidades que pondrán a prueba su madurez.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes2.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_2 = libro5_2.Id;
+                Console.WriteLine ("Libro 'Ana de Avonlea' creado correctamente.");
+
+                // Libro 5.3 (usa el id del autor anterior)
+                var libro5_3 = librocp.CrearLibro (
+ p_titulo: "Ana de la Isla",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 3.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1915, 7, 9),
+                        p_numPags: 310,
+ p_sinopsis: "Anne viaja a Redmond para estudiar en la universidad. Nuevas amistades, desafíos y sentimientos la acompañan en su camino hacia la adultez.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes3.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_3 = libro5_3.Id;
+                Console.WriteLine ("Libro 'Ana de la Isla' creado correctamente.");
+
+                // Libro 5.4 (usa el id del autor anterior)
+                var libro5_4 = librocp.CrearLibro (
+ p_titulo: "Ana de Álamos Ventosos",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 3.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1916, 8, 6),
+                        p_numPags: 300,
+ p_sinopsis: "Ahora directora de una escuela en Summerside, Anne escribe cartas a Gilbert en las que narra sus experiencias, retos y personajes peculiares del lugar.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes4.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_4 = libro5_4.Id;
+                Console.WriteLine ("Libro 'Ana de Álamos Ventosos' creado correctamente.");
+
+                // Libro 5.5 (usa el id del autor anterior)
+                var libro5_5 = librocp.CrearLibro (
+ p_titulo: "Ana y la Casa de sus Sueños",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 3.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1917, 9, 13),
+                        p_numPags: 290,
+ p_sinopsis: "Anne y Gilbert se casan e inician su vida juntos en la Casa de los Sueños, donde forjan amistades entrañables y enfrentan alegrías y penas.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes5.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_5 = libro5_5.Id;
+                Console.WriteLine ("Libro 'Ana y la Casa de sus Sueños' creado correctamente.");
+
+                // Libro 5.6 (usa el id del autor anterior)
+                var libro5_6 = librocp.CrearLibro (
+ p_titulo: "Ana de Ingleside",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 3.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1919, 7, 21),
+                        p_numPags: 430,
+ p_sinopsis: "Anne, ya madre de seis hijos, vive nuevas aventuras familiares mientras descubre que la vida adulta puede ser tan maravillosa como desafiante.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes6.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_6 = libro5_6.Id;
+                Console.WriteLine ("Libro 'Ana de Ingleside' creado correctamente.");
 
                 // Auotor 6 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId6 = autorcen.CrearAutor (
@@ -534,8 +834,8 @@ public static void InitializeData ()
  p_genero: "Aventura",
  p_valoracionMedia: 4.0f,
                         p_edadRecomendada: 20,
- p_fechaPublicacion: new DateTime (2000, 4, 1),
-                        p_numPags: 100,
+ p_fechaPublicacion: new DateTime (2001, 4, 12),
+                        p_numPags: 565,
  p_sinopsis: "En la Barcelona de la posguerra, Daniel Sempere descubre un libro olvidado que lo introduce en un misterio literario que cambiará su vida y desvelará secretos del pasado.",
  p_fotoPortada: "/images/portadasLibros/sombraDelViento.webp",
  p_autorPublicador: autorId10
@@ -549,7 +849,7 @@ public static void InitializeData ()
  p_genero: "Misterio",
                         p_edadRecomendada: 15,
  p_fechaPublicacion: new DateTime (2008, 9, 17),
-                        p_numPags: 592,
+                        p_numPags: 672,
  p_sinopsis: "David Martín, un joven escritor en la Barcelona de los años 20, recibe la oferta de un misterioso editor que lo llevará a descubrir secretos oscuros y peligrosos mientras escribe un libro que cambiará su destino.",
  p_fotoPortada: "/images/portadasLibros/juegoDelAngel.webp",
  p_valoracionMedia: 3.5f,
@@ -557,6 +857,36 @@ public static void InitializeData ()
                         );
                 var idLibro11 = libro11.Id;
                 Console.WriteLine ("Libro 'El Juego del Ángel' creado correctamente.");
+
+                // Libro 11_2 (usa el mismo id que Libro 10, es decir, que el autor tiene 2 libros)
+                var libro11_2 = librocp.CrearLibro (
+ p_titulo: "El Prisionero del Cielo",
+ p_genero: "Misterio",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2009, 3, 12),
+                        p_numPags: 384,
+ p_sinopsis: "Cuando un misterioso visitante llega a la librería Sempere & Hijos, un oscuro secreto del pasado de Fermín Romero de Torres sale a la luz, conectando los hechos de los libros anteriores.",
+ p_fotoPortada: "/images/portadasLibros/prisioneroDelCielo.webp",
+ p_valoracionMedia: 3.5f,
+ p_autorPublicador: autorId10
+                        );
+                var idLibro11_2 = libro11_2.Id;
+                Console.WriteLine ("Libro 'El Prisionero del Cielo' creado correctamente.");
+
+                // Libro 11_3 (usa el mismo id que Libro 10, es decir, que el autor tiene 2 libros)
+                var libro11_3 = librocp.CrearLibro (
+ p_titulo: "El Laberinto de los Espíritus",
+ p_genero: "Misterio",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2016, 6, 3),
+                        p_numPags: 925,
+ p_sinopsis: "Alicia Gris, una investigadora con un pasado atormentado, se ve envuelta en una conspiración que conecta todos los hilos del Cementerio de los Libros Olvidados, revelando la verdad final sobre la historia de los Sempere y Carax.",
+ p_fotoPortada: "/images/portadasLibros/laberintoEspiritus.webp",
+ p_valoracionMedia: 3.5f,
+ p_autorPublicador: autorId10
+                        );
+                var idLibro11_3 = libro11_3.Id;
+                Console.WriteLine ("Libro 'El Laberinto de los Espíritus' creado correctamente.");
 
                 // Auotor 12 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId12 = autorcen.CrearAutor (
@@ -584,11 +914,58 @@ public static void InitializeData ()
  p_fechaPublicacion: new DateTime (1954, 7, 29),
                         p_numPags: 1178,
  p_sinopsis: "La Tierra Media está al borde de la guerra mientras un hobbit llamado Frodo Bolsón debe destruir un anillo único que posee un poder maligno inmenso, acompañado de su leal Compañía del Anillo.",
- p_fotoPortada: "/images/portadasLibros/senorAnillos.webp",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos1.webp",
  p_autorPublicador: autorId12
                         );
                 var idLibro12 = libro12.Id;
                 Console.WriteLine ("Libro 'El Señor de los Anillos' creado correctamente.");
+
+                // Libro 13 (usa el id del autor anterior)
+                var libro13 = librocp.CrearLibro (
+ p_titulo: "La Comunidad del Anillo",
+ p_genero: "Aventura",
+ p_valoracionMedia: 4.5f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1954, 7, 29),
+                        p_numPags: 576,
+ p_sinopsis: "Frodo Bolsón hereda un anillo aparentemente inocente, sin saber que es el arma suprema del Señor Oscuro. Para destruirlo, emprende un viaje junto a una Compañía formada por hobbits, humanos, un enano, un elfo y un mago.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos2.webp",
+ p_autorPublicador: autorId12
+                        );
+                var idLibro13 = libro13.Id;
+                Console.WriteLine ("Libro 'La Comunidad del Anillo' creado correctamente.");
+
+                // Libro 14 (usa el id del autor anterior)
+                var libro14 = librocp.CrearLibro (
+ p_titulo: "Las Dos Torres",
+ p_genero: "Aventura",
+ p_valoracionMedia: 4.5f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1954, 11, 11),
+                        p_numPags: 352,
+ p_sinopsis: "La Comunidad se ha dispersado. Mientras Aragorn, Legolas y Gimli persiguen a los orcos que raptaron a los hobbits, Frodo y Sam continúan su camino hacia Mordor guiados por la misteriosa y peligrosa criatura llamada Gollum.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos3.webp",
+ p_autorPublicador: autorId12
+                        );
+                var idLibro14 = libro14.Id;
+                Console.WriteLine ("Libro 'Las Dos Torres' creado correctamente.");
+
+                // Libro 15 (usa el id del autor anterior)
+                var libro15 = librocp.CrearLibro (
+ p_titulo: "El Retorno del Rey",
+ p_genero: "Aventura",
+ p_valoracionMedia: 4.5f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1955, 10, 20),
+                        p_numPags: 416,
+ p_sinopsis: "Las fuerzas de Sauron avanzan contra Gondor mientras Frodo y Sam se acercan al Monte del Destino. La batalla final por la Tierra Media se decide cuando el verdadero rey reclama su trono.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos4.webp",
+ p_autorPublicador: autorId12
+                        );
+                var idLibro15 = libro15.Id;
+                Console.WriteLine ("Libro 'El Retorno del Rey' creado correctamente.");
+
+
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN DE AUTORES Y LIBROS:");

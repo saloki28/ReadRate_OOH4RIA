@@ -1,0 +1,13 @@
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\bin\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.deps.json
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\bin\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\bin\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.pdb
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.AssemblyInfo.cs
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.sourcelink.json
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\refint\ReadRate_e4Gen.ApplicationCore.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.pdb
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\obj\Debug\net8.0\ref\ReadRate_e4Gen.ApplicationCore.dll

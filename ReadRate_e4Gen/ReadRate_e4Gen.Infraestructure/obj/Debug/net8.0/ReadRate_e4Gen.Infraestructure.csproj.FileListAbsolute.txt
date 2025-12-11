@@ -1,0 +1,17 @@
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\bin\Debug\net8.0\hibernate.cfg.xml
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\bin\Debug\net8.0\ReadRate_e4Gen.Infraestructure.deps.json
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\bin\Debug\net8.0\ReadRate_e4Gen.Infraestructure.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\bin\Debug\net8.0\ReadRate_e4Gen.Infraestructure.pdb
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\bin\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\bin\Debug\net8.0\ReadRate_e4Gen.ApplicationCore.pdb
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.csproj.AssemblyReference.cache
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.AssemblyInfoInputs.cache
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.AssemblyInfo.cs
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.sourcelink.json
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate.4F778144.Up2Date
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\refint\ReadRate_e4Gen.Infraestructure.dll
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ReadRate_e4Gen.Infraestructure.pdb
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\obj\Debug\net8.0\ref\ReadRate_e4Gen.Infraestructure.dll

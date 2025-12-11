@@ -33,7 +33,7 @@ public void AsignarLibroListaEnCurso (int p_Lector_OID, System.Collections.Gener
                 List<int> librosAgregar = new List<int>();
 
                 foreach (int libroId in p_libroEnCurso_OIDs) {
-                        // Verificar si el libro ya est� en la lista
+                        // Verificar si el libro ya está en la lista
                         bool yaEnLista = lectorCEN.ComprobarSiEstaEnLista (libroId, lectorEN.LibroEnCurso);
                         if (!yaEnLista) {
                                 librosAgregar.Add (libroId);

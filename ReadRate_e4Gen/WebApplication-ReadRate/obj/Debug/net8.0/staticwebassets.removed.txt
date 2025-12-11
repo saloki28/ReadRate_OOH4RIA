@@ -1,3 +1,1 @@
-C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\WebApplication-ReadRate\wwwroot\images\portadasLibros\anaTejasVerdes.webp
-C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\WebApplication-ReadRate\wwwroot\images\portadasLibros\ruedaDelTiempo.webp
-C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\WebApplication-ReadRate\wwwroot\images\portadasLibros\senorAnillos.webp
+C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4Gen\WebApplication-ReadRate\wwwroot\css\site.css

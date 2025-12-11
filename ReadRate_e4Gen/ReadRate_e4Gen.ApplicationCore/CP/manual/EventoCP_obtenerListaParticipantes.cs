@@ -41,14 +41,14 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
                 // Crear una lista combinada de participantes (autores + lectores)
                 var participantes = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN>();
 
-                // A�adir lectores participantes
+                // Añadir lectores participantes
                 if (eventoEN.LectorParticipante != null) {
                         foreach (var lector in eventoEN.LectorParticipante) {
                                 participantes.Add (lector);
                         }
                 }
 
-                // A�adir autores participantes
+                // Añadir autores participantes
                 if (eventoEN.AutorParticipante != null) {
                         foreach (var autor in eventoEN.AutorParticipante) {
                                 participantes.Add (autor);

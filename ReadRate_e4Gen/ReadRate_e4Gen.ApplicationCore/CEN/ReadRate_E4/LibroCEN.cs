@@ -52,9 +52,9 @@ public System.Collections.Generic.IList<LibroEN> DameTodosLibros (int first, int
         list = _ILibroRepository.DameTodosLibros (first, size);
         return list;
 }
-public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosPorFiltros (string p_genero, string p_titulo, int? p_edadRecomendada, int? p_numPags, float? p_valoracionMedia, int first, int size)
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosPorFiltros (string p_genero, string p_titulo, int? p_edadRecomendada, int? p_numPags, float? p_valoracionMedia, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN p_autor, int first, int size)
 {
-        return _ILibroRepository.DameLibrosPorFiltros (p_genero, p_titulo, p_edadRecomendada, p_numPags, p_valoracionMedia, first, size);
+        return _ILibroRepository.DameLibrosPorFiltros (p_genero, p_titulo, p_edadRecomendada, p_numPags, p_valoracionMedia, p_autor, first, size);
 }
 public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosOrdenadosFecha ()
 {

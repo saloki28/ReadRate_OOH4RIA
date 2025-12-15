@@ -65,5 +65,6 @@
 		  
 		  <query name="UsuarioNHReadAllHQL">from UsuarioNH</query>
 		  <query name="UsuarioNHdameUsuarioPorEmailHQL"><![CDATA[FROM UsuarioNH usuario where usuario.Email = :p_email]]></query>
+		  <query name="UsuarioNHdameUsuarioPorFiltrosHQL"><![CDATA[FROM UsuarioNH usuario where (:p_rol is null or usuario.Rol=:p_rol) and  (:p_nombre is null or concat('%', lower(usuario.NombreUsuario), '%') like lower(:p_nombre))]]></query>
 		</hibernate-mapping>
 	

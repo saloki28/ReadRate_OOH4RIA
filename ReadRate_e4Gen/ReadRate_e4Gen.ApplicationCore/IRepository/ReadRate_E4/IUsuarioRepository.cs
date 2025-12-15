@@ -36,5 +36,10 @@ System.Collections.Generic.IList<UsuarioEN> DameTodosUsuarios (int first, int si
 
 
 System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorEmail (string p_email);
+
+
+
+
+System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorFiltros (ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum? p_rol, string p_nombre, int first, int size);
 }
 }

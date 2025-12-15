@@ -85,5 +85,7 @@
 		 </joined-subclass>
 		  
 		  <query name="AutorNHReadAllHQL">from AutorNH</query>
+		  <query name="AutorNHdameAutorPorNombreHQL"><![CDATA[FROM AutorNH autor where concat('%', lower(autor.NombreUsuario), '%') like lower(:p_nombre)]]></query>
+		  <query name="AutorNHdameAutoresOrdenadosValoracionHQL"><![CDATA[FROM AutorNH autor order by autor.ValoracionMedia desc]]></query>
 		</hibernate-mapping>
 	

@@ -327,3 +327,888 @@ enc:utf-8
 Proyecto sln :ReadRate_e4Gen.slnpath: ../ReadRate_e4Genoverwrite: false
 15027 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
 15032 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 14313ms!
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+143  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+217  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+236  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+272  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+272  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+348  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+503  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+507  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+507  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+510  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+510  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+512  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+512  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+513  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+513  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+515  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+515  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+516  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+516  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+518  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+520  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+520  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+522  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:30:30 CEST 2026
+562  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+1092 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+1093 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1093 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1093 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1093 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1093 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1093 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1094 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1094 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1095 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+1095 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+139  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+211  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+231  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+265  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+265  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+344  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+511  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+515  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+515  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+515  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+515  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+515  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+515  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+515  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+515  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+515  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+515  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+516  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+516  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+516  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+516  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+516  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+516  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+516  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:31:31 CEST 2026
+547  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+741  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+742  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+742  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+139  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+209  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+228  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+262  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+262  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+341  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+514  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+517  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+518  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+518  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+518  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+518  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+518  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+518  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+519  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+519  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+519  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+519  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+519  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:31:37 CEST 2026
+549  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+755  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+756  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+757  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+757  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+usage: java org.eclipse.emf.mwe.core.WorkflowRunner some_workflow_file.mwe
+            [options]
+            or
+            java org.eclipse.emf.mwe.core.WorkflowRunner
+            some_workflow_file.oaw [options]
+ -p,--param <key=value>   external property that is handled as workflow
+                          property
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+138  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+206  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+227  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+262  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+262  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+337  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+484  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+488  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+488  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+489  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+489  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+489  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+489  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+489  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+489  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+489  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+490  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+490  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:41:40 CEST 2026
+521  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+785  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+786  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+786  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+787  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+787  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+787  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+787  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+787  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+787  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+788  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+788  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+141  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+212  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+233  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+268  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+268  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+346  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+504  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+508  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+508  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+508  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+508  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+508  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+508  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+508  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+508  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+508  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+509  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+509  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+509  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+509  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+509  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+509  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+509  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+509  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:52:30 CEST 2026
+538  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+762  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+763  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+764  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+765  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+765  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+142  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+213  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+233  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+266  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+266  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+343  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+493  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+496  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+497  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+497  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+497  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+497  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+497  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+497  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+497  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+497  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+497  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+497  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+497  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+498  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+498  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+498  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+498  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+498  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:53:11 CEST 2026
+529  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+738  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+740  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+140  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+209  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+228  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+261  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+261  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+340  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+495  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+499  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+499  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+499  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+499  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+499  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+499  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+499  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+499  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+499  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+500  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+500  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+500  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+500  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+500  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+500  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+500  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+500  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:56:02 CEST 2026
+531  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+771  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+java.lang.IllegalStateException: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@4ad4936c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+772  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+773  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+773  [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'CreateDB_imports' occuring in files ..\ReadRate_e4Gen\InitializeDB\CreateDB.cs and ..\ReadRate_e4Gen\.vs\ReadRate_e4Gen\copilot-chat\354f7c0c\sessions\dd0577e5-4a12-4aed-ae44-290c4e54616e is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe
+1    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+136  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\OOH4RIA\ReadRate_OOH4RIA'
+207  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+226  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+265  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/OOH4RIA/ReadRate_OOH4RIA/ReadRate_e4/templates/workflow/generator.mwe:13
+265  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+340  [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+496  [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CleanBackup
+Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
+500  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/EN/ReadRate_e4'
+500  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\EN\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCP): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CP/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CP\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerCEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/CEN/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\CEN\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerIRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/IRepository/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\IRepository\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerEnum): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.ApplicationCore/Enumerated/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.ApplicationCore\Enumerated\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFEN): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/EN/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\EN\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFMap): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Mappings/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Mappings\ReadRate_e4
+501  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
+501  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\OOH4RIA\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
+502  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
+La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 21:59:55 CEST 2026
+531  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+3465 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 2.934s
+3465 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 404
+3465 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Regions found: 68
+configuroConf:C:\Users\nruiz\AppData\Local\Temp\OOH4RIA449847777295236481.cfg
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+4664 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - UsuarioRepository
+enc:utf-8
+4707 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LibroRepository
+LA clase origen: Libro y el nombre de rol: autorPublicador
+DISTINTO en: asoOrigin: reseña_libro. El nombre del rol origen: reseña de el rol destino: autorPublicador
+LA clase destino: Libro y el nombre de rol: autorPublicador
+DISTINTO en: asoTarget: libro_guardado_lector. El nombre del rol destino: lectorGuardando de el rol origen: autorPublicador
+DISTINTO en: asoTarget: libro_en_curso_lector. El nombre del rol destino: lectorLeyendo de el rol origen: autorPublicador
+Encontrado en: asoTarget: libro_autor El nombre de rol origen (generado): libroPublicado y el nombre del rol destino:autorPublicador
+LA clase origen: Libro y el nombre de rol: autorPublicador
+DISTINTO en: asoOrigin: reseña_libro. El nombre del rol origen: reseña de el rol destino: autorPublicador
+LA clase destino: Libro y el nombre de rol: autorPublicador
+DISTINTO en: asoTarget: libro_guardado_lector. El nombre del rol destino: lectorGuardando de el rol origen: autorPublicador
+DISTINTO en: asoTarget: libro_en_curso_lector. El nombre del rol destino: lectorLeyendo de el rol origen: autorPublicador
+Encontrado en: asoTarget: libro_autor El nombre de rol origen (generado): libroPublicado y el nombre del rol destino:autorPublicador
+LA clase origen: Libro y el nombre de rol: autorPublicador
+DISTINTO en: asoOrigin: reseña_libro. El nombre del rol origen: reseña de el rol destino: autorPublicador
+LA clase destino: Libro y el nombre de rol: autorPublicador
+DISTINTO en: asoTarget: libro_guardado_lector. El nombre del rol destino: lectorGuardando de el rol origen: autorPublicador
+DISTINTO en: asoTarget: libro_en_curso_lector. El nombre del rol destino: lectorLeyendo de el rol origen: autorPublicador
+Encontrado en: asoTarget: libro_autor El nombre de rol origen (generado): libroPublicado y el nombre del rol destino:autorPublicador
+enc:utf-8
+4749 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReseñaRepository
+LA clase origen: Reseña y el nombre de rol: lectorValorador
+LA clase destino: Reseña y el nombre de rol: lectorValorador
+Encontrado en: asoTarget: reseña_lector El nombre de rol origen (generado): reseñaPublicada y el nombre del rol destino:lectorValorador
+LA clase origen: Reseña y el nombre de rol: lectorValorador
+LA clase destino: Reseña y el nombre de rol: lectorValorador
+Encontrado en: asoTarget: reseña_lector El nombre de rol origen (generado): reseñaPublicada y el nombre del rol destino:lectorValorador
+LA clase origen: Reseña y el nombre de rol: lectorValorador
+LA clase destino: Reseña y el nombre de rol: lectorValorador
+Encontrado en: asoTarget: reseña_lector El nombre de rol origen (generado): reseñaPublicada y el nombre del rol destino:lectorValorador
+LA clase origen: Reseña y el nombre de rol: libroReseñado
+LA clase destino: Reseña y el nombre de rol: libroReseñado
+DISTINTO en: asoTarget: reseña_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseñado
+Encontrado en: asoTarget: reseña_libro El nombre de rol origen (generado): reseña y el nombre del rol destino:libroReseñado
+LA clase origen: Reseña y el nombre de rol: libroReseñado
+LA clase destino: Reseña y el nombre de rol: libroReseñado
+DISTINTO en: asoTarget: reseña_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseñado
+Encontrado en: asoTarget: reseña_libro El nombre de rol origen (generado): reseña y el nombre del rol destino:libroReseñado
+LA clase origen: Reseña y el nombre de rol: libroReseñado
+LA clase destino: Reseña y el nombre de rol: libroReseñado
+DISTINTO en: asoTarget: reseña_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseñado
+Encontrado en: asoTarget: reseña_libro El nombre de rol origen (generado): reseña y el nombre del rol destino:libroReseñado
+enc:utf-8
+4796 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ClubRepository
+enc:utf-8
+4838 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AdministradorRepository
+enc:utf-8
+4872 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - NoticiaRepository
+LA clase origen: Noticia y el nombre de rol: administradorNoticias
+LA clase destino: Noticia y el nombre de rol: administradorNoticias
+Encontrado en: asoTarget: noticia_administrador El nombre de rol origen (generado): noticiaAdministrada y el nombre del rol destino:administradorNoticias
+LA clase origen: Noticia y el nombre de rol: administradorNoticias
+LA clase destino: Noticia y el nombre de rol: administradorNoticias
+Encontrado en: asoTarget: noticia_administrador El nombre de rol origen (generado): noticiaAdministrada y el nombre del rol destino:administradorNoticias
+LA clase origen: Noticia y el nombre de rol: administradorNoticias
+LA clase destino: Noticia y el nombre de rol: administradorNoticias
+Encontrado en: asoTarget: noticia_administrador El nombre de rol origen (generado): noticiaAdministrada y el nombre del rol destino:administradorNoticias
+enc:utf-8
+4913 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EventoRepository
+LA clase origen: Evento y el nombre de rol: administradorEventos
+DISTINTO en: asoOrigin: autor_evento. El nombre del rol origen: autorParticipante de el rol destino: administradorEventos
+DISTINTO en: asoOrigin: lector_evento. El nombre del rol origen: lectorParticipante de el rol destino: administradorEventos
+LA clase destino: Evento y el nombre de rol: administradorEventos
+Encontrado en: asoTarget: evento_administrador El nombre de rol origen (generado): eventoAdministrado y el nombre del rol destino:administradorEventos
+LA clase origen: Evento y el nombre de rol: administradorEventos
+DISTINTO en: asoOrigin: autor_evento. El nombre del rol origen: autorParticipante de el rol destino: administradorEventos
+DISTINTO en: asoOrigin: lector_evento. El nombre del rol origen: lectorParticipante de el rol destino: administradorEventos
+LA clase destino: Evento y el nombre de rol: administradorEventos
+Encontrado en: asoTarget: evento_administrador El nombre de rol origen (generado): eventoAdministrado y el nombre del rol destino:administradorEventos
+LA clase origen: Evento y el nombre de rol: administradorEventos
+DISTINTO en: asoOrigin: autor_evento. El nombre del rol origen: autorParticipante de el rol destino: administradorEventos
+DISTINTO en: asoOrigin: lector_evento. El nombre del rol origen: lectorParticipante de el rol destino: administradorEventos
+LA clase destino: Evento y el nombre de rol: administradorEventos
+Encontrado en: asoTarget: evento_administrador El nombre de rol origen (generado): eventoAdministrado y el nombre del rol destino:administradorEventos
+enc:utf-8
+4950 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - NotificacionRepository
+enc:utf-8
+4985 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AutorRepository
+enc:utf-8
+5026 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LectorRepository
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+5368 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - UsuarioCEN
+enc:utf-8
+5401 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LibroCEN
+enc:utf-8
+5435 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReseñaCEN
+enc:utf-8
+5462 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ClubCEN
+enc:utf-8
+5487 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AdministradorCEN
+enc:utf-8
+5516 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - NoticiaCEN
+enc:utf-8
+5541 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EventoCEN
+enc:utf-8
+5564 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - NotificacionCEN
+enc:utf-8
+5590 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AutorCEN
+enc:utf-8
+5615 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LectorCEN
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+5990 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4241e0f4 (name: crearUsuario, visibility: Private, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+5990 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7922d892 (name: modificarUsuario, visibility: Private, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+5990 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7daa0fbd (name: eliminarUsuario, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+5991 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5a3bc7ed (name: dameUsuarioPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+5991 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@35645047 (name: dameTodosUsuarios, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+5991 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6f44a157 (name: login, visibility: Public, operationType: Login, description: null, type: String, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+5991 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@17d88132 (name: dameUsuarioPorEmail, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM UsuarioNH usuario where usuario.Email = :p_email, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+5991 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@16eccb2e (name: cambiarPassword, visibility: Public, operationType: CustomTransaction, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6013 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4671115f (name: dameCantidadTotalUsuarios, visibility: Public, operationType: Custom, description: null, type: Integer, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6014 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@36cda2c2 (name: dameUsuarioPorFiltros, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM UsuarioNH usuario where (:p_rol is null or usuario.Rol=:p_rol) and  (:p_nombre is null or concat('%', lower(usuario.NombreUsuario), '%') like lower(:p_nombre)), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+enc:utf-8
+6034 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6239aba6 (name: crearLibro, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7a220c9a (name: modificarLibro, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@b4711e2 (name: eliminarLibro, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@70f02c32 (name: dameLibroPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@51fadaff (name: dameTodosLibros, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@401f7633 (name: dameLibrosPorFiltros, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_autor is null or libro.AutorPublicador=:p_autor), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7b205dbd (name: dameCantidadTotalLibros, visibility: Public, operationType: Custom, description: null, type: Integer, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6059 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@106cc338 (name: dameLibrosOrdenadosFecha, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM LibroNH libro order by libro.FechaPublicacion desc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@27216cd (name: crearReseña, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5f354bcf (name: modificarReseña, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4716be8b (name: eliminarReseña, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2f67b837 (name: dameReseñaPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6af9fcb2 (name: dameTodosReseñas, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6cce16f4 (name: dameReseñasOrdenadasPorValoracionDesc, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM ReseñaNH reseña order by reseña.Valoracion desc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+6080 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7efaad5a (name: dameReseñasOrdenadasPorValoracionAsc, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM ReseñaNH reseña order by reseña.Valoracion asc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+enc:utf-8
+6102 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2bb3058 (name: crearClub, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6103 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1c93f6e1 (name: modificarClub, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6103 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@60856961 (name: eliminarClub, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6103 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@a4add54 (name: dameClubPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6103 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5f9be66c (name: dameTodosClubs, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6103 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3abada5a (name: dameClubPorFiltros, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM ClubNH club where (:p_nombre is null or club.Nombre=:p_nombre) and (:p_descripcion is null or lower(club.Descripcion) like concat('%', lower(:p_descripcion), '%')), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+6103 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@c9d0d6 (name: expulsarUsuarioClub, visibility: Public, operationType: CustomTransaction, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6134 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@35432107 (name: obtenerListaMiembros, visibility: Public, operationType: CustomTransaction, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+enc:utf-8
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1603cd68 (name: crearAdministador, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@66c92293 (name: modificarAdministador, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5bf0fe62 (name: eliminarAdministador, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@673be18f (name: dameAdministradorPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@39de3d36 (name: dameTodosAdministradores, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6ce86ce1 (name: login, visibility: Public, operationType: Login, description: null, type: String, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6178 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@77128536 (name: dameAdministradoresPorEmail, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM AdministradorNH administrador where lower(administrador.Email) like concat('%', lower(:p_email), '%'), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@484094a5 (name: crearNoticia, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@32c726ee (name: modificarNoticia, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2c4d1ac (name: eliminarNoticia, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@545b995e (name: dameNoticiaPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@524f3b3a (name: dameTodosNoticias, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@41e68d87 (name: dameTodosTitulosNoticias, visibility: Public, operationType: ReadFilter, description: null, type: String, collectionType: List, isStatic: false, isOrdered: false, filter: select noticia.Titulo FROM NoticiaNH noticia order by noticia.Titulo, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+6198 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@49ff7d8c (name: dameNoticiasPorTitulo, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM NoticiaNH noticia where lower(noticia.Titulo) like concat ('%', lower(:p_titulo), '%'), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6218 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@50d13246 (name: crearEvento, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6219 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@466276d8 (name: modificarEvento, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+6219 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@53f6fd09 (name: eliminarEvento, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6219 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1b84f475 (name: dameEventoPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6219 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@13330ac6 (name: dameTodosEventos, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6219 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@539d019 (name: dameEventosPorFecha, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM EventoNH evento where (:p_fecha is null or evento.Fecha>=:p_fecha), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+6219 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3ad2e17 (name: obtenerListaParticipantes, visibility: Public, operationType: CustomTransaction, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+enc:utf-8
+6265 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4b79ac84 (name: crearNotificacion, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6292 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@65a15628 (name: modificarNotificacion, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6292 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@b7c4869 (name: eliminarNotificacion, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6293 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1c481ff2 (name: dameNotificacionPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6293 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1b955cac (name: dameTodosNotificaciones, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6293 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@676cf48 (name: vincularNotificacionAutor, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6293 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@29a0cdb (name: desvincularNotificacionAutor, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6293 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6eb2384f (name: vincularNotificacionLector, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6293 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@31dadd46 (name: desvincularNotificacionLector, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6316 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@41709512 (name: crearAutor, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6316 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@34f22f9d (name: modificarAutor, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6316 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4ce1d6d0 (name: eliminarAutor, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6343 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1f3f02ee (name: dameAutorPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6343 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5dcb4f5f (name: dameTodosAutores, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6343 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@71812481 (name: inscribirAutorAEvento, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6367 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7ca20101 (name: desinscribirAutorDeEvento, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6392 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3a5ecce3 (name: dameAutorPorNombre, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM AutorNH autor where concat('%', lower(autor.NombreUsuario), '%') like lower(:p_nombre), precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+6392 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2ea6e30c (name: dameAutoresOrdenadosValoracion, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM AutorNH autor order by autor.ValoracionMedia desc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+6413 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@16fdec90 (name: crearLector, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6413 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5a18cd76 (name: modificarLector, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6413 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3549bca9 (name: eliminarLector, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6438 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6fb365ed (name: seguirAutor, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6462 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@74bada02 (name: dejarDeSeguirAutor, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6487 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5a709816 (name: dameLectorPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6487 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6ad3381f (name: dameTodosLectores, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6487 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@53dbe163 (name: comprobarSiEstaEnLista, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+6487 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4748a0f9 (name: asignarLibroListaGuardados, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6511 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1a6c1270 (name: desasignarLibroListaGuardados, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6535 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6dee4f1b (name: asignarLibroListaEnCurso, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6564 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@421bba99 (name: desasignarLibroListaEnCurso, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6593 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@66ac5762 (name: inscribirLectorAEvento, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6622 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4b3ed2f0 (name: desinscribirLectorDeEvento, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6650 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7862f56 (name: suscribirLectorAClub, visibility: Public, operationType: Relationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+6679 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@22d7b4f8 (name: desuscribirLectorDeClub, visibility: Public, operationType: Unrelationer, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+6774 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - UsuarioEN
+enc:utf-8
+6800 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LibroEN
+enc:utf-8
+6833 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReseñaEN
+enc:utf-8
+6860 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ClubEN
+enc:utf-8
+6888 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AdministradorEN
+enc:utf-8
+6914 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - NoticiaEN
+enc:utf-8
+6940 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EventoEN
+enc:utf-8
+6971 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - NotificacionEN
+enc:utf-8
+7000 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AutorEN
+enc:utf-8
+7029 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LectorEN
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+7384 [main] INFO         org.eclipse.xpand2.Generator  - Written 117 files to outlet [default](../ReadRate_e4Gen)
+7384 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 6 files to outlet [default](../ReadRate_e4Gen)
+7385 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 2 files to outlet CONFIGURATION(../ReadRate_e4Gen)
+7385 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CreateSolution
+Proyecto sln :ReadRate_e4Gen.slnpath: ../ReadRate_e4Genoverwrite: false
+7389 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
+7393 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 7128ms!

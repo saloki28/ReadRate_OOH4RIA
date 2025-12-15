@@ -37,5 +37,10 @@ System.Collections.Generic.IList<AutorEN> DameTodosAutores (int first, int size)
 void InscribirAutorAEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs);
 
 void DesinscribirAutorDeEvento (int p_Autor_OID, System.Collections.Generic.IList<int> p_eventoAutor_OIDs);
+
+System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> DameAutorPorNombre (string p_nombre);
+
+
+System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> DameAutoresOrdenadosValoracion ();
 }
 }

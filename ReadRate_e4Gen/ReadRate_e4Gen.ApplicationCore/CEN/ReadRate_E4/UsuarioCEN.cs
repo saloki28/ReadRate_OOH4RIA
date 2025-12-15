@@ -89,6 +89,10 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
 {
         return _IUsuarioRepository.DameUsuarioPorEmail (p_email);
 }
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorFiltros (ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum? p_rol, string p_nombre, int first, int size)
+{
+        return _IUsuarioRepository.DameUsuarioPorFiltros (p_rol, p_nombre, first, size);
+}
 
 
 

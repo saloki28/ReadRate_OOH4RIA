@@ -18,9 +18,12 @@ namespace WebApplication_ReadRate.Controllers
             EventoRepository eventoRepository = new EventoRepository(session);
             EventoCEN eventoCEN = new EventoCEN(eventoRepository);
 
-            IList<EventoEN> listaEventosEN = eventoCEN.DameTodosEventos(0, -1);
+            // Obtener eventos ordenados por fecha
+            //  - null para obtener todos los eventos ordenados y DateTime.Today para quitar eventos pasados
+            IList<EventoEN> listaEventosEN = eventoCEN.DameEventosPorFecha(DateTime.Today, 0, -1);
 
-            IEnumerable<EventoViewModel> listEventos = new EventoAssembler().ConvertirListENToViewModel(listaEventosEN).ToList();
+            // Añado order by ya que el filtro HQL no los ordena
+            IEnumerable<EventoViewModel> listEventos = new EventoAssembler().ConvertirListENToViewModel(listaEventosEN).OrderBy(e => e.FechaPublicacion).ToList();
 
             SessionClose();
 

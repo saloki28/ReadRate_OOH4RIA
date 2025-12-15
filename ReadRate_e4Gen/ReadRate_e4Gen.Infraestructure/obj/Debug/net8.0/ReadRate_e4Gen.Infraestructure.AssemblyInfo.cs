@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReadRate_e4Gen.Infraestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33e193a3b858604168e60016174ce666e739bf53")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f76cae90745abd4ea03b259df3709cd02352048")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReadRate_e4Gen.Infraestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReadRate_e4Gen.Infraestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

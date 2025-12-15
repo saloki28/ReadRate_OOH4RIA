@@ -1,0 +1,87 @@
+@model WebApplication_ReadRate.Models.LectorViewModel
+
+@{
+    ViewData["Title"] = "Detalles del Lector";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Detalles del Lector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+    </head>
+<body>
+    <header class="page-header">
+        <h1>Detalles del Lector</h1>
+    </header>
+
+    <main class="container">
+        <section class="details-card">
+            @if(Model != null && !string.IsNullOrEmpty(Model.FotoUrl))
+            {
+                <div class="detail-label">Foto</div>
+                <div class="detail-row-foto" style="display: flex; justify-content: center; align-items: center; margin-bottom: 2.5rem;">
+                    <img src="@Model.FotoUrl" alt="Foto del lector" style="max-width: 300px; max-height: auto; border-radius: 15px; border: 3px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.2);">
+                </div>
+            }
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.Email)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.Email)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.NombreUsuario)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.NombreUsuario)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.FechaNacimiento)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.FechaNacimiento)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.CiudadResidencia)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.CiudadResidencia)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.PaisResidencia)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.PaisResidencia)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.Rol) de Usuario</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.Rol)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.CantLibrosCurso)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.CantLibrosCurso)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.CantLibrosLeidos)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.CantLibrosLeidos)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.CantAutoresSeguidos)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.CantAutoresSeguidos)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.CantClubsSuscritos)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.CantClubsSuscritos)</div>
+            </article>
+
+            <article class="form-actions">
+                <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn btn-primary">Editar lector</a>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

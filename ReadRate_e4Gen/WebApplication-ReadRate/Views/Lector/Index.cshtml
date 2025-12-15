@@ -1,0 +1,73 @@
+@model IEnumerable<WebApplication_ReadRate.Models.LectorViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<header class="page-header">
+    <h1>Listado de Lectores</h1>
+</header>
+<section class="container">
+    <div class="action-bar">
+        <h2 class="section-title">Todos los Lectores</h2>
+        <a asp-action="Create" class="btn-create">+ Crear nuevo lector</a>
+    </div>
+
+    <div class="books-grid">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <article class="book-card">
+                    <div class="book-cover">
+                        @if(!string.IsNullOrEmpty(item.FotoUrl))
+                        {
+                            <img src="@item.FotoUrl" alt="Foto de @item.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <span>FotoLector</span>
+                        }
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">@Html.DisplayFor(modelItem => item.NombreUsuario)</div>
+                        <div class="book-author">@Html.DisplayFor(modelItem => item.Email)</div>
+                        <div class="book-meta">
+                            <div class="book-meta-item">
+                                <strong>Fecha de nacimiento:</strong> @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Ciudad de residencia:</strong> @Html.DisplayFor(modelItem => item.CiudadResidencia)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Pais de residencia:</strong> @Html.DisplayFor(modelItem => item.PaisResidencia)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Cantidad de libros en curso:</strong> @Html.DisplayFor(modelItem => item.CantLibrosCurso)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Cantidad de libros leídos:</strong> @Html.DisplayFor(modelItem => item.CantLibrosLeidos)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Cantidad de autores seguidos:</strong> @Html.DisplayFor(modelItem => item.CantAutoresSeguidos)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Cantidad de clubes suscritos:</strong> @Html.DisplayFor(modelItem => item.CantClubsSuscritos)
+                            </div>
+                        </div>
+                        <div class="book-actions">
+                            <a asp-action="Details" asp-route-id="@item.IdUsuario" class="btn-action">Detalles</a>
+                            <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="btn-action edit">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn-action delete">Borrar</a>
+                        </div>
+                    </div>
+                </article>
+            }
+        }
+        else
+        {
+            <div class="no-books">
+                No hay lectores en el listado. ¡Añade el primero!
+            </div>
+        }
+    </div>
+</section>

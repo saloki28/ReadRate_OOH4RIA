@@ -116,7 +116,7 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_5-F80LXDEfCK_KH0OM83Jw" alias="valoracionMedia" name="valoracionMedia" type="Float"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_D3ecMK4CEfCc-vpnvRqFgQ" name="Reseña" alias="Reseña" asociationTarget="_Q3IlAK4MEfCc-vpnvRqFgQ _AQYGwK4PEfCc-vpnvRqFgQ _sIVTEK4REfCc-vpnvRqFgQ">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FayCAa4CEfCc-vpnvRqFgQ" name="crearReseña" operationType="New" type="Object" typeObject="_D3ecMK4CEfCc-vpnvRqFgQ" customized="true">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FayCAa4CEfCc-vpnvRqFgQ" name="crearReseña" operationType="New" type="Object" typeObject="_D3ecMK4CEfCc-vpnvRqFgQ" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ucC_X8kyEfCD6LaXu9SYIQ" name="p_textoOpinion" type="Text"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ucC_YMkyEfCD6LaXu9SYIQ" name="p_valoracion" type="Float"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ucC_YckyEfCD6LaXu9SYIQ" name="p_lectorValorador" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>

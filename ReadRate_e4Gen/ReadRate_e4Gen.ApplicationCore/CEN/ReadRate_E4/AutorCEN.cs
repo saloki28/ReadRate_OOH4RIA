@@ -107,5 +107,13 @@ public System.Collections.Generic.IList<AutorEN> DameTodosAutores (int first, in
         list = _IAutorRepository.DameTodosAutores (first, size);
         return list;
 }
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> DameAutorPorNombre (string p_nombre)
+{
+        return _IAutorRepository.DameAutorPorNombre (p_nombre);
+}
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> DameAutoresOrdenadosValoracion ()
+{
+        return _IAutorRepository.DameAutoresOrdenadosValoracion ();
+}
 }
 }

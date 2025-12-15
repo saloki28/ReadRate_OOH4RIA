@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApplication-ReadRate")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbdfd80e10daa9e2791b5ee2e6aa1bd870a48ebb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15bcf0f713e8a691979d7158cc2d36b6fc26b4cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApplication-ReadRate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApplication-ReadRate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

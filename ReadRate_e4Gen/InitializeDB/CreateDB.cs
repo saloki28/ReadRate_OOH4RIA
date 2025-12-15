@@ -1387,38 +1387,43 @@ public static void InitializeData ()
 
                 // PRUEBA 1: Sin filtros (todos null) - Debe devolver todos los libros
                 Console.WriteLine ("\n------------------ Prueba 1: Sin filtros (todos los parámetros null) ------------------");
-                var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros encontrados sin filtro: " + (librosSinFiltro != null ? librosSinFiltro.Count.ToString () : "0"));
 
                 // PRUEBA 2: Filtro por género "Fantasía"
                 Console.WriteLine ("\n------------------ Prueba 2: Filtro por género 'Fantasía' ------------------");
-                var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros de 'Fantasía' encontrados: " + (librosFantasía != null ? librosFantasía.Count.ToString () : "0"));
 
                 // PRUEBA 3: Filtro por edad recomendada = 12
                 Console.WriteLine ("\n------------------ Prueba 3: Filtro por edad recomendada >= 12 años ------------------");
-                var librosEdad12 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: 12, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosEdad12 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: 12, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros para edad >= 12 encontrados: " + (librosEdad12 != null ? librosEdad12.Count.ToString () : "0"));
 
                 // PRUEBA 4: Filtro por número de páginas >= 200
                 Console.WriteLine ("\n------------------ Prueba 4: Filtro por número de páginas >= 200 ------------------");
-                var libros200Pags = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: 200, p_valoracionMedia: null, 0, 20);
+                var libros200Pags = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: 200, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros con >= 200 páginas encontrados: " + (libros200Pags != null ? libros200Pags.Count.ToString () : "0"));
 
                 // PRUEBA 5: Filtro por valoración media >= 4.0
                 Console.WriteLine ("\n------------------ Prueba 5: Filtro por valoración media >= 4.0 ------------------");
-                var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, 0, 20);
+                var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros con valoración >= 4.0 encontrados: " + (librosValoracion4 != null ? librosValoracion4.Count.ToString () : "0"));
 
                 // PRUEBA 6: Filtro combinado - Género "Fantasía" y edad > 10
                 Console.WriteLine ("\n------------------ Prueba 6: Filtro combinado - Género 'Fantasía' y edad >= 10 ------------------");
-                var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros de 'Fantasía' para edad >= 10 años encontrados: " + (librosFantasía10 != null ? librosFantasía10.Count.ToString () : "0"));
 
                 // PRUEBA 7: Filtro combinado - Género "Fantasía", valoración >= 1.0, >= 500 páginas
                 Console.WriteLine ("\n------------------ Prueba 7: Filtro combinado - Fantasía + valoración >= 4.5, >= 400 páginas ------------------");
-                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, 0, 20);
+                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosRestrictivo != null ? librosRestrictivo.Count.ToString () : "0"));
+
+                // PRUEBA 8: Filtro básico - Libro de la autora "Leigh Bardugo"
+                Console.WriteLine("\n------------------ Prueba 8: Filtro básico - Libros de Leigh Bardugo ------------------");
+                var librosDeAutora = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: 32769, 0, 20);
+                Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosDeAutora != null ? librosDeAutora.Count.ToString () : "0"));
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - PRUEBAS DE FILTRO DE LIBROS:");
@@ -1429,6 +1434,7 @@ public static void InitializeData ()
                 Console.WriteLine ("- Prueba 5: Por valoración >= 4.0");
                 Console.WriteLine ("- Prueba 6: Filtro combinado género + edad");
                 Console.WriteLine ("- Prueba 7: Filtro con tres criterios");
+                Console.WriteLine ("- Prueba 8: Filtro por autor 'Leigh Bardugo'");
                 Console.WriteLine ("=======================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////

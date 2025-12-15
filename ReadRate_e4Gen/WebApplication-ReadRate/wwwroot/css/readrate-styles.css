@@ -1163,7 +1163,7 @@ footer.footer .footer-main {
     /* Details cards */
     .details-card {
         padding: 2.5rem;
-        max-width: 800px;
+        /* max-width: 800px; */
     }
     
     .detail-label {
@@ -1241,7 +1241,7 @@ footer.footer .footer-main {
     /* Details cards */
     .details-card {
         padding: 2rem;
-        max-width: 700px;
+        /* max-width: 700px; */
     }
     
     .detail-label {

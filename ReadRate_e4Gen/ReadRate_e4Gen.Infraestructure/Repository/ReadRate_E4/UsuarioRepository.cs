@@ -120,9 +120,6 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioNH.Pass = usuario.Pass;
 
-
-                usuarioNH.NumModificaciones = usuario.NumModificaciones;
-
                 session.Update (usuarioNH);
                 SessionCommit ();
         }
@@ -199,9 +196,6 @@ public void ModificarUsuario (UsuarioEN usuario)
 
 
                 usuarioNH.Pass = usuario.Pass;
-
-
-                usuarioNH.NumModificaciones = usuario.NumModificaciones;
 
                 session.Update (usuarioNH);
                 SessionCommit ();

@@ -68,13 +68,6 @@ private String pass;
 
 
 
-/**
- *	Atributo numModificaciones
- */
-private int numModificaciones;
-
-
-
 
 
 
@@ -132,12 +125,6 @@ public virtual String Pass {
 
 
 
-public virtual int NumModificaciones {
-        get { return numModificaciones; } set { numModificaciones = value;  }
-}
-
-
-
 
 
 public UsuarioEN()
@@ -146,20 +133,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(int id, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones
+public UsuarioEN(int id, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass
                  )
 {
-        this.init (Id, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass, numModificaciones);
+        this.init (Id, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (usuario.Id, usuario.Email, usuario.NombreUsuario, usuario.FechaNacimiento, usuario.CiudadResidencia, usuario.PaisResidencia, usuario.Foto, usuario.Rol, usuario.Pass, usuario.NumModificaciones);
+        this.init (usuario.Id, usuario.Email, usuario.NombreUsuario, usuario.FechaNacimiento, usuario.CiudadResidencia, usuario.PaisResidencia, usuario.Foto, usuario.Rol, usuario.Pass);
 }
 
 private void init (int id
-                   , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones)
+                   , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass)
 {
         this.Id = id;
 
@@ -179,8 +166,6 @@ private void init (int id
         this.Rol = rol;
 
         this.Pass = pass;
-
-        this.NumModificaciones = numModificaciones;
 }
 
 public override bool Equals (object obj)

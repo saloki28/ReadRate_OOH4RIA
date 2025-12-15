@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>WebApplication_ReadRate</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReadRate_e4Gen.ApplicationCore\ReadRate_e4Gen.ApplicationCore.csproj" />
+    <ProjectReference Include="..\ReadRate_e4Gen.Infraestructure\ReadRate_e4Gen.Infraestructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="jose-jwt">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\jose-jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\ReadRate_e4GenNHibernate\AppLib\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

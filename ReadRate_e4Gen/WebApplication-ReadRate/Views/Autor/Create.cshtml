@@ -1,0 +1,95 @@
+@model WebApplication_ReadRate.Models.AutorViewModel
+
+@{
+    ViewData["Title"] = "Crear Autor";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Crear Autor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+    </head>
+<body>
+    <header class="page-header">
+        <h1>Crear Nuevo Autor</h1>
+    </header>
+
+    <main class="container">
+        <section class="form-card">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+                @* Campos ocultos con valores por defecto *@
+                <input type="hidden" asp-for="Rol" value="1" />
+                <input type="hidden" asp-for="NumeroSeguidores" value="0" />
+                <input type="hidden" asp-for="CantidadLibrosPublicados" value="0" />
+                <input type="hidden" asp-for="ValoracionMedia" value="0" />
+
+                <article class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Ej: autor@gmail.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <small class="form-hint">Formato correo electrónico</small>
+                </article>
+
+                <article class="form-group">
+                    <label asp-for="NombreUsuario" class="control-label"></label>
+                    <input asp-for="NombreUsuario" class="form-control" placeholder="Ej: Juan123" />
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                    <small class="form-hint">Nombre de usuario de no más de 255 caracteres</small>
+                </article>
+
+                <article class="form-group">
+                    <label asp-for="FechaNacimiento" class="control-label"></label>
+                    <input asp-for="FechaNacimiento" class="form-control" type="date" />
+                    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                    <small class="form-hint">Fecha en formato dd/mm/yyyy</small>
+                </article>
+
+                <article class="form-group">
+                    <label asp-for="CiudadResidencia" class="control-label"></label>
+                    <input asp-for="CiudadResidencia" class="form-control" placeholder="Elche, Alicante..." />
+                    <span asp-validation-for="CiudadResidencia" class="text-danger"></span>
+                    <small class="form-hint">Texto de máximo 255 caracteres</small>
+                </article>
+
+                <article class="form-group">
+                    <label asp-for="PaisResidencia" class="control-label"></label>
+                    <input asp-for="PaisResidencia" class="form-control" placeholder="España, Portugal..." />
+                    <span asp-validation-for="PaisResidencia" class="text-danger"></span>
+                    <small class="form-hint">Texto de máximo 255 caracteres</small>
+                </article>
+
+                <article class="form-group">
+                    <label asp-for="Pass" class="control-label"></label>
+                    <input asp-for="Pass" class="form-control" placeholder="Ej: password123" type="password" />
+                    <span asp-validation-for="Pass" class="text-danger"></span>
+                    <small class="form-hint">Contraseña de acceso</small>
+                </article>
+
+                <article class="form-group">
+                    <label asp-for="FotoFile" class="control-label"></label>
+                    <input asp-for="FotoFile" class="form-control" type="file" />
+                    <span asp-validation-for="FotoFile" class="text-danger"></span>
+                    <small class="form-hint">Imagen del perfil (formatos aceptados: .jpg, .png, .gif)</small>
+                </article>
+
+                <article class="form-actions">
+                    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                    <input type="submit" value="Crear autor" class="btn btn-primary" />
+                </article>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

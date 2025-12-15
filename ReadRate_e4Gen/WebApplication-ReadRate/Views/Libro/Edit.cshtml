@@ -1,0 +1,83 @@
+@model WebApplication_ReadRate.Models.LibroViewModel
+
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Editar Libro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+    </head>
+<body>
+    <header class="page-header">
+        <h1>Editar Libro</h1>
+    </header>
+
+    <main class="container">
+        <section class="form-card">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+                
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="FotoPortadaUrl" />
+                
+                <article class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" placeholder="Ej: El misterio de la casa abandonada" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                    <small class="form-hint">Título de no más de 200 caracteres</small>
+                </article>
+                
+                <article class="form-group">
+                    <label asp-for="Genero" class="control-label"></label>
+                    <input asp-for="Genero" class="form-control" placeholder="Ej: Ficción, Fantasía, Terror..." />
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                    <small class="form-hint">Género literario de no más de 50 caracteres</small>
+                </article>
+                
+                <article class="form-group">
+                    <label asp-for="EdadRecomendada" class="control-label"></label>
+                    <input asp-for="EdadRecomendada" class="form-control" type="number" min="0" max="100" placeholder="Ej: 13" />
+                    <span asp-validation-for="EdadRecomendada" class="text-danger"></span>
+                    <small class="form-hint">Edad mínima recomendada para leer este libro entre 0 y 100 años</small>
+                </article>
+                
+                <article class="form-group">
+                    <label asp-for="NumPags" class="control-label"></label>
+                    <input asp-for="NumPags" class="form-control" type="number" min="1" max="10000" placeholder="Ej: 320" />
+                    <span asp-validation-for="NumPags" class="text-danger"></span>
+                    <small class="form-hint">Número de páginas entre 1 y 10000</small>
+                </article>
+                
+                <article class="form-group">
+                    <label asp-for="Sinopsis" class="control-label"></label>
+                    <textarea asp-for="Sinopsis" class="form-control" placeholder="Escribe una breve descripción del libro..."></textarea>
+                    <span asp-validation-for="Sinopsis" class="text-danger"></span>
+                    <small class="form-hint">Texto de máximo 5000 caracteres </small>
+                </article>
+                
+                <article class="form-group">
+                    <label asp-for="FotoPortada" class="control-label"></label>
+                    <input asp-for="FotoPortada" class="form-control" type="file" />
+                    <span asp-validation-for="FotoPortada" class="text-danger"></span>
+                    <small class="form-hint">Imagen de la portada (formatos aceptados: .jpg, .png, .gif)</small>
+                </article>
+                
+                <article class="form-actions">
+                    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </article>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

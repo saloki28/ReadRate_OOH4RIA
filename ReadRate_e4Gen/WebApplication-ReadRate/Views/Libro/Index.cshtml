@@ -1,0 +1,73 @@
+@model IEnumerable<WebApplication_ReadRate.Models.LibroViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<header class="page-header">
+    <h1>Listado de Libros</h1>
+</header>
+
+<section class="container">
+    <div class="action-bar">
+        <h2 class="section-title">Todos los Libros</h2>
+        <a asp-action="Create" class="btn-create">+ Crear nuevo libro</a>
+    </div>
+    
+    <div class="books-grid">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <article class="book-card">
+                    <div class="book-cover">
+                        @if(!string.IsNullOrEmpty(item.FotoPortadaUrl))
+                        {
+                            <img src="@item.FotoPortadaUrl" alt="Portada de @item.Titulo" style="width: 110%; height: 110%; object-fit: contain;">
+                        }
+                        else
+                        {
+                            <span>FotoLibro</span>
+                        }
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
+                        <div class="book-meta">
+                            <div class="book-meta-item">
+                                <strong>Autor/a:</strong> @Html.DisplayFor(modelItem => item.NombreAutor)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Edad:</strong> +@Html.DisplayFor(modelItem => item.EdadRecomendada) años
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Páginas:</strong> @Html.DisplayFor(modelItem => item.NumPags)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Valoración:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Publicado:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                            </div>
+                            <div class="book-meta-item">
+                                <strong>Sinopsis:</strong> @Html.DisplayFor(modelItem => item.Sinopsis)
+                            </div>
+                        </div>
+                        <div class="book-actions">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
+                        </div>
+                    </div>
+                </article>
+            }
+        }
+        else
+        {
+            <div class="no-books">
+                No hay libros en el listado. ¡Añade el primero!
+            </div>
+        }
+    </div>
+</section>

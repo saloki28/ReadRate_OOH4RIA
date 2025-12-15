@@ -1,0 +1,33 @@
+@model WebApplication_ReadRate.Models.AutorViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Autor";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Eliminar Autor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+    </head>
+<body>
+    <article class="confirmation-card">
+        <div class="warning-icon">¡AVISO!</div>
+        <h2 class="confirmation-title">¿Eliminar autor?</h2>
+        <p class="confirmation-message">¿Seguro que quieres borrar el siguiente autor?</p>
+        <div class="book-title">"@Model.NombreUsuario"</div>
+        <p class="warning-text">Esta acción no se puede deshacer</p>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="IdUsuario" />
+            <div class="form-actions">
+                <a asp-action="Index" class="btn btn-secondary">No, volver</a>
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            </div>
+        </form>
+    </article>
+</body>
+</html>

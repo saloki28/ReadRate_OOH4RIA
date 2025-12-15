@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="NotificacionNH" table="Notificacion"> 
+				  	
+						<id name="Id" column="idNotificacion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Concepto" > 
+						<column name="concepto"  not-null="true"/>
+					</property>
+					<property name="TituloResumen" type="string"> 
+						<column name="tituloResumen"  not-null="true"/>
+					</property>
+					<property name="TextoCuerpo" type="string"> 
+						<column name="textoCuerpo"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="NoticiaNotificada" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NoticiaNH" >	
+								<column name="FK_idNoticia_idNoticiaNotificada"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="EventoNotificado" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.EventoNH" >	
+								<column name="FK_idEvento_idEventoNotificado"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="ClubNotificado" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH" >	
+								<column name="FK_idClub_idClub"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="ReseñaNotificada" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ReseñaNH" >	
+								<column name="FK_idReseña_idReseña"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="AutorNotificado" table="[autor_notificacion]" inverse="true" >
+							<key>
+								
+									<column name="FK_idNotificacion_idNotificacionAutor"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.AutorNH">
+									<column name="FK_idUsuario_idAutorNotificado"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="LectorNotificado" table="[lector_notificacion]" inverse="true" >
+							<key>
+								
+									<column name="FK_idNotificacion_idNotificacionLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH">
+									<column name="FK_idUsuario_idLectorNotificado"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="NotificacionNHReadAllHQL">from NotificacionNH</query>
+		</hibernate-mapping>
+	

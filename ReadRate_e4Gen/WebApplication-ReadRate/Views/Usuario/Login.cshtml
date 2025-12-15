@@ -12,7 +12,8 @@
     <title>Read&Rate - Inicio de Sesión</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />    
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
 </head>
 <body class="login-page">
     <main class="login-container">
@@ -44,6 +45,12 @@
                     <input type="submit" value="Iniciar Sesión" class="btn btn-primary" />
                 </article>
             </form>
+            
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="@Url.Action("HomeVisitante", "Usuario")" class="btn btn-secondary">
+                     Entrar como Visitante
+                </a>
+            </div>
             
             <p class="footer-text">Tu plataforma de lectura y valoración de libros</p>
         </section>

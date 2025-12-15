@@ -18,15 +18,39 @@ namespace WebApplication_ReadRate.Controllers
         {
             SessionInitialize();
 
+            // Obtener el ID del usuario de la sesión
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            
+            if (!usuarioId.HasValue)
+            {
+                SessionClose();
+                return RedirectToAction("Index", "Home");
+            }
+
             LectorRepository lectorRepository = new LectorRepository(session);
             LectorCEN lectorCEN = new LectorCEN(lectorRepository);
 
-            IList<LectorEN> lectores = lectorCEN.DameTodosLectores(0, -1);
-
-            IEnumerable<LectorViewModel> listLec = new LectorAssembler().ConvertirListENToViewModel(lectores).ToList();
+            LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
+            LectorViewModel lectorViewModel = new LectorAssembler().ConvertirENToViewModel(lectorEN);
+            
+            // Obtener libros y clubes relacionados con el lector
+            // TODO: Implementar métodos específicos para obtener solo los libros y clubes del lector
+            // Por ahora se dejan las listas vacías, para poblarlas cuando estén disponibles los métodos
+            
+            // Ejemplo de cómo poblarlo cuando tengas los métodos:
+            // LibroRepository libroRepository = new LibroRepository(session);
+            // LibroCEN libroCEN = new LibroCEN(libroRepository);
+            // var librosGuardados = libroCEN.DameLibrosGuardadosPorLector(usuarioId.Value);
+            // lectorViewModel.LibrosGuardados = new LibroAssembler().ConvertirListENToViewModel(librosGuardados);
+            
+            // ClubRepository clubRepository = new ClubRepository(session);
+            // ClubCEN clubCEN = new ClubCEN(clubRepository);
+            // var clubsInscritos = clubCEN.DameClubsInscritosPorLector(usuarioId.Value);
+            // lectorViewModel.ClubsInscritos = new ClubAssembler().ConvertirListENToViewModel(clubsInscritos);
+            
             SessionClose();
 
-            return View(listLec);
+            return View(lectorViewModel);
         }
 
         // GET: LectorController/Details/5

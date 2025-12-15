@@ -77,5 +77,10 @@ namespace WebApplication_ReadRate.Models
         [Required(ErrorMessage = "Debes indicar la cantidad de clubs suscritos por el lector")]
         [Range(minimum: 0, maximum: 9999, ErrorMessage = "La cantidad de clubs suscritos no puede ser negativa")]
         public int CantClubsSuscritos { get; set; }
+
+        // Listas para el área personal
+        public IList<LibroViewModel> LibrosGuardados { get; set; } = new List<LibroViewModel>();
+        public IList<LibroViewModel> LecturasGuardadas { get; set; } = new List<LibroViewModel>();
+        public IList<ClubViewModel> ClubsInscritos { get; set; } = new List<ClubViewModel>();
     }
 }

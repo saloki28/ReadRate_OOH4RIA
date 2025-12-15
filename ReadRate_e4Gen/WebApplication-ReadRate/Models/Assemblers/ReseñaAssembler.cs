@@ -8,13 +8,13 @@ namespace WebApplication_ReadRate.Models.Assemblers
         {
             ReseñaViewModel res = new ReseñaViewModel();
             res.Id = en.Id;
-            res.LibroId = en.LibroReseñado?.Id ?? 0;
+            res.LibroId = en.LibroReseñado.Id;
             res.Valoracion = en.Valoracion;
             res.Opinion = en.TextoOpinion;
-            res.LectorId = en.LectorValorador?.Id ?? 0;
+            res.LectorId = en.LectorValorador.Id;
             res.FechaPublicacion = en.Fecha;
-            res.LibroNombre = en.LibroReseñado?.Titulo ?? "Sin título";
-            res.LectorNombre = en.LectorValorador?.NombreUsuario ?? "Sin nombre";
+            res.LibroNombre = en.LibroReseñado.Titulo;
+            res.LectorNombre = en.LectorValorador.NombreUsuario;
 
             return res;
         }

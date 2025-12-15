@@ -120,6 +120,10 @@ public static void InitializeData ()
                 SessionCPNHibernate sessionCPLibro = new SessionCPNHibernate ();
                 LibroCP librocp = new LibroCP (sessionCPLibro);
 
+                // Inicializar ReseñaCP para crear reseñas
+                SessionCPNHibernate sessionCPReseña = new SessionCPNHibernate ();
+                ReseñaCP reseñacp = new ReseñaCP (sessionCPReseña);
+
                 // CREACIÓN USURIO - Lector 1
                 Console.WriteLine ("\n\n------------------ Creación de Usuario Lector ------------------");
 
@@ -134,7 +138,6 @@ public static void InitializeData ()
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
                         p_cantAutoresSeguidos: 0,
-                        p_numModificaciones: 0,
                         p_cantClubsSuscritos: 0);
                 Console.WriteLine ("Usuario lector 'Paco Lector' creado correctamente.");
 
@@ -231,10 +234,9 @@ public static void InitializeData ()
  p_ciudadResidencia: "Jerusalén",
  p_paisResidencia: "Israel/EE.UU.",
  p_foto: "/images/fotosUsuarios/leighBardugo.webp",
- p_valoracionMedia: 5.0f,
+ p_valoracionMedia: 0.0f,
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passLeigh",
-                        p_numModificaciones: 0,
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
@@ -244,7 +246,7 @@ public static void InitializeData ()
                 var libro1 = librocp.CrearLibro (
  p_titulo: "Seis de Cuervos",
  p_genero: "Fantasía",
- p_valoracionMedia: 5.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 14,
  p_fechaPublicacion: new DateTime (2015, 9, 29),
                         p_numPags: 480,
@@ -258,9 +260,8 @@ public static void InitializeData ()
                 // Autor 2 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId2 = autorcen.CrearAutor (
  p_email: "robertjordan@email.com",
-                        p_numModificaciones: 0,
  p_nombreUsuario: "Robert Jordan",
- p_valoracionMedia: 4.5f,
+ p_valoracionMedia: 0.0f,
  p_fechaNacimiento: new DateTime (1948, 10, 17),
  p_ciudadResidencia: "Charleston",
  p_paisResidencia: "Estados Unidos",
@@ -276,16 +277,211 @@ public static void InitializeData ()
                 var libro2 = librocp.CrearLibro (
  p_titulo: "La Rueda Del Tiempo 1: El Ojo del Mundo",
  p_genero: "Fantasía",
- p_valoracionMedia: 3.5f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 15,
  p_fechaPublicacion: new DateTime (1990, 1, 15),
                         p_numPags: 814,
  p_sinopsis: "Un grupo de jóvenes se ve arrastrado a un viaje épico donde el destino del mundo depende de ellos, dando inicio a la monumental saga de La Rueda del Tiempo.",
- p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo.webp",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo1.webp",
  p_autorPublicador: autorId2
                         );
                 var idLibro2 = libro2.Id;
                 Console.WriteLine ("Libro 'El Ojo del Mundo' creado correctamente.");
+
+                // Libro 2_2 (usa el id del autor anterior)
+                var libro2_2 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 2: La Gran Cacería",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1990, 11, 15),
+                        p_numPags: 705,
+ p_sinopsis: "Los jóvenes héroes comienzan una búsqueda épica del mítico cuerno de Valere. Mientras tanto, fuerzas oscuras se movilizan, y la guerra por el destino del mundo comienza a despertar.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo2.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_2 = libro2_2.Id;
+                Console.WriteLine ("Libro 'La Gran Cacería' creado correctamente.");
+
+                // Libro 2_3 (usa el id del autor anterior)
+                var libro2_3 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 3: El Dragón Renacido",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1991, 10, 5),
+                        p_numPags: 624,
+ p_sinopsis: "Rand al’Thor asume su papel como el “Dragón Renacido”, lo cual lo convierte en pieza clave del destino del mundo; debe aceptar su poder, pese al miedo y al peligro que ello trae.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo3.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_3 = libro2_3.Id;
+                Console.WriteLine ("Libro 'El Dragón Renacido' creado correctamente.");
+
+                // Libro 2_4 (usa el id del autor anterior)
+                var libro2_4 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 4: El Ascenso de la Sombra",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1992, 9, 27),
+                        p_numPags: 1007,
+ p_sinopsis: "Las sombras y los antiguos enemigos resurgen con fuerza. Los protagonistas enfrentan nuevas amenazas internas y externas, y el equilibrio del mundo empieza a pender de un hilo.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo4.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_4 = libro2_4.Id;
+                Console.WriteLine ("Libro 'El Ascenso de la Sombra' creado correctamente.");
+
+                // Libro 2_5 (usa el id del autor anterior)
+                var libro2_5 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 5: Cielo en Llamas",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1993, 11, 15),
+                        p_numPags: 989,
+ p_sinopsis: "Las tensiones aumentan: conflictos políticos, viejos enemigos y magias oscuras complican aún más el destino del mundo. Las fuerzas del bien y del mal se preparan para una confrontación épica.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo5.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_5 = libro2_5.Id;
+                Console.WriteLine ("Libro 'Cielo en Llamas' creado correctamente.");
+
+                // Libro 2_6 (usa el id del autor anterior)
+                var libro2_6 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 6: El Señor del Caos",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1994, 6, 13),
+                        p_numPags: 1011,
+ p_sinopsis: "Con el caos extendiéndose, los héroes deben lidiar con traiciones, guerras internas y la inseguridad de si podrán resistir ante un mal creciente. La lucha por el poder y el orden se intensifica.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo6.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_6 = libro2_6.Id;
+                Console.WriteLine ("Libro 'El Señor del Caos' creado correctamente.");
+
+                // Libro 2_7 (usa el id del autor anterior)
+                var libro2_7 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 7: Corona de Espadas",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1996, 5, 3),
+                        p_numPags: 880,
+ p_sinopsis: "Rand, como Dragón Renacido, debe enfrentarse a enemigos tanto abiertos como ocultos. Mientras tanto, intrigas políticas y poderes mágicos se entrecruzan.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo7.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_7 = libro2_7.Id;
+                Console.WriteLine ("Libro 'Corona de Espadas' creado correctamente.");
+
+                // Libro 2_8 (usa el id del autor anterior)
+                var libro2_8 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 8: El Camino de Dagas",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (1998, 7, 15),
+                        p_numPags: 672,
+ p_sinopsis: "El conflicto se intensifica: invasiones, engaños y manipulaciones mágicas amenazan la estabilidad política y social del mundo. Los protagonistas deben tomar decisiones difíciles.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo8.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_8 = libro2_8.Id;
+                Console.WriteLine ("Libro 'El Camino de Dagas' creado correctamente.");
+
+                // Libro 2_9 (usa el id del autor anterior)
+                var libro2_9 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 9: El Corazón del Invierno",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2000, 8, 11),
+                        p_numPags: 668,
+ p_sinopsis: "A medida que las fuerzas del mal buscan destruir todo, los héroes deben afrontar sus miedos internos y externos. El clima político, mágico y social se vuelve más inestable.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo9.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_9 = libro2_9.Id;
+                Console.WriteLine ("Libro 'El Corazón del Invierno' creado correctamente.");
+
+                // Libro 2_10 (usa el id del autor anterior)
+                var libro2_10 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 10: Encrucijada en el Crepúsculo",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2003, 1, 15),
+                        p_numPags: 832,
+ p_sinopsis: "Las consecuencias de decisiones anteriores empiezan a notarse: traiciones, luchas de poder, tensiones crecientes. El mundo se prepara para lo inevitable: una confrontación final.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo10.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_10 = libro2_10.Id;
+                Console.WriteLine ("Libro 'Encrucijada en el Crepúsculo' creado correctamente.");
+
+                // Libro 2_11 (usa el id del autor anterior)
+                var libro2_11 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 11: Cuchillo de Sueños",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2005, 6, 7),
+                        p_numPags: 837,
+ p_sinopsis: "La saga se acerca a su clímax: amenazas mayores emergen, y los protagonistas deben unir fuerzas. Se revelan secretos cruciales y alianzas impensadas.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo11.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_11 = libro2_11.Id;
+                Console.WriteLine ("Libro 'Cuchillo de Sueños' creado correctamente.");
+
+                // Libro 2_12 (usa el id del autor anterior)
+                var libro2_12 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 12: La Tormenta",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2009, 1, 10),
+                        p_numPags: 783,
+ p_sinopsis: "El mundo se rompe: el protagonista lucha con su destino, la corrupción del poder y la inminente guerra final se aproxima.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo12.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_12 = libro2_12.Id;
+                Console.WriteLine ("Libro 'La Tormenta' creado correctamente.");
+
+                // Libro 2_13 (usa el id del autor anterior)
+                var libro2_13 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 13: Torres de Medianoche",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2010, 2, 12),
+                        p_numPags: 861,
+ p_sinopsis: "Todos los hilos de la trama convergen: conspiraciones, poderes antiguos, alianzas decisivas. El mundo entero se prepara para la batalla final contra la Sombra.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo13.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_13 = libro2_13.Id;
+                Console.WriteLine ("Libro 'Torres de Medianoche' creado correctamente.");
+
+                // Libro 2_14 (usa el id del autor anterior)
+                var libro2_14 = librocp.CrearLibro (
+ p_titulo: "La Rueda Del Tiempo 14: Un Recuerdo de Luz",
+ p_genero: "Fantasía",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2013, 11, 19),
+                        p_numPags: 912,
+ p_sinopsis: "Las fuerzas de la Luz y la Sombra chocan en la legendaria batalla final. Todos los destinos se definen: salvación o destrucción para la humanidad.",
+ p_fotoPortada: "/images/portadasLibros/ruedaDelTiempo14.webp",
+ p_autorPublicador: autorId2
+                        );
+                var idLibro2_14 = libro2_14.Id;
+                Console.WriteLine ("Libro 'Un Recuerdo de Luz' creado correctamente.");
 
                 // Autor 3 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId3 = autorcen.CrearAutor (
@@ -294,12 +490,11 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1975, 12, 19),
  p_ciudadResidencia: "Lincoln",
  p_paisResidencia: "Estados Unidos",
- p_valoracionMedia: 4.5f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/brandonSanderson.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passBrandon",
                         p_numeroSeguidores: 0,
-                        p_numModificaciones: 0,
                         p_cantidadLibrosPublicados: 0
                         );
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId3);
@@ -313,20 +508,49 @@ public static void InitializeData ()
                         p_numPags: 672,
  p_sinopsis: "En un mundo dominado por cenizas y brumas, una joven ladrona descubre que posee un poder único que podría cambiar el destino del Imperio Final gobernado por el tiránico Lord Legislador.",
  p_fotoPortada: "/images/portadasLibros/imperioFinal.webp",
- p_valoracionMedia: 5.0f,
+ p_valoracionMedia: 0.0f,
  p_autorPublicador: autorId3
                         );
                 var idLibro3 = libro3.Id;
                 Console.WriteLine ("Libro 'El Imperio Final' creado correctamente.");
 
+                // Libro 3.2 (usa el id del autor anterior)
+                var libro3_2 = librocp.CrearLibro (
+ p_titulo: "Mistborn 2: El Pozo de la Ascensión",
+ p_genero: "Fantasía",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2007, 8, 21),
+                        p_numPags: 784,
+ p_sinopsis: "Vin y sus aliados deben enfrentar el caos de un Imperio en ruinas. Mientras las fuerzas externas amenazan la ciudad y entidades misteriosas manipulan los acontecimientos, Vin siente la llamada de un antiguo poder.",
+ p_fotoPortada: "/images/portadasLibros/pozoAscension.webp",
+ p_valoracionMedia: 0.0f,
+ p_autorPublicador: autorId3
+                        );
+                var idLibro3_2 = libro3_2.Id;
+                Console.WriteLine ("Libro 'El Pozo de la Ascensión' creado correctamente.");
+
+                // Libro 3.3 (usa el id del autor anterior)
+                var libro3_3 = librocp.CrearLibro (
+ p_titulo: "Mistborn 3: El Héroe de las Eras",
+ p_genero: "Fantasía",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2008, 9, 23),
+                        p_numPags: 848,
+ p_sinopsis: "Con el mundo al borde de la destrucción, Vin y Elend luchan por descubrir la verdad detrás del legendario Héroe de las Eras. Solo entendiendo los secretos perdidos de la alomancia podrán enfrentar a una amenaza que lleva mil años preparándose.",
+ p_fotoPortada: "/images/portadasLibros/heroeEras.webp",
+ p_valoracionMedia: 0.0f,
+ p_autorPublicador: autorId3
+                        );
+                var idLibro3_3 = libro3_3.Id;
+                Console.WriteLine ("Libro 'El Héroe de las Eras' creado correctamente.");
+
                 // Autor 4 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId4 = autorcen.CrearAutor (
  p_email: "cervantes@email.com",
  p_nombreUsuario: "Miguel De Cervantes",
-                        p_numModificaciones: 0,
  p_fechaNacimiento: new DateTime (1753, 9, 29),
  p_ciudadResidencia: "Alcalá de Henares",
- p_valoracionMedia: 3.0f,
+ p_valoracionMedia: 0.0f,
  p_paisResidencia: "España",
  p_foto: "/images/fotosUsuarios/cervantes.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
@@ -340,7 +564,7 @@ public static void InitializeData ()
                 var libro4 = librocp.CrearLibro (
  p_titulo: "Don Quijote de la Mancha",
  p_genero: "Literatura Clásica",
- p_valoracionMedia: 4.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 14,
  p_fechaPublicacion: new DateTime (1753, 1, 16),
                         p_numPags: 863,
@@ -357,9 +581,8 @@ public static void InitializeData ()
  p_nombreUsuario: "Lucy Maud Montgomery",
  p_fechaNacimiento: new DateTime (1874, 11, 30),
  p_ciudadResidencia: "Clifton (actual New London), Isla del Príncipe Eduardo",
-                        p_numModificaciones: 0,
  p_paisResidencia: "Canadá",
- p_valoracionMedia: 4.0f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/lucyMontgomery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passLucy",
@@ -368,20 +591,95 @@ public static void InitializeData ()
                         );
                 Console.WriteLine ("Autora creada correctamente con ID: " + autorId5);
 
-                // Libro 5 (usa el id del autor anterior)
+                // Libro 5.1 (usa el id del autor anterior)
                 var libro5 = librocp.CrearLibro (
  p_titulo: "Ana de las Tejas Verdes",
  p_genero: "Literatura Infantil",
- p_valoracionMedia: 3.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 10,
  p_fechaPublicacion: new DateTime (1908, 6, 13),
                         p_numPags: 320,
  p_sinopsis: "La historia de Anne Shirley, una huérfana soñadora que llega por accidente a la casa de los hermanos Cuthbert en Tejas Verdes, donde transformará la vida de todos con su imaginación y corazón.",
- p_fotoPortada: "/images/portadasLibros/anaTejasVerdes.webp",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes1.webp",
  p_autorPublicador: autorId5
                         );
                 var idLibro5 = libro5.Id;
                 Console.WriteLine ("Libro 'Ana de las Tejas Verdes' creado correctamente.");
+
+                // Libro 5.2 (usa el id del autor anterior)
+                var libro5_2 = librocp.CrearLibro (
+ p_titulo: "Ana de Avonlea",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1909, 8, 22),
+                        p_numPags: 350,
+ p_sinopsis: "Anne comienza su vida adulta como maestra en Avonlea, donde deberá lidiar con alumnos difíciles, nuevos vecinos y responsabilidades que pondrán a prueba su madurez.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes2.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_2 = libro5_2.Id;
+                Console.WriteLine ("Libro 'Ana de Avonlea' creado correctamente.");
+
+                // Libro 5.3 (usa el id del autor anterior)
+                var libro5_3 = librocp.CrearLibro (
+ p_titulo: "Ana de la Isla",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1915, 7, 9),
+                        p_numPags: 310,
+ p_sinopsis: "Anne viaja a Redmond para estudiar en la universidad. Nuevas amistades, desafíos y sentimientos la acompañan en su camino hacia la adultez.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes3.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_3 = libro5_3.Id;
+                Console.WriteLine ("Libro 'Ana de la Isla' creado correctamente.");
+
+                // Libro 5.4 (usa el id del autor anterior)
+                var libro5_4 = librocp.CrearLibro (
+ p_titulo: "Ana de Álamos Ventosos",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1916, 8, 6),
+                        p_numPags: 300,
+ p_sinopsis: "Ahora directora de una escuela en Summerside, Anne escribe cartas a Gilbert en las que narra sus experiencias, retos y personajes peculiares del lugar.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes4.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_4 = libro5_4.Id;
+                Console.WriteLine ("Libro 'Ana de Álamos Ventosos' creado correctamente.");
+
+                // Libro 5.5 (usa el id del autor anterior)
+                var libro5_5 = librocp.CrearLibro (
+ p_titulo: "Ana y la Casa de sus Sueños",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1917, 9, 13),
+                        p_numPags: 290,
+ p_sinopsis: "Anne y Gilbert se casan e inician su vida juntos en la Casa de los Sueños, donde forjan amistades entrañables y enfrentan alegrías y penas.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes5.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_5 = libro5_5.Id;
+                Console.WriteLine ("Libro 'Ana y la Casa de sus Sueños' creado correctamente.");
+
+                // Libro 5.6 (usa el id del autor anterior)
+                var libro5_6 = librocp.CrearLibro (
+ p_titulo: "Ana de Ingleside",
+ p_genero: "Literatura Infantil",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 10,
+ p_fechaPublicacion: new DateTime (1919, 7, 21),
+                        p_numPags: 430,
+ p_sinopsis: "Anne, ya madre de seis hijos, vive nuevas aventuras familiares mientras descubre que la vida adulta puede ser tan maravillosa como desafiante.",
+ p_fotoPortada: "/images/portadasLibros/anaTejasVerdes6.webp",
+ p_autorPublicador: autorId5
+                        );
+                var idLibro5_6 = libro5_6.Id;
+                Console.WriteLine ("Libro 'Ana de Ingleside' creado correctamente.");
 
                 // Auotor 6 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId6 = autorcen.CrearAutor (
@@ -389,9 +687,8 @@ public static void InitializeData ()
  p_nombreUsuario: "Gabriel Garcia Marquez",
  p_fechaNacimiento: new DateTime (1927, 3, 6),
  p_ciudadResidencia: "Aracataca",
-                        p_numModificaciones: 0,
  p_paisResidencia: "Colombia",
- p_valoracionMedia: 4.0f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/garciaMarquez.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passGabriel",
@@ -404,7 +701,7 @@ public static void InitializeData ()
                 var libro6 = librocp.CrearLibro (
  p_titulo: "Cien años de soledad",
  p_genero: "Literatura Clásica",
- p_valoracionMedia: 4.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 16,
  p_fechaPublicacion: new DateTime (1967, 5, 30),
                         p_numPags: 471,
@@ -421,9 +718,8 @@ public static void InitializeData ()
  p_nombreUsuario: "Dan Brown",
  p_fechaNacimiento: new DateTime (1964, 6, 22),
  p_ciudadResidencia: "New Hampshire",
- p_valoracionMedia: 4.5f,
+ p_valoracionMedia: 0.0f,
  p_paisResidencia: "Estados Unidos",
-                        p_numModificaciones: 0,
  p_foto: "/images/fotosUsuarios/danBrown.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passDan",
@@ -436,7 +732,7 @@ public static void InitializeData ()
                 var libro7 = librocp.CrearLibro (
  p_titulo: "El Código Da Vinci",
  p_genero: "Misterio",
- p_valoracionMedia: 2.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 16,
  p_fechaPublicacion: new DateTime (2003, 3, 18),
                         p_numPags: 592,
@@ -454,8 +750,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1828, 2, 8),
  p_ciudadResidencia: "Nantes",
  p_paisResidencia: "Francia",
-                        p_numModificaciones: 0,
- p_valoracionMedia: 3.0f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/julioVerne.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passJulio",
@@ -468,7 +763,7 @@ public static void InitializeData ()
                 var libro8 = librocp.CrearLibro (
  p_titulo: "Viaje al centro de la Tierra",
  p_genero: "Aventura",
- p_valoracionMedia: 2.5f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 12,
  p_fechaPublicacion: new DateTime (1864, 11, 25),
                         p_numPags: 300,
@@ -486,8 +781,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1900, 6, 29),
  p_ciudadResidencia: "Lyon",
  p_paisResidencia: "Francia",
-                        p_numModificaciones: 0,
- p_valoracionMedia: 4.0f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/saintExupery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passAntoine",
@@ -500,7 +794,7 @@ public static void InitializeData ()
                 var libro9 = librocp.CrearLibro (
  p_titulo: "El Principito",
  p_genero: "Literatura Infantil",
- p_valoracionMedia: 5.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 5,
  p_fechaPublicacion: new DateTime (1943, 4, 6),
                         p_numPags: 96,
@@ -518,8 +812,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1964, 9, 25),
  p_ciudadResidencia: "Barcelona",
  p_paisResidencia: "España",
-                        p_numModificaciones: 0,
- p_valoracionMedia: 4.5f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/carlosRuizZafon.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passCarlos",
@@ -532,10 +825,10 @@ public static void InitializeData ()
                 var libro10 = librocp.CrearLibro (
  p_titulo: "La Sombra del Viento (Antes de Modificar)",
  p_genero: "Aventura",
- p_valoracionMedia: 4.0f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 20,
- p_fechaPublicacion: new DateTime (2000, 4, 1),
-                        p_numPags: 100,
+ p_fechaPublicacion: new DateTime (2001, 4, 12),
+                        p_numPags: 565,
  p_sinopsis: "En la Barcelona de la posguerra, Daniel Sempere descubre un libro olvidado que lo introduce en un misterio literario que cambiará su vida y desvelará secretos del pasado.",
  p_fotoPortada: "/images/portadasLibros/sombraDelViento.webp",
  p_autorPublicador: autorId10
@@ -549,14 +842,44 @@ public static void InitializeData ()
  p_genero: "Misterio",
                         p_edadRecomendada: 15,
  p_fechaPublicacion: new DateTime (2008, 9, 17),
-                        p_numPags: 592,
+                        p_numPags: 672,
  p_sinopsis: "David Martín, un joven escritor en la Barcelona de los años 20, recibe la oferta de un misterioso editor que lo llevará a descubrir secretos oscuros y peligrosos mientras escribe un libro que cambiará su destino.",
  p_fotoPortada: "/images/portadasLibros/juegoDelAngel.webp",
- p_valoracionMedia: 3.5f,
+ p_valoracionMedia: 0.0f,
  p_autorPublicador: autorId10
                         );
                 var idLibro11 = libro11.Id;
                 Console.WriteLine ("Libro 'El Juego del Ángel' creado correctamente.");
+
+                // Libro 11_2 (usa el mismo id que Libro 10, es decir, que el autor tiene 2 libros)
+                var libro11_2 = librocp.CrearLibro (
+ p_titulo: "El Prisionero del Cielo",
+ p_genero: "Misterio",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2009, 3, 12),
+                        p_numPags: 384,
+ p_sinopsis: "Cuando un misterioso visitante llega a la librería Sempere & Hijos, un oscuro secreto del pasado de Fermín Romero de Torres sale a la luz, conectando los hechos de los libros anteriores.",
+ p_fotoPortada: "/images/portadasLibros/prisioneroDelCielo.webp",
+ p_valoracionMedia: 0.0f,
+ p_autorPublicador: autorId10
+                        );
+                var idLibro11_2 = libro11_2.Id;
+                Console.WriteLine ("Libro 'El Prisionero del Cielo' creado correctamente.");
+
+                // Libro 11_3 (usa el mismo id que Libro 10, es decir, que el autor tiene 2 libros)
+                var libro11_3 = librocp.CrearLibro (
+ p_titulo: "El Laberinto de los Espíritus",
+ p_genero: "Misterio",
+                        p_edadRecomendada: 15,
+ p_fechaPublicacion: new DateTime (2016, 6, 3),
+                        p_numPags: 925,
+ p_sinopsis: "Alicia Gris, una investigadora con un pasado atormentado, se ve envuelta en una conspiración que conecta todos los hilos del Cementerio de los Libros Olvidados, revelando la verdad final sobre la historia de los Sempere y Carax.",
+ p_fotoPortada: "/images/portadasLibros/laberintoEspiritus.webp",
+ p_valoracionMedia: 0.0f,
+ p_autorPublicador: autorId10
+                        );
+                var idLibro11_3 = libro11_3.Id;
+                Console.WriteLine ("Libro 'El Laberinto de los Espíritus' creado correctamente.");
 
                 // Auotor 12 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId12 = autorcen.CrearAutor (
@@ -565,8 +888,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1892, 1, 3),
  p_ciudadResidencia: "Bloemfontein",
  p_paisResidencia: "Reino Unido",
-                        p_numModificaciones: 0,
- p_valoracionMedia: 4.5f,
+ p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/tolkien.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passTolkien",
@@ -579,16 +901,63 @@ public static void InitializeData ()
                 var libro12 = librocp.CrearLibro (
  p_titulo: "El Señor de los Anillos",
  p_genero: "Aventura",
- p_valoracionMedia: 4.5f,
+ p_valoracionMedia: 0.0f,
                         p_edadRecomendada: 14,
  p_fechaPublicacion: new DateTime (1954, 7, 29),
                         p_numPags: 1178,
  p_sinopsis: "La Tierra Media está al borde de la guerra mientras un hobbit llamado Frodo Bolsón debe destruir un anillo único que posee un poder maligno inmenso, acompañado de su leal Compañía del Anillo.",
- p_fotoPortada: "/images/portadasLibros/senorAnillos.webp",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos1.webp",
  p_autorPublicador: autorId12
                         );
                 var idLibro12 = libro12.Id;
                 Console.WriteLine ("Libro 'El Señor de los Anillos' creado correctamente.");
+
+                // Libro 13 (usa el id del autor anterior)
+                var libro13 = librocp.CrearLibro (
+ p_titulo: "La Comunidad del Anillo",
+ p_genero: "Aventura",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1954, 7, 29),
+                        p_numPags: 576,
+ p_sinopsis: "Frodo Bolsón hereda un anillo aparentemente inocente, sin saber que es el arma suprema del Señor Oscuro. Para destruirlo, emprende un viaje junto a una Compañía formada por hobbits, humanos, un enano, un elfo y un mago.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos2.webp",
+ p_autorPublicador: autorId12
+                        );
+                var idLibro13 = libro13.Id;
+                Console.WriteLine ("Libro 'La Comunidad del Anillo' creado correctamente.");
+
+                // Libro 14 (usa el id del autor anterior)
+                var libro14 = librocp.CrearLibro (
+ p_titulo: "Las Dos Torres",
+ p_genero: "Aventura",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1954, 11, 11),
+                        p_numPags: 352,
+ p_sinopsis: "La Comunidad se ha dispersado. Mientras Aragorn, Legolas y Gimli persiguen a los orcos que raptaron a los hobbits, Frodo y Sam continúan su camino hacia Mordor guiados por la misteriosa y peligrosa criatura llamada Gollum.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos3.webp",
+ p_autorPublicador: autorId12
+                        );
+                var idLibro14 = libro14.Id;
+                Console.WriteLine ("Libro 'Las Dos Torres' creado correctamente.");
+
+                // Libro 15 (usa el id del autor anterior)
+                var libro15 = librocp.CrearLibro (
+ p_titulo: "El Retorno del Rey",
+ p_genero: "Aventura",
+ p_valoracionMedia: 0.0f,
+                        p_edadRecomendada: 14,
+ p_fechaPublicacion: new DateTime (1955, 10, 20),
+                        p_numPags: 416,
+ p_sinopsis: "Las fuerzas de Sauron avanzan contra Gondor mientras Frodo y Sam se acercan al Monte del Destino. La batalla final por la Tierra Media se decide cuando el verdadero rey reclama su trono.",
+ p_fotoPortada: "/images/portadasLibros/senorAnillos4.webp",
+ p_autorPublicador: autorId12
+                        );
+                var idLibro15 = libro15.Id;
+                Console.WriteLine ("Libro 'El Retorno del Rey' creado correctamente.");
+
+
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - CREACIÓN DE AUTORES Y LIBROS:");
@@ -686,7 +1055,6 @@ public static void InitializeData ()
  p_nombreUsuario: "Niko Lector",
  p_fechaNacimiento: new DateTime (2003, 05, 20),
  p_ciudadResidencia: "Elche",
-                        p_numModificaciones: 0,
  p_paisResidencia: "España",
  p_foto: "/images/fotosUsuarios/usuarioDefault.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
@@ -875,60 +1243,120 @@ public static void InitializeData ()
                 // Los libros a reseñar ya fueron creados anteriormente
 
                 // Reseña 1 con notificación
-                int reseñaId1 = reseñacen.CrearReseña (p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
- p_valoracion: 5.0f,
- p_lectorValorador: lector3.Id,
- p_libroReseñado: libro1.Id,
- p_fecha: new DateTime (2024, 11, 10));
-                Console.WriteLine ("Reseña para libro 1 creada correctamente.");
+                int idReseña1 = 0; // Declarar fuera del try para poder usarlo después
+                try {
+                    var reseña1 = reseñacp.CrearReseña(p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
+     p_valoracion: 5.0f,
+     p_lectorValorador: lector3.Id,
+     p_libroReseñado: libro1.Id,
+     p_fecha: new DateTime(2024, 11, 10));
+
+                    idReseña1 = reseña1.Id; // Guardar el ID
+                    Console.WriteLine("Reseña para libro 1 creada correctamente con ID: " + idReseña1);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
+                    Console.WriteLine("Error al crear la reseña");
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                }
 
                 int notificacionId1 = notificacionCP.CrearNotificacion (
  p_fecha: new DateTime (2025, 11, 10),
  p_concepto: ConceptoNotificacionEnum.nueva_reseña,
- p_OID_destino: reseñaId1,
+ p_OID_destino: idReseña1,
  p_tituloResumen: "Nueva reseña creada",
  p_textoCuerpo: "Se ha creado una nueva reseña para el libro '" + libro1.Titulo + "' con una valoración de 5.0 estrellas."
                         ).Id;
 
                 // Reseña 2
-                int reseñaId2 = reseñacen.CrearReseña (
- p_textoOpinion: "Recomendado para todos. Lectura muy entretenida.",
+                int idReseña2 = 0; // Declarar fuera del try para poder usarlo después
+                try {
+                    var reseña2 = reseñacp.CrearReseña (
+p_textoOpinion: "Recomendado para todos. Lectura muy entretenida.",
  p_valoracion: 4.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro1.Id,
  p_fecha: new DateTime (2024, 10, 5)
                         );
-                Console.WriteLine ("Reseña para libro 2 creada correctamente.");
+
+                    idReseña2 = reseña2.Id; // Guardar el ID
+                    Console.WriteLine("Reseña para libro 2 creada correctamente con ID: " + idReseña2);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
+                    Console.WriteLine("Error al crear la reseña");
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                }
 
                 // Reseña 3
-                int reseñaId3 = reseñacen.CrearReseña (
- p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
+                int idReseña3 = 0; // Declarar fuera del try para poder usarlo después
+                try {
+                    var reseña3 = reseñacp.CrearReseña(
+p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
  p_valoracion: 3.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro3.Id,
  p_fecha: new DateTime (2024, 10, 10)
                         );
-                Console.WriteLine ("Reseña para libro 3 creada correctamente.");
+
+                    idReseña3 = reseña3.Id; // Guardar el ID
+                    Console.WriteLine("Reseña para libro 3 creada correctamente con ID: " + idReseña3);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
+                    Console.WriteLine("Error al crear la reseña");
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                }
 
                 // Reseña 4
-                int reseñaId4 = reseñacen.CrearReseña (
+                int idReseña4 = 0; // Declarar fuera del try para poder usarlo después
+                try {
+                    var reseña4 = reseñacp.CrearReseña (
  p_textoOpinion: "Esperaba más de este libro. No cumplió mis expectativas.",
  p_valoracion: 2.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro4.Id,
  p_fecha: new DateTime (2024, 10, 12)
                         );
-                Console.WriteLine ("Reseña para libro 4 creada correctamente.");
+
+                    idReseña4 = reseña4.Id; // Guardar el ID
+                    Console.WriteLine("Reseña para libro 4 creada correctamente con ID: " + idReseña4);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
+                    Console.WriteLine("Error al crear la reseña");
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                }
 
                 // Reseña 5
-                int reseñaId5 = reseñacen.CrearReseña (
+                int idReseña5 = 0; // Declarar fuera del try para poder usarlo después
+                try {
+                    var reseña5 = reseñacp.CrearReseña (
  p_textoOpinion: "Uno de los mejores libros que he leído. Obra maestra.",
  p_valoracion: 5.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro5.Id,
  p_fecha: new DateTime (2024, 10, 15)
                         );
-                Console.WriteLine ("Reseña para libro 5 creada correctamente.");
+
+                    idReseña5 = reseña5.Id; // Guardar el ID
+                    Console.WriteLine("Reseña para libro 5 creada correctamente con ID: " + idReseña5);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
+                    Console.WriteLine("Error al crear la reseña");
+                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                }
 
                 // Resumen de Reseñas creadas:
                 Console.WriteLine ("\n====================================================================================");
@@ -1010,38 +1438,43 @@ public static void InitializeData ()
 
                 // PRUEBA 1: Sin filtros (todos null) - Debe devolver todos los libros
                 Console.WriteLine ("\n------------------ Prueba 1: Sin filtros (todos los parámetros null) ------------------");
-                var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros encontrados sin filtro: " + (librosSinFiltro != null ? librosSinFiltro.Count.ToString () : "0"));
 
                 // PRUEBA 2: Filtro por género "Fantasía"
                 Console.WriteLine ("\n------------------ Prueba 2: Filtro por género 'Fantasía' ------------------");
-                var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros de 'Fantasía' encontrados: " + (librosFantasía != null ? librosFantasía.Count.ToString () : "0"));
 
                 // PRUEBA 3: Filtro por edad recomendada = 12
                 Console.WriteLine ("\n------------------ Prueba 3: Filtro por edad recomendada >= 12 años ------------------");
-                var librosEdad12 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: 12, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosEdad12 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: 12, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros para edad >= 12 encontrados: " + (librosEdad12 != null ? librosEdad12.Count.ToString () : "0"));
 
                 // PRUEBA 4: Filtro por número de páginas >= 200
                 Console.WriteLine ("\n------------------ Prueba 4: Filtro por número de páginas >= 200 ------------------");
-                var libros200Pags = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: 200, p_valoracionMedia: null, 0, 20);
+                var libros200Pags = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: 200, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros con >= 200 páginas encontrados: " + (libros200Pags != null ? libros200Pags.Count.ToString () : "0"));
 
                 // PRUEBA 5: Filtro por valoración media >= 4.0
                 Console.WriteLine ("\n------------------ Prueba 5: Filtro por valoración media >= 4.0 ------------------");
-                var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, 0, 20);
+                var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros con valoración >= 4.0 encontrados: " + (librosValoracion4 != null ? librosValoracion4.Count.ToString () : "0"));
 
                 // PRUEBA 6: Filtro combinado - Género "Fantasía" y edad > 10
                 Console.WriteLine ("\n------------------ Prueba 6: Filtro combinado - Género 'Fantasía' y edad >= 10 ------------------");
-                var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, 0, 20);
+                var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros de 'Fantasía' para edad >= 10 años encontrados: " + (librosFantasía10 != null ? librosFantasía10.Count.ToString () : "0"));
 
                 // PRUEBA 7: Filtro combinado - Género "Fantasía", valoración >= 1.0, >= 500 páginas
                 Console.WriteLine ("\n------------------ Prueba 7: Filtro combinado - Fantasía + valoración >= 4.5, >= 400 páginas ------------------");
-                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, 0, 20);
+                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, p_autor: null, 0, 20);
                 Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosRestrictivo != null ? librosRestrictivo.Count.ToString () : "0"));
+
+                // PRUEBA 8: Filtro básico - Libro de la autora "Leigh Bardugo"
+                Console.WriteLine ("\n------------------ Prueba 8: Filtro básico - Libros de Leigh Bardugo ------------------");
+                var librosDeAutora = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: 32769, 0, 20);
+                Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosDeAutora != null ? librosDeAutora.Count.ToString () : "0"));
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - PRUEBAS DE FILTRO DE LIBROS:");
@@ -1052,6 +1485,7 @@ public static void InitializeData ()
                 Console.WriteLine ("- Prueba 5: Por valoración >= 4.0");
                 Console.WriteLine ("- Prueba 6: Filtro combinado género + edad");
                 Console.WriteLine ("- Prueba 7: Filtro con tres criterios");
+                Console.WriteLine ("- Prueba 8: Filtro por autor 'Leigh Bardugo'");
                 Console.WriteLine ("=======================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1273,7 +1707,6 @@ public static void InitializeData ()
                 int usuarioId2 = lectorcen.CrearLector (
  p_email: "marina.lectora@email.com",
  p_nombreUsuario: "Marina Antes de Modificar",
-                        p_numModificaciones: 0,
  p_fechaNacimiento: new DateTime (1980, 11, 10),
  p_ciudadResidencia: "Villajoyosa", p_paisResidencia: "España",
  p_foto: "/images/fotosUsuarios/usuarioDefault.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
@@ -1290,7 +1723,6 @@ public static void InitializeData ()
                         usuarioId2,
  p_email: pruebaModificarLector.Email,
  p_nombreUsuario: "Marina Lectora",
- p_numModificaciones: pruebaModificarLector.NumModificaciones + 1,
  p_fechaNacimiento: pruebaModificarLector.FechaNacimiento,
  p_ciudadResidencia: pruebaModificarLector.CiudadResidencia,
  p_paisResidencia: pruebaModificarLector.PaisResidencia,
@@ -1704,13 +2136,13 @@ public static void InitializeData ()
                 Console.WriteLine ("\n\n------------------ Modificación de Reseña (Resultado esperado: Correcto) ------------------");
 
                 reseñacen.ModificarReseña (
-                        reseñaId1,
+                        idReseña1,
  p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada. Actualización: Sigue siendo excelente tras una segunda lectura.",
  p_valoracion: 4.5f,                // Valoración válida entre 0 y 5
  p_fecha: new DateTime (2024, 10, 1)
                         );
 
-                Console.WriteLine ("Reseña modificada correctamente (ID: " + reseñaId1 + ")");
+                Console.WriteLine ("Reseña modificada correctamente (ID: " + idReseña1 + ")");
 
                 // MODIFICAR RESEÑA - Caso Incorrecto: Intentar valoración negativa
                 Console.WriteLine ("\n------------------ Modificación de Reseña con valoración negativa (Resultado esperado: Incorrecto) ------------------");
@@ -1718,7 +2150,7 @@ public static void InitializeData ()
                 try
                 {
                         reseñacen.ModificarReseña (
-                                reseñaId2,
+                                idReseña2,
  p_textoOpinion: "Esta es una reseña modificada",
  p_valoracion: -2.0f,                        // Valoración negativa (INVÁLIDA)
  p_fecha: new DateTime (2024, 10, 5)
@@ -1739,7 +2171,7 @@ public static void InitializeData ()
                 try
                 {
                         reseñacen.ModificarReseña (
-                                reseñaId3,
+                                idReseña3,
  p_textoOpinion: "Reseña con valoración fuera de rango",
  p_valoracion: 10.0f,                        // Valoración mayor a 5 (INVÁLIDA)
  p_fecha: new DateTime (2024, 10, 10)
@@ -1756,7 +2188,7 @@ public static void InitializeData ()
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN DE LAS PRUEBAS DE MODIFICACIÓN DE RESEÑA:");
-                Console.WriteLine ("Prueba 1 - Modificación correcta de reseña con ID: " + reseñaId1);
+                Console.WriteLine ("Prueba 1 - Modificación correcta de reseña con ID: " + idReseña1);
                 Console.WriteLine ("  Cambios aplicados:");
                 Console.WriteLine ("    - Texto de opinión actualizado con información adicional");
                 Console.WriteLine ("    - Valoración: De 5.0 a 4.5 (válida)");
@@ -1882,7 +2314,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        int idReseñaInvalida1 = reseñacen.CrearReseña (
+                        var idReseñaInvalida11 = reseñacp.CrearReseña (
  p_textoOpinion: "Esta es una reseña de prueba sin lector",
  p_valoracion: 4.0f,
  p_lectorValorador: -1,                        // Sin lector valorador (INVÁLIDO)
@@ -1904,7 +2336,7 @@ public static void InitializeData ()
 
                 try
                 {
-                        int idReseñaInvalida2 = reseñacen.CrearReseña (
+                        var idReseñaInvalida22 = reseñacp.CrearReseña (
  p_textoOpinion: "Esta es una reseña de prueba sin libro",
  p_valoracion: 3.5f,
  p_lectorValorador: usuarioId1,

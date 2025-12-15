@@ -3,38 +3,36 @@
   <es.ua.dlsi.ooh:ConceptualModel xmi:id="_95nXoK32EfCc-vpnvRqFgQ" name="ReadRate_E4">
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_u5cSIK34EfCc-vpnvRqFgQ" name="Usuario" alias="Usuario" stereotyped="User" inheritSons="_m9h7wK4JEfCc-vpnvRqFgQ _xAvGEK4JEfCc-vpnvRqFgQ">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zrxYsa34EfCc-vpnvRqFgQ" name="crearUsuario" visibility="Private" operationType="New" type="Object" typeObject="_u5cSIK34EfCc-vpnvRqFgQ" customized="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5IMlfEfCfJKRL2CJ-hg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5IclfEfCfJKRL2CJ-hg" name="p_nombreUsuario"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5IslfEfCfJKRL2CJ-hg" name="p_fechaNacimiento" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5I8lfEfCfJKRL2CJ-hg" name="p_ciudadResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5JMlfEfCfJKRL2CJ-hg" name="p_paisResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5JclfEfCfJKRL2CJ-hg" name="p_foto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5JslfEfCfJKRL2CJ-hg" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5J8lfEfCfJKRL2CJ-hg" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5KMlfEfCfJKRL2CJ-hg" name="p_numModificaciones" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjsNnbEfCi0JvYZG2IXA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjsdnbEfCi0JvYZG2IXA" name="p_nombreUsuario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjstnbEfCi0JvYZG2IXA" name="p_fechaNacimiento" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjs9nbEfCi0JvYZG2IXA" name="p_ciudadResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjtNnbEfCi0JvYZG2IXA" name="p_paisResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjtdnbEfCi0JvYZG2IXA" name="p_foto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjttnbEfCi0JvYZG2IXA" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjt9nbEfCi0JvYZG2IXA" name="p_pass" type="Password"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zrym0K34EfCc-vpnvRqFgQ" name="modificarUsuario" visibility="Private" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5KclfEfCfJKRL2CJ-hg" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5KslfEfCfJKRL2CJ-hg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5K8lfEfCfJKRL2CJ-hg" name="p_nombreUsuario"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5LMlfEfCfJKRL2CJ-hg" name="p_fechaNacimiento" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5LclfEfCfJKRL2CJ-hg" name="p_ciudadResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5LslfEfCfJKRL2CJ-hg" name="p_paisResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5L8lfEfCfJKRL2CJ-hg" name="p_foto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5MMlfEfCfJKRL2CJ-hg" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5MclfEfCfJKRL2CJ-hg" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmZ5MslfEfCfJKRL2CJ-hg" name="p_numModificaciones" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjuNnbEfCi0JvYZG2IXA" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjudnbEfCi0JvYZG2IXA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjutnbEfCi0JvYZG2IXA" name="p_nombreUsuario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEju9nbEfCi0JvYZG2IXA" name="p_fechaNacimiento" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjvNnbEfCi0JvYZG2IXA" name="p_ciudadResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjvdnbEfCi0JvYZG2IXA" name="p_paisResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjvtnbEfCi0JvYZG2IXA" name="p_foto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjv9nbEfCi0JvYZG2IXA" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjwNnbEfCi0JvYZG2IXA" name="p_pass" type="Password"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zrym0q34EfCc-vpnvRqFgQ" name="eliminarUsuario" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmagMMlfEfCfJKRL2CJ-hg" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjwdnbEfCi0JvYZG2IXA" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_RdGBgK37EfCc-vpnvRqFgQ" name="dameUsuarioPorOID" operationType="ReadOID" type="Object" typeObject="_u5cSIK34EfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmagMclfEfCfJKRL2CJ-hg" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjwtnbEfCi0JvYZG2IXA" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_RdGBgq37EfCc-vpnvRqFgQ" name="dameTodosUsuarios" operationType="ReadAll" type="Object" collectionType="List" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ZYmtsK_3EfCS9JQFgenn9A" name="login" operationType="Login">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmagMslfEfCfJKRL2CJ-hg" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmagM8lfEfCfJKRL2CJ-hg" name="p_pass"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjw9nbEfCi0JvYZG2IXA" name="p_Usuario_OID" type="OID" typeObject="_u5cSIK34EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjxNnbEfCi0JvYZG2IXA" name="p_pass"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_l3jaULdNEfC8TcaGcMH0Qw" name="dameUsuarioPorEmail" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_u5cSIK34EfCc-vpnvRqFgQ" filter="FROM UsuarioNH usuario where usuario.Email = :p_email" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_PbEFELfPEfCnqcY2r_5XiQ" name="p_email"/>
@@ -45,6 +43,10 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_WmxsgLr-EfCuiOnruI54wg" name="p_newPass"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_8yDYcLdTEfC8TcaGcMH0Qw" name="dameCantidadTotalUsuarios" type="Integer"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ZqGWgNZ8EfCPx7PasHQAdw" name="dameUsuarioPorFiltros" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_u5cSIK34EfCc-vpnvRqFgQ" filter="FROM UsuarioNH usuario where (:p_rol is null or usuario.Rol=:p_rol) and (:p_nombre is null or (concat('%', lower(usuario.NombreUsuario), '%') like lower(:p_nombre)))" automaticSynchronize="false" paging="true">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ILAM8NZ9EfCPx7PasHQAdw" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_MBIxANZ9EfCPx7PasHQAdw" name="p_nombre"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_zrxYsK34EfCc-vpnvRqFgQ" alias="idUsuario" name="id" type="Autogenerated" isOID="true" unique="true" isToken="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_lRTy4K37EfCc-vpnvRqFgQ" alias="email" name="email" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_mnXm4K37EfCc-vpnvRqFgQ" alias="nombreUsuario" name="nombreUsuario"/>
@@ -54,7 +56,6 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_Azk1EK38EfCc-vpnvRqFgQ" alias="foto" name="foto"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_B7uI4K38EfCc-vpnvRqFgQ" alias="rol" name="rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_ZYmGoK_3EfCS9JQFgenn9A" alias="pass" name="pass" type="Password"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PtK9wMlfEfCfJKRL2CJ-hg" alias="numModificaciones" name="numModificaciones" type="Integer"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Enumeration" xmi:id="_LrqY8K38EfCc-vpnvRqFgQ" name="rolUsuario">
       <enumerationLiterals xmi:type="es.ua.dlsi.ooh:EnumerationLiteral" xmi:id="_XqKyUK38EfCc-vpnvRqFgQ" name="autor" value="1"/>
@@ -90,12 +91,13 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_99nI4MpoEfCb19lLzfP2Mg" name="p_Libro_OID" type="OID" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_W78BEq4BEfCc-vpnvRqFgQ" name="dameTodosLibros" operationType="ReadAll" type="Object" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_xlCywLW5EfCshuv5YkUbWg" name="dameLibrosPorFiltros" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ" filter="FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_titulo is null or concat('%', lower(libro.Titulo), '%') like lower(:p_titulo))" automaticSynchronize="false" paging="true">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_xlCywLW5EfCshuv5YkUbWg" name="dameLibrosPorFiltros" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ" filter="FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_titulo is null or (concat('%', lower(libro.Titulo), '%') like lower(:p_titulo))) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_autor is null or libro.AutorPublicador.Id=:p_autor)" automaticSynchronize="false" paging="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TNFgYLW6EfCshuv5YkUbWg" name="p_genero"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ChMcYLffEfCnqcY2r_5XiQ" name="p_titulo"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_EoZZcLffEfCnqcY2r_5XiQ" name="p_edadRecomendada" type="Integer"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_HfxPMLffEfCnqcY2r_5XiQ" name="p_numPags" type="Integer"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_J1V_cLffEfCnqcY2r_5XiQ" name="p_valoracionMedia" type="Float"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_67EygNZ9EfCPx7PasHQAdw" name="p_autor" type="Integer" scope="InOut"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FivK8LdUEfC8TcaGcMH0Qw" name="dameCantidadTotalLibros" type="Integer"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_41zvIMCEEfCv4cFrQb3rLQ" name="dameLibrosOrdenadosFecha" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ" filter="FROM LibroNH libro order by libro.FechaPublicacion desc" automaticSynchronize="false"/>
@@ -114,7 +116,7 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_5-F80LXDEfCK_KH0OM83Jw" alias="valoracionMedia" name="valoracionMedia" type="Float"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_D3ecMK4CEfCc-vpnvRqFgQ" name="Reseña" alias="Reseña" asociationTarget="_Q3IlAK4MEfCc-vpnvRqFgQ _AQYGwK4PEfCc-vpnvRqFgQ _sIVTEK4REfCc-vpnvRqFgQ">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FayCAa4CEfCc-vpnvRqFgQ" name="crearReseña" operationType="New" type="Object" typeObject="_D3ecMK4CEfCc-vpnvRqFgQ" customized="true">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FayCAa4CEfCc-vpnvRqFgQ" name="crearReseña" operationType="New" type="Object" typeObject="_D3ecMK4CEfCc-vpnvRqFgQ" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ucC_X8kyEfCD6LaXu9SYIQ" name="p_textoOpinion" type="Text"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ucC_YMkyEfCD6LaXu9SYIQ" name="p_valoracion" type="Float"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ucC_YckyEfCD6LaXu9SYIQ" name="p_lectorValorador" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
@@ -199,7 +201,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1goz8ssVEfCzw52nlUWx4A" name="p_email"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1goz88sVEfCzw52nlUWx4A" name="p_foto"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_2rZnAq4CEfCc-vpnvRqFgQ" name="modificarAdministador" operationType="Modifier" type="Void">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_2rZnAq4CEfCc-vpnvRqFgQ" name="modificarAdministador" operationType="Modifier" type="Void" customized="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbAMsVEfCzw52nlUWx4A" name="p_Administrador_OID" type="OID" typeObject="_1GPAAK4CEfCc-vpnvRqFgQ"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbAcsVEfCzw52nlUWx4A" name="p_nombre"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1gpbAssVEfCzw52nlUWx4A" name="p_pass" type="Password"/>
@@ -370,49 +372,51 @@
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_l-W9wK4JEfCc-vpnvRqFgQ" name="Autor" alias="Autor" inheritFathers="_m9h7wK4JEfCc-vpnvRqFgQ" asociationTarget="_lgyncMklEfCD6LaXu9SYIQ _rRKmcMksEfCD6LaXu9SYIQ" associationOrigin="_4ctdgK4LEfCc-vpnvRqFgQ _2EArUK4MEfCc-vpnvRqFgQ">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FTIBMK4KEfCc-vpnvRqFgQ" name="crearAutor" operationType="New" type="Object" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlsMloEfCfJKRL2CJ-hg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlscloEfCfJKRL2CJ-hg" name="p_nombreUsuario"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlssloEfCfJKRL2CJ-hg" name="p_fechaNacimiento" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSls8loEfCfJKRL2CJ-hg" name="p_ciudadResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSltMloEfCfJKRL2CJ-hg" name="p_paisResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSltcloEfCfJKRL2CJ-hg" name="p_foto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSltsloEfCfJKRL2CJ-hg" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlt8loEfCfJKRL2CJ-hg" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSluMloEfCfJKRL2CJ-hg" name="p_numModificaciones" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlucloEfCfJKRL2CJ-hg" name="p_numeroSeguidores" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlusloEfCfJKRL2CJ-hg" name="p_cantidadLibrosPublicados" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlu8loEfCfJKRL2CJ-hg" name="p_valoracionMedia" type="Float"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjxdnbEfCi0JvYZG2IXA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjxtnbEfCi0JvYZG2IXA" name="p_nombreUsuario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjx9nbEfCi0JvYZG2IXA" name="p_fechaNacimiento" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjyNnbEfCi0JvYZG2IXA" name="p_ciudadResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjydnbEfCi0JvYZG2IXA" name="p_paisResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjytnbEfCi0JvYZG2IXA" name="p_foto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjy9nbEfCi0JvYZG2IXA" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjzNnbEfCi0JvYZG2IXA" name="p_pass" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjzdnbEfCi0JvYZG2IXA" name="p_numeroSeguidores" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjztnbEfCi0JvYZG2IXA" name="p_cantidadLibrosPublicados" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEjz9nbEfCi0JvYZG2IXA" name="p_valoracionMedia" type="Float"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FTIBPK4KEfCc-vpnvRqFgQ" name="modificarAutor" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRSlvMloEfCfJKRL2CJ-hg" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMwMloEfCfJKRL2CJ-hg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMwcloEfCfJKRL2CJ-hg" name="p_nombreUsuario"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMwsloEfCfJKRL2CJ-hg" name="p_fechaNacimiento" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMw8loEfCfJKRL2CJ-hg" name="p_ciudadResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMxMloEfCfJKRL2CJ-hg" name="p_paisResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMxcloEfCfJKRL2CJ-hg" name="p_foto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMxsloEfCfJKRL2CJ-hg" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMx8loEfCfJKRL2CJ-hg" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMyMloEfCfJKRL2CJ-hg" name="p_numModificaciones" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMycloEfCfJKRL2CJ-hg" name="p_numeroSeguidores" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMysloEfCfJKRL2CJ-hg" name="p_cantidadLibrosPublicados" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMy8loEfCfJKRL2CJ-hg" name="p_valoracionMedia" type="Float"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FTIBPK4KEfCc-vpnvRqFgQ" name="modificarAutor" operationType="Modifier" type="Void" customized="true">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj0NnbEfCi0JvYZG2IXA" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj0dnbEfCi0JvYZG2IXA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj0tnbEfCi0JvYZG2IXA" name="p_nombreUsuario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj09nbEfCi0JvYZG2IXA" name="p_fechaNacimiento" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj1NnbEfCi0JvYZG2IXA" name="p_ciudadResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj1dnbEfCi0JvYZG2IXA" name="p_paisResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj1tnbEfCi0JvYZG2IXA" name="p_foto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj19nbEfCi0JvYZG2IXA" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj2NnbEfCi0JvYZG2IXA" name="p_pass" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj2dnbEfCi0JvYZG2IXA" name="p_numeroSeguidores" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj2tnbEfCi0JvYZG2IXA" name="p_cantidadLibrosPublicados" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj29nbEfCi0JvYZG2IXA" name="p_valoracionMedia" type="Float"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FTIoRq4KEfCc-vpnvRqFgQ" name="eliminarAutor" operationType="Destroy" type="Void" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMzMloEfCfJKRL2CJ-hg" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj3NnbEfCi0JvYZG2IXA" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ipjd8LWEEfCzI6zxd4GUpw" name="dameAutorPorOID" operationType="ReadOID" type="Object" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMzcloEfCfJKRL2CJ-hg" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj3dnbEfCi0JvYZG2IXA" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ipjd8rWEEfCzI6zxd4GUpw" name="dameTodosAutores" operationType="ReadAll" type="Object" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_wq89UMkmEfCD6LaXu9SYIQ" name="inscribirAutorAEvento" operationType="Relationer" type="Void" relatedRol="_lg58MMklEfCD6LaXu9SYIQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMzsloEfCfJKRL2CJ-hg" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTMz8loEfCfJKRL2CJ-hg" name="p_eventoAutor_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj3tnbEfCi0JvYZG2IXA" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj39nbEfCi0JvYZG2IXA" name="p_eventoAutor_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_M0PjQMknEfCD6LaXu9SYIQ" name="desinscribirAutorDeEvento" operationType="Unrelationer" type="Void" relatedRol="_lg58MMklEfCD6LaXu9SYIQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTM0MloEfCfJKRL2CJ-hg" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_hRTM0cloEfCfJKRL2CJ-hg" name="p_eventoAutor_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj4NnbEfCi0JvYZG2IXA" name="p_Autor_OID" type="OID" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj4dnbEfCi0JvYZG2IXA" name="p_eventoAutor_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
       </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_HKanwNZ_EfCPx7PasHQAdw" name="dameAutorPorNombre" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ" filter="FROM AutorNH autor where concat('%', lower(autor.NombreUsuario), '%') like lower(:p_nombre)" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_e_BscNZ_EfCPx7PasHQAdw" name="p_nombre"/>
+      </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_TnryANaFEfCPx7PasHQAdw" name="dameAutoresOrdenadosValoracion" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ" filter="FROM AutorNH autor order by autor.ValoracionMedia desc" automaticSynchronize="false"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_neTGgK4JEfCc-vpnvRqFgQ" alias="numeroSeguidores" name="numeroSeguidores" type="Integer"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_rvWE8K4JEfCc-vpnvRqFgQ" alias="cantidadLibrosPublicados" name="cantidadLibrosPublicados" type="Integer"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_tLWv8K4JEfCc-vpnvRqFgQ" alias="valoracionMedia" name="valoracionMedia" type="Float"/>
@@ -424,49 +428,47 @@
     <elements xmi:type="es.ua.dlsi.ooh:Inheritance" xmi:id="_m9h7wK4JEfCc-vpnvRqFgQ" name="inheritance" son="_l-W9wK4JEfCc-vpnvRqFgQ" father="_u5cSIK34EfCc-vpnvRqFgQ"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_wE_2kK4JEfCc-vpnvRqFgQ" name="Lector" alias="Lector" inheritFathers="_xAvGEK4JEfCc-vpnvRqFgQ" asociationTarget="_4ctdgK4LEfCc-vpnvRqFgQ _Xv-tgMkmEfCD6LaXu9SYIQ _trpeIMknEfCD6LaXu9SYIQ _sMJoAMksEfCD6LaXu9SYIQ" associationOrigin="_j_-TkK4LEfCc-vpnvRqFgQ _vNGTUK4LEfCc-vpnvRqFgQ _Q3IlAK4MEfCc-vpnvRqFgQ _b3RU0K4QEfCc-vpnvRqFgQ">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_NoyroK4KEfCc-vpnvRqFgQ" name="crearLector" operationType="New" type="Object" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHQMlfEfCfJKRL2CJ-hg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHQclfEfCfJKRL2CJ-hg" name="p_nombreUsuario"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHQslfEfCfJKRL2CJ-hg" name="p_fechaNacimiento" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHQ8lfEfCfJKRL2CJ-hg" name="p_ciudadResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHRMlfEfCfJKRL2CJ-hg" name="p_paisResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHRclfEfCfJKRL2CJ-hg" name="p_foto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHRslfEfCfJKRL2CJ-hg" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHR8lfEfCfJKRL2CJ-hg" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHSMlfEfCfJKRL2CJ-hg" name="p_numModificaciones" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHSclfEfCfJKRL2CJ-hg" name="p_cantLibrosCurso" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHSslfEfCfJKRL2CJ-hg" name="p_cantLibrosLeidos" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHS8lfEfCfJKRL2CJ-hg" name="p_cantAutoresSeguidos" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHTMlfEfCfJKRL2CJ-hg" name="p_cantClubsSuscritos" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj4tnbEfCi0JvYZG2IXA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj49nbEfCi0JvYZG2IXA" name="p_nombreUsuario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj5NnbEfCi0JvYZG2IXA" name="p_fechaNacimiento" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj5dnbEfCi0JvYZG2IXA" name="p_ciudadResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj5tnbEfCi0JvYZG2IXA" name="p_paisResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj59nbEfCi0JvYZG2IXA" name="p_foto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj6NnbEfCi0JvYZG2IXA" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj6dnbEfCi0JvYZG2IXA" name="p_pass" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj6tnbEfCi0JvYZG2IXA" name="p_cantLibrosCurso" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj69nbEfCi0JvYZG2IXA" name="p_cantLibrosLeidos" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj7NnbEfCi0JvYZG2IXA" name="p_cantAutoresSeguidos" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMEj7dnbEfCi0JvYZG2IXA" name="p_cantClubsSuscritos" type="Integer"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_NozSvK4KEfCc-vpnvRqFgQ" name="modificarLector" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHTclfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHTslfEfCfJKRL2CJ-hg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHT8lfEfCfJKRL2CJ-hg" name="p_nombreUsuario"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHUMlfEfCfJKRL2CJ-hg" name="p_fechaNacimiento" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHUclfEfCfJKRL2CJ-hg" name="p_ciudadResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHUslfEfCfJKRL2CJ-hg" name="p_paisResidencia"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHU8lfEfCfJKRL2CJ-hg" name="p_foto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHVMlfEfCfJKRL2CJ-hg" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHVclfEfCfJKRL2CJ-hg" name="p_pass" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHVslfEfCfJKRL2CJ-hg" name="p_numModificaciones" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHV8lfEfCfJKRL2CJ-hg" name="p_cantLibrosCurso" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHWMlfEfCfJKRL2CJ-hg" name="p_cantLibrosLeidos" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHWclfEfCfJKRL2CJ-hg" name="p_cantAutoresSeguidos" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHWslfEfCfJKRL2CJ-hg" name="p_cantClubsSuscritos" type="Integer"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_NozSvK4KEfCc-vpnvRqFgQ" name="modificarLector" operationType="Modifier" type="Void" customized="true">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRYNnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRYdnbEfCi0JvYZG2IXA" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRYtnbEfCi0JvYZG2IXA" name="p_nombreUsuario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRY9nbEfCi0JvYZG2IXA" name="p_fechaNacimiento" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRZNnbEfCi0JvYZG2IXA" name="p_ciudadResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRZdnbEfCi0JvYZG2IXA" name="p_paisResidencia"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRZtnbEfCi0JvYZG2IXA" name="p_foto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRZ9nbEfCi0JvYZG2IXA" name="p_rol" type="Enum" typeEnum="_LrqY8K38EfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRaNnbEfCi0JvYZG2IXA" name="p_pass" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRadnbEfCi0JvYZG2IXA" name="p_cantLibrosCurso" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRatnbEfCi0JvYZG2IXA" name="p_cantLibrosLeidos" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRa9nbEfCi0JvYZG2IXA" name="p_cantAutoresSeguidos" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRbNnbEfCi0JvYZG2IXA" name="p_cantClubsSuscritos" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_NozSyq4KEfCc-vpnvRqFgQ" name="eliminarLector" operationType="Destroy" type="Void" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHW8lfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRbdnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jxJU8LWAEfCzI6zxd4GUpw" name="seguirAutor" operationType="Relationer" type="Void" relatedRol="_4ctdgq4LEfCc-vpnvRqFgQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHXMlfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHXclfEfCfJKRL2CJ-hg" name="p_autorSeguido_OIDs" type="OID" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRbtnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRb9nbEfCi0JvYZG2IXA" name="p_autorSeguido_OIDs" type="OID" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_qbklkLWAEfCzI6zxd4GUpw" name="dejarDeSeguirAutor" operationType="Unrelationer" type="Void" relatedRol="_4ctdgq4LEfCc-vpnvRqFgQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHXslfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHX8lfEfCfJKRL2CJ-hg" name="p_autorSeguido_OIDs" type="OID" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRcNnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRcdnbEfCi0JvYZG2IXA" name="p_autorSeguido_OIDs" type="OID" collectionType="List" typeObject="_l-W9wK4JEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_rHbCILWEEfCzI6zxd4GUpw" name="dameLectorPorOID" operationType="ReadOID" type="Object" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHYMlfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRctnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_rHbCIrWEEfCzI6zxd4GUpw" name="dameTodosLectores" operationType="ReadAll" type="Object" collectionType="List" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_2gXdILdBEfC8TcaGcMH0Qw" name="comprobarSiEstaEnLista" type="Boolean">
@@ -474,36 +476,36 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_tj6-8LfjEfCnqcY2r_5XiQ" name="p_lista_libros" type="Object" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_1DMVQLfVEfCnqcY2r_5XiQ" name="asignarLibroListaGuardados" operationType="Relationer" type="Void" relatedRol="_j_-Tka4LEfCc-vpnvRqFgQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHYclfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHYslfEfCfJKRL2CJ-hg" name="p_libroLeido_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRc9nbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRdNnbEfCi0JvYZG2IXA" name="p_libroLeido_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_7P_OsLfVEfCnqcY2r_5XiQ" name="desasignarLibroListaGuardados" operationType="Unrelationer" type="Void" relatedRol="_j_-Tka4LEfCc-vpnvRqFgQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHY8lfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbHZMlfEfCfJKRL2CJ-hg" name="p_libroLeido_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRddnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRdtnbEfCi0JvYZG2IXA" name="p_libroLeido_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_AF8RALfWEfCnqcY2r_5XiQ" name="asignarLibroListaEnCurso" operationType="Relationer" type="Void" relatedRol="_vNGTUa4LEfCc-vpnvRqFgQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuUMlfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuUclfEfCfJKRL2CJ-hg" name="p_libroEnCurso_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRd9nbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLReNnbEfCi0JvYZG2IXA" name="p_libroEnCurso_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_DdmwYLfWEfCnqcY2r_5XiQ" name="desasignarLibroListaEnCurso" operationType="Unrelationer" type="Void" relatedRol="_vNGTUa4LEfCc-vpnvRqFgQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuUslfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuU8lfEfCfJKRL2CJ-hg" name="p_libroEnCurso_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRednbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRetnbEfCi0JvYZG2IXA" name="p_libroEnCurso_OIDs" type="OID" collectionType="List" typeObject="_UUtgIK4BEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_WogLQMkqEfCD6LaXu9SYIQ" name="inscribirLectorAEvento" operationType="Relationer" type="Void" relatedRol="_Xv_UkckmEfCD6LaXu9SYIQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuVMlfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuVclfEfCfJKRL2CJ-hg" name="p_eventoLector_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRe9nbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRfNnbEfCi0JvYZG2IXA" name="p_eventoLector_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_hX67UMkqEfCD6LaXu9SYIQ" name="desinscribirLectorDeEvento" operationType="Unrelationer" type="Void" relatedRol="_Xv_UkckmEfCD6LaXu9SYIQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuVslfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuV8lfEfCfJKRL2CJ-hg" name="p_eventoLector_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRfdnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRftnbEfCi0JvYZG2IXA" name="p_eventoLector_OIDs" type="OID" collectionType="List" typeObject="_X-UZMK4DEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_OI1a0MkrEfCD6LaXu9SYIQ" name="suscribirLectorAClub" operationType="Relationer" type="Void" relatedRol="_trqFMcknEfCD6LaXu9SYIQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuWMlfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuWclfEfCfJKRL2CJ-hg" name="p_clubSuscritoLector_OIDs" type="OID" collectionType="List" typeObject="_WwES0K4CEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRf9nbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRgNnbEfCi0JvYZG2IXA" name="p_clubSuscritoLector_OIDs" type="OID" collectionType="List" typeObject="_WwES0K4CEfCc-vpnvRqFgQ"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Zzj8kMkrEfCD6LaXu9SYIQ" name="desuscribirLectorDeClub" operationType="Unrelationer" type="Void" relatedRol="_trqFMcknEfCD6LaXu9SYIQ" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuWslfEfCfJKRL2CJ-hg" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmbuW8lfEfCfJKRL2CJ-hg" name="p_clubSuscritoLector_OIDs" type="OID" collectionType="List" typeObject="_WwES0K4CEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRgdnbEfCi0JvYZG2IXA" name="p_Lector_OID" type="OID" typeObject="_wE_2kK4JEfCc-vpnvRqFgQ"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_QMLRgtnbEfCi0JvYZG2IXA" name="p_clubSuscritoLector_OIDs" type="OID" collectionType="List" typeObject="_WwES0K4CEfCc-vpnvRqFgQ"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_xxbjMK4JEfCc-vpnvRqFgQ" alias="cantLibrosCurso" name="cantLibrosCurso" type="Integer"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_0EwQsK4JEfCc-vpnvRqFgQ" alias="cantLibrosLeidos" name="cantLibrosLeidos" type="Integer"/>
@@ -578,10 +580,6 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_3EvSUrc9EfC8TcaGcMH0Qw" type="5007"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3EvSUbc9EfC8TcaGcMH0Qw"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_PtaOUMlfEfCfJKRL2CJ-hg" type="3003" element="_PtK9wMlfEfCfJKRL2CJ-hg" fontName="Segoe UI">
-          <children xmi:type="notation:DecorationNode" xmi:id="_PtaOUslfEfCfJKRL2CJ-hg" type="5007"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PtaOUclfEfCfJKRL2CJ-hg"/>
-        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_u5iYwq34EfCc-vpnvRqFgQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_u5iYw634EfCc-vpnvRqFgQ"/>
       </children>
@@ -648,6 +646,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_8yEmk7dTEfC8TcaGcMH0Qw" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_8yEmlLdTEfC8TcaGcMH0Qw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8yEmlbdTEfC8TcaGcMH0Qw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ZseVENZ8EfCPx7PasHQAdw" type="3004" element="_ZqGWgNZ8EfCPx7PasHQAdw">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Zse8INZ8EfCPx7PasHQAdw" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZseVEdZ8EfCPx7PasHQAdw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZseVEtZ8EfCPx7PasHQAdw" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_ZseVE9Z8EfCPx7PasHQAdw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZseVFNZ8EfCPx7PasHQAdw"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_u5iYxa34EfCc-vpnvRqFgQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_u5iYxq34EfCc-vpnvRqFgQ"/>
@@ -1519,6 +1524,20 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_M0QxY8knEfCD6LaXu9SYIQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M0QxZMknEfCD6LaXu9SYIQ"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_HKb14NZ_EfCPx7PasHQAdw" type="3004" element="_HKanwNZ_EfCPx7PasHQAdw">
+          <children xmi:type="notation:DecorationNode" xmi:id="_HKb15dZ_EfCPx7PasHQAdw" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_HKb14dZ_EfCPx7PasHQAdw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HKb14tZ_EfCPx7PasHQAdw" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_HKb149Z_EfCPx7PasHQAdw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HKb15NZ_EfCPx7PasHQAdw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_TntnMNaFEfCPx7PasHQAdw" type="3004" element="_TnryANaFEfCPx7PasHQAdw">
+          <children xmi:type="notation:DecorationNode" xmi:id="_TnuORNaFEfCPx7PasHQAdw" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_TnuOQNaFEfCPx7PasHQAdw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_TnuOQdaFEfCPx7PasHQAdw" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_TnuOQtaFEfCPx7PasHQAdw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TnuOQ9aFEfCPx7PasHQAdw"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_l-Xk2q4JEfCc-vpnvRqFgQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_l-Xk264JEfCc-vpnvRqFgQ"/>
       </children>
@@ -1826,15 +1845,15 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_AQZVB64PEfCc-vpnvRqFgQ" x="-9" y="-26"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_AQZVCK4PEfCc-vpnvRqFgQ" type="6007">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AQZVCa4PEfCc-vpnvRqFgQ" x="20" y="28"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AQZVCa4PEfCc-vpnvRqFgQ" x="8" y="26"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_AQZVCq4PEfCc-vpnvRqFgQ" type="6008">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_AQZVC64PEfCc-vpnvRqFgQ" x="39" y="17"/>
       </children>
       <styles xmi:type="notation:RoutingStyle" xmi:id="_AQZVAa4PEfCc-vpnvRqFgQ"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_AQZVAq4PEfCc-vpnvRqFgQ" fontName="Segoe UI"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AQZVA64PEfCc-vpnvRqFgQ" points="[34, 13, -83, -333]$[123, 13, 6, -333]$[123, 343, 6, -3]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AQZ78K4PEfCc-vpnvRqFgQ" id="(0.8945686900958466,0.30670926517571884)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AQZVA64PEfCc-vpnvRqFgQ" points="[4, 0, -83, -337]$[93, 0, 6, -337]$[93, 334, 6, -3]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AQZ78K4PEfCc-vpnvRqFgQ" id="(0.987460815047022,0.3282051282051282)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AQZ78a4PEfCc-vpnvRqFgQ" id="(0.5247813411078717,0.00906344410876133)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_b3TKA64QEfCc-vpnvRqFgQ" type="4004" element="_b3RU0K4QEfCc-vpnvRqFgQ" source="_wFAdoK4JEfCc-vpnvRqFgQ" target="_WwE54K4CEfCc-vpnvRqFgQ">
@@ -2013,7 +2032,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_sMMERcksEfCD6LaXu9SYIQ" x="57" y="42"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_sMMERsksEfCD6LaXu9SYIQ" type="6006">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_sMMER8ksEfCD6LaXu9SYIQ" x="-73" y="12"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_sMMER8ksEfCD6LaXu9SYIQ" x="-71" y="5"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_sMMESMksEfCD6LaXu9SYIQ" type="6007">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_sMMEScksEfCD6LaXu9SYIQ" x="-31" y="20"/>

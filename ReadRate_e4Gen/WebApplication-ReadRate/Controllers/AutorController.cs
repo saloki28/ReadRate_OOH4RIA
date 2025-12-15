@@ -126,7 +126,6 @@ namespace WebApplication_ReadRate.Controllers
                         p_foto: fotoFileName, 
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), aut.Rol), 
                         p_pass: aut.Pass,
-                        p_numModificaciones: 0,
                         p_numeroSeguidores: aut.NumeroSeguidores, 
                         p_cantidadLibrosPublicados: aut.CantidadLibrosPublicados, 
                         p_valoracionMedia: aut.ValoracionMedia
@@ -173,7 +172,6 @@ namespace WebApplication_ReadRate.Controllers
                     AutorRepository autorRepositoryRead = new AutorRepository(session);
                     AutorCEN autorCENRead = new AutorCEN(autorRepositoryRead);
                     AutorEN autorActual = autorCENRead.DameAutorPorOID(id);
-                    int numModificaciones = autorActual.NumModificaciones;
                     SessionClose();
 
                     // Usar la foto actual del ViewModel (que viene de la BD)
@@ -220,7 +218,6 @@ namespace WebApplication_ReadRate.Controllers
                         p_foto: fotoFileName,
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), autor.Rol),
                         p_pass: autor.Pass,
-                        p_numModificaciones: numModificaciones + 1,
                         p_numeroSeguidores: autor.NumeroSeguidores,
                         p_cantidadLibrosPublicados: autor.CantidadLibrosPublicados,
                         p_valoracionMedia: autor.ValoracionMedia

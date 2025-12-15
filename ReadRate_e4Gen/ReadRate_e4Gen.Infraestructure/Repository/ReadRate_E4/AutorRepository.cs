@@ -187,9 +187,6 @@ public void ModificarAutor (AutorEN autor)
                 autorNH.Pass = autor.Pass;
 
 
-                autorNH.NumModificaciones = autor.NumModificaciones;
-
-
                 autorNH.NumeroSeguidores = autor.NumeroSeguidores;
 
 
@@ -372,6 +369,65 @@ public void DesinscribirAutorDeEvento (int p_Autor_OID, System.Collections.Gener
         {
                 SessionClose ();
         }
+}
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> DameAutorPorNombre (string p_nombre)
+{
+        System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM AutorNH self where FROM AutorNH autor where concat('%', lower(autor.NombreUsuario), '%') like lower(:p_nombre)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("AutorNHdameAutorPorNombreHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+
+                result = query.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in AutorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> DameAutoresOrdenadosValoracion ()
+{
+        System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM AutorNH self where FROM AutorNH autor order by autor.ValoracionMedia desc";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("AutorNHdameAutoresOrdenadosValoracionHQL");
+
+                result = query.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is ReadRate_e4Gen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new ReadRate_e4Gen.ApplicationCore.Exceptions.DataLayerException ("Error in AutorRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

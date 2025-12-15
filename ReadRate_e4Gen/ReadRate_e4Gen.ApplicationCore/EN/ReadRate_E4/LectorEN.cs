@@ -183,20 +183,20 @@ public LectorEN() : base ()
 
 
 public LectorEN(int id, int cantLibrosCurso, int cantLibrosLeidos, int cantAutoresSeguidos, int cantClubsSuscritos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroLeido, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroEnCurso, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorSeguido, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN> reseñaPublicada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubSuscritoLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubCreado
-                , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones
+                , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass
                 )
 {
-        this.init (Id, cantLibrosCurso, cantLibrosLeidos, cantAutoresSeguidos, cantClubsSuscritos, libroLeido, libroEnCurso, autorSeguido, reseñaPublicada, eventoLector, clubSuscritoLector, notificacionLector, clubCreado, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass, numModificaciones);
+        this.init (Id, cantLibrosCurso, cantLibrosLeidos, cantAutoresSeguidos, cantClubsSuscritos, libroLeido, libroEnCurso, autorSeguido, reseñaPublicada, eventoLector, clubSuscritoLector, notificacionLector, clubCreado, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass);
 }
 
 
 public LectorEN(LectorEN lector)
 {
-        this.init (lector.Id, lector.CantLibrosCurso, lector.CantLibrosLeidos, lector.CantAutoresSeguidos, lector.CantClubsSuscritos, lector.LibroLeido, lector.LibroEnCurso, lector.AutorSeguido, lector.ReseñaPublicada, lector.EventoLector, lector.ClubSuscritoLector, lector.NotificacionLector, lector.ClubCreado, lector.Email, lector.NombreUsuario, lector.FechaNacimiento, lector.CiudadResidencia, lector.PaisResidencia, lector.Foto, lector.Rol, lector.Pass, lector.NumModificaciones);
+        this.init (lector.Id, lector.CantLibrosCurso, lector.CantLibrosLeidos, lector.CantAutoresSeguidos, lector.CantClubsSuscritos, lector.LibroLeido, lector.LibroEnCurso, lector.AutorSeguido, lector.ReseñaPublicada, lector.EventoLector, lector.ClubSuscritoLector, lector.NotificacionLector, lector.ClubCreado, lector.Email, lector.NombreUsuario, lector.FechaNacimiento, lector.CiudadResidencia, lector.PaisResidencia, lector.Foto, lector.Rol, lector.Pass);
 }
 
 private void init (int id
-                   , int cantLibrosCurso, int cantLibrosLeidos, int cantAutoresSeguidos, int cantClubsSuscritos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroLeido, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroEnCurso, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorSeguido, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN> reseñaPublicada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubSuscritoLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubCreado, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones)
+                   , int cantLibrosCurso, int cantLibrosLeidos, int cantAutoresSeguidos, int cantClubsSuscritos, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroLeido, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroEnCurso, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN> autorSeguido, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN> reseñaPublicada, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubSuscritoLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionLector, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ClubEN> clubCreado, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass)
 {
         this.Id = id;
 
@@ -240,8 +240,6 @@ private void init (int id
         this.Rol = rol;
 
         this.Pass = pass;
-
-        this.NumModificaciones = numModificaciones;
 }
 
 public override bool Equals (object obj)

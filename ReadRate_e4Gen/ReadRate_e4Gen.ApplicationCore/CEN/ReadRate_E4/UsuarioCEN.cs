@@ -31,7 +31,7 @@ public IUsuarioRepository get_IUsuarioRepository ()
         return this._IUsuarioRepository;
 }
 
-private void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones)
+private void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass)
 {
         UsuarioEN usuarioEN = null;
 
@@ -46,7 +46,6 @@ private void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombr
         usuarioEN.Foto = p_foto;
         usuarioEN.Rol = p_rol;
         usuarioEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
-        usuarioEN.NumModificaciones = p_numModificaciones;
         //Call to UsuarioRepository
 
         _IUsuarioRepository.ModificarUsuario (usuarioEN);
@@ -88,6 +87,10 @@ public string Login (int p_Usuario_OID, string p_pass)
 public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorEmail (string p_email)
 {
         return _IUsuarioRepository.DameUsuarioPorEmail (p_email);
+}
+public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.UsuarioEN> DameUsuarioPorFiltros (ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum? p_rol, string p_nombre, int first, int size)
+{
+        return _IUsuarioRepository.DameUsuarioPorFiltros (p_rol, p_nombre, first, size);
 }
 
 

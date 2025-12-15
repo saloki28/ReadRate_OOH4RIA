@@ -18,15 +18,39 @@ namespace WebApplication_ReadRate.Controllers
         {
             SessionInitialize();
 
+            // Obtener el ID del usuario de la sesión
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            
+            if (!usuarioId.HasValue)
+            {
+                SessionClose();
+                return RedirectToAction("Index", "Home");
+            }
+
             LectorRepository lectorRepository = new LectorRepository(session);
             LectorCEN lectorCEN = new LectorCEN(lectorRepository);
 
-            IList<LectorEN> lectores = lectorCEN.DameTodosLectores(0, -1);
-
-            IEnumerable<LectorViewModel> listLec = new LectorAssembler().ConvertirListENToViewModel(lectores).ToList();
+            LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
+            LectorViewModel lectorViewModel = new LectorAssembler().ConvertirENToViewModel(lectorEN);
+            
+            // Obtener libros y clubes relacionados con el lector
+            // TODO: Implementar métodos específicos para obtener solo los libros y clubes del lector
+            // Por ahora se dejan las listas vacías, para poblarlas cuando estén disponibles los métodos
+            
+            // Ejemplo de cómo poblarlo cuando tengas los métodos:
+            // LibroRepository libroRepository = new LibroRepository(session);
+            // LibroCEN libroCEN = new LibroCEN(libroRepository);
+            // var librosGuardados = libroCEN.DameLibrosGuardadosPorLector(usuarioId.Value);
+            // lectorViewModel.LibrosGuardados = new LibroAssembler().ConvertirListENToViewModel(librosGuardados);
+            
+            // ClubRepository clubRepository = new ClubRepository(session);
+            // ClubCEN clubCEN = new ClubCEN(clubRepository);
+            // var clubsInscritos = clubCEN.DameClubsInscritosPorLector(usuarioId.Value);
+            // lectorViewModel.ClubsInscritos = new ClubAssembler().ConvertirListENToViewModel(clubsInscritos);
+            
             SessionClose();
 
-            return View(listLec);
+            return View(lectorViewModel);
         }
 
         // GET: LectorController/Details/5
@@ -104,7 +128,6 @@ namespace WebApplication_ReadRate.Controllers
                         p_foto: fotoFileName, 
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), lec.Rol), 
                         p_pass: lec.Pass,
-                        p_numModificaciones: 0,
                         p_cantLibrosCurso: lec.CantLibrosCurso, 
                         p_cantLibrosLeidos: lec.CantLibrosLeidos, 
                         p_cantAutoresSeguidos: lec.CantAutoresSeguidos, 
@@ -150,7 +173,6 @@ namespace WebApplication_ReadRate.Controllers
                     LectorRepository lectorRepositoryRead = new LectorRepository(session);
                     LectorCEN lectorCENRead = new LectorCEN(lectorRepositoryRead);
                     LectorEN lectorActual = lectorCENRead.DameLectorPorOID(id);
-                    int numModificaciones = lectorActual.NumModificaciones;
                     SessionClose();
 
                     // Usar la foto actual del ViewModel (que viene de la BD)
@@ -198,7 +220,6 @@ namespace WebApplication_ReadRate.Controllers
                         p_foto: fotoFileName,
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), lector.Rol),
                         p_pass: lector.Pass,
-                        p_numModificaciones: numModificaciones + 1,
                         p_cantLibrosCurso: lector.CantLibrosCurso,
                         p_cantLibrosLeidos: lector.CantLibrosLeidos,
                         p_cantAutoresSeguidos: lector.CantAutoresSeguidos,

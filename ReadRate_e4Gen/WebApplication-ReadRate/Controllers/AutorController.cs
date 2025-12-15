@@ -23,12 +23,28 @@ namespace WebApplication_ReadRate.Controllers
         public ActionResult Index()
         {
             SessionInitialize();
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (!usuarioId.HasValue)
+            {
+                SessionClose();
+                return RedirectToAction("Index", "Home");
+            }
+
             AutorRepository autorRepository = new AutorRepository(session);
             AutorCEN autorCEN = new AutorCEN(autorRepository);
 
-            IList<AutorEN> autores = autorCEN.DameTodosAutores(0, -1);
+            AutorEN autorEN = autorCEN.DameAutorPorOID(usuarioId.Value);
+            var listAut = new List<AutorViewModel> { new AutorAssembler().ConvertirENToViewModel(autorEN) };
 
-            IEnumerable<AutorViewModel> listAut = new AutorAssembler().ConvertirListENToViewModel(autores).ToList();
+            // Obtener libros del autor
+            LibroRepository libroRepository = new LibroRepository(session);
+            LibroCEN libroCEN = new LibroCEN(libroRepository);
+            IList<LibroEN> todosLibros = libroCEN.DameTodosLibros(0, -1);
+            var librosDelAutor = todosLibros.Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == usuarioId.Value).ToList();
+            var librosViewModel = new LibroAssembler().ConvertirListENToViewModel(librosDelAutor).ToList();
+            ViewBag.LibrosAutor = librosViewModel;
+
             SessionClose();
 
             return View(listAut);
@@ -110,7 +126,6 @@ namespace WebApplication_ReadRate.Controllers
                         p_foto: fotoFileName, 
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), aut.Rol), 
                         p_pass: aut.Pass,
-                        p_numModificaciones: 0,
                         p_numeroSeguidores: aut.NumeroSeguidores, 
                         p_cantidadLibrosPublicados: aut.CantidadLibrosPublicados, 
                         p_valoracionMedia: aut.ValoracionMedia
@@ -157,7 +172,6 @@ namespace WebApplication_ReadRate.Controllers
                     AutorRepository autorRepositoryRead = new AutorRepository(session);
                     AutorCEN autorCENRead = new AutorCEN(autorRepositoryRead);
                     AutorEN autorActual = autorCENRead.DameAutorPorOID(id);
-                    int numModificaciones = autorActual.NumModificaciones;
                     SessionClose();
 
                     // Usar la foto actual del ViewModel (que viene de la BD)
@@ -204,7 +218,6 @@ namespace WebApplication_ReadRate.Controllers
                         p_foto: fotoFileName,
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), autor.Rol),
                         p_pass: autor.Pass,
-                        p_numModificaciones: numModificaciones + 1,
                         p_numeroSeguidores: autor.NumeroSeguidores,
                         p_cantidadLibrosPublicados: autor.CantidadLibrosPublicados,
                         p_valoracionMedia: autor.ValoracionMedia

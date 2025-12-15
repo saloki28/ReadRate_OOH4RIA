@@ -9,10 +9,10 @@
 </header>
 
 <section class="container">
-    <div class="action-bar">
-        <h2 class="section-title">Todos los Eventos</h2>
+    <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+        <h2 class="section-title mb-0">Todos los Eventos</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
-    </div>
+    </article>
 
     <div class="vertical-list">
         @if (Model != null && Model.Any())
@@ -72,16 +72,17 @@
                                 Aforo: @Html.DisplayFor(modelItem => item.AforoActual) / @Html.DisplayFor(modelItem => item.AforoMaximo)
                             </div>
                         </footer>
-
                     </div>
                 </article>
             }
         }
         else
         {
-            <div class="no-events">
-                No hay eventos disponibles.
-            </div>
+            <article class="col-12">
+                <div class="alert alert-info text-center">
+                    No hay eventos disponibles.
+                </div>
+            </article>
         }
-    </div>
+    </article>
 </section>

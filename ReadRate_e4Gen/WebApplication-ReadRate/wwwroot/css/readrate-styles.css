@@ -4,6 +4,53 @@
    =========================== */
 
 /* ===========================
+   CSS VARIABLES (Bootstrap Custom Properties)
+   =========================== */
+:root {
+    /* Primary colors - Orange theme */
+    --bs-primary: #ff6f00;
+    --bs-primary-rgb: 255, 111, 0;
+    --bs-secondary: #ff9800;
+    --bs-secondary-rgb: 255, 152, 0;
+    --bs-success: #4caf50;
+    --bs-info: #2196f3;
+    --bs-warning: #ffc107;
+    --bs-danger: #f44336;
+    --bs-light: #fff5e6;
+    --bs-dark: #e65100;
+    
+    /* Orange shades */
+    --readrate-orange-dark: #e65100;
+    --readrate-orange-main: #ff6f00;
+    --readrate-orange-light: #ff9800;
+    --readrate-orange-lighter: #ffa726;
+    --readrate-orange-pale: #ffe0b2;
+    --readrate-orange-bg: #fff5e6;
+    --readrate-orange-bg-alt: #ffe8cc;
+    
+    /* Spacing */
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+    
+    /* Border radius */
+    --bs-border-radius: 12px;
+    --bs-border-radius-sm: 8px;
+    --bs-border-radius-lg: 20px;
+    --bs-border-radius-xl: 25px;
+    
+    /* Fonts */
+    --bs-body-font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.6;
+    
+    /* Shadows */
+    --bs-box-shadow: 0 4px 12px rgba(255, 111, 0, 0.1);
+    --bs-box-shadow-sm: 0 2px 6px rgba(255, 111, 0, 0.08);
+    --bs-box-shadow-lg: 0 8px 24px rgba(255, 111, 0, 0.15);
+}
+
+/* ===========================
    BASE & RESET
    =========================== */
 * {
@@ -17,12 +64,6 @@ html {
     font-size: 14px;
     position: relative;
     min-height: 100%;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
 }
 
 body {
@@ -174,7 +215,7 @@ body.login-page .login-container {
    CONTAINER & LAYOUT
    =========================== */
 .container {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 3rem auto;
     padding: 0 2rem;
 }
@@ -256,8 +297,8 @@ body.login-page .login-container {
 .form-control {
     width: 100%;
     padding: 0.9rem 1.2rem;
-    border: 2px solid #ffe0b2;
-    border-radius: 12px;
+    border: 2px solid var(--readrate-orange-pale);
+    border-radius: var(--bs-border-radius);
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
@@ -265,8 +306,8 @@ body.login-page .login-container {
 
 .form-control:focus {
     outline: none;
-    border-color: #ff9800;
-    box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
+    border-color: var(--readrate-orange-light);
+    box-shadow: 0 0 0 0.25rem rgba(255, 152, 0, 0.1);
 }
 
 textarea.form-control {
@@ -274,18 +315,75 @@ textarea.form-control {
     resize: vertical;
 }
 
-select.form-control {
+/* ===========================
+   SELECT STYLES (form-select)
+   =========================== */
+select.form-control,
+.form-select {
     appearance: none;
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    padding-right: 3rem;
+    border: 2px solid var(--readrate-orange-pale);
+    border-radius: var(--bs-border-radius);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 1.2em;
-    padding-right: 3rem;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-select.form-control::-ms-expand {
+select.form-control:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--readrate-orange-light);
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ec6a00;
+}
+
+select.form-control:disabled,
+.form-select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+select.form-control::-ms-expand,
+.form-select::-ms-expand {
     display: none;
+}
+
+/* Select option styling */
+select.form-control option,
+.form-select option {
+    padding: 0.5rem;
+    background-color: #fff;
+    color: #333;
+}
+
+select.form-control option:hover,
+.form-select option:hover {
+    background-color: var(--readrate-orange-bg);
+}
+
+select.form-control option:checked,
+.form-select option:checked {
+    background-color: var(--readrate-orange-light);
+    color: #fff;
+}
+
+.form-label {
+    color: var(--readrate-orange-dark);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-text {
+    color: #666;
+    font-size: 0.85rem;
 }
 
 .form-hint {
@@ -309,7 +407,7 @@ select.form-control::-ms-expand {
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(255,111,0,0.1);
     padding: 2.5rem;
-    max-width: 800px;
+    max-width: auto;
     margin: 0 auto;
 }
 
@@ -341,6 +439,14 @@ select.form-control::-ms-expand {
     justify-content: center;
     align-items: center;
     margin-bottom: 2.5rem;
+}
+
+.detail-row-foto img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #ff9800;
+    box-shadow: 0 4px 12px rgba(255,111,0,0.2);
 }
 
 /* ===========================
@@ -407,9 +513,9 @@ select.form-control::-ms-expand {
    BUTTON STYLES
    =========================== */
 .btn {
-    padding: 0.8rem 2rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 25px;
+    border-radius: var(--bs-border-radius);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -424,7 +530,8 @@ select.form-control::-ms-expand {
     box-shadow: 0 4px 12px rgba(255,111,0,0.3);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(255,111,0,0.4);
@@ -435,11 +542,14 @@ select.form-control::-ms-expand {
     background: #fff;
     color: #ff9800;
     border: 2px solid #ff9800;
+    box-shadow: 0 4px 12px rgba(255,111,0,0.3);
 }
 
 .btn-secondary:hover {
     background: #ff9800;
     color: #fff;
+    border: 2px solid #ff9800;
+    transform: translateY(-2px);
 }
 
 .btn-danger {
@@ -448,7 +558,8 @@ select.form-control::-ms-expand {
     box-shadow: 0 4px 12px rgba(244,67,54,0.3);
 }
 
-.btn-danger:hover {
+.btn-danger:hover,
+.btn-danger:focus {
     background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(244,67,54,0.4);
@@ -467,12 +578,14 @@ select.form-control::-ms-expand {
     text-decoration: none;
     display: inline-block;
     box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+    text-align: center;
 }
 
 .btn-create:hover {
     background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+    color: #fde8ce;
 }
 
 .btn-action {
@@ -492,19 +605,21 @@ select.form-control::-ms-expand {
 }
 
 .btn-action:hover {
-    background: #ff9800;
-    color: #fff;
+    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+    color: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,111,0,0.2);
+    text-decoration: none;
 }
 
 .btn-action.edit {
-    border-color: #2196F3;
-    color: #2196F3;
+    border-color: #2196f3;
+    color: #2196f3;
 }
 
 .btn-action.edit:hover {
-    background: #2196F3;
-    color: #fff;
+    background: #2196f3;
+    color: white;
 }
 
 .btn-action.delete {
@@ -514,11 +629,83 @@ select.form-control::-ms-expand {
 
 .btn-action.delete:hover {
     background: #f44336;
-    color: #fff;
+    color: white;
 }
 
 /* ===========================
    CARD GRID SYSTEM
+   =========================== */
+.card {
+    border: none;
+    border-radius: var(--bs-border-radius-lg);
+    box-shadow: var(--bs-box-shadow);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--bs-box-shadow-lg);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--readrate-orange-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #666;
+    line-height: 1.6;
+
+    strong {
+        color: #f09124;
+    }
+}
+
+/* ===========================
+   BOOTSTRAP UTILITIES EXTENSIONS
+   =========================== */
+.bg-gradient-orange {
+    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+}
+
+.bg-orange-light {
+    background-color: #ffa41bb2;
+
+    div {
+        margin: 0.3em;
+        margin-left: 0.5em;
+    }
+}
+
+.text-orange {
+    color: var(--readrate-orange-main);
+}
+
+.text-orange-dark {
+    color: var(--readrate-orange-dark);
+}
+
+.border-orange {
+    border-color: var(--readrate-orange-pale) !important;
+}
+
+.shadow-orange {
+    box-shadow: 0 4px 12px rgba(255,111,0,0.1);
+}
+
+.shadow-orange-lg {
+    box-shadow: 0 8px 24px rgba(255,111,0,0.15);
+}
+
+/* ===========================
+   CARD GRID SYSTEM (Legacy - keeping for backward compatibility)
    =========================== */
 .books-grid {
     display: grid;
@@ -845,13 +1032,44 @@ select.form-control::-ms-expand {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    transition: color 0.2s, transform 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Efecto de fondo en hover */
+.navbar .nav-link::before,
+.navbar .navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.229);
+    border-radius: 12px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.navbar .nav-link:hover::before,
+.navbar .navbar-brand:hover::before {
+    transform: translateX(0);
 }
 
 .navbar .nav-link:hover, 
 .navbar .navbar-brand:hover {
-    color: #fffde7 !important;
-    transform: translateY(2px) scale(1.08);
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+/* Estado activo */
+.navbar .nav-link.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-bottom: 3px solid #fff;
 }
 
 .navbar-toggler {
@@ -906,43 +1124,7 @@ footer.footer .footer-main {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ec6a00;
 }
 
-/* ===========================
-   RESPONSIVE STYLES
-   =========================== */
-@media (max-width: 768px) {
-    .page-header h1 {
-        font-size: 2rem;
-    }
-    
-    .header h1 { 
-        font-size: 2.5rem; 
-    }
-    
-    .header p {
-        font-size: 1.1rem;
-    }
-
-    .container {
-        padding: 0 1rem;
-        margin: 2rem auto;
-    }
-
-    .action-bar {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
-    }
-
-    .books-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    /* Para Evento en movil la imagen se sitúa arriba (cambio provisional) */
+/* Para Evento en movil la imagen se sitï¿½a arriba (cambio provisional)  /////////////////////////////////////////////////////////////////////// */
     .card-horizontal {
         flex-direction: column;
         height: auto;
@@ -957,6 +1139,405 @@ footer.footer .footer-main {
 
     .meta-box-container {
         flex-wrap: wrap;
+    }
+
+/*/////////////////////////////////////////////////////////////*/
+
+
+/* ===========================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   Bootstrap maneja la estructura, CSS maneja los estilos
+   =========================== */
+
+/* =========================== 
+   DESKTOP / ORDENADOR (992px y superior)
+   =========================== */
+@media (min-width: 992px) {
+    /* 5 columnas para pantallas anchas*/
+    .col-lg-5col {
+        flex: 0 0 auto;
+        width: 20%;
+    }
+
+    /* Headers y tÃ­tulos */
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .header h1 { 
+        font-size: 3.5rem; 
+    }
+    
+    .header p {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Details cards */
+    .details-card {
+        padding: 2.5rem;
+        /* max-width: 800px; */
+    }
+    
+    .detail-label {
+        flex: 0 0 40%;
+        font-size: 1rem;
+    }
+    
+    .detail-value {
+        font-size: 1rem;
+    }
+    
+    .detail-row {
+        padding: 1rem 0;
+    }
+
+    /* Forms */
+    .form-card {
+        padding: 2.5rem;
+        max-width: 600px;
+    }
+    
+    /* Cards */
+    .card-grid {
+        gap: 2rem;
+    }
+    
+    .book-card, .item-card {
+        padding: 1.5rem;
+    }
+
+    /* Confirmation */
+    .confirmation-card {
+        padding: 3rem;
+        max-width: 500px;
+    }
+    
+    .confirmation-title {
+        font-size: 2rem;
+    }
+
+    /* Botones */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* =========================== 
+   TABLET (768px - 991px)
+   =========================== */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    /* Headers y tÃ­tulos */
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .header h1 { 
+        font-size: 3rem; 
+    }
+    
+    .header p {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Details cards */
+    .details-card {
+        padding: 2rem;
+        /* max-width: 700px; */
+    }
+    
+    .detail-label {
+        flex: 0 0 45%;
+        font-size: 0.95rem;
+    }
+    
+    .detail-value {
+        font-size: 0.95rem;
+    }
+    
+    .detail-row {
+        padding: 0.875rem 0;
+    }
+    
+    .detail-row-foto img {
+        max-width: 200px;
+    }
+
+    /* Forms */
+    .form-card {
+        padding: 2rem;
+        max-width: 550px;
+    }
+    
+    .form-label {
+        font-size: 0.95rem;
+    }
+    
+    .form-control, .form-select {
+        font-size: 0.95rem;
+        padding: 0.625rem 0.875rem;
+    }
+
+    /* Cards */
+    .card-grid {
+        gap: 1.5rem;
+    }
+    
+    .book-card, .item-card {
+        padding: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    /* Action bar */
+    .action-bar {
+        gap: 1rem;
+    }
+
+    /* Confirmation */
+    .confirmation-card {
+        padding: 2.5rem;
+        max-width: 450px;
+    }
+    
+    .confirmation-title {
+        font-size: 1.75rem;
+    }
+    
+    .confirmation-message {
+        font-size: 1rem;
+    }
+
+    /* Botones */
+    .btn {
+        padding: 0.65rem 1.3rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* =========================== 
+   MÃ“VIL (menor a 768px)
+   =========================== */
+@media (max-width: 767px) {
+    html {
+        font-size: 16px;
+    }
+
+    /* Headers y tÃ­tulos */
+    .page-header {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .header h1 { 
+        font-size: 2.5rem; 
+    }
+    
+    .header p {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    /* Details cards - Layout vertical */
+    .details-card {
+        padding: 1.5rem;
+        max-width: 100%;
+        border-radius: 15px;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        padding: 0.75rem 0;
+        gap: 0.5rem;
+    }
+    
+    .detail-label {
+        flex: 0 0 auto;
+        font-size: 0.9rem;
+        text-align: left;
+    }
+    
+    .detail-value {
+        font-size: 0.9rem;
+        text-align: left;
+        padding-left: 0.5rem;
+    }
+    
+    .detail-row-foto {
+        margin-bottom: 1.5rem;
+    }
+    
+    .detail-row-foto img {
+        max-width: 180px;
+    }
+
+    /* Forms */
+    .form-card {
+        padding: 1.5rem;
+        max-width: 100%;
+        border-radius: 15px;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .form-control, .form-select {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    /* Cards */
+    .card-grid {
+        gap: 1rem;
+    }
+    
+    .book-card, .item-card {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .card-text {
+        font-size: 0.85rem;
+    }
+
+    /* Action bar - Stack vertical */
+    .action-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+
+    /* Grids */
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Confirmation */
+    .confirmation-card {
+        padding: 2rem;
+        max-width: 100%;
+        border-radius: 15px;
+    }
+    
+    .confirmation-title {
+        font-size: 1.5rem;
+    }
+    
+    .confirmation-message {
+        font-size: 0.95rem;
+    }
+    
+    .warning-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Botones */
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+    }
+
+    /* Tablas responsive */
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+}
+
+/* =========================== 
+   MÃ“VIL PEQUEÃ‘O (menor a 576px)
+   =========================== */
+@media (max-width: 575px) {
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header h1 { 
+        font-size: 2rem; 
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .details-card {
+        padding: 1rem;
+    }
+    
+    .detail-label, .detail-value {
+        font-size: 0.85rem;
+    }
+    
+    .detail-row-foto img {
+        max-width: 150px;
+    }
+
+    .form-card {
+        padding: 1rem;
+    }
+    
+    .confirmation-card {
+        padding: 1.5rem;
+    }
+    
+    .confirmation-title {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -1025,7 +1606,7 @@ footer.footer .footer-main {
     border-bottom: 1px solid #eee;
 }
 
-/* Cajas de Datos (Fecha, Hora, Ubicación) */
+/* Cajas de Datos (Fecha, Hora, Ubicaciï¿½n) */
 .meta-box-container {
     display: flex;
     gap: 1rem;
@@ -1051,7 +1632,7 @@ footer.footer .footer-main {
     flex-grow: 1;
 }
 
-/* Footer con Botón y Aforo */
+/* Footer con Botï¿½n y Aforo */
 .event-footer-actions {
     display: flex;
     align-items: center;
@@ -1061,7 +1642,7 @@ footer.footer .footer-main {
     border-top: 2px solid #333;
 }
 
-/* Botón negro */
+/* Botï¿½n negro */
 .btn-black {
     background: #000;
     color: #fff;

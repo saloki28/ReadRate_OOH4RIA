@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN>
+@model IEnumerable<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -10,22 +10,20 @@
     <title>Read&Rate - Inicio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/readrate-styles.css" />
 </head>
 <body>
     <header class="header">
         <h1>Read&Rate</h1>
         <p>Descubre los últimos libros publicados y comparte tu opinión</p>
-    </header>
-    <main class="container">
-        <section>
-            <h2 class="section-title">Últimos 5 libros publicados</h2>
-            <div class="books-grid">
+    </div>
+    <div class="container">
+        <h2 class="section-title">TOP 5 LIBROS DE LA SEMANA</h2>
+        <div class="books-grid">
             @if (Model != null && Model.Any())
             {
                 foreach (var item in Model)
                 {
-                    <article class="book-card">
+                    <div class="book-card">
                         <div class="book-cover">
                             @if(!string.IsNullOrEmpty(item.FotoPortada))
                             {
@@ -46,12 +44,12 @@
                                 <strong>Valoración Media:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia) / 5 <br/>
                                 <strong>Publicación:</strong> @item.FechaPublicacion?.ToString("dd/MM/yyyy")
                             </div>
-                            <div class="book-meta">@Html.DisplayFor(modelItem => item.Sinopsis)</div>
+                            <div class="book-sinopsis">@Html.DisplayFor(modelItem => item.Sinopsis)</div>
                             <div class="book-actions">
-                                <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                                <a class="btn" asp-controller="Libro" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 }
             }
             else
@@ -61,7 +59,12 @@
                 </div>
             }
         </div>
-        </section>
-    </main>
+        <hr class="separador">
+
+        @* PARTE DE AUTOR *@
+        <h2 class="section-title">AUTORES BEST SELLER DEL MOMENTO</h2> 
+        <partial name="_Autor" model="ViewBag.Autores" />
+        
+    </div>
 </body>
 </html>

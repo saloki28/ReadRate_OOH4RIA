@@ -194,9 +194,6 @@ public void ModificarLector (LectorEN lector)
                 lectorNH.Pass = lector.Pass;
 
 
-                lectorNH.NumModificaciones = lector.NumModificaciones;
-
-
                 lectorNH.CantLibrosCurso = lector.CantLibrosCurso;
 
 

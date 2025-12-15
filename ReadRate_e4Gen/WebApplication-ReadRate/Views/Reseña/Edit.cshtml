@@ -11,40 +11,43 @@
     <title>Read&Rate - Editar Reseña</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
-    </head>
+</head>
 <body>
-    <div class="page-header">
+    <header class="page-header">
         <h1>Editar Reseña</h1>
-    </div>
+    </header>
 
-    <main class="container">
-        <section class="form-card">
-            <form asp-action="Edit" method="post">
-                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+    <main class="container my-5">
+        <section class="card shadow-orange-lg">
+            <div class="card-body p-4">
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-                <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Id" />
 
-                <article class="form-group">
-                    <label asp-for="Valoracion" class="control-label"></label>
-                    <input asp-for="Valoracion" class="form-control" type="number" min="0" max="5" step="0.1" />
-                    <span asp-validation-for="Valoracion" class="text-danger"></span>
-                    <small class="form-hint">Valora el libro (número entre 0 y 5)</small>
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="Valoracion" class="form-label"></label>
+                        <input asp-for="Valoracion" class="form-control" type="number" min="0" max="5" step="0.1" />
+                        <span asp-validation-for="Valoracion" class="text-danger"></span>
+                        <div class="form-text">Valora el libro (número entre 0 y 5)</div>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="Opinion" class="control-label"></label>
-                    <input asp-for="Opinion" class="form-control" maxlength="600" />
-                    <span asp-validation-for="Opinion" class="text-danger"></span>
-                    <small class="form-hint">Da tu opinión sobre el libro (máximo 600 caracteres)</small>
-                </article>
+                    <article class="mb-4">
+                        <label asp-for="Opinion" class="form-label"></label>
+                        <input asp-for="Opinion" class="form-control" maxlength="600" />
+                        <span asp-validation-for="Opinion" class="text-danger"></span>
+                        <div class="form-text">Da tu opinión sobre el libro (máximo 600 caracteres)</div>
+                    </article>
 
 
-                <article class="form-actions">
-                    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                </article>
-            </form>
+                    <article class="d-flex gap-3 justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                        <input type="submit" value="Guardar cambios" class="btn btn-primary px-5" />
+                    </article>
+                </form>
+            </div>
         </section>
     </main>
 </body>
@@ -55,3 +58,4 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+

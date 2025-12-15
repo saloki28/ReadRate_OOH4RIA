@@ -11,65 +11,67 @@
     <title>Read&Rate - Detalles del Libro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
-    </head>
+</head>
 <body>
     <header class="page-header">
         <h1>Detalles del Libro</h1>
     </header>
 
-    <main class="container">
-        <section class="details-card">
+    <main class="container my-5">
+        <section class="details-card card shadow-lg">
+            
             @if(Model != null && !string.IsNullOrEmpty(Model.FotoPortadaUrl))
             {
-                <div class="detail-row-foto">
-                    <img src="@Model.FotoPortadaUrl" alt="Portada del libro" style="max-width: 200px; height: auto; border-radius: 10px;">
+                <div class="detail-row-foto d-flex justify-content-center align-items-center mb-4">
+                    <img src="@Model.FotoPortadaUrl" alt="Portada del libro" style="max-width: 200px;">
                 </div>
             }
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.Titulo)</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Titulo)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.Titulo)</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.Genero)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.Genero)</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Genero)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.Genero)</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.EdadRecomendada)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.EdadRecomendada) años</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.EdadRecomendada)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.EdadRecomendada) años</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.FechaPublicacion)</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.FechaPublicacion)</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.NumPags)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.NumPags) páginas</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.NumPags)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.NumPags) páginas</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.Sinopsis)</div>
-                <div class="detail-value synopsis">@Html.DisplayFor(model => model.Sinopsis)</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Sinopsis)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.Sinopsis)</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.ValoracionMedia) / 5</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.ValoracionMedia) / 5</div>
             </article>
             
-            <article class="detail-row">
-                <div class="detail-label">Nombre del Autor/a</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.NombreAutor)</div>
+            <article class="detail-row d-flex justify-content-between py-3">
+                <div class="detail-label fw-semibold">Nombre del Autor/a</div>
+                <div class="detail-value text-end">@Html.DisplayFor(model => model.NombreAutor)</div>
             </article>
             
-            <article class="form-actions">
+            <article class="form-actions d-flex gap-3 justify-content-between mt-4">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar libro</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary px-5">Editar libro</a>
             </article>
         </section>
     </main>

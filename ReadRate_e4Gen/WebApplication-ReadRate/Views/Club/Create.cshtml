@@ -13,74 +13,79 @@
     <title>Read&Rate - Crear Club</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
-    </head>
+</head>
 <body>
     <header class="page-header">
         <h1>Crear Nuevo Club</h1>
     </header>
 
-    <main class="container">
-        <section class="form-card">
-            <form asp-action="Create" method="post" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+    <main class="container my-5">
+        <section class="card shadow-orange-lg">
+            <div class="card-body p-4">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-                <article class="form-group">
-                    <label asp-for="Nombre" class="control-label"></label>
-                    <input asp-for="Nombre" class="form-control" placeholder="Ej: Nuevo Club de Lectura" maxlength="200" />
-                    <span asp-validation-for="Nombre" class="text-danger"></span>
-                    <small class="form-hint">Escribe el nombre del club (máximo 200 caracteres)</small>
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="Nombre" class="form-label"></label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Ej: Nuevo Club de Lectura" maxlength="200" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                        <div class="form-text">Escribe el nombre del club (máximo 200 caracteres)</div>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="Descripcion" class="control-label"></label>
-                    <input asp-for="Descripcion" class="form-control" placeholder="Describe aquí el propósito del club de lectura..." maxlength="600"/>
-                    <span asp-validation-for="Descripcion" class="text-danger"></span>
-                    <small class="form-hint">Describe el propósito del club de lectura (máximo 600 caracteres)</small>
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="Descripcion" class="form-label"></label>
+                        <textarea asp-for="Descripcion" class="form-control" rows="4" placeholder="Describe aquí el propósito del club de lectura..." maxlength="600"></textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        <div class="form-text">Describe el propósito del club de lectura (máximo 600 caracteres)</div>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="Enlace" class="control-label"></label>
-                    <input asp-for="Enlace" class="form-control" placeholder="Ej: https://discord.gg/tu-enlace" maxlength="200"/>
-                    <span asp-validation-for="Enlace" class="text-danger"></span>
-                    <small class="form-hint">Escribe el enlace de discord del club (máximo 200 caracteres)</small>
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="Enlace" class="form-label"></label>
+                        <input asp-for="Enlace" class="form-control" placeholder="Ej: https://discord.gg/tu-enlace" maxlength="200"/>
+                        <span asp-validation-for="Enlace" class="text-danger"></span>
+                        <div class="form-text">Escribe el enlace de discord del club (máximo 200 caracteres)</div>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="NumeroMax" class="control-label"></label>
-                    <input asp-for="NumeroMax" class="form-control" type="number" min="0" max="1000" step="1"/>
-                    <span asp-validation-for="NumeroMax" class="text-danger"></span>
-                    <small class="form-hint">Indica el número máximo de aforo del club de lectura (máximo 1000)</small>
-                </article>
+                    <article class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="NumeroMax" class="form-label"></label>
+                            <input asp-for="NumeroMax" class="form-control" type="number" min="0" max="1000" step="1"/>
+                            <span asp-validation-for="NumeroMax" class="text-danger"></span>
+                            <div class="form-text">Indica el número máximo de aforo del club de lectura (máximo 1000)</div>
+                        </div>
 
-                <article class="form-group">
-                    <label asp-for="Miembros" class="control-label"></label>
-                    <input asp-for="Miembros" class="form-control" type="number" min="0" max="1000" step="1" value="0"/>
-                    <span asp-validation-for="Miembros" class="text-danger"></span>
-                    <small class="form-hint">Indica los miembros actuales del club de lectura (normalmente empieza en 0)</small>
-                </article>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Miembros" class="form-label"></label>
+                            <input asp-for="Miembros" class="form-control" type="number" min="0" max="1000" step="1" value="0"/>
+                            <span asp-validation-for="Miembros" class="text-danger"></span>
+                            <div class="form-text">Indica los miembros actuales del club de lectura (normalmente empieza en 0)</div>
+                        </div>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="FotoFile" class="control-label">Foto del club</label>
-                    <input asp-for="FotoFile" type="file" class="form-control" /> 
-                    <span asp-validation-for="FotoFile" class="text-danger"></span>
-                    <small class="form-hint">Sube una imagen para el club de lectura</small>
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="FotoFile" class="form-label">Foto del club</label>
+                        <input asp-for="FotoFile" type="file" class="form-control" /> 
+                        <span asp-validation-for="FotoFile" class="text-danger"></span>
+                        <div class="form-text">Sube una imagen para el club de lectura</div>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="PropietarioId" class="control-label">Propietario (Lector)</label>
-                    <select asp-for="PropietarioId" asp-items="lectorItem" class="form-control">
-                        <option value="">-- Seleccionar Lector Propietario --</option>
-                    </select>
-                    <span asp-validation-for="PropietarioId" class="text-danger"></span>
-                    <small class="form-hint">Seleccione el lector propietario del club de lectura</small>
-                </article>
+                    <article class="mb-4">
+                        <label asp-for="PropietarioId" class="form-label">Propietario (Lector)</label>
+                        <select asp-for="PropietarioId" asp-items="lectorItem" class="form-select">
+                            <option value="">-- Seleccionar Lector Propietario --</option>
+                        </select>
+                        <span asp-validation-for="PropietarioId" class="text-danger"></span>
+                        <div class="form-text">Seleccione el lector propietario del club de lectura</div>
+                    </article>
 
-                <article class="form-actions">
-                    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                    <input type="submit" value="Crear club" class="btn btn-primary" />
-                </article>
-            </form>
+                    <article class="d-flex gap-3 justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                        <input type="submit" value="Crear club" class="btn btn-primary px-5" />
+                    </article>
+                </form>
+            </div>
         </section>
     </main>
 </body>

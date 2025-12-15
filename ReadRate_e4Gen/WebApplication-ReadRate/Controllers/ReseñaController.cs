@@ -5,6 +5,7 @@ using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
+using ReadRate_e4Gen.Infraestructure.CP;
 using WebApplication_ReadRate.Models;
 using WebApplication_ReadRate.Models.Assemblers;
 
@@ -95,17 +96,20 @@ namespace WebApplication_ReadRate.Controllers
                 res.FechaPublicacion = fechaExacta;
                 Console.WriteLine($"Fecha en el ViewModel: {res.FechaPublicacion}");
 
-                ReseñaRepository resRepo = new ReseñaRepository();
-                ReseñaCEN resCen = new ReseñaCEN(resRepo);
+                // Usar ReseñaCP para que actualice las valoraciones del libro y autor
+                ReseñaCP reseñaCP = new ReseñaCP(new SessionCPNHibernate());
 
-                // Guardar y recuperar inmediatamente
-                var idReseña = resCen.CrearReseña(res.Opinion, res.Valoracion, res.LectorId, res.LibroId, res.FechaPublicacion.Value);
-                Console.WriteLine($"ID de reseña creada: {idReseña}");
-
-                // Recuperar para ver qué se guardó
-                var reseñaGuardada = resCen.DameReseñaPorOID(idReseña);
-                Console.WriteLine($"Fecha recuperada de BD: {reseñaGuardada.Fecha}");
-                Console.WriteLine($"Fecha recuperada (formato completo): {reseñaGuardada.Fecha:dd/MM/yyyy HH:mm:ss.fff}");
+                // Crear la reseña (esto actualiza automáticamente las valoraciones)
+                var reseñaCreada = reseñaCP.CrearReseña(
+                    p_textoOpinion: res.Opinion, 
+                    p_valoracion: res.Valoracion, 
+                    p_lectorValorador: res.LectorId, 
+                    p_libroReseñado: res.LibroId, 
+                    p_fecha: res.FechaPublicacion.Value);
+                    
+                Console.WriteLine($"ID de reseña creada: {reseñaCreada.Id}");
+                Console.WriteLine($"Fecha recuperada de BD: {reseñaCreada.Fecha}");
+                Console.WriteLine($"Fecha recuperada (formato completo): {reseñaCreada.Fecha:dd/MM/yyyy HH:mm:ss.fff}");
                 Console.WriteLine($"=== FIN DEPURACIÓN ===");
 
                 return RedirectToAction(nameof(Index));

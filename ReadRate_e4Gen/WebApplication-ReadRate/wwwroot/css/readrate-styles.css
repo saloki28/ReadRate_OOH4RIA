@@ -1124,6 +1124,22 @@ footer.footer .footer-main {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ec6a00;
 }
 
+/* Para Evento en movil la imagen se sit�a arriba (cambio provisional)  /////////////////////////////////////////////////////////////////////// */
+    .card-horizontal {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card-horizontal-img {
+        flex: none;
+        height: 200px;
+        border-right: none;
+        border-bottom: 2px solid #333;
+    }
+
+    .meta-box-container {
+        flex-wrap: wrap;
+    }
 
 /*/////////////////////////////////////////////////////////////*/
 
@@ -1524,3 +1540,129 @@ footer.footer .footer-main {
         font-size: 0.85rem;
     }
 }
+
+/* ===========================
+   EVENTOS: Listado horizontal
+   =========================== */
+
+/* Contenedor principal: Ya no es un grid, es una lista vertical */
+.vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.event-horizontal {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    min-height: 280px
+}
+
+.event-horizontal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Imagen (Izquierda) */
+.event-horizontal-img {
+    flex: 0 0 300px; 
+    margin: 0;
+    position: relative;
+    border-right: 2px solid #333; 
+}
+
+.event-horizontal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Zona de Contenido (Derecha) */
+.event-horizontal-body {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.event-title {
+    color: #ff6f00;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* Cajas de Datos (Fecha, Hora, Ubicaci�n) */
+.meta-box-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.meta-box {
+    border: 1px solid #333;
+    padding: 0.4rem 1rem;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: #fff;
+    white-space: nowrap;
+}
+
+.event-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Footer con Bot�n y Aforo */
+.event-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 2px solid #333;
+}
+
+/* Bot�n negro */
+.btn-black {
+    background: #000;
+    color: #fff;
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    transition: all 0.3s;
+}
+
+.btn-black:hover {
+    background: #fff;
+    color: #000;
+}
+
+.aforo-text {
+    font-weight: 600;
+    color: #444;
+}
+

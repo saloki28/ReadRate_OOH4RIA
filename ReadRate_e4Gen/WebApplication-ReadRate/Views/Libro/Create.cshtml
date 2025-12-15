@@ -25,6 +25,9 @@
             <div class="card-body p-4">
                 <form asp-action="Create" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    @* Campos ocultos con valores por defecto *@
+                    <input type="hidden" asp-for="ValoracionMedia" value="0" />
                     
                     <article class="mb-3">
                         <label asp-for="Titulo" class="form-label"></label>
@@ -76,6 +79,8 @@
                         <span asp-validation-for="ValoracionMedia" class="text-danger"></span>
                         <div class="form-text">Valoración media entre 0 y 5 estrellas</div>
                     </article>
+
+                    @*cuando se haga lo de la sesion meter aqui el autor directamente y hacerlo invisible*@
                     
                     <article class="mb-4">
                         <label asp-for="AutorId" class="form-label">Autor/a del Libro</label>

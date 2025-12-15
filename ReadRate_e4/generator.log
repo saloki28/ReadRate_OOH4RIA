@@ -29,7 +29,7 @@ Se ha borrado el directorio backup en la ubicacion: ../ReadRate_e4Gen\Backup
 623  [main] INFO  e.core.container.CompositeComponent  - DirectoryCleaner(dirCleanerINFRepo): cleaning directory '../ReadRate_e4Gen/ReadRate_e4Gen.Infraestructure/Repository/ReadRate_e4'
 623  [main] INFO  ipse.emf.mwe.utils.DirectoryCleaner  - Cleaning C:\Users\1534572\ReadRate_OOH4RIA\ReadRate_e4\..\ReadRate_e4Gen\ReadRate_e4Gen.Infraestructure\Repository\ReadRate_e4
 627  [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../ReadRate_e4Gen(overwrite=false,append=false,fileEncoding=utf-8), ../ReadRate_e4Gen]
-La licencia está en vigor. Su fecha de expiración es: Sat Aug 15 19:10:13 CEST 2026
+La licencia estï¿½ en vigor. Su fecha de expiraciï¿½n es: Sat Aug 15 19:10:13 CEST 2026
 651  [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
 1144 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 0.493s
 1144 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 418
@@ -43,46 +43,46 @@ enc:utf-8
 enc:utf-8
 1880 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LibroRepository
 LA clase origen: Libro y el nombre de rol: autorPublicador
-DISTINTO en: asoOrigin: reseña_libro. El nombre del rol origen: reseña de el rol destino: autorPublicador
+DISTINTO en: asoOrigin: reseï¿½a_libro. El nombre del rol origen: reseï¿½a de el rol destino: autorPublicador
 LA clase destino: Libro y el nombre de rol: autorPublicador
 DISTINTO en: asoTarget: libro_guardado_lector. El nombre del rol destino: lectorGuardando de el rol origen: autorPublicador
 DISTINTO en: asoTarget: libro_en_curso_lector. El nombre del rol destino: lectorLeyendo de el rol origen: autorPublicador
 Encontrado en: asoTarget: libro_autor El nombre de rol origen (generado): libroPublicado y el nombre del rol destino:autorPublicador
 LA clase origen: Libro y el nombre de rol: autorPublicador
-DISTINTO en: asoOrigin: reseña_libro. El nombre del rol origen: reseña de el rol destino: autorPublicador
+DISTINTO en: asoOrigin: reseï¿½a_libro. El nombre del rol origen: reseï¿½a de el rol destino: autorPublicador
 LA clase destino: Libro y el nombre de rol: autorPublicador
 DISTINTO en: asoTarget: libro_guardado_lector. El nombre del rol destino: lectorGuardando de el rol origen: autorPublicador
 DISTINTO en: asoTarget: libro_en_curso_lector. El nombre del rol destino: lectorLeyendo de el rol origen: autorPublicador
 Encontrado en: asoTarget: libro_autor El nombre de rol origen (generado): libroPublicado y el nombre del rol destino:autorPublicador
 LA clase origen: Libro y el nombre de rol: autorPublicador
-DISTINTO en: asoOrigin: reseña_libro. El nombre del rol origen: reseña de el rol destino: autorPublicador
+DISTINTO en: asoOrigin: reseï¿½a_libro. El nombre del rol origen: reseï¿½a de el rol destino: autorPublicador
 LA clase destino: Libro y el nombre de rol: autorPublicador
 DISTINTO en: asoTarget: libro_guardado_lector. El nombre del rol destino: lectorGuardando de el rol origen: autorPublicador
 DISTINTO en: asoTarget: libro_en_curso_lector. El nombre del rol destino: lectorLeyendo de el rol origen: autorPublicador
 Encontrado en: asoTarget: libro_autor El nombre de rol origen (generado): libroPublicado y el nombre del rol destino:autorPublicador
 enc:utf-8
-1947 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReseñaRepository
-LA clase origen: Reseña y el nombre de rol: lectorValorador
-LA clase destino: Reseña y el nombre de rol: lectorValorador
-Encontrado en: asoTarget: reseña_lector El nombre de rol origen (generado): reseñaPublicada y el nombre del rol destino:lectorValorador
-LA clase origen: Reseña y el nombre de rol: lectorValorador
-LA clase destino: Reseña y el nombre de rol: lectorValorador
-Encontrado en: asoTarget: reseña_lector El nombre de rol origen (generado): reseñaPublicada y el nombre del rol destino:lectorValorador
-LA clase origen: Reseña y el nombre de rol: lectorValorador
-LA clase destino: Reseña y el nombre de rol: lectorValorador
-Encontrado en: asoTarget: reseña_lector El nombre de rol origen (generado): reseñaPublicada y el nombre del rol destino:lectorValorador
-LA clase origen: Reseña y el nombre de rol: libroReseñado
-LA clase destino: Reseña y el nombre de rol: libroReseñado
-DISTINTO en: asoTarget: reseña_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseñado
-Encontrado en: asoTarget: reseña_libro El nombre de rol origen (generado): reseña y el nombre del rol destino:libroReseñado
-LA clase origen: Reseña y el nombre de rol: libroReseñado
-LA clase destino: Reseña y el nombre de rol: libroReseñado
-DISTINTO en: asoTarget: reseña_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseñado
-Encontrado en: asoTarget: reseña_libro El nombre de rol origen (generado): reseña y el nombre del rol destino:libroReseñado
-LA clase origen: Reseña y el nombre de rol: libroReseñado
-LA clase destino: Reseña y el nombre de rol: libroReseñado
-DISTINTO en: asoTarget: reseña_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseñado
-Encontrado en: asoTarget: reseña_libro El nombre de rol origen (generado): reseña y el nombre del rol destino:libroReseñado
+1947 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - Reseï¿½aRepository
+LA clase origen: Reseï¿½a y el nombre de rol: lectorValorador
+LA clase destino: Reseï¿½a y el nombre de rol: lectorValorador
+Encontrado en: asoTarget: reseï¿½a_lector El nombre de rol origen (generado): reseï¿½aPublicada y el nombre del rol destino:lectorValorador
+LA clase origen: Reseï¿½a y el nombre de rol: lectorValorador
+LA clase destino: Reseï¿½a y el nombre de rol: lectorValorador
+Encontrado en: asoTarget: reseï¿½a_lector El nombre de rol origen (generado): reseï¿½aPublicada y el nombre del rol destino:lectorValorador
+LA clase origen: Reseï¿½a y el nombre de rol: lectorValorador
+LA clase destino: Reseï¿½a y el nombre de rol: lectorValorador
+Encontrado en: asoTarget: reseï¿½a_lector El nombre de rol origen (generado): reseï¿½aPublicada y el nombre del rol destino:lectorValorador
+LA clase origen: Reseï¿½a y el nombre de rol: libroReseï¿½ado
+LA clase destino: Reseï¿½a y el nombre de rol: libroReseï¿½ado
+DISTINTO en: asoTarget: reseï¿½a_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseï¿½ado
+Encontrado en: asoTarget: reseï¿½a_libro El nombre de rol origen (generado): reseï¿½a y el nombre del rol destino:libroReseï¿½ado
+LA clase origen: Reseï¿½a y el nombre de rol: libroReseï¿½ado
+LA clase destino: Reseï¿½a y el nombre de rol: libroReseï¿½ado
+DISTINTO en: asoTarget: reseï¿½a_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseï¿½ado
+Encontrado en: asoTarget: reseï¿½a_libro El nombre de rol origen (generado): reseï¿½a y el nombre del rol destino:libroReseï¿½ado
+LA clase origen: Reseï¿½a y el nombre de rol: libroReseï¿½ado
+LA clase destino: Reseï¿½a y el nombre de rol: libroReseï¿½ado
+DISTINTO en: asoTarget: reseï¿½a_lector. El nombre del rol destino: lectorValorador de el rol origen: libroReseï¿½ado
+Encontrado en: asoTarget: reseï¿½a_libro El nombre de rol origen (generado): reseï¿½a y el nombre del rol destino:libroReseï¿½ado
 enc:utf-8
 2008 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ClubRepository
 enc:utf-8
@@ -139,7 +139,7 @@ enc:utf-8
 enc:utf-8
 2660 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LibroCEN
 enc:utf-8
-2685 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReseñaCEN
+2685 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - Reseï¿½aCEN
 enc:utf-8
 2704 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ClubCEN
 enc:utf-8
@@ -194,13 +194,13 @@ enc:utf-8
 3491 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6db9f5a4 (name: dameCantidadTotalLibros, visibility: Public, operationType: Custom, description: null, type: Integer, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
 3491 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@5f8edcc5 (name: dameLibrosOrdenadosFecha, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM LibroNH libro order by libro.FechaPublicacion desc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
 enc:utf-8
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2f465398 (name: crearReseña, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@610f7aa (name: modificarReseña, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2118cddf (name: eliminarReseña, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@68567e20 (name: dameReseñaPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@11fc564b (name: dameTodosReseñas, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@394a2528 (name: dameReseñasOrdenadasPorValoracionDesc, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM ReseñaNH reseña order by reseña.Valoracion desc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
-3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6236eb5f (name: dameReseñasOrdenadasPorValoracionAsc, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM ReseñaNH reseña order by reseña.Valoracion asc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2f465398 (name: crearReseï¿½a, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@610f7aa (name: modificarReseï¿½a, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2118cddf (name: eliminarReseï¿½a, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@68567e20 (name: dameReseï¿½aPorOID, visibility: Public, operationType: ReadOID, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@11fc564b (name: dameTodosReseï¿½as, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@394a2528 (name: dameReseï¿½asOrdenadasPorValoracionDesc, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM Reseï¿½aNH reseï¿½a order by reseï¿½a.Valoracion desc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+3508 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6236eb5f (name: dameReseï¿½asOrdenadasPorValoracionAsc, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM Reseï¿½aNH reseï¿½a order by reseï¿½a.Valoracion asc, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
 enc:utf-8
 3530 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3e96bacf (name: crearClub, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: true, paging: false, customizedTransaction: false)
 3530 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@60015ef5 (name: modificarClub, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
@@ -296,7 +296,7 @@ enc:utf-8
 enc:utf-8
 4173 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - LibroEN
 enc:utf-8
-4208 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReseñaEN
+4208 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - Reseï¿½aEN
 enc:utf-8
 4235 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ClubEN
 enc:utf-8

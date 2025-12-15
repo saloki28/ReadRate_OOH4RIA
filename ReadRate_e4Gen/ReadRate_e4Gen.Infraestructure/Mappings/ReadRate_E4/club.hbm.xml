@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="ClubNH" table="Club"> 
+				  	
+						<id name="Id" column="idClub" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="EnlaceDiscord" type="string"> 
+						<column name="enlaceDiscord"  not-null="true"/>
+					</property>
+					<property name="MiembrosMax" type="integer"> 
+						<column name="miembrosMax"  not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="MiembrosActuales" type="integer"> 
+						<column name="miembrosActuales"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="LectorPropietario" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH" cascade="delete">	
+								<column name="FK_idUsuario_idLectorPopietario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="NotificacionClub" >
+							<key>
+							
+								
+								<column name="FK_idClub_idClub"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.NotificacionNH"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="LectorMiembro" table="[lector_club]" inverse="true" >
+							<key>
+								
+									<column name="FK_idClub_idClubSuscritoLector"/> 
+							</key>
+      						<many-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH">
+									<column name="FK_idUsuario_idLectorMiembro"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ClubNHReadAllHQL">from ClubNH</query>
+		  <query name="ClubNHdameClubPorFiltrosHQL"><![CDATA[FROM ClubNH club where (:p_nombre is null or club.Nombre=:p_nombre) and (:p_descripcion is null or lower(club.Descripcion) like concat('%', lower(:p_descripcion), '%'))]]></query>
+		</hibernate-mapping>
+	

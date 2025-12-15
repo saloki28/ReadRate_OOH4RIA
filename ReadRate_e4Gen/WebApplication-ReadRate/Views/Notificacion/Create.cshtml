@@ -1,0 +1,71 @@
+@model WebApplication_ReadRate.Models.NotificacionViewModel
+
+@{
+    ViewData["Title"] = "Crear Notificación";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Crear Notificación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+</head>
+<body>
+    <header class="page-header">
+        <h1>Crear Nueva Notificación</h1>
+    </header>
+
+    <main class="container my-5">
+        <section class="card shadow-orange-lg">
+            <div class="card-body p-4">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                    
+                    <article class="mb-3">
+                        <label asp-for="Titulo" class="form-label"></label>
+                        <input asp-for="Titulo" class="form-control" placeholder="Ej: Nueva actualización disponible" />
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                        <div class="form-text">Título de no más de 200 caracteres</div>
+                    </article>
+                    
+                    <article class="mb-3">
+                        <label asp-for="Texto" class="form-label"></label>
+                        <textarea asp-for="Texto" class="form-control" rows="5" placeholder="Escribe el contenido de la notificación..."></textarea>
+                        <span asp-validation-for="Texto" class="text-danger"></span>
+                        <div class="form-text">Texto de máximo 5000 caracteres</div>
+                    </article>
+                    
+                    <article class="mb-4">
+                        <label asp-for="Concepto" class="form-label"></label>
+                        <select asp-for="Concepto" class="form-select">
+                            <option value="">-- Selecciona un concepto --</option>
+                            <option value="nueva_reseña">Nueva Reseña</option>
+                            <option value="evento_anunciado">Evento Anunciado</option>
+                            <option value="noticia_publicada">Noticia Publicada</option>
+                            <option value="aviso_club_lectura">Aviso Club de Lectura</option>
+                        </select>
+                        <span asp-validation-for="Concepto" class="text-danger"></span>
+                        <div class="form-text">Tipo de notificación</div>
+                    </article>
+                    
+                    <article class="d-flex gap-3 justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+                        <input type="submit" value="Crear notificación" class="btn btn-primary px-5" />
+                    </article>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

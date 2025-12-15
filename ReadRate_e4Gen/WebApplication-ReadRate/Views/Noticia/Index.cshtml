@@ -1,0 +1,68 @@
+@model IEnumerable<WebApplication_ReadRate.Models.NoticiaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<header class="page-header">
+    <h1>Listado de Noticias</h1>
+</header>
+
+<section class="container">
+    <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+        <h2 class="section-title mb-0">Todas las Noticias</h2>
+        <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
+    </article>
+
+    <article class="row g-4">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <article class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="book-cover">
+                            @if (!string.IsNullOrEmpty(item.Foto))
+                            {
+                                <img src="@item.Foto" alt="@item.Titulo" class="card-img-top" style="height: 250px; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                    <span class="text-muted">Sin foto</span>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-orange-dark">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+
+                            <div class="card-text small mb-3 flex-grow-1">
+                                <div class="mb-2">
+                                    <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                                </div>
+
+                                <div class="text-muted">
+                                    @Html.DisplayFor(modelItem => item.TextoContenido)
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-auto">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit flex-fill text-center">Editar</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">Borrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            }
+        }
+        else
+        {
+            <article class="col-12">
+                <div class="alert alert-info text-center">
+                    No hay noticias en el listado. ¡Añade la primera!
+                </div>
+            </article>
+        }
+    </article>
+</section>

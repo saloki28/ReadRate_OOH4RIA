@@ -1,0 +1,40 @@
+@model WebApplication_ReadRate.Models.EventoViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Evento";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Eliminar Evento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+</head>
+<body>
+    <main class="container my-5">
+        <section class="card shadow-orange-lg" style="max-width: 600px; margin: 0 auto;">
+            <article class="card-body p-4 text-center">
+                <div class="warning-icon">¡AVISO!</div>
+                <h2 class="confirmation-title">¿Eliminar Evento?</h2>
+                <div class="alert alert-warning" role="alert">
+                    <p class="confirmation-message mb-2">¿Seguro que quieres borrar el siguiente Evento?</p>
+                    <strong class="d-block fs-5 text-orange-dark">"@Model.Nombre"</strong>
+                </div>
+                <p class="warning-text">Esta acción no se puede deshacer</p>
+                
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex gap-3 justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">No, volver</a>
+                        <button type="submit" class="btn btn-danger px-5">Sí, eliminar</button>
+                    </div>
+                </form>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

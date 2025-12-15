@@ -59,8 +59,7 @@ public void AsignarLibroListaEnCurso (int p_Lector_OID, System.Collections.Gener
  p_cantLibrosCurso: lectorEN.CantLibrosCurso,
  p_cantLibrosLeidos:  lectorEN.CantLibrosLeidos,
  p_cantAutoresSeguidos: lectorEN.CantAutoresSeguidos,
- p_cantClubsSuscritos: lectorEN.CantClubsSuscritos,
- p_numModificaciones: lectorEN.NumModificaciones + 1);
+ p_cantClubsSuscritos: lectorEN.CantClubsSuscritos);
 
 
 

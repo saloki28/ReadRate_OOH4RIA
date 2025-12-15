@@ -187,9 +187,6 @@ public void ModificarAutor (AutorEN autor)
                 autorNH.Pass = autor.Pass;
 
 
-                autorNH.NumModificaciones = autor.NumModificaciones;
-
-
                 autorNH.NumeroSeguidores = autor.NumeroSeguidores;
 
 

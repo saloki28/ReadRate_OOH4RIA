@@ -4500,7 +4500,7 @@ textarea.form-control-lg {
 .card-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgb(255, 130, 46);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .card-header:first-child {
@@ -4902,9 +4902,9 @@ textarea.form-control-lg {
 }
 
 .alert-warning {
-  color: #664d03;
+  border-radius: 15px;
   background-color: #fff3cd;
-  border-color: #ffecb5;
+  border-color: #fd7e14;
 }
 .alert-warning .alert-link {
   color: #523e02;

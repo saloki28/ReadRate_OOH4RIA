@@ -52,22 +52,6 @@ public int CrearAdministador (string p_nombre, String p_pass, string p_email, st
         return oid;
 }
 
-public void ModificarAdministador (int p_Administrador_OID, string p_nombre, String p_pass, string p_email, string p_foto)
-{
-        AdministradorEN administradorEN = null;
-
-        //Initialized AdministradorEN
-        administradorEN = new AdministradorEN ();
-        administradorEN.Id = p_Administrador_OID;
-        administradorEN.Nombre = p_nombre;
-        administradorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
-        administradorEN.Email = p_email;
-        administradorEN.Foto = p_foto;
-        //Call to AdministradorRepository
-
-        _IAdministradorRepository.ModificarAdministador (administradorEN);
-}
-
 public void EliminarAdministador (int id
                                   )
 {

@@ -138,7 +138,6 @@ public static void InitializeData ()
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,
                         p_cantAutoresSeguidos: 0,
-                        p_numModificaciones: 0,
                         p_cantClubsSuscritos: 0);
                 Console.WriteLine ("Usuario lector 'Paco Lector' creado correctamente.");
 
@@ -238,7 +237,6 @@ public static void InitializeData ()
  p_valoracionMedia: 0.0f,
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passLeigh",
-                        p_numModificaciones: 0,
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
@@ -262,7 +260,6 @@ public static void InitializeData ()
                 // Autor 2 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId2 = autorcen.CrearAutor (
  p_email: "robertjordan@email.com",
-                        p_numModificaciones: 0,
  p_nombreUsuario: "Robert Jordan",
  p_valoracionMedia: 0.0f,
  p_fechaNacimiento: new DateTime (1948, 10, 17),
@@ -498,7 +495,6 @@ public static void InitializeData ()
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passBrandon",
                         p_numeroSeguidores: 0,
-                        p_numModificaciones: 0,
                         p_cantidadLibrosPublicados: 0
                         );
                 Console.WriteLine ("Autor creado correctamente con ID: " + autorId3);
@@ -552,7 +548,6 @@ public static void InitializeData ()
                 int autorId4 = autorcen.CrearAutor (
  p_email: "cervantes@email.com",
  p_nombreUsuario: "Miguel De Cervantes",
-                        p_numModificaciones: 0,
  p_fechaNacimiento: new DateTime (1753, 9, 29),
  p_ciudadResidencia: "Alcalá de Henares",
  p_valoracionMedia: 0.0f,
@@ -586,7 +581,6 @@ public static void InitializeData ()
  p_nombreUsuario: "Lucy Maud Montgomery",
  p_fechaNacimiento: new DateTime (1874, 11, 30),
  p_ciudadResidencia: "Clifton (actual New London), Isla del Príncipe Eduardo",
-                        p_numModificaciones: 0,
  p_paisResidencia: "Canadá",
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/lucyMontgomery.webp",
@@ -693,7 +687,6 @@ public static void InitializeData ()
  p_nombreUsuario: "Gabriel Garcia Marquez",
  p_fechaNacimiento: new DateTime (1927, 3, 6),
  p_ciudadResidencia: "Aracataca",
-                        p_numModificaciones: 0,
  p_paisResidencia: "Colombia",
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/garciaMarquez.webp",
@@ -727,7 +720,6 @@ public static void InitializeData ()
  p_ciudadResidencia: "New Hampshire",
  p_valoracionMedia: 0.0f,
  p_paisResidencia: "Estados Unidos",
-                        p_numModificaciones: 0,
  p_foto: "/images/fotosUsuarios/danBrown.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
  p_pass: "passDan",
@@ -758,7 +750,6 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1828, 2, 8),
  p_ciudadResidencia: "Nantes",
  p_paisResidencia: "Francia",
-                        p_numModificaciones: 0,
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/julioVerne.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
@@ -790,7 +781,6 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1900, 6, 29),
  p_ciudadResidencia: "Lyon",
  p_paisResidencia: "Francia",
-                        p_numModificaciones: 0,
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/saintExupery.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
@@ -822,7 +812,6 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1964, 9, 25),
  p_ciudadResidencia: "Barcelona",
  p_paisResidencia: "España",
-                        p_numModificaciones: 0,
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/carlosRuizZafon.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
@@ -899,7 +888,6 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (1892, 1, 3),
  p_ciudadResidencia: "Bloemfontein",
  p_paisResidencia: "Reino Unido",
-                        p_numModificaciones: 0,
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/tolkien.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
@@ -1067,7 +1055,6 @@ public static void InitializeData ()
  p_nombreUsuario: "Niko Lector",
  p_fechaNacimiento: new DateTime (2003, 05, 20),
  p_ciudadResidencia: "Elche",
-                        p_numModificaciones: 0,
  p_paisResidencia: "España",
  p_foto: "/images/fotosUsuarios/usuarioDefault.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
@@ -1450,39 +1437,44 @@ p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
                 Console.WriteLine ("\n\n==================== PRUEBAS DE ReadFilter - dameLibrosPorFiltros() ====================");
 
                 // PRUEBA 1: Sin filtros (todos null) - Debe devolver todos los libros
-                //Console.WriteLine ("\n------------------ Prueba 1: Sin filtros (todos los parámetros null) ------------------");
-                //var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
-                //Console.WriteLine ("Libros encontrados sin filtro: " + (librosSinFiltro != null ? librosSinFiltro.Count.ToString () : "0"));
+                Console.WriteLine ("\n------------------ Prueba 1: Sin filtros (todos los parámetros null) ------------------");
+                var librosSinFiltro = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros encontrados sin filtro: " + (librosSinFiltro != null ? librosSinFiltro.Count.ToString () : "0"));
 
-                //// PRUEBA 2: Filtro por género "Fantasía"
-                //Console.WriteLine ("\n------------------ Prueba 2: Filtro por género 'Fantasía' ------------------");
-                //var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, 0, 20);
-                //Console.WriteLine ("Libros de 'Fantasía' encontrados: " + (librosFantasía != null ? librosFantasía.Count.ToString () : "0"));
+                // PRUEBA 2: Filtro por género "Fantasía"
+                Console.WriteLine ("\n------------------ Prueba 2: Filtro por género 'Fantasía' ------------------");
+                var librosFantasía = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros de 'Fantasía' encontrados: " + (librosFantasía != null ? librosFantasía.Count.ToString () : "0"));
 
-                //// PRUEBA 3: Filtro por edad recomendada = 12
-                //Console.WriteLine ("\n------------------ Prueba 3: Filtro por edad recomendada >= 12 años ------------------");
-                //var librosEdad12 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: 12, p_numPags: null, p_valoracionMedia: null, 0, 20);
-                //Console.WriteLine ("Libros para edad >= 12 encontrados: " + (librosEdad12 != null ? librosEdad12.Count.ToString () : "0"));
+                // PRUEBA 3: Filtro por edad recomendada = 12
+                Console.WriteLine ("\n------------------ Prueba 3: Filtro por edad recomendada >= 12 años ------------------");
+                var librosEdad12 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: 12, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros para edad >= 12 encontrados: " + (librosEdad12 != null ? librosEdad12.Count.ToString () : "0"));
 
-                //// PRUEBA 4: Filtro por número de páginas >= 200
-                //Console.WriteLine ("\n------------------ Prueba 4: Filtro por número de páginas >= 200 ------------------");
-                //var libros200Pags = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: 200, p_valoracionMedia: null, 0, 20);
-                //Console.WriteLine ("Libros con >= 200 páginas encontrados: " + (libros200Pags != null ? libros200Pags.Count.ToString () : "0"));
+                // PRUEBA 4: Filtro por número de páginas >= 200
+                Console.WriteLine ("\n------------------ Prueba 4: Filtro por número de páginas >= 200 ------------------");
+                var libros200Pags = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: 200, p_valoracionMedia: null, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros con >= 200 páginas encontrados: " + (libros200Pags != null ? libros200Pags.Count.ToString () : "0"));
 
-                //// PRUEBA 5: Filtro por valoración media >= 4.0
-                //Console.WriteLine ("\n------------------ Prueba 5: Filtro por valoración media >= 4.0 ------------------");
-                //var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, 0, 20);
-                //Console.WriteLine ("Libros con valoración >= 4.0 encontrados: " + (librosValoracion4 != null ? librosValoracion4.Count.ToString () : "0"));
+                // PRUEBA 5: Filtro por valoración media >= 4.0
+                Console.WriteLine ("\n------------------ Prueba 5: Filtro por valoración media >= 4.0 ------------------");
+                var librosValoracion4 = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: 4.0f, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros con valoración >= 4.0 encontrados: " + (librosValoracion4 != null ? librosValoracion4.Count.ToString () : "0"));
 
-                //// PRUEBA 6: Filtro combinado - Género "Fantasía" y edad > 10
-                //Console.WriteLine ("\n------------------ Prueba 6: Filtro combinado - Género 'Fantasía' y edad >= 10 ------------------");
-                //var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, 0, 20);
-                //Console.WriteLine ("Libros de 'Fantasía' para edad >= 10 años encontrados: " + (librosFantasía10 != null ? librosFantasía10.Count.ToString () : "0"));
+                // PRUEBA 6: Filtro combinado - Género "Fantasía" y edad > 10
+                Console.WriteLine ("\n------------------ Prueba 6: Filtro combinado - Género 'Fantasía' y edad >= 10 ------------------");
+                var librosFantasía10 = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: 10, p_numPags: null, p_valoracionMedia: null, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros de 'Fantasía' para edad >= 10 años encontrados: " + (librosFantasía10 != null ? librosFantasía10.Count.ToString () : "0"));
 
-                //// PRUEBA 7: Filtro combinado - Género "Fantasía", valoración >= 1.0, >= 500 páginas
-                //Console.WriteLine ("\n------------------ Prueba 7: Filtro combinado - Fantasía + valoración >= 4.5, >= 400 páginas ------------------");
-                //var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, 0, 20);
-                //Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosRestrictivo != null ? librosRestrictivo.Count.ToString () : "0"));
+                // PRUEBA 7: Filtro combinado - Género "Fantasía", valoración >= 1.0, >= 500 páginas
+                Console.WriteLine ("\n------------------ Prueba 7: Filtro combinado - Fantasía + valoración >= 4.5, >= 400 páginas ------------------");
+                var librosRestrictivo = librocen.DameLibrosPorFiltros (p_genero: "Fantasía", p_titulo: null, p_edadRecomendada: null, p_numPags: 400, p_valoracionMedia: 4.5f, p_autor: null, 0, 20);
+                Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosRestrictivo != null ? librosRestrictivo.Count.ToString () : "0"));
+
+                // PRUEBA 8: Filtro básico - Libro de la autora "Leigh Bardugo"
+                Console.WriteLine ("\n------------------ Prueba 8: Filtro básico - Libros de Leigh Bardugo ------------------");
+                var librosDeAutora = librocen.DameLibrosPorFiltros (p_genero: null, p_titulo: null, p_edadRecomendada: null, p_numPags: null, p_valoracionMedia: null, p_autor: 32769, 0, 20);
+                Console.WriteLine ("Libros que cumplen todos los criterios propuestos: " + (librosDeAutora != null ? librosDeAutora.Count.ToString () : "0"));
 
                 Console.WriteLine ("\n====================================================================================");
                 Console.WriteLine ("RESUMEN - PRUEBAS DE FILTRO DE LIBROS:");
@@ -1493,6 +1485,7 @@ p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
                 Console.WriteLine ("- Prueba 5: Por valoración >= 4.0");
                 Console.WriteLine ("- Prueba 6: Filtro combinado género + edad");
                 Console.WriteLine ("- Prueba 7: Filtro con tres criterios");
+                Console.WriteLine ("- Prueba 8: Filtro por autor 'Leigh Bardugo'");
                 Console.WriteLine ("=======================================================================");
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1714,7 +1707,6 @@ p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
                 int usuarioId2 = lectorcen.CrearLector (
  p_email: "marina.lectora@email.com",
  p_nombreUsuario: "Marina Antes de Modificar",
-                        p_numModificaciones: 0,
  p_fechaNacimiento: new DateTime (1980, 11, 10),
  p_ciudadResidencia: "Villajoyosa", p_paisResidencia: "España",
  p_foto: "/images/fotosUsuarios/usuarioDefault.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
@@ -1731,7 +1723,6 @@ p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
                         usuarioId2,
  p_email: pruebaModificarLector.Email,
  p_nombreUsuario: "Marina Lectora",
- p_numModificaciones: pruebaModificarLector.NumModificaciones + 1,
  p_fechaNacimiento: pruebaModificarLector.FechaNacimiento,
  p_ciudadResidencia: pruebaModificarLector.CiudadResidencia,
  p_paisResidencia: pruebaModificarLector.PaisResidencia,

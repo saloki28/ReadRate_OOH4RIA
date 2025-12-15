@@ -34,7 +34,7 @@ LibroEN DameLibroPorOID (int id
 System.Collections.Generic.IList<LibroEN> DameTodosLibros (int first, int size);
 
 
-System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosPorFiltros (string p_genero, string p_titulo, int? p_edadRecomendada, int? p_numPags, float? p_valoracionMedia, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.AutorEN p_autor, int first, int size);
+System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> DameLibrosPorFiltros (string p_genero, string p_titulo, int? p_edadRecomendada, int? p_numPags, float? p_valoracionMedia, int? p_autor, int first, int size);
 
 
 

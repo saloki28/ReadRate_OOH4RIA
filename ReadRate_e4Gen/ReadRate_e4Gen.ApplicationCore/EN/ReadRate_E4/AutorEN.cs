@@ -114,20 +114,20 @@ public AutorEN() : base ()
 
 
 public AutorEN(int id, int numeroSeguidores, int cantidadLibrosPublicados, float valoracionMedia, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorSeguidor, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroPublicado, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAutor, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionAutor
-               , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones
+               , string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass
                )
 {
-        this.init (Id, numeroSeguidores, cantidadLibrosPublicados, valoracionMedia, lectorSeguidor, libroPublicado, eventoAutor, notificacionAutor, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass, numModificaciones);
+        this.init (Id, numeroSeguidores, cantidadLibrosPublicados, valoracionMedia, lectorSeguidor, libroPublicado, eventoAutor, notificacionAutor, email, nombreUsuario, fechaNacimiento, ciudadResidencia, paisResidencia, foto, rol, pass);
 }
 
 
 public AutorEN(AutorEN autor)
 {
-        this.init (autor.Id, autor.NumeroSeguidores, autor.CantidadLibrosPublicados, autor.ValoracionMedia, autor.LectorSeguidor, autor.LibroPublicado, autor.EventoAutor, autor.NotificacionAutor, autor.Email, autor.NombreUsuario, autor.FechaNacimiento, autor.CiudadResidencia, autor.PaisResidencia, autor.Foto, autor.Rol, autor.Pass, autor.NumModificaciones);
+        this.init (autor.Id, autor.NumeroSeguidores, autor.CantidadLibrosPublicados, autor.ValoracionMedia, autor.LectorSeguidor, autor.LibroPublicado, autor.EventoAutor, autor.NotificacionAutor, autor.Email, autor.NombreUsuario, autor.FechaNacimiento, autor.CiudadResidencia, autor.PaisResidencia, autor.Foto, autor.Rol, autor.Pass);
 }
 
 private void init (int id
-                   , int numeroSeguidores, int cantidadLibrosPublicados, float valoracionMedia, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorSeguidor, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroPublicado, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAutor, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionAutor, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass, int numModificaciones)
+                   , int numeroSeguidores, int cantidadLibrosPublicados, float valoracionMedia, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorSeguidor, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN> libroPublicado, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.EventoEN> eventoAutor, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionAutor, string email, string nombreUsuario, Nullable<DateTime> fechaNacimiento, string ciudadResidencia, string paisResidencia, string foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum rol, String pass)
 {
         this.Id = id;
 
@@ -161,8 +161,6 @@ private void init (int id
         this.Rol = rol;
 
         this.Pass = pass;
-
-        this.NumModificaciones = numModificaciones;
 }
 
 public override bool Equals (object obj)

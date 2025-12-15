@@ -30,7 +30,7 @@ public ILectorRepository get_ILectorRepository ()
         return this._ILectorRepository;
 }
 
-public int CrearLector (string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones, int p_cantLibrosCurso, int p_cantLibrosLeidos, int p_cantAutoresSeguidos, int p_cantClubsSuscritos)
+public int CrearLector (string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_cantLibrosCurso, int p_cantLibrosLeidos, int p_cantAutoresSeguidos, int p_cantClubsSuscritos)
 {
         LectorEN lectorEN = null;
         int oid;
@@ -53,8 +53,6 @@ public int CrearLector (string p_email, string p_nombreUsuario, Nullable<DateTim
 
         lectorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
 
-        lectorEN.NumModificaciones = p_numModificaciones;
-
         lectorEN.CantLibrosCurso = p_cantLibrosCurso;
 
         lectorEN.CantLibrosLeidos = p_cantLibrosLeidos;
@@ -67,31 +65,6 @@ public int CrearLector (string p_email, string p_nombreUsuario, Nullable<DateTim
 
         oid = _ILectorRepository.CrearLector (lectorEN);
         return oid;
-}
-
-public void ModificarLector (int p_Lector_OID, string p_email, string p_nombreUsuario, Nullable<DateTime> p_fechaNacimiento, string p_ciudadResidencia, string p_paisResidencia, string p_foto, ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum p_rol, String p_pass, int p_numModificaciones, int p_cantLibrosCurso, int p_cantLibrosLeidos, int p_cantAutoresSeguidos, int p_cantClubsSuscritos)
-{
-        LectorEN lectorEN = null;
-
-        //Initialized LectorEN
-        lectorEN = new LectorEN ();
-        lectorEN.Id = p_Lector_OID;
-        lectorEN.Email = p_email;
-        lectorEN.NombreUsuario = p_nombreUsuario;
-        lectorEN.FechaNacimiento = p_fechaNacimiento;
-        lectorEN.CiudadResidencia = p_ciudadResidencia;
-        lectorEN.PaisResidencia = p_paisResidencia;
-        lectorEN.Foto = p_foto;
-        lectorEN.Rol = p_rol;
-        lectorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
-        lectorEN.NumModificaciones = p_numModificaciones;
-        lectorEN.CantLibrosCurso = p_cantLibrosCurso;
-        lectorEN.CantLibrosLeidos = p_cantLibrosLeidos;
-        lectorEN.CantAutoresSeguidos = p_cantAutoresSeguidos;
-        lectorEN.CantClubsSuscritos = p_cantClubsSuscritos;
-        //Call to LectorRepository
-
-        _ILectorRepository.ModificarLector (lectorEN);
 }
 
 public LectorEN DameLectorPorOID (int id

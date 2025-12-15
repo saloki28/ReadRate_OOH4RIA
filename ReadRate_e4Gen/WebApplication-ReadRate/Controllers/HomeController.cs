@@ -4,6 +4,7 @@ using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
 using System.Diagnostics;
 using WebApplication_ReadRate.Models;
+using WebApplication_ReadRate.Models.Assemblers;
 
 namespace WebApplication_ReadRate.Controllers
 {
@@ -32,6 +33,18 @@ namespace WebApplication_ReadRate.Controllers
                 {
                     var autorNombre = libro.AutorPublicador?.NombreUsuario;
                 }
+                
+                // Obtener autores para la partial view
+                AutorRepository autorRepository = new AutorRepository();
+                AutorCEN autorCEN = new AutorCEN(autorRepository);
+                IList<AutorEN> listaAutores = autorCEN.DameTodosAutores(0,5); //los primeros 5
+
+                // Convertir a ViewModels
+                var autoresViewModel = new AutorAssembler()
+                    .ConvertirListENToViewModel(listaAutores);
+   
+                
+                ViewBag.Autores = autoresViewModel;
                 
                 return View(ultimos5Libros);
             }

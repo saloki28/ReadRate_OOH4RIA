@@ -120,9 +120,6 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioNH.Pass = usuario.Pass;
 
-
-                usuarioNH.NumModificaciones = usuario.NumModificaciones;
-
                 session.Update (usuarioNH);
                 SessionCommit ();
         }
@@ -199,9 +196,6 @@ public void ModificarUsuario (UsuarioEN usuario)
 
 
                 usuarioNH.Pass = usuario.Pass;
-
-
-                usuarioNH.NumModificaciones = usuario.NumModificaciones;
 
                 session.Update (usuarioNH);
                 SessionCommit ();
@@ -337,7 +331,7 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioNH self where FROM UsuarioNH usuario where (:p_rol is null or usuario.Rol=:p_rol) and  (:p_nombre is null or concat('%', lower(usuario.NombreUsuario), '%') like lower(:p_nombre))";
+                //String sql = @"FROM UsuarioNH self where FROM UsuarioNH usuario where (:p_rol is null or usuario.Rol=:p_rol) and (:p_nombre is null or (concat('%', lower(usuario.NombreUsuario), '%') like lower(:p_nombre)))";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioNHdameUsuarioPorFiltrosHQL");
                 query.SetParameter ("p_rol", p_rol);

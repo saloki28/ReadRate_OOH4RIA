@@ -249,70 +249,130 @@
 
 </style>
 
+@{
+    var usuarioId = Context.Session.GetInt32("UsuarioId");
+    bool esPropioAutor = Model != null && usuarioId.HasValue && Model.Any() && Model.First().IdUsuario == usuarioId.Value;
+}
+
 <div class="page-header">
-    <h1>Listado de Autores</h1>
+    <h1>@(esPropioAutor ? "TU ÁREA PERSONAL" : "PERFIL DE AUTOR")</h1>
 </div>
 
-
 <div class="container">
-    <div class="action-bar">
-        <h2 class="section-title">Todos los Autores</h2>
-        <a asp-action="Create" class="btn-create">+ Crear nuevo autor</a>
-    </div>
-
-    <div class="books-grid">
-        @if (Model != null && Model.Any())
-        {
-            foreach (var item in Model)
-            {
-                <div class="book-card">
-                    <div class="book-cover">
-                        @if(!string.IsNullOrEmpty(item.FotoUrl))
-                        {
-                            <img src="@item.FotoUrl" alt="Foto de @item.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover;">
-                        }
-                        else
-                        {
-                            <span>FotoLibro</span>
-                        }
+    @if (Model != null && Model.Any())
+    {
+        var autor = Model.First();
+        
+        @* Información del Autor *@
+        <div>
+            <div class="book-cover">
+                @if (!string.IsNullOrEmpty(autor.FotoUrl))
+                {
+                    <img src="@autor.FotoUrl" alt="Foto de @autor.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                }
+                else
+                {
+                    <span>FotoAutor</span>
+                }
+            </div>
+            <div>
+                <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
+                <div class="book-author" style="font-size: 1.1rem; margin-bottom: 1.5rem;">@autor.Email</div>
+                <div class="book-meta" style="font-size: 1rem;">
+                    <div class="book-meta-item">
+                        <strong>Fecha de nacimiento:</strong> @autor.FechaNacimiento.ToString("dd/MM/yyyy")
                     </div>
-                    <div class="book-info">
-                        <div class="book-title">@Html.DisplayFor(modelItem => item.NombreUsuario)</div>
-                        <div class="book-author">@Html.DisplayFor(modelItem => item.Email)</div>
-                        <div class="book-meta">
-                            <div class="book-meta-item">
-                                <strong>Fecha de nacimiento:</strong> @Html.DisplayFor(modelItem => item.FechaNacimiento)
-                            </div>
-                            <div class="book-meta-item">
-                                <strong>Ciudad de residencia:</strong> @Html.DisplayFor(modelItem => item.CiudadResidencia)
-                            </div>
-                            <div class="book-meta-item">
-                                <strong>Pais de residencia:</strong> @Html.DisplayFor(modelItem => item.PaisResidencia)
-                            </div>
-                            <div class="book-meta-item">
-                                <strong>Cantidad de libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantidadLibrosPublicados)
-                            </div>
-                            <div class="book-meta-item">
-                                <strong>Cantidad de seguidores:</strong> @Html.DisplayFor(modelItem => item.NumeroSeguidores)
-                            </div>
-                            <div class="book-meta-item">
-                                <strong>Valoración media:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia) / 5
-                            </div>
-                        </div>
-                        <div class="book-actions">
-                            <a asp-action="Details" asp-route-id="@item.IdUsuario" class="btn-action">Detalles</a>
-                            <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="btn-action edit">Editar</a>
-                            <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn-action delete">Borrar</a>
-                        </div>
+                    <div class="book-meta-item">
+                        <strong>Ciudad de residencia:</strong> @autor.CiudadResidencia
+                    </div>
+                    <div class="book-meta-item">
+                        <strong>País de residencia:</strong> @autor.PaisResidencia
+                    </div>
+                    <div class="book-meta-item">
+                        <strong>Cantidad de libros publicados:</strong> @autor.CantidadLibrosPublicados
+                    </div>
+                    <div class="book-meta-item">
+                        <strong>Cantidad de seguidores:</strong> @autor.NumeroSeguidores
+                    </div>
+                    <div class="book-meta-item">
+                        <strong>Valoración media:</strong> @autor.ValoracionMedia / 5
                     </div>
                 </div>
-            }
-        }
-        else
-        {
-            <div class="no-books">
-                No hay autores en el listado. ¡Añade el primero!
+                
+                @if (esPropioAutor)
+                {
+                    <div class="book-actions" style="margin-top: 1.5rem;">
+                        <a asp-action="Edit" asp-route-id="@autor.IdUsuario" class="btn-action edit">Editar Perfil</a>
+                        <a asp-action="Delete" asp-route-id="@autor.IdUsuario" class="btn-action delete">Borrar</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="book-actions" style="margin-top: 1.5rem;">
+                        <a class="btn-action">Seguir</a>
+                    </div>
+                }
             </div>
-        }
-    </div>
+        </div>
+
+        @* Sección de Libros del Autor *@
+        <div class="action-bar">
+            <h2 class="section-title">@(esPropioAutor ? "MIS LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
+            @if (esPropioAutor)
+            {
+                <a asp-controller="Libro" asp-action="Create" class="btn-create">+ Publicar Libro</a>
+            }
+        </div>
+        
+        <div class="books-grid">
+            @if (ViewBag.LibrosAutor != null && ViewBag.LibrosAutor.Count > 0)
+            {
+                foreach (var libro in ViewBag.LibrosAutor)
+                {
+                    <div class="book-card">
+                        <div class="book-cover">
+                            @if (!string.IsNullOrEmpty(libro.FotoPortadaUrl))
+                            {
+                                <img src="@libro.FotoPortadaUrl" alt="Portada de @libro.Titulo" style="width: 100%; height: 100%; object-fit: cover;">
+                            }
+                            else
+                            {
+                                <span>📖</span>
+                            }
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">@libro.Titulo</div>
+                            <div class="book-meta">
+                                <strong>Género:</strong> @libro.Genero <br />
+                                <strong>Páginas:</strong> @libro.NumPags <br />
+                                <strong>Valoración:</strong> @libro.ValoracionMedia / 5 <br />
+                                <strong>Publicación:</strong> @libro.FechaPublicacion.ToString("dd/MM/yyyy")
+                            </div>
+                            <div class="book-sinopsis">@libro.Sinopsis</div>
+                            <div class="book-actions">
+                                <a asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id" class="btn-action">Ver Detalles</a>
+                                @if (esPropioAutor)
+                                {
+                                    <a asp-controller="Libro" asp-action="Edit" asp-route-id="@libro.Id" class="btn-action edit">Editar</a>
+                                    <a asp-controller="Libro" asp-action="Delete" asp-route-id="@libro.Id" class="btn-action delete">Eliminar</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="no-books">
+                    @(esPropioAutor ? "Aún no has publicado ningún libro." : "Este autor aún no ha publicado libros.")
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="no-books">
+            No se encontró información del autor.
+        </div>
+    }
 </div>

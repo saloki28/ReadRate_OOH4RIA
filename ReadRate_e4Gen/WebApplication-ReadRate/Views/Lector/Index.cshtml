@@ -256,77 +256,95 @@
     var usuarioNombre = Context.Session.GetString("UsuarioNombre");
 }
 
+@{
+    var usuarioIdActual = Context.Session.GetInt32("UsuarioId");
+    bool esPropioLector = Model != null && usuarioIdActual.HasValue && Model.IdUsuario == usuarioIdActual.Value;
+}
+
 @if (usuarioRol=="visitante")
 {
     <div class="page-header">
-        <h1>Area</h1>
+        <h1>Área Visitante</h1>
     </div>
 
-
     <div class="container">
-
+        <div class="no-books">
+            Inicia sesión para acceder a tu área personal.
+        </div>
     </div>
 }
 else
 {
-   <div class="page-header">
-    <h1>TU ÁREA PERSONAL</h1>
-</div>
+    <div class="page-header">
+        <h1>@(esPropioLector ? "TU ÁREA PERSONAL" : "Perfil de Lector")</h1>
+    </div>
 
-<div class="container">
-    @if (Model != null)
-    {
-        <div style="display: flex; gap: 2rem; align-items: flex-start; background: #fff; padding: 2rem; border-radius: 20px; box-shadow: 0 8px 24px rgba(255,111,0,0.1); margin-bottom: 3rem;">
-            <div class="book-cover" style="width: 250px; height: 250px; flex-shrink: 0;">
-                @if (!string.IsNullOrEmpty(Model.FotoUrl))
-                {
-                    <img src="@Model.FotoUrl" alt="Foto de @Model.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
-                }
-                else
-                {
-                    <span>FotoLector</span>
-                }
-            </div>
-            <div style="flex: 1;">
-                <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@Html.DisplayFor(model => model.NombreUsuario)</div>
-                <div class="book-author" style="font-size: 1.1rem; margin-bottom: 1.5rem;">@Html.DisplayFor(model => model.Email)</div>
-                <div class="book-meta" style="font-size: 1rem;">
-                    <div class="book-meta-item">
-                        <strong>Fecha de nacimiento:</strong> @Html.DisplayFor(model => model.FechaNacimiento)
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Ciudad de residencia:</strong> @Html.DisplayFor(model => model.CiudadResidencia)
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Pais de residencia:</strong> @Html.DisplayFor(model => model.PaisResidencia)
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Cantidad de libros en curso:</strong> @Html.DisplayFor(model => model.CantLibrosCurso)
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Cantidad de libros leídos:</strong> @Html.DisplayFor(model => model.CantLibrosLeidos)
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Cantidad de autores seguidos:</strong> @Html.DisplayFor(model => model.CantAutoresSeguidos)
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Cantidad de clubes suscritos:</strong> @Html.DisplayFor(model => model.CantClubsSuscritos)
-                    </div>
+    <div class="container">
+        @if (Model != null)
+        {
+            <div style="display: flex; gap: 2rem; align-items: flex-start; background: #fff; padding: 2rem; border-radius: 20px; box-shadow: 0 8px 24px rgba(255,111,0,0.1); margin-bottom: 3rem;">
+                <div class="book-cover" style="width: 250px; height: 250px; flex-shrink: 0;">
+                    @if (!string.IsNullOrEmpty(Model.FotoUrl))
+                    {
+                        <img src="@Model.FotoUrl" alt="Foto de @Model.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    }
+                    else
+                    {
+                        <span>FotoLector</span>
+                    }
                 </div>
-                <div class="book-actions" style="margin-top: 1.5rem;">
-                    <a asp-action="Details" asp-route-id="@Model.IdUsuario" class="btn-action">Detalles</a>
-                    <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn-action edit">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@Model.IdUsuario" class="btn-action delete">Borrar</a>
+                <div style="flex: 1;">
+                    <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@Model.NombreUsuario</div>
+                    <div class="book-author" style="font-size: 1.1rem; margin-bottom: 1.5rem;">@Model.Email</div>
+                    <div class="book-meta" style="font-size: 1rem;">
+                        <div class="book-meta-item">
+                            <strong>Fecha de nacimiento:</strong> @Model.FechaNacimiento.ToString("dd/MM/yyyy")
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>Ciudad de residencia:</strong> @Model.CiudadResidencia
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>País de residencia:</strong> @Model.PaisResidencia
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>Cantidad de libros en curso:</strong> @Model.CantLibrosCurso
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>Cantidad de libros leídos:</strong> @Model.CantLibrosLeidos
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>Cantidad de autores seguidos:</strong> @Model.CantAutoresSeguidos
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>Cantidad de clubes suscritos:</strong> @Model.CantClubsSuscritos
+                        </div>
+                    </div>
+                    
+                    @* Aquí irán las partial views según si es propio perfil o no *@
+                    @if (esPropioLector)
+                    {
+                        @* TODO: Crear partial "_LectorBotonesPropio.cshtml" *@
+                        <div class="book-actions" style="margin-top: 1.5rem;">
+                            <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn-action edit">Editar Perfil</a>
+                            <a asp-action="Delete" asp-route-id="@Model.IdUsuario" class="btn-action delete">Borrar</a>
+                        </div>
+                    }
+                    else
+                    {
+                        @* TODO: Crear partial "_LectorBotonesVisitante.cshtml" *@
+                        <div class="book-actions" style="margin-top: 1.5rem;">
+                            <a class="btn-action">Seguir</a>
+                        </div>
+                    }
                 </div>
             </div>
-        </div>
-    }
-    else
-    {
-        <div class="no-books">
-            No se encontró información del lector.
-        </div>
-    }
+        }
+        else
+        {
+            <div class="no-books">
+                No se encontró información del lector.
+            </div>
+        }
     
     <!-- Sección de Lecturas en curso -->
     <hr class="separador">

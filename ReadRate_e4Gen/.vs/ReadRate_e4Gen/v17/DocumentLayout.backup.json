@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\views\\lector\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\views\\lector\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\views\\autor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\views\\autor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\views\\libro\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\views\\libro\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\models\\assemblers\\lectorassembler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\models\\assemblers\\lectorassembler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\controllers\\lectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\controllers\\lectorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\controllers\\librocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\controllers\\librocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|c:\\ooh4ria\\readratebueno\\readrate_e4gen\\webapplication-readrate\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF060C7F-3D66-48FC-B974-3963A74E9FA0}|WebApplication-ReadRate\\WebApplication-ReadRate.csproj|solutionrelative:webapplication-readrate\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LectorController.cs",
-              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\LectorController.cs",
-              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Controllers\\LectorController.cs",
-              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\LectorController.cs",
-              "RelativeToolTip": "WebApplication-ReadRate\\Controllers\\LectorController.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAmwDkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T15:39:11.391Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LectorAssembler.cs",
-              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\Assemblers\\LectorAssembler.cs",
-              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Models\\Assemblers\\LectorAssembler.cs",
-              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Models\\Assemblers\\LectorAssembler.cs",
-              "RelativeToolTip": "WebApplication-ReadRate\\Models\\Assemblers\\LectorAssembler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T15:38:21.352Z",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Autor\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Autor\\Index.cshtml",
+              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Autor\\Index.cshtml",
+              "RelativeToolTip": "WebApplication-ReadRate\\Views\\Autor\\Index.cshtml",
+              "ViewState": "AgIAACMBAAAAAAAAAAAAAA8BAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:53:07.623Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebApplication-ReadRate\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAABtAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Libro\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Libro\\Index.cshtml",
+              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Libro\\Index.cshtml",
+              "RelativeToolTip": "WebApplication-ReadRate\\Views\\Libro\\Index.cshtml",
+              "ViewState": "AgIAAAMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T14:47:15.115Z",
+              "WhenOpened": "2025-12-13T10:52:48.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "LibroController.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\LibroController.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Controllers\\LibroController.cs",
+              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\LibroController.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Controllers\\LibroController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:52:32.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebApplication-ReadRate\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:46:14.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Lector\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Lector\\Index.cshtml",
-              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Lector\\Index.cshtml",
-              "RelativeToolTip": "WebApplication-ReadRate\\Views\\Lector\\Index.cshtml",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAcwEMBAAAIAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication-ReadRate\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\OOH4RIA\\readRateBueno\\ReadRate_e4Gen\\WebApplication-ReadRate\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication-ReadRate\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAAAD0BAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-10T14:46:56.54Z",
+              "WhenOpened": "2025-12-13T10:44:36.26Z",
               "EditorCaption": ""
             }
           ]

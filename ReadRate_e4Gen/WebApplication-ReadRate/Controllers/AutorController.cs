@@ -23,12 +23,28 @@ namespace WebApplication_ReadRate.Controllers
         public ActionResult Index()
         {
             SessionInitialize();
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (!usuarioId.HasValue)
+            {
+                SessionClose();
+                return RedirectToAction("Index", "Home");
+            }
+
             AutorRepository autorRepository = new AutorRepository(session);
             AutorCEN autorCEN = new AutorCEN(autorRepository);
 
-            IList<AutorEN> autores = autorCEN.DameTodosAutores(0, -1);
+            AutorEN autorEN = autorCEN.DameAutorPorOID(usuarioId.Value);
+            var listAut = new List<AutorViewModel> { new AutorAssembler().ConvertirENToViewModel(autorEN) };
 
-            IEnumerable<AutorViewModel> listAut = new AutorAssembler().ConvertirListENToViewModel(autores).ToList();
+            // Obtener libros del autor
+            LibroRepository libroRepository = new LibroRepository(session);
+            LibroCEN libroCEN = new LibroCEN(libroRepository);
+            IList<LibroEN> todosLibros = libroCEN.DameTodosLibros(0, -1);
+            var librosDelAutor = todosLibros.Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == usuarioId.Value).ToList();
+            var librosViewModel = new LibroAssembler().ConvertirListENToViewModel(librosDelAutor).ToList();
+            ViewBag.LibrosAutor = librosViewModel;
+
             SessionClose();
 
             return View(listAut);

@@ -294,7 +294,6 @@ C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\NHibernate.dll
@@ -317,11 +316,8 @@ C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Data.SqlClient.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\af\Humanizer.resources.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\ar\Humanizer.resources.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\az\Humanizer.resources.dll
@@ -461,15 +457,11 @@ C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Castle.DynamicProxy2.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\LinFu.DynamicProxy.dll
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\log4net.dll
@@ -508,3 +500,11 @@ C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\WebApplication-ReadRate.pdb
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\WebApplication-ReadRate.genruntimeconfig.cache
 C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\obj\Debug\net8.0\ref\WebApplication-ReadRate.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\OOH4RIA\readRateBueno\ReadRate_e4Gen\WebApplication-ReadRate\bin\Debug\net8.0\Microsoft.Extensions.Options.dll

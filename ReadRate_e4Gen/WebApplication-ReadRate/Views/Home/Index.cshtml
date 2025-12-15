@@ -28,6 +28,7 @@
             display: block;
             height: 10px;
             background-color: #e65100;
+            margin-top:4em;
         }
         
         .header {
@@ -319,41 +320,9 @@
         <hr class="separador">
 
         @* PARTE DE AUTOR *@
-        <h2 class="section-title">AUTORES BEST SELLER DEL MOMENTO</h2> @* incluir la parte de niko de autores*@
-        @* <div class="books-grid">
-            @if (Model != null && Model.Any())
-            {
-                foreach (var item in Model)
-                {
-                    <div class="book-card">
-                        <div class="book-cover">
-                            @if (!string.IsNullOrEmpty(item.FotoPortada))
-                            {
-                                <img src="@item.FotoPerfil" alt="Foto del autor @item.NombreUsuario" style="width: 110%; height: 110%; object-fit: contain;">
-                            }
-                            else
-                            {
-                                <span>FotoPerfil</span>
-                            }
-                        </div>
-                        <div class="book-info">
-                            <div class="book-title">@Html.DisplayFor(modelItem => item.NombreUsuario)</div>
-                            <div class="book-author">@Html.DisplayFor(modelItem => item.AutorPublicador.NombreUsuario)</div>
-                            <strong>Libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantLibros) <br />
-                            <div class="book-actions">
-                                <a class="btn" asp-controller="Autor" asp-action="Details" asp-route-id="@item.Id">Visitar perfil</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                <div class="no-books">
-                    No existen autores best seller por ahora
-                </div>
-            }
-        </div> *@
+        <h2 class="section-title">AUTORES BEST SELLER DEL MOMENTO</h2> 
+        <partial name="_Autor" model="ViewBag.Autores" />
+        
     </div>
 </body>
 </html>

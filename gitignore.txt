@@ -1,5 +1,0 @@
-.metadata
-.vs
-bin
-obj
-*.log

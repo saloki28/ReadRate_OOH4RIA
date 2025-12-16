@@ -51,8 +51,8 @@
                         <a asp-action="Delete" asp-route-id="@autor.IdUsuario" class="btn-action delete">Borrar</a>
                     </div>
                 } *@
-                else
-                {
+                @* else
+                { *@
                     <div class="book-actions" style="margin-top: 1.5rem;">
                         @if (ViewBag.YaSiguiendoAutor == true)
                         {
@@ -69,7 +69,7 @@
                             </form>
                         }
                     </div>
-                }
+                @* } *@
             </div>
         </div>
 

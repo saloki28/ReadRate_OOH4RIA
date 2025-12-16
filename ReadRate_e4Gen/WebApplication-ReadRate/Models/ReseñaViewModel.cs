@@ -17,13 +17,13 @@ namespace WebApplication_ReadRate.Models
         public string LibroNombre{ get; set; }
 
         //Valoración del libro
-        [Display(Prompt = "Valoración del libro", Description = "Valoración del libro", Name = "Valoración del lector")]
+        [Display(Prompt = "Valoración", Description = "Valoración del libro", Name = "Valoración")]
         [Required(ErrorMessage = "Debes incluir un número")]
         [Range(minimum: 0.0, maximum: 5.0, ErrorMessage = "El valor debe estar entre 0 y 5.")] //Ponemos que el rango para la reseña sea de 0 a 5
         public float Valoracion { get; set; }
 
         //Opinión
-        [Display(Prompt = "Opinión personal", Description = "Opinión personal sobre el libro", Name = "Opinión del lector")]
+        [Display(Prompt = "Opinión personal", Description = "Opinión personal sobre el libro", Name = "Opinión Personal")]
         [Required(ErrorMessage = "Debes incluir una opinión")]
         [StringLength(maximumLength: 255, ErrorMessage = "La reseña no puede tener más de 255 caracteres")]
         public string Opinion { get; set; }

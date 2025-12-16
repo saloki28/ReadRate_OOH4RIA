@@ -1,36 +1,43 @@
 ﻿@model IEnumerable<WebApplication_ReadRate.Models.AutorViewModel>
 
-<div class="books-grid">
+<div class="row g-4">
     @if (Model != null && Model.Any())
     {
         foreach (var item in Model)
         {
-            <div class="book-card">
-                <div class="book-cover">
-                    @if (!string.IsNullOrEmpty(item.FotoUrl))
-                    {
-                        <img src="@item.FotoUrl" alt="Foto del autor @item.NombreUsuario" style="width: 110%; height: 110%; object-fit: contain;">
-                    }
-                    else
-                    {
-                        <span>FotoPerfil</span>
-                    }
-                </div>
-                <div class="book-info">
-                    <div class="book-title">@Html.DisplayFor(modelItem => item.NombreUsuario)</div>
-                    @* <div class="book-author">@Html.DisplayFor(modelItem => item.AutorPublicador.NombreUsuario)</div> *@
-                    <strong>Libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantidadLibrosPublicados) <br />
-                    <div class="book-actions">
-                        <a class="btn" asp-controller="Autor" asp-action="Index" asp-route-id="@item.IdUsuario">Visitar perfil</a>
+            <article class="col-12 col-sm-6 col-md-4 col-lg-5col">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="book-cover">
+                        @if(!string.IsNullOrEmpty(item.FotoUrl))
+                        {
+                            <img src="@item.FotoUrl" alt="Foto del autor @item.NombreUsuario" class="card-img-top" style="height: 250px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                <span class="text-muted">Sin FotoPerfil</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-orange-dark">@Html.DisplayFor(modelItem => item.NombreUsuario)</h5>
+                        <div class="card-text small mb-3 flex-grow-1">
+                            <div class="mb-1"><strong>Libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantidadLibrosPublicados)</div>
+                        </div>
+                        <div class="d-flex gap-2 mt-auto">
+                            <a class="btn-action flex-fill text-center" asp-controller="Autor" asp-action="Details" asp-route-id="@item.IdUsuario">Visitar perfil</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </article>
         }
     }
     else
     {
-        <div class="no-books">
-            No existen autores best seller por ahora
-        </div>
+        <article class="col-12">
+            <div class="alert alert-info text-center">
+                Aún no existen libros publicados.
+            </div>
+        </article>
     }
 </div>

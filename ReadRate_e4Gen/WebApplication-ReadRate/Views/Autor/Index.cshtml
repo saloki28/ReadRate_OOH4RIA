@@ -72,7 +72,7 @@
             <h2 class="section-title">@(esPropioAutor ? "MIS LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
             @if (esPropioAutor)
             {
-                <a asp-controller="Libro" asp-action="Create" class="btn-create">+ Publicar Libro</a>
+                <a asp-controller="Libro" asp-action="Create" asp-route-autorId="@autor.IdUsuario" class="btn-create">+ Publicar Libro</a>
             }
         </div>
         

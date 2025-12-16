@@ -7,9 +7,15 @@ namespace WebApplication_ReadRate.Models.Assemblers
         public LibroViewModel ConvertirENToViewModel(LibroEN libroEN)
         {
             LibroViewModel libroVM = new LibroViewModel();
+            LibroFiltrosViewModel libroFiltrosVM = new LibroFiltrosViewModel();
+
             libroVM.Id = libroEN.Id;
             libroVM.Titulo = libroEN.Titulo;
             libroVM.Genero = libroEN.Genero;
+
+            // Select Generos en el formulario de busqueda
+            libroFiltrosVM.GeneroFiltro = libroEN.Genero != null ? libroEN.Genero : (string?)null;
+
             libroVM.EdadRecomendada = libroEN.EdadRecomendada;
             libroVM.FechaPublicacion = libroEN.FechaPublicacion ?? DateTime.MinValue;
             libroVM.NumPags = libroEN.NumPags;

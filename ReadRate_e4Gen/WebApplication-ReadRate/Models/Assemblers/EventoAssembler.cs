@@ -23,6 +23,7 @@ namespace WebApplication_ReadRate.Models.Assemblers
             eventoVM.AforoMaximo = eventoEN.AforoMax;
             eventoVM.AforoActual = eventoEN.AforoActual;
 
+            // Select Admin
             eventoVM.AdminPublicadorID = eventoEN.AdministradorEventos != null ? eventoEN.AdministradorEventos.Id : (int?)null;
 
             // Recuperar el nombre del administrador si está disponible

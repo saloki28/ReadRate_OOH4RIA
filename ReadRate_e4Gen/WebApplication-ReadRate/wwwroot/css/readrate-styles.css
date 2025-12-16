@@ -643,9 +643,25 @@ select.form-control option:checked,
     overflow: hidden;
 }
 
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6f00, #ff9800, #ffa726);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--bs-box-shadow-lg);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 36px rgba(255,111,0,0.2);
 }
 
 .card-body {

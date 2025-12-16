@@ -86,8 +86,40 @@
             @*cuando sea lector*@ 
             @if (rolUsuario == "lector") {
 
-                <article class="form-actions d-flex gap-3 justify-content-between mt-4">
+                <article class="detail-row d-flex justify-content-between py-3">
                     <a asp-controller="Reseña" asp-action="Create" asp-route-libroId="@Model.Id" asp-route-lectorId="@lectorId" class="btn btn-primary px-5">¡Rate!</a>
+                    
+                    @* Botón para lista de guardados *@
+                    @if ((bool)ViewData["EstaEnGuardados"] == true)
+                    {
+                        <form asp-controller="Libro" asp-action="QuitarDeGuardados" method="post" style="display:inline;">
+                            <input type="hidden" name="libroId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-primary px-5">Quitar de Libros Leídos</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-controller="Libro" asp-action="AgregarAGuardados" method="post" style="display:inline;">
+                            <input type="hidden" name="libroId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-primary px-5">Añadir a Libros Leídos</button>
+                        </form>
+                    }
+
+                    @* Botón para lista en curso *@
+                    @if ((bool)ViewData["EstaEnCurso"] == true)
+                    {
+                        <form asp-controller="Libro" asp-action="QuitarDeEnCurso" method="post" style="display:inline;">
+                            <input type="hidden" name="libroId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-primary px-5">Quitar de Libros en Curso</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-controller="Libro" asp-action="AgregarAEnCurso" method="post" style="display:inline;">
+                            <input type="hidden" name="libroId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-primary px-5">Añadir a Libros en Curso</button>
+                        </form>
+                    }
                 </article>
             }
             
@@ -100,12 +132,20 @@
             {
                 foreach (var resena in Model.Resenas)
                 {
-                    @*luego hacer un if para saber si el usuario tiene una reseña aqui y poder borrarlas*@
                     <article class="details-card">
-                        <p class="detail-row">
-                            <p class="detail-label">Lector</p>
-                            <p class="detail-value">@resena.LectorNombre</p>
-                        </p>
+                        <div class="d-flex align-items-center mb-3">
+                            @if (!string.IsNullOrEmpty(resena.LectorFoto))
+                            {
+                                <img src="@resena.LectorFoto" alt="Foto de @resena.LectorNombre" class="card-img-top" style="width: 50px; height: 50px; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="card-img-top">
+                                    <span class="detail-value" style="width: 50px; height: 50px;">@resena.LectorNombre?.Substring(0, 1).ToUpper()</span>
+                                </div>
+                            }
+                            <strong>@resena.LectorNombre</strong>
+                        </div>
 
                         <p class="detail-row">
                             <p class="detail-label">Opinión</p>
@@ -128,6 +168,14 @@
                                 }
                             </p>
                         </p>
+
+                        @* Botón para eliminar si la reseña es del lector logueado *@
+                        @if (resena.LectorId == lectorId)
+                        {
+                            <form asp-controller="Reseña" asp-action="Delete" asp-route-id="@resena.Id" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-primary px-5">Eliminar mi reseña</button>
+                            </form>
+                        }
                     </article>
                 }
             }

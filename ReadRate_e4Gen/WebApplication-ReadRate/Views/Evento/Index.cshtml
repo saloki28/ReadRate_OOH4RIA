@@ -2,76 +2,100 @@
 
 @{
     ViewData["Title"] = "Index Eventos";
+    var rolUsuario = Context.Session.GetString("UsuarioRol");
 }
 
 <header class="page-header">
-    <h1>EVENTOS LITERARIOS</h1>
+    <h1>Listado de Eventos</h1>
 </header>
 
 <section class="container">
-    <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
-        <h2 class="section-title mb-0">Todos los Eventos</h2>
-        <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
-    </article>
+    @if (rolUsuario == "administrador")
+    {
+        <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+            <!-- Solo administradores ven el botón de crear -->
+        
+                <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
+        
+        </article>
+    }
 
-    <div class="vertical-list">
+    <article class="vertical-list">
         @if (Model != null && Model.Any())
         {
             foreach (var item in Model)
             {
-                <article class="event-horizontal">
+                <article class="card mb-4 shadow event-horizontal">
+                    <div class="row g-0 h-100">
+                        <article class="col-12 col-md-4">
+                            @if (!string.IsNullOrEmpty(item.Foto))
+                            {
+                                <img src="@item.Foto" alt="@item.Nombre" class="img-fluid h-100 w-100" style="object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="event-cover-placeholder d-flex align-items-center justify-content-center h-100">
+                                    Sin Foto
+                                </div>
+                            }
+                        </article>
 
-                    <figure class="event-horizontal-img">
-                        @if (!string.IsNullOrEmpty(item.Foto))
-                        {
-                            <img src="@item.Foto" alt="@item.Nombre" />
-                        }
-                        else
-                        {
-                            <div class="event-cover-placeholder">
+                        <article class="col-12 col-md-8">
+                            <div class="event-horizontal-body card-body d-flex flex-column h-100">
 
-                                Foto Evento
+                                <h3 class="event-title card-title">@Html.DisplayFor(modelItem => item.Nombre)</h3>
+
+                                <p class="event-description card-text">
+                                    <strong>Descripción:</strong> @Html.DisplayFor(modelItem => item.TextoDescripcion)
+                                </p>
+
+                                <div class="meta-box-container d-flex flex-wrap gap-3 mb-3">
+                                    <div class="meta-box">
+                                        <strong>Fecha:</strong> @item.FechaPublicacion.ToString("dd/MM/yy")
+                                    </div>
+                                    <div class="meta-box">
+                                        <strong>Hora:</strong> @item.HoraEvento.ToString("HH:mm")
+                                    </div>
+                                    <div class="meta-box">
+                                        <strong>Ubicación:</strong> @Html.DisplayFor(modelItem => item.Ubicacion)
+                                    </div>
+                                </div>
+
+                                <footer class="event-footer-actions mt-auto d-flex justify-content-between align-items-center">
+
+                                    <!-- Botones de los evento según el rol -->
+                                    @if (rolUsuario == "administrador")
+                                    {
+                                        <!-- Admin: Eliminar -->
+                                        <div class="d-flex gap-2 mt-auto">
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Eliminar</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <!-- Usuarios regulares (lector, autor, visitante) ven botón de inscripción -->
+                                        var eventoCompleto = item.AforoActual >= item.AforoMaximo;
+                                        
+                                        if (eventoCompleto)
+                                        {
+                                            <button disabled class="btn-evento-completo">
+                                                Aforo completo
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Inscribirse" asp-route-id="@item.Id" class="btn-black">
+                                                ¡Inscribirme al evento!
+                                            </a>
+                                        }
+                                    }
+
+                                    <div class="aforo-text">
+                                        Aforo actual: @Html.DisplayFor(modelItem => item.AforoActual) / @Html.DisplayFor(modelItem => item.AforoMaximo) Inscritos
+                                    </div>
+                                </footer>
                             </div>
-                        }
-                    </figure>
-
-                    <div class="event-horizontal-body">
-
-                        <h3 class="event-title">@Html.DisplayFor(modelItem => item.Nombre)</h3>
-
-                        <p class="event-description">
-                            <strong>Descripción:</strong> @Html.DisplayFor(modelItem => item.TextoDescripcion)
-                        </p>
-
-                        <div class="meta-box-container">
-                            <div class="meta-box">
-                                <strong>Fecha:</strong> @item.FechaPublicacion.ToString("dd/MM/yy")
-                            </div>
-                            <div class="meta-box">
-                                <strong>Hora:</strong> @item.HoraEvento.ToString("HH:mm")
-                            </div>
-                            <div class="meta-box">
-                                <strong>Ubicación:</strong> @Html.DisplayFor(modelItem => item.Ubicacion)
-                            </div>
-                        </div>
-
-                        <footer class="event-footer-actions">
-
-                            @*Para admin: *@
-                            @* <div>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
-                            </div> *@
-
-                            <a asp-action="Inscribirse" asp-route-id="@item.Id" class="btn-black">
-                                ¡Inscribirme al evento!
-                            </a>
-
-                            <div class="aforo-text">
-                                Aforo: @Html.DisplayFor(modelItem => item.AforoActual) / @Html.DisplayFor(modelItem => item.AforoMaximo)
-                            </div>
-                        </footer>
+                        </article>
                     </div>
                 </article>
             }
@@ -84,5 +108,5 @@
                 </div>
             </article>
         }
-    </article>
+    </div>
 </section>

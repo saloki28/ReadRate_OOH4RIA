@@ -330,5 +330,74 @@ namespace WebApplication_ReadRate.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
+        // POST: ClubController/SuscribirseAClub
+        [HttpPost]
+        public ActionResult SuscribirseAClub(int clubId)
+        {
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!lectorId.HasValue || usuarioRol != "lector")
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector para suscribirte a clubes.";
+                return RedirectToAction("Details", new { id = clubId });
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                LectorCP lectorCP = new LectorCP(sessionCP);
+                
+                IList<int> clubsIds = new List<int> { clubId };
+                lectorCP.SuscribirLectorAClub(lectorId.Value, clubsIds);
+            }
+            catch(Exception ex)
+            {
+                // Error silencioso o manejo según necesidad
+            }
+
+            return RedirectToAction("Details", new { id = clubId });
+        }
+
+        // GET: ClubController/DeleteSuscripcion
+        public ActionResult DeleteSuscripcion(int clubId)
+        {
+            SessionInitialize();
+            ClubRepository clubRepository = new ClubRepository(session);
+            ClubCEN clubCEN = new ClubCEN(clubRepository);
+            ClubEN clubEN = clubCEN.DameClubPorOID(clubId);
+            ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
+            SessionClose();
+            return View(clubVM);
+        }
+
+        // POST: ClubController/DesuscribirseDeClub
+        [HttpPost]
+        public ActionResult DesuscribirseDeClub(int clubId)
+        {
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!lectorId.HasValue || usuarioRol != "lector")
+            {
+                return RedirectToAction("Index", "Lector");
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                LectorCP lectorCP = new LectorCP(sessionCP);
+                
+                IList<int> clubsIds = new List<int> { clubId };
+                lectorCP.DesuscribirLectorDeClub(lectorId.Value, clubsIds);
+            }
+            catch(Exception ex)
+            {
+                // Error silencioso o manejo según necesidad
+            }
+
+            return RedirectToAction("Index", "Lector");
+        }
     }
 }

@@ -36,6 +36,13 @@ namespace WebApplication_ReadRate.Controllers
             ReseñaCEN resCEN = new ReseñaCEN(resRepo);
 
             ReseñaEN resEn = resCEN.DameReseñaPorOID(id);
+            
+            if (resEn == null)
+            {
+                SessionClose();
+                return RedirectToAction(nameof(Index));
+            }
+            
             ReseñaViewModel resView = new ReseñaAssembler().ConvertirENToViewModel(resEn);
 
             SessionClose();
@@ -111,6 +118,13 @@ namespace WebApplication_ReadRate.Controllers
             ReseñaCEN resCEN = new ReseñaCEN(resRepo);
 
             ReseñaEN resEn = resCEN.DameReseñaPorOID(id);
+            
+            if (resEn == null)
+            {
+                SessionClose();
+                return RedirectToAction(nameof(Index));
+            }
+            
             ReseñaViewModel resView = new ReseñaAssembler().ConvertirENToViewModel(resEn);
 
             SessionClose();
@@ -145,6 +159,13 @@ namespace WebApplication_ReadRate.Controllers
             ReseñaCEN resCEN = new ReseñaCEN(resRepository);
 
             ReseñaEN resEN = resCEN.DameReseñaPorOID(id);
+            
+            if (resEN == null)
+            {
+                SessionClose();
+                return RedirectToAction(nameof(Index));
+            }
+            
             ReseñaViewModel resVM = new ReseñaAssembler().ConvertirENToViewModel(resEN);
             SessionClose();
             return View(resVM);

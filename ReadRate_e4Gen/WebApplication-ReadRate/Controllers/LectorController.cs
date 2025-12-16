@@ -31,22 +31,22 @@ namespace WebApplication_ReadRate.Controllers
             LectorCEN lectorCEN = new LectorCEN(lectorRepository);
 
             LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
+            
+            // Forzar la carga de las relaciones antes de cerrar la sesión
+            if (lectorEN.LibroEnCurso != null)
+            {
+                var count1 = lectorEN.LibroEnCurso.Count;
+            }
+            if (lectorEN.LibroLeido != null)
+            {
+                var count2 = lectorEN.LibroLeido.Count;
+            }
+            if (lectorEN.ClubSuscritoLector != null)
+            {
+                var count3 = lectorEN.ClubSuscritoLector.Count;
+            }
+            
             LectorViewModel lectorViewModel = new LectorAssembler().ConvertirENToViewModel(lectorEN);
-            
-            // Obtener libros y clubes relacionados con el lector
-            // TODO: Implementar métodos específicos para obtener solo los libros y clubes del lector
-            // Por ahora se dejan las listas vacías, para poblarlas cuando estén disponibles los métodos
-            
-            // Ejemplo de cómo poblarlo cuando tengas los métodos:
-            // LibroRepository libroRepository = new LibroRepository(session);
-            // LibroCEN libroCEN = new LibroCEN(libroRepository);
-            // var librosGuardados = libroCEN.DameLibrosGuardadosPorLector(usuarioId.Value);
-            // lectorViewModel.LibrosGuardados = new LibroAssembler().ConvertirListENToViewModel(librosGuardados);
-            
-            // ClubRepository clubRepository = new ClubRepository(session);
-            // ClubCEN clubCEN = new ClubCEN(clubRepository);
-            // var clubsInscritos = clubCEN.DameClubsInscritosPorLector(usuarioId.Value);
-            // lectorViewModel.ClubsInscritos = new ClubAssembler().ConvertirListENToViewModel(clubsInscritos);
             
             SessionClose();
 

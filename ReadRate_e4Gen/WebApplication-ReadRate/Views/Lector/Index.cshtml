@@ -94,6 +94,10 @@ else
                             <div class="book-author">@lectura.NombreAutor</div>
                             <div class="book-actions">
                                 <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@lectura.Id">Ver Detalles</a>
+                                @if (esPropioLector)
+                                {
+                                    <a class="btn-action delete" asp-controller="Libro" asp-action="DeleteLibroEnCurso" asp-route-libroId="@lectura.Id">Eliminar</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -134,6 +138,10 @@ else
                             <div class="book-author">@libro.NombreAutor</div>
                             <div class="book-actions">
                                 <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id">Ver Detalles</a>
+                                @if (esPropioLector)
+                                {
+                                    <a class="btn-action delete" asp-controller="Libro" asp-action="DeleteLibroGuardado" asp-route-libroId="@libro.Id">Eliminar</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -184,7 +192,13 @@ else
                                 {
                                     <strong>Miembro</strong>
                                 }
-                                
+                            </div>
+                            <div class="book-actions">
+                                <a class="btn-action" asp-controller="Club" asp-action="Details" asp-route-id="@club.Id">Ver Detalles</a>
+                                @if (esPropioLector && club.PropietarioId != Model.IdUsuario)
+                                {
+                                    <a class="btn-action delete" asp-controller="Club" asp-action="DeleteSuscripcion" asp-route-clubId="@club.Id">Desuscribirse</a>
+                                }
                             </div>
                         </div>
                     </div>

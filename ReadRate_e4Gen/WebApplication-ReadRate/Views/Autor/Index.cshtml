@@ -31,14 +31,7 @@
                 }
             </div>
             <div>
-                @if (esPropioAutor)
-                {
-                    <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
-                }
-                else{
-                    <a asp-action="Edit" asp-route-id="@autor.IdUsuario" class="btn-action edit">Editar Perfil</a>
-                }
-                <div class="book-author" style="font-size: 1.1rem; margin-bottom: 1.5rem;">@autor.Email</div>
+                <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
                 <div class="book-meta" style="font-size: 1rem;">
                     <div class="book-meta-item">
                         <strong>Cantidad de libros publicados:</strong> @autor.CantidadLibrosPublicados
@@ -61,7 +54,20 @@
                 else
                 {
                     <div class="book-actions" style="margin-top: 1.5rem;">
-                        <a class="btn-action">Seguir</a>
+                        @if (ViewBag.YaSiguiendoAutor == true)
+                        {
+                            <form asp-action="DejarDeSeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
+                                <input type="hidden" name="autorId" value="@autor.IdUsuario" />
+                                <button type="submit" class="btn-action delete">Dejar de Seguir</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-action="SeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
+                                <input type="hidden" name="autorId" value="@autor.IdUsuario" />
+                                <button type="submit" class="btn-action">Seguir</button>
+                            </form>
+                        }
                     </div>
                 }
             </div>
@@ -70,10 +76,6 @@
         @* Sección de Libros del Autor *@
         <div class="action-bar">
             <h2 class="section-title">@(esPropioAutor ? "MIS LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
-            @if (esPropioAutor)
-            {
-                <a asp-controller="Libro" asp-action="Create" asp-route-autorId="@autor.IdUsuario" class="btn-create">+ Publicar Libro</a>
-            }
         </div>
         
         <div class="books-grid">
@@ -97,7 +99,6 @@
                             <div class="book-meta">
                                 <strong>Valoración:</strong> @libro.ValoracionMedia / 5 <br />
                             </div>
-                            <div class="book-sinopsis">@libro.Sinopsis</div>
                             <div class="book-actions">
                                 @if (esPropioAutor)
                                 {

@@ -28,14 +28,16 @@
                         }
 
                         <!-- Menú común para todos -->
-                        <li class="nav-item">
-                            <a class="nav-link home" asp-area="" asp-controller="Home" asp-action="Index">
-                                <span class="fa-solid fa-house"></span> HOME
-                            </a>
-                        </li>
+                        @if (usuarioRol != "administrador") {
+                            <li class="nav-item">
+                                <a class="nav-link home" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <span class="fa-solid fa-house"></span> HOME
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link libro" asp-area="" asp-controller="Libro" asp-action="Index">
-                                <span class="fa-solid fa-book"></span> BUSCAR
+                                <span class="fa-solid fa-book"></span> LIBROS
                             </a>
                         </li>
                         <li class="nav-item">
@@ -105,11 +107,20 @@
                         {
                             <!-- Menú para ADMINISTRADOR -->
 
-                            @* TODO: Cambiar las paginas y añadir las correspondientes para administradores  *@
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index">
+                                    <span class="fa-solid fa-users"></span> USUARIOS
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Administrador" asp-action="Index">
-                                    <span class="fa-solid fa-user-shield"></span> Página Administrador
+                                    <span class="fa-solid fa-chart-line"></span> MÉTRICAS
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link" style="color: #ff9800; cursor: default;">
+                                    <span class="fa-solid fa-user-shield"></span> @usuarioNombre
+                                </span>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Logout">

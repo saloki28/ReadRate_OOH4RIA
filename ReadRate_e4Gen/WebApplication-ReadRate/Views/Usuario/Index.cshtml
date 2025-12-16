@@ -1,0 +1,105 @@
+﻿@model WebApplication_ReadRate.Models.UsuarioFiltrosViewModel
+
+@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<header class="page-header">
+    <h1>Gestión de Usuarios</h1>
+</header>
+
+<section class="container">
+    <!--FORMULARIO DE BÚSQUEDA-->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"> Buscar Usuarios</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Index" method="get">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="NombreFiltro" class="form-label">Nombre de Usuario</label>
+                            <input type="text" name="NombreFiltro" id="NombreFiltro" class="form-control"
+                                   placeholder="Escribe el nombre del usuario..." value="@Model?.NombreFiltro" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="RolFiltro" class="form-label">Rol</label>
+                            <select name="RolFiltro" id="RolFiltro" class="form-select" asp-items="@Model?.Roles">
+                                <option value="">-- Todos los roles --</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <a asp-action="Index" class="btn btn-secondary">Limpiar</a>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--FIN FORMULARIO-->
+
+    <article class="d-flex justify-content-center align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+        <h2 class="section-title mb-0">RESULTADOS DE BÚSQUEDA</h2>
+    </article>
+
+    <!--USUARIOS-->
+    @if (Model.Usuarios != null && Model.Usuarios.Any())
+    {
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+            @foreach (var usuario in Model.Usuarios)
+            {
+                <div class="col">
+                    <div class="card user-card h-100">
+
+                        <!-- Información del usuario -->
+                        <div class="card-body user-card-body text-center">
+                            <h5 class="user-name">
+                                @usuario.NombreUsuario
+                            </h5>
+
+                            <!-- Foto de perfil -->
+                            <div class="user-photo-container">
+                                <div class="user-photo-wrapper">
+                                    @if (!string.IsNullOrEmpty(usuario.FotoUrl))
+                                    {
+                                        <img src="@usuario.FotoUrl" alt="@usuario.NombreUsuario" />
+                                    }
+                                    else
+                                    {
+                                        <div class="user-photo-placeholder">
+                                            @(usuario.NombreUsuario?.Substring(0, 1).ToUpper() ?? "U")
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <p class="user-role">
+                                <strong>Rol:</strong> @(usuario.Rol == "1" || usuario.Rol == "autor" ? "Autor" : "Lector")
+                            </p>
+
+                            <p class="user-email">
+                                <strong>Email:</strong> @usuario.Email
+                            </p>
+
+                            <!--Botón de eliminar-->
+                            <a href="@(usuario.Rol == "1" || usuario.Rol == "autor" ? Url.Action("Delete", "Autor", new { id = usuario.Id }) : Url.Action("Delete", "Lector", new { id = usuario.Id }))"
+                               class="btn-delete-user">
+                                Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="no-books">
+            No se encontraron usuarios con los criterios especificados.
+        </div>
+    }
+</section>

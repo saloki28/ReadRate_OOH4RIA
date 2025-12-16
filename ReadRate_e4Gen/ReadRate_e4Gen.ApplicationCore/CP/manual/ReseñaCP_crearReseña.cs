@@ -1,7 +1,7 @@
 
 using System;
 using System.Text;
-using System.Linq;
+
 using System.Collections.Generic;
 using ReadRate_e4Gen.ApplicationCore.Exceptions;
 using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;

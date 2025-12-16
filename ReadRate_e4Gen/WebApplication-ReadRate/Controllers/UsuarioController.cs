@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
+using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
+using ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
 using WebApplication_ReadRate.Models;
+using WebApplication_ReadRate.Models.Assemblers;
 
 namespace WebApplication_ReadRate.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : BasicController
     {
         // GET: UsuarioController/Login
         public ActionResult Login()
@@ -61,10 +65,62 @@ namespace WebApplication_ReadRate.Controllers
             return RedirectToAction("Login", "Usuario");
         }
 
-        // GET: UsuarioController
-        public ActionResult Index()
+        // GET: UsuarioController/Index
+        public ActionResult Index(UsuarioFiltrosViewModel filtros)
         {
-            return View();
+            SessionInitialize();
+            UsuarioRepository usuarioRepository = new UsuarioRepository(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+
+            // =================================================================
+            // SELECT ROLES: Obtener roles únicos para el filtro
+            // =================================================================
+            IList<SelectListItem> rolesSelect = new List<SelectListItem>();
+            
+            try
+            {
+                rolesSelect.Add(new SelectListItem { Value = "1", Text = "Autor" });
+                rolesSelect.Add(new SelectListItem { Value = "2", Text = "Lector" });
+            }
+            catch
+            {
+                // En caso de error, la lista queda vacía
+            }
+
+            // Convertir el rol de string a enum nullable
+            RolUsuarioEnum? rolFiltro = null;
+            if (!string.IsNullOrEmpty(filtros.RolFiltro))
+            {
+                rolFiltro = (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), filtros.RolFiltro);
+            }
+
+            // ============================================================
+            // APLICAR FILTROS USANDO DameUsuarioPorFiltros
+            // ============================================================
+            IList<UsuarioEN> listaUsuariosEN = usuarioCEN.DameUsuarioPorFiltros(
+                p_rol: rolFiltro,
+                p_nombre: filtros.NombreFiltro,
+                first: 0,
+                size: -1
+            );
+
+            // Convertir a ViewModels
+            IEnumerable<UsuarioViewModel> listUsuarios = new UsuarioAssembler().ConvertirListENToViewModel(listaUsuariosEN);
+
+            // ============================================================
+            // CREAR EL VIEWMODEL COMPLETO PARA LA VISTA
+            // ============================================================
+            var resultado = new UsuarioFiltrosViewModel
+            {
+                NombreFiltro = filtros.NombreFiltro,
+                RolFiltro = filtros.RolFiltro,
+                Usuarios = listUsuarios,
+                Roles = rolesSelect
+            };
+
+            SessionClose();
+
+            return View(resultado);
         }
 
         // GET: UsuarioController/Details/5

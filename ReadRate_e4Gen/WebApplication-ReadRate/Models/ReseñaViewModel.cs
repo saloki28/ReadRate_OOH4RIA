@@ -35,7 +35,11 @@ namespace WebApplication_ReadRate.Models
 
         //Nombre del lector de la reseña
         [Display(Name = "Nombre del lector reseñador")]
-        public string LectorNombre { get; set; } 
+        public string LectorNombre { get; set; }
+
+        //Foto del lector de la reseña
+        [Display(Name = "Foto del lector")]
+        public string? LectorFoto { get; set; } 
 
         // Cuando se realizó la reseña
         [Display(Name = "Fecha de Publicación")]

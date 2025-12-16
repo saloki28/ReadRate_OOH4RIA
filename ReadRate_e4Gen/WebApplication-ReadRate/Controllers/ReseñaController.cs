@@ -157,11 +157,16 @@ namespace WebApplication_ReadRate.Controllers
         {
             try
             {
-
+                // Obtener el libro antes de eliminar para redirigir correctamente
                 ReseñaRepository resRepository = new ReseñaRepository();
                 ReseñaCEN resCEN = new ReseñaCEN(resRepository);
+                
+                ReseñaEN resEN = resCEN.DameReseñaPorOID(id);
+                int libroId = resEN.LibroReseñado.Id;
+                
                 resCEN.EliminarReseña(id);
-                return RedirectToAction(nameof(Index));
+                
+                return RedirectToAction("Details", "Libro", new { id = libroId });
             }
             catch (Exception ex)
             {

@@ -15,6 +15,7 @@ namespace WebApplication_ReadRate.Models.Assemblers
             res.FechaPublicacion = en.Fecha;
             res.LibroNombre = en.LibroReseñado.Titulo;
             res.LectorNombre = en.LectorValorador.NombreUsuario;
+            res.LectorFoto = en.LectorValorador.Foto;
 
             return res;
         }

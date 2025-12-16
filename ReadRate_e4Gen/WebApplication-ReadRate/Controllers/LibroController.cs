@@ -151,6 +151,29 @@ namespace WebApplication_ReadRate.Controllers
             
             libroVM.Resenas = new ReseñaAssembler().ConvertirListENToViewModel(reseñasEN).ToList();
 
+            // Verificar si el usuario es lector y si el libro está en sus listas
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+            var rolUsuario = HttpContext.Session.GetString("UsuarioRol");
+            
+            ViewData["EstaEnGuardados"] = false;
+            ViewData["EstaEnCurso"] = false;
+            
+            if (rolUsuario == "lector" && lectorId.HasValue)
+            {
+                LectorRepository lectorRepo = new LectorRepository(session);
+                LectorCEN lectorCEN = new LectorCEN(lectorRepo);
+                LectorEN lectorEN = lectorCEN.DameLectorPorOID(lectorId.Value);
+                
+                if (lectorEN != null)
+                {
+                    // Usar la función ComprobarSiEstaEnLista para verificar si está en guardados
+                    ViewData["EstaEnGuardados"] = lectorCEN.ComprobarSiEstaEnLista(id, lectorEN.LibroLeido);
+                    
+                    // Usar la función ComprobarSiEstaEnLista para verificar si está en curso
+                    ViewData["EstaEnCurso"] = lectorCEN.ComprobarSiEstaEnLista(id, lectorEN.LibroEnCurso);
+                }
+            }
+
             SessionClose();
             return View(libroVM);
         }
@@ -463,6 +486,88 @@ namespace WebApplication_ReadRate.Controllers
             }
 
             return RedirectToAction("Index", "Lector");
+        // POST: Añadir libro a lista de guardados
+        [HttpPost]
+        public ActionResult AgregarAGuardados(int libroId)
+        {
+            try
+            {
+                var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+
+                LectorCP lectorCP = new LectorCP(new SessionCPNHibernate());
+                lectorCP.AsignarLibroListaGuardados(lectorId.Value, new List<int> { libroId });
+
+                return RedirectToAction("Details", new { id = libroId });
+            }
+            catch (Exception ex)
+            {
+                var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
+                TempData["ErrorMessage"] = "Error al agregar a guardados: " + ex.Message + innerMessage;
+                return RedirectToAction("Details", new { id = libroId });
+            }
+        }
+
+        // POST: Quitar libro de lista de guardados
+        [HttpPost]
+        public ActionResult QuitarDeGuardados(int libroId)
+        {
+            try
+            {
+                var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+
+                LectorCP lectorCP = new LectorCP(new SessionCPNHibernate());
+                lectorCP.DesasignarLibroListaGuardados(lectorId.Value, new List<int> { libroId });
+
+                return RedirectToAction("Details", new { id = libroId });
+            }
+            catch (Exception ex)
+            {
+                var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
+                TempData["ErrorMessage"] = "Error al quitar de guardados: " + ex.Message + innerMessage;
+                return RedirectToAction("Details", new { id = libroId });
+            }
+        }
+
+        // POST: Añadir libro a lista en curso
+        [HttpPost]
+        public ActionResult AgregarAEnCurso(int libroId)
+        {
+            try
+            {
+                var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+
+                LectorCP lectorCP = new LectorCP(new SessionCPNHibernate());
+                lectorCP.AsignarLibroListaEnCurso(lectorId.Value, new List<int> { libroId });
+
+                return RedirectToAction("Details", new { id = libroId });
+            }
+            catch (Exception ex)
+            {
+                var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
+                TempData["ErrorMessage"] = "Error al agregar a en curso: " + ex.Message + innerMessage;
+                return RedirectToAction("Details", new { id = libroId });
+            }
+        }
+
+        // POST: Quitar libro de lista en curso
+        [HttpPost]
+        public ActionResult QuitarDeEnCurso(int libroId)
+        {
+            try
+            {
+                var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+
+                LectorCP lectorCP = new LectorCP(new SessionCPNHibernate());
+                lectorCP.DesasignarLibroListaEnCurso(lectorId.Value, new List<int> { libroId });
+
+                return RedirectToAction("Details", new { id = libroId });
+            }
+            catch (Exception ex)
+            {
+                var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
+                TempData["ErrorMessage"] = "Error al quitar de en curso: " + ex.Message + innerMessage;
+                return RedirectToAction("Details", new { id = libroId });
+            }
         }
     }
 }

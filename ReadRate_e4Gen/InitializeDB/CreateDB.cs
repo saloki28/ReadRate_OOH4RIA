@@ -1072,6 +1072,7 @@ public static void InitializeData ()
                 int clubId2 = 0;
                 int clubId3 = 0;
                 int clubId4 = 0;
+                int clubId5 = 0;
 
                 SessionCPNHibernate sessionCPNHibernate1 = new SessionCPNHibernate ();
 
@@ -1108,7 +1109,40 @@ public static void InitializeData ()
                         sessionCPNHibernate1.SessionClose ();
                 }
 
-                // CLUB 2: Club de Misterio y Suspense
+                // CLUB 2: Club con aforo completo
+                try
+                {
+                        sessionCPNHibernate1.SessionInitializeTransaction ();
+                        var lectorCEN = new LectorCEN (sessionCPNHibernate1.UnitRepo.LectorRepository);
+                        var clubCEN = new ClubCEN (sessionCPNHibernate1.UnitRepo.ClubRepository);
+
+                        LectorEN propietario5 = lectorCEN.DameLectorPorOID (usuarioId3);
+
+                        clubId2 = clubCEN.CrearClub (
+ p_nombre: "Club de Terror y Horror",
+ p_enlaceDiscord: "https://discord.gg/terror",
+                                p_miembrosMax: 25,
+ p_foto: "/images/imagenClub/club_terror.webp",
+ p_descripcion: "Para los valientes que disfrutan de historias escalofriantes, criaturas sobrenaturales y el terror psicológico que te mantiene despierto por la noche.",
+                                p_miembrosActuales: 25,
+ p_lectorPropietario: propietario5
+                                );
+
+                        sessionCPNHibernate1.Commit ();
+                        Console.WriteLine ("Club 'Club de Terror y Horror' creado correctamente con ID: " + clubId2);
+                }
+                catch (Exception ex)
+                {
+                        sessionCPNHibernate1.RollBack ();
+                        throw;
+                }
+                finally
+                {
+                        sessionCPNHibernate1.SessionClose ();
+                }
+
+
+                // CLUB 5: Club de Misterio y Suspense
                 try
                 {
                         sessionCPNHibernate1.SessionInitializeTransaction ();
@@ -1117,7 +1151,7 @@ public static void InitializeData ()
 
                         LectorEN propietario2 = lectorCEN.DameLectorPorOID (usuarioId3);
 
-                        clubId2 = clubCEN.CrearClub (
+                        clubId5 = clubCEN.CrearClub (
  p_nombre: "Club de Misterio y Suspense",
  p_enlaceDiscord: "https://discord.gg/misterio",
                                 p_miembrosMax: 30,
@@ -1128,7 +1162,7 @@ public static void InitializeData ()
                                 );
 
                         sessionCPNHibernate1.Commit ();
-                        Console.WriteLine ("Club 'Club de Misterio y Suspense' creado correctamente con ID: " + clubId2);
+                        Console.WriteLine ("Club 'Club de Misterio y Suspense' creado correctamente con ID: " + clubId5);
                 }
                 catch (Exception ex)
                 {
@@ -1236,7 +1270,7 @@ public static void InitializeData ()
  p_titulo: "Lanzamiento de nueva plataforma ReadRate",
  p_fechaPublicacion: new DateTime (2024, 10, 15),
  p_foto: "/images/imagenNoticia/noticia_lanzamiento.webp",
- p_textoContenido: "Estamos emocionados de presentar ReadRate, la nueva plataforma de lectura social donde podrás compartir tus opiniones sobre libros y conectar con otros lectores.",
+ p_textoContenido: "Estamos emocionados de presentar ReadRate, la nueva plataforma de lectura social donde podrás compartir tus opiniones sobre libros, conectar con otros lectores apasionados, descubrir nuevas historias y participar en clubes exclusivos. Únete hoy.",
  p_administradorNoticias: administradorId1
                         );
 
@@ -1375,7 +1409,7 @@ public static void InitializeData ()
  p_titulo: "Nuevo libro de Brandon Sanderson",
  p_fechaPublicacion: new DateTime (2024, 11, 1),
  p_foto: "/images/imagenNoticia/noticia_nuevo_libro.webp",
- p_textoContenido: "El reconocido autor publicará su nueva obra el próximo mes. Se trata de una novela de misterio que promete mantener a los lectores en vilo hasta la última página.",
+ p_textoContenido: "El reconocido autor Brandon Sanderson publicará su nueva obra el próximo mes. Se trata de una novela de misterio que promete mantener a los lectores en vilo hasta la última página, con giros inesperados, personajes complejos y una trama adictiva.",
  p_administradorNoticias: administradorId1
                         );
                 Console.WriteLine ("Noticia 'Nuevo libro de Brandon Sanderson' creada correctamente.");
@@ -1384,7 +1418,7 @@ public static void InitializeData ()
  p_titulo: "Feria del Libro 2024",
  p_fechaPublicacion: new DateTime (2024, 11, 5),
  p_foto: "/images/imagenNoticia/noticia_feria_libro.webp",
- p_textoContenido: "Se celebrará la feria anual del libro con la participación de más de 200 autores nacionales e internacionales. Habrá firmas de libros, charlas y actividades para toda la familia.",
+ p_textoContenido: "Se celebrará la feria anual del libro con la participación de más de 200 autores nacionales e internacionales. Habrá firmas de libros, charlas magistrales, presentaciones especiales, talleres literarios y actividades para toda la familia.",
  p_administradorNoticias: administradorId1
                         );
                 Console.WriteLine ("Noticia 'Feria del Libro 2024' creada correctamente.");
@@ -1393,7 +1427,7 @@ public static void InitializeData ()
  p_titulo: "Entrevista exclusiva con Leigh Bardugo",
  p_fechaPublicacion: new DateTime (2024, 11, 10),
  p_foto: "/images/imagenNoticia/noticia_entrevista_leigh.webp",
- p_textoContenido: "Hablamos con la autora sobre su proceso creativo, sus influencias literarias y sus próximos proyectos. Una conversación íntima sobre el arte de escribir.",
+ p_textoContenido: "Hablamos con la autora Leigh Bardugo sobre su proceso creativo, sus influencias literarias, sus próximos proyectos y cómo desarrolla personajes memorables. Una conversación íntima sobre el arte de escribir y crear mundos fantásticos.",
  p_administradorNoticias: administradorId1
                         );
                 Console.WriteLine ("Noticia 'Entrevista exclusiva con Leigh Bardugo' creada correctamente.");
@@ -1402,7 +1436,7 @@ public static void InitializeData ()
  p_titulo: "Bestsellers del mes",
  p_fechaPublicacion: new DateTime (2024, 11, 15),
  p_foto: "/images/imagenNoticia/noticia_bestsellers.webp",
- p_textoContenido: "Los libros más vendidos de este mes incluyen títulos de ficción, romance y ciencia ficción. Descubre cuáles son las lecturas favoritas de los usuarios en noviembre.",
+ p_textoContenido: "Los libros más vendidos de este mes incluyen títulos de ficción contemporánea, romance apasionado, ciencia ficción épica y misterio intrigante. Descubre cuáles son las lecturas favoritas de los usuarios en noviembre y encuentra tu próxima historia.",
  p_administradorNoticias: administradorId1
                         );
                 Console.WriteLine ("Noticia 'Bestsellers del mes' creada correctamente.");
@@ -2813,7 +2847,7 @@ public static void InitializeData ()
                 // VERIFICACIÓN DE IDs DE CLUBS
                 Console.WriteLine ("\n------------------ Verificación de IDs de Clubs disponibles ------------------");
                 Console.WriteLine ("clubId1 (Club de Ciencia Ficción): " + clubId1);
-                Console.WriteLine ("clubId2 (Club de Misterio y Suspense): " + clubId2);
+                Console.WriteLine ("clubId5 (Club de Misterio y Suspense): " + clubId5);
 
                 // PREPARACIÓN: Suscribir usuarios al club para luego expulsarlos
                 Console.WriteLine ("\n------------------ Preparación: Suscribir usuarios al Club de Ciencia Ficción para las pruebas de expulsión ------------------");
@@ -2948,13 +2982,13 @@ public static void InitializeData ()
                 // PRUEBA 2: Obtener lista de miembros del Club de Misterio y Suspense (Vacío)
                 Console.WriteLine ("\n------------------ Prueba 2: Obtener lista de miembros del Club de Misterio y Suspense (Vacío) ------------------");
 
-                IList<LectorEN> miembrosClub2 = clubCP1.ObtenerListaMiembros (clubId2);
+                IList<LectorEN> miembrosClub5 = clubCP1.ObtenerListaMiembros (clubId5);
 
-                if (miembrosClub2 != null && miembrosClub2.Count > 0) {
-                        Console.WriteLine ("Total de miembros en el Club de Misterio y Suspense: " + miembrosClub2.Count);
+                if (miembrosClub5 != null && miembrosClub5.Count > 0) {
+                        Console.WriteLine ("Total de miembros en el Club de Misterio y Suspense: " + miembrosClub5.Count);
                         Console.WriteLine ("\nListado de miembros:");
-                        for (int i = 0; i < miembrosClub2.Count; i++) {
-                                Console.WriteLine ("  " + (i + 1) + ". ID: " + miembrosClub2 [i].Id + " - Nombre: " + miembrosClub2 [i].NombreUsuario);
+                        for (int i = 0; i < miembrosClub5.Count; i++) {
+                                Console.WriteLine ("  " + (i + 1) + ". ID: " + miembrosClub5 [i].Id + " - Nombre: " + miembrosClub5 [i].NombreUsuario);
                         }
                 }
                 else {

@@ -1088,6 +1088,16 @@ select.form-control option:checked,
     border-bottom: 3px solid #fff;
 }
 
+/* Separador vertical en navbar */
+.navbar-separator {
+    display: inline-block;
+    width: 2px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 0.5rem;
+    vertical-align: middle;
+}
+
 .navbar-toggler {
     border-radius: 12px;
     border: 2px solid #ffb74d;
@@ -1140,22 +1150,111 @@ footer.footer .footer-main {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ec6a00;
 }
 
-/* Para Evento en movil la imagen se sit�a arriba (cambio provisional)  /////////////////////////////////////////////////////////////////////// */
-    .card-horizontal {
-        flex-direction: column;
-        height: auto;
-    }
 
-    .card-horizontal-img {
-        flex: none;
-        height: 200px;
-        border-right: none;
-        border-bottom: 2px solid #333;
-    }
+/* ===========================
+   LISTA DE USUARIOS 
+   =========================== */
+.user-card {
+    border: 2px solid var(--readrate-orange-main);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .meta-box-container {
-        flex-wrap: wrap;
-    }
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255,111,0,0.2);
+}
+
+.user-name {
+    color: var(--readrate-orange-main);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+}
+
+.user-photo-container {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.user-photo-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--readrate-orange-main);
+    flex-shrink: 0;
+}
+
+.user-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--readrate-orange-main), var(--readrate-orange-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.user-card-body {
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.user-role,
+.user-email {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.user-email {
+    font-size: 0.85rem;
+    color: #999;
+    word-break: break-word;
+    margin-bottom: 1.5rem;
+}
+
+/* Botón de Eliminar */
+.btn-delete-user {
+    background: linear-gradient(135deg, var(--readrate-orange-dark) 0%, var(--readrate-orange-light) 100%);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px; 
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block; 
+    width: auto;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-delete-user:hover {
+    background: linear-gradient(135deg, var(--readrate-orange-main) 0%, var(--readrate-orange-lighter) 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+}
 
 /*/////////////////////////////////////////////////////////////*/
 
@@ -1507,115 +1606,6 @@ footer.footer .footer-main {
     }
 }
 
-
-/* ===========================
-   LISTA DE USUARIOS - CSS NUEVO
-   =========================== */
-.user-card {
-    border: 2px solid var(--readrate-orange-main);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.user-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(255,111,0,0.2);
-}
-
-.user-name {
-    color: var(--readrate-orange-main);
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 0;
-    margin-top: 0.5rem;
-    padding: 0 1rem;
-}
-
-.user-photo-container {
-    padding: 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.user-photo-wrapper {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--readrate-orange-main);
-    flex-shrink: 0;
-}
-
-.user-photo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.user-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--readrate-orange-main), var(--readrate-orange-light));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.user-card-body {
-    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-    width: 100%;
-    text-align: center;
-}
-
-.user-role,
-.user-email {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.user-email {
-    font-size: 0.85rem;
-    color: #999;
-    word-break: break-word;
-    margin-bottom: 1.5rem;
-}
-
-/* Botón de Eliminar */
-.btn-delete-user {
-    background: linear-gradient(135deg, var(--readrate-orange-dark) 0%, var(--readrate-orange-light) 100%);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px; 
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block; 
-    width: auto;
-    margin: 0 auto;
-    box-shadow: 0 4px 12px rgba(255,111,0,0.3);
-    transition: all 0.3s ease;
-}
-
-.btn-delete-user:hover {
-    background: linear-gradient(135deg, var(--readrate-orange-main) 0%, var(--readrate-orange-lighter) 100%);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255,111,0,0.4);
-}
-
-/* fin css nuevo*/
-
-
 /* =========================== 
    MÓVIL PEQUEÑO (menor a 576px)
    =========================== */
@@ -1666,29 +1656,30 @@ footer.footer .footer-main {
     }
 }
 
-/* ===========================
-   EVENTOS: Listado horizontal
-   =========================== */
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+
+
+/* =========================================================
+   EVENTOS, NOTICIAS Y CLUBES: Listados horizontales
+   ========================================================= */
 
 /* Contenedor principal: Ya no es un grid, es una lista vertical */
 .vertical-list {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    max-width: 1000px;
     margin: 0 auto;
 }
 
 .event-horizontal {
     display: flex;
-    flex-direction: row;
     background: #fff;
-    border: 2px solid #333;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     transition: transform 0.2s ease;
-    min-height: 280px
 }
 
 .event-horizontal:hover {
@@ -1718,6 +1709,7 @@ footer.footer .footer-main {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
+    max-height: 20em;
 }
 
 .event-title {
@@ -1786,8 +1778,107 @@ footer.footer .footer-main {
     color: #000;
 }
 
+/* Botón Club Completo */
+.btn-club-completo {
+    background: #fff;
+    color: #000;
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-club-completo:disabled {
+    background: #fff;
+    color: #000;
+}
+
+.btn-evento-completo {
+    background: #fff;
+    color: #000;
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-evento-completo:disabled {
+    background: #fff;
+    color: #000;
+}
+
 .aforo-text {
     font-weight: 600;
     color: #444;
+}
+
+/* Media Queries para Eventos */
+/* Desktop - Horizontal */
+@media (min-width: 768px) {
+    .event-horizontal .row {
+        max-height: 20em;
+    }
+}
+
+/* Móvil - Vertical */
+@media (max-width: 767px) {
+    .event-horizontal .row {
+        max-height: none !important;
+    }
+    
+    .event-horizontal-body {
+        max-height: none !important;
+        padding: 1rem;
+    }
+    
+    .event-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .event-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .meta-box-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .meta-box {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.75rem;
+        text-align: center;
+    }
+    
+    .event-footer-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .btn-black {
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .aforo-text {
+        text-align: center;
+        font-size: 0.9rem;
+    }
 }
 

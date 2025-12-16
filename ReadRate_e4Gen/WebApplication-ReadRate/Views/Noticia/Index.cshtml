@@ -7,73 +7,81 @@
     <h1>Listado de Noticias</h1>
 </header>
 
-    <div class="container">
-        <div class="action-bar">
-            <h2 class="section-title">Todas las Noticias</h2>
-            <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
-        </div>
+<section class="container">
+    <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+        <h2 class="section-title mb-0">Todas las Noticias</h2>
+        <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
+    </article>
 
-        <div class="news-grid">
-            @if (Model != null && Model.Any())
+    <article class="vertical-list">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
             {
-                foreach (var item in Model)
-                {
-                    <div class="news-card">
-                        <div class="book-cover">
+                <article class="card mb-4 shadow event-horizontal">
+                    <div class="row g-0 h-100">
+                        <article class="col-12 col-md-4">
                             @if (!string.IsNullOrEmpty(item.Foto))
                             {
-                                <img src="@item.Foto" alt="@item.Titulo" class="news-cover" />
+                                <img src="@item.Foto" alt="@item.Titulo" class="img-fluid h-100 w-100" style="object-fit: cover;" />
                             }
                             else
                             {
-                                <div class="news-cover-placeholder">
-                                    Foto Noticia
+                                <div class="event-cover-placeholder d-flex align-items-center justify-content-center h-100">
+                                    Sin Foto
                                 </div>
                             }
-                        </div>
+                        </article>
 
-                        <div class="news-info">
-                            <div class="news-title">@Html.DisplayFor(modelItem => item.Titulo)</div>
+                        <article class="col-12 col-md-8">
+                            <div class="event-horizontal-body card-body d-flex flex-column h-100">
+                            
+                                <h3 class="event-title card-title">@Html.DisplayFor(modelItem => item.Titulo)</h3>
 
-                            <div class="news-meta">
-                                <div class="news-meta-item">
-                                    <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
-                                </div>
-
-                                <div class="news-preview">
+                                <p class="event-description card-text">
                                     @Html.DisplayFor(modelItem => item.TextoContenido)
+                                </p>
+
+                                <div class="meta-box-container d-flex flex-wrap gap-3 mb-3">
+                                    <div class="meta-box">
+                                        <strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                                    </div>
                                 </div>
+
+                                <footer class="event-footer-actions mt-auto d-flex justify-content-between align-items-center">
+
+                                    @{
+                                        var usuarioRol = Context.Session.GetString("UsuarioRol");
+                                        var usuarioNombre = Context.Session.GetString("UsuarioNombre");
+                                    }
+                                    @if (usuarioRol == "admin" || usuarioRol == "administrador") // ajusta según tus roles
+                                    {
+                                        <div class="d-flex gap-2 w-100">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit flex-fill text-center">Editar</a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">Borrar</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex gap-2 w-100">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
+                                        </div>
+                                    }
+                                </footer>
                             </div>
-
-                            @{
-                                var usuarioRol = Context.Session.GetString("UsuarioRol");
-                                var usuarioNombre = Context.Session.GetString("UsuarioNombre");
-                            }
-                            @if (usuarioRol == "admin" || usuarioRol == "administrador") // ajusta según tus roles
-                            {
-                                <div class="news-actions">
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="news-actions">
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
-                                </div>
-                            }
-
-                        </div>
+                        </article>
                     </div>
-                }
+                </article>
             }
-            else
-            {
-                <div class="no-news">
-                    No hay noticias en el listado.
-                    ¡Añade la primera!
+        }
+        else
+        {
+            <article class="col-12">
+                <div class="alert alert-info text-center">
+                    No hay noticias disponibles.
                 </div>
-            }
-        </div>
-    </div>
+            </article>
+        }
+    </article>
+</section>

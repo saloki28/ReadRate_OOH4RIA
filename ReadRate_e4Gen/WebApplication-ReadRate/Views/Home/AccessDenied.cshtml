@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Acceso Denegado";
+}
+
+<main class="container my-5">
+    <section class="details-card card shadow-lg" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <header class="mb-4">
+            <h1 style="color: #e65100; font-size: 2.5rem;">
+                <i class="fa-solid fa-ban"></i> Acceso Denegado
+            </h1>
+        </header>
+        
+        <article class="mb-4">
+            <p style="font-size: 1.2rem; color: #666;">
+                No tienes permisos para acceder a este recurso.
+            </p>
+            <p style="font-size: 1rem; color: #999;">
+                Si crees que esto es un error, por favor contacta con el administrador.
+            </p>
+        </article>
+
+        <article class="form-actions d-flex gap-3 justify-content-center mt-4">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary px-5">
+                <i class="fa-solid fa-house"></i> Volver al Inicio
+            </a>
+            @{
+                var autenticado = Context.Session.GetString("Autenticado");
+                if (string.IsNullOrEmpty(autenticado) || autenticado != "true")
+                {
+                    <a asp-controller="Usuario" asp-action="Login" class="btn btn-secondary px-5">
+                        <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Usuario" asp-action="Logout" class="btn btn-secondary px-5">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                    </a>
+                }
+            }
+        </article>
+    </section>
+</main>

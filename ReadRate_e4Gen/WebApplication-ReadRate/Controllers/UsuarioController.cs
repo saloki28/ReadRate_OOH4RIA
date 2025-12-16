@@ -39,6 +39,21 @@ namespace WebApplication_ReadRate.Controllers
                     HttpContext.Session.SetString("UsuarioNombre", usuario.NombreUsuario);
                     HttpContext.Session.SetInt32("UsuarioId", usuario.Id);
                     HttpContext.Session.SetString("UsuarioRol", usuario.Rol.ToString());
+                    HttpContext.Session.SetString("Autenticado", "true");
+                    
+                    // Redireccionar según el rol del usuario
+                    string rol = usuario.Rol.ToString().ToLower();
+                    switch (rol)
+                    {
+                        case "lector":
+                            return RedirectToAction("Index", "Lector");
+                        case "autor":
+                            return RedirectToAction("Index", "Autor");
+                        case "administrador":
+                            return RedirectToAction("Index", "Administrador");
+                        default:
+                            return RedirectToAction("Index", "Home");
+                    }
                 }
                 
                 return RedirectToAction("Index", "Home");
@@ -58,7 +73,7 @@ namespace WebApplication_ReadRate.Controllers
         {
             // Limpiar la sesión
             HttpContext.Session.Clear();
-            return RedirectToAction("Login", "Usuario");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: UsuarioController

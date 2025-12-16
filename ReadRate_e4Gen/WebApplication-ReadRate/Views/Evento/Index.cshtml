@@ -12,11 +12,14 @@
 <section class="container">
     @if (rolUsuario == "administrador")
     {
-        <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
-            <!-- Solo administradores ven el botón de crear -->
-        
-                <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
-        
+        <article class="d-flex justify-content-center align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+
+            <a asp-action="Create"
+               class="btn-create btn-black py-3 fw-bold text-uppercase w-50 text-center"
+               style="font-size: 1.1rem; letter-spacing: 1px;">
+                + Crear nuevo evento
+            </a>
+
         </article>
     }
 

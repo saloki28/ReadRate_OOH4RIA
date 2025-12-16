@@ -43,38 +43,19 @@ namespace WebApplication_ReadRate.Controllers
         }
 
         // GET: ReseñaController/Create
-        public ActionResult Create()
+        public ActionResult Create(int libroId, int lectorId)
         { 
-            LibroRepository libRepo = new LibroRepository();
-            LibroCEN libCEN = new LibroCEN(libRepo);
-
-            IList<LibroEN> listaLib = libCEN.DameTodosLibros(0, -1);
-            IList<SelectListItem> libItems = new List<SelectListItem>();
-
-            foreach(LibroEN libroEn in listaLib)
-            {
-                libItems.Add(new SelectListItem{ Text = libroEn.Titulo, Value = libroEn.Id.ToString() });
-            }
-
-            ViewData["libItems"] = libItems;
-
-            LectorRepository lecRepo = new LectorRepository();
-            LectorCEN lecCEN = new LectorCEN(lecRepo);
-
-            IList<LectorEN> lecLib = lecCEN.DameTodosLectores(0, -1);
-            IList<SelectListItem> lecItems = new List<SelectListItem>();
-
-            foreach (LectorEN lecEn in lecLib)
-            {
-                lecItems.Add(new SelectListItem { Text = lecEn.NombreUsuario , Value = lecEn.Id.ToString() });
-            }
-
-            ViewData["lecItems"] = lecItems;
+            LibroRepository libroRepo = new LibroRepository();
+            LibroCEN libroCEN = new LibroCEN(libroRepo);
+            LibroEN libro = libroCEN.DameLibroPorOID(libroId);
 
             // Establecer la fecha actual en el modelo
             var model = new ReseñaViewModel
             {
-                FechaPublicacion = DateTime.Now
+                FechaPublicacion = DateTime.Now,
+                LibroId = libroId,
+                LectorId = lectorId,
+                LibroNombre = libro.Titulo
             };
 
             return View(model);
@@ -112,7 +93,7 @@ namespace WebApplication_ReadRate.Controllers
                 Console.WriteLine($"Fecha recuperada (formato completo): {reseñaCreada.Fecha:dd/MM/yyyy HH:mm:ss.fff}");
                 Console.WriteLine($"=== FIN DEPURACIÓN ===");
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Libro", new { id = res.LibroId });
             }
             catch (Exception ex)
             {

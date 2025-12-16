@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Detalles del Libro";
+    var lectorId = Context.Session.GetInt32("UsuarioId") ?? 0;
+    var rolUsuario = Context.Session.GetString("UsuarioRol");
 }
 
 <!DOCTYPE html>
@@ -11,68 +13,120 @@
     <title>Read&Rate - Detalles del Libro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
-</head>
+    </head>
 <body>
     <header class="page-header">
-        <h1>Detalles del Libro</h1>
+        <h1>DETALLES DEL LIBRO</h1>
     </header>
 
-    <main class="container my-5">
-        <section class="details-card card shadow-lg">
-            
+    <main class="container">
+        <section class="details-card">
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.Titulo)</div>
+            </article>
+
             @if(Model != null && !string.IsNullOrEmpty(Model.FotoPortadaUrl))
             {
-                <div class="detail-row-foto d-flex justify-content-center align-items-center mb-4">
-                    <img src="@Model.FotoPortadaUrl" alt="Portada del libro" style="max-width: 215px; border: none; box-shadow: none;">
+                <div class="detail-row-foto">
+                    <img src="@Model.FotoPortadaUrl" alt="Portada del libro" style="max-width: 200px; height: auto; border-radius: 10px;">
                 </div>
             }
-            
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Titulo)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Titulo)</div>
+
+            <article class="detail-row">
+                <div class="detail-label">Nombre del Autor/a</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.NombreAutor)</div>
+            </article>
+        
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.Sinopsis)</div>
+                <div class="detail-value synopsis">@Html.DisplayFor(model => model.Sinopsis)</div>
+            </article>
+
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
+                <div class="detail-value">
+                    @for (int i = 0; i < Math.Floor(Model.ValoracionMedia); i++)
+                    {
+                        <span>&#9733;</span>
+                    }
+                </div>
             </article>
             
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Genero)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Genero)</div>
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.Genero)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.Genero)</div>
             </article>
             
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.EdadRecomendada)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.EdadRecomendada) años</div>
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.EdadRecomendada)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.EdadRecomendada) años</div>
             </article>
             
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.FechaPublicacion)</div>
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.FechaPublicacion)</div>
             </article>
             
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.NumPags)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.NumPags) páginas</div>
+            <article class="detail-row">
+                <div class="detail-label">@Html.DisplayNameFor(model => model.NumPags)</div>
+                <div class="detail-value">@Html.DisplayFor(model => model.NumPags) páginas</div>
             </article>
             
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Sinopsis)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Sinopsis)</div>
-            </article>
+            @*cuando sea lector*@ 
+            @if (rolUsuario == "lector") {
+
+                <article class="form-actions">
+                    <a asp-controller="Reseña" asp-action="Create" asp-route-libroId="@Model.Id" asp-route-lectorId="@lectorId" class="btn btn-primary">¡Rate!</a>
+                </article>
+            }
             
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.ValoracionMedia) / 5</div>
-            </article>
-            
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">Nombre del Autor/a</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.NombreAutor)</div>
-            </article>
-            
-            <article class="form-actions d-flex gap-3 justify-content-between mt-4">
-                <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary px-5">Editar libro</a>
-            </article>
+        </section>
+
+        <section class="details-card">
+            <h2>RESEÑAS PUBLICADAS</h2>
+
+            @if (Model.Resenas != null && Model.Resenas.Any())
+            {
+                foreach (var resena in Model.Resenas)
+                {
+                    @*luego hacer un if para saber si el usuario tiene una reseña aqui y poder borrarlas*@
+                    <article class="details-card">
+                        <p class="detail-row">
+                            <p class="detail-label">Lector</p>
+                            <p class="detail-value">@resena.LectorNombre</p>
+                        </p>
+
+                        <p class="detail-row">
+                            <p class="detail-label">Opinión</p>
+                            <p class="detail-value synopsis">@resena.Opinion</p>
+                        </p>
+
+                        <p class="detail-row">
+                            <p class="detail-label">Valoración</p>
+                            <p class="detail-value">
+                                @if (Math.Floor(resena.Valoracion) == 0)
+                                {
+                                    <span>&#9734;</span>
+                                }
+                                else
+                                {
+                                    @for (int i = 0; i < Math.Floor(resena.Valoracion); i++)
+                                    {
+                                        <span>&#9733;</span>
+                                    }
+                                }
+                            </p>
+                        </p>
+                    </article>
+                }
+            }
+            else
+            {
+                <p>No hay reseñas para este libro aún.</p>
+            }
         </section>
     </main>
 </body>

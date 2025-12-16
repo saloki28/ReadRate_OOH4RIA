@@ -45,14 +45,12 @@ public ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN CrearReseña (str
 
                 reseñaEN.Valoracion = p_valoracion;
 
-                if (p_lectorValorador != -1)
-                {
-                    reseñaEN.LectorValorador = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN();
-                    reseñaEN.LectorValorador.Id = p_lectorValorador;
+                if (p_lectorValorador != -1) {
+                        reseñaEN.LectorValorador = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN ();
+                        reseñaEN.LectorValorador.Id = p_lectorValorador;
                 }
-                else
-                {
-                    throw new ModelException("Una resña debe tener un lector valorador asociado");
+                else{
+                        throw new ModelException ("Una resña debe tener un lector valorador asociado");
                 }
 
 
@@ -60,9 +58,8 @@ public ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN CrearReseña (str
                         reseñaEN.LibroReseñado = new ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LibroEN ();
                         reseñaEN.LibroReseñado.Id = p_libroReseñado;
                 }
-                else
-                {
-                    throw new ModelException("Una reseña debe tener un libro reseñado asociado");
+                else{
+                        throw new ModelException ("Una reseña debe tener un libro reseñado asociado");
                 }
 
                 reseñaEN.Fecha = p_fecha ?? DateTime.Now;
@@ -76,11 +73,10 @@ public ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN CrearReseña (str
                 // Actualizar el libro, recalcular ValoracionMedia
                 var libro = libroRepo.ReadOIDDefault (p_libroReseñado);
                 if (libro != null) {
-
                         // Obtener todas las reseñas del libro
                         var reseñasLibro = reseñaCEN.get_IReseñaRepository ().DameTodosReseñas (0, int.MaxValue)
-                                          .Where (r => r.LibroReseñado != null && r.LibroReseñado.Id == libro.Id)
-                                          .ToList ();
+                                           .Where (r => r.LibroReseñado != null && r.LibroReseñado.Id == libro.Id)
+                                           .ToList ();
 
                         // Calcular la valoración media del libro
                         if (reseñasLibro.Count > 0)
@@ -95,7 +91,7 @@ public ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.ReseñaEN CrearReseña (str
                         if (libro.AutorPublicador != null) {
                                 var autorRepo = CPSession.UnitRepo.AutorRepository;
                                 var autor = autorRepo.ReadOIDDefault (libro.AutorPublicador.Id);
-                                
+
                                 if (autor != null) {
                                         // Obtener todos los libros del autor
                                         var librosAutor = libroRepo.DameTodosLibros (0, int.MaxValue)

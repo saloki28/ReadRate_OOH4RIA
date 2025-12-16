@@ -57,30 +57,22 @@ namespace WebApplication_ReadRate.Controllers
             
             LibroViewModel libroVM = new LibroAssembler().ConvertirENToViewModel(libroEN);
 
+            // Cargar reseñas del libro
+            ReseñaRepository reseñaRepo = new ReseñaRepository(session);
+            ReseñaCEN reseñaCEN = new ReseñaCEN(reseñaRepo);
+            IList<ReseñaEN> reseñasEN = reseñaCEN.DameTodosReseñas(0, -1)
+                .Where(r => r.LibroReseñado?.Id == id).ToList();
+            
+            libroVM.Resenas = new ReseñaAssembler().ConvertirListENToViewModel(reseñasEN).ToList();
+
             SessionClose();
             return View(libroVM);
         }
 
         // GET: LibroController/Create
-        public ActionResult Create()
+        public ActionResult Create(int autorId)
         {
-            AutorRepository autorRepository = new AutorRepository();
-            AutorCEN autorCEN = new AutorCEN(autorRepository);
-
-            IList<AutorEN> listaAutoresEN = autorCEN.DameTodosAutores(0, -1);
-            IList<SelectListItem> listaAutores = new List<SelectListItem>();
-
-            foreach (AutorEN autorEN in listaAutoresEN)
-            {
-                listaAutores.Add(new SelectListItem
-                {
-                    Value = autorEN.Id.ToString(),
-                    Text = autorEN.NombreUsuario
-                });
-            }
-
-            ViewData["listaAutores"] = listaAutores;
-
+            ViewData["AutorId"] = autorId;
             return View();
         }
 
@@ -137,7 +129,7 @@ namespace WebApplication_ReadRate.Controllers
                         p_valoracionMedia: libroVM.ValoracionMedia
                     );
                     
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index", "Autor");
                 }
                 return View(libroVM);
             }

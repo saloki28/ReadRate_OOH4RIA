@@ -9,11 +9,11 @@
 
 <section class="container">
     <!--FORMULARIO-->
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-light">
-            <h5 class="mb-0">Buscar Libros</h5>
-        </div>
-        <div class="card-body">
+    <article class="card mb-4 shadow-sm">
+        <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+            <h2 class="section-title mb-0">Buscador de Libros</h2>
+        </article>
+        <article class="card-body">
             <form asp-action="Index" method="get">
                 <div class="row">
                     <div class="col-12">
@@ -55,14 +55,14 @@
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
-    <!--FIN-->
-
+        </article>
+    </article>
+    
+    <hr class="hr" style= "margin-top: 4em; margin-bottom: 4em;" />
 
     <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
-        <h2 class="section-title mb-0">Todos los Libros</h2>
-        <a asp-action="Create" class="btn-create">+ Crear nuevo libro</a>
+        <h2 class="section-title mb-0">Resultados de Búsqueda</h2>
+        @* <a asp-action="Create" class="btn-create">+ Crear nuevo libro</a> *@
     </article>
 
     <article class="row g-4">

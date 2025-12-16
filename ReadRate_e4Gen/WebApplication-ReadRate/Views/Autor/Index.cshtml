@@ -31,18 +31,15 @@
                 }
             </div>
             <div>
-                <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
+                @if (esPropioAutor)
+                {
+                    <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
+                }
+                else{
+                    <a asp-action="Edit" asp-route-id="@autor.IdUsuario" class="btn-action edit">Editar Perfil</a>
+                }
                 <div class="book-author" style="font-size: 1.1rem; margin-bottom: 1.5rem;">@autor.Email</div>
                 <div class="book-meta" style="font-size: 1rem;">
-                    <div class="book-meta-item">
-                        <strong>Fecha de nacimiento:</strong> @autor.FechaNacimiento.ToString("dd/MM/yyyy")
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Ciudad de residencia:</strong> @autor.CiudadResidencia
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>País de residencia:</strong> @autor.PaisResidencia
-                    </div>
                     <div class="book-meta-item">
                         <strong>Cantidad de libros publicados:</strong> @autor.CantidadLibrosPublicados
                     </div>
@@ -92,28 +89,34 @@
                             }
                             else
                             {
-                                <span>📖</span>
+                                <span>Portada</span>
                             }
                         </div>
                         <div class="book-info">
                             <div class="book-title">@libro.Titulo</div>
                             <div class="book-meta">
-                                <strong>Género:</strong> @libro.Genero <br />
-                                <strong>Páginas:</strong> @libro.NumPags <br />
                                 <strong>Valoración:</strong> @libro.ValoracionMedia / 5 <br />
-                                <strong>Publicación:</strong> @libro.FechaPublicacion.ToString("dd/MM/yyyy")
                             </div>
                             <div class="book-sinopsis">@libro.Sinopsis</div>
                             <div class="book-actions">
-                                <a asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id" class="btn-action">Ver Detalles</a>
                                 @if (esPropioAutor)
                                 {
-                                    <a asp-controller="Libro" asp-action="Edit" asp-route-id="@libro.Id" class="btn-action edit">Editar</a>
                                     <a asp-controller="Libro" asp-action="Delete" asp-route-id="@libro.Id" class="btn-action delete">Eliminar</a>
+                                }
+                                else{
+                                    <a asp-controller="Reseña" asp-action="Details" asp-route-id="@libro.Id" class="btn-action">Ver Detalles</a>
                                 }
                             </div>
                         </div>
                     </div>
+                }
+                @if (esPropioAutor)
+                {
+                    <a asp-controller="Libro" asp-action="Create">
+                        <div class="book-card">
+                            <p>+</p> 
+                        </div>
+                    </a>
                 }
             }
             else

@@ -20,7 +20,7 @@ namespace WebApplication_ReadRate.Controllers
             _webHost = webHost;
         }
         // GET: AutorController
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             SessionInitialize();
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
@@ -31,17 +31,20 @@ namespace WebApplication_ReadRate.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            // Si no se proporciona ID, usar el del usuario actual
+            int autorIdAMostrar = id ?? usuarioId.Value;
+
             AutorRepository autorRepository = new AutorRepository(session);
             AutorCEN autorCEN = new AutorCEN(autorRepository);
 
-            AutorEN autorEN = autorCEN.DameAutorPorOID(usuarioId.Value);
+            AutorEN autorEN = autorCEN.DameAutorPorOID(autorIdAMostrar);
             var listAut = new List<AutorViewModel> { new AutorAssembler().ConvertirENToViewModel(autorEN) };
 
             // Obtener libros del autor
             LibroRepository libroRepository = new LibroRepository(session);
             LibroCEN libroCEN = new LibroCEN(libroRepository);
             IList<LibroEN> todosLibros = libroCEN.DameTodosLibros(0, -1);
-            var librosDelAutor = todosLibros.Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == usuarioId.Value).ToList();
+            var librosDelAutor = todosLibros.Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == autorIdAMostrar).ToList();
             var librosViewModel = new LibroAssembler().ConvertirListENToViewModel(librosDelAutor).ToList();
             ViewBag.LibrosAutor = librosViewModel;
 

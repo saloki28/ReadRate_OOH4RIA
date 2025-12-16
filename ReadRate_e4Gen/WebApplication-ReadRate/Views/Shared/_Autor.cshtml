@@ -21,7 +21,7 @@
                     @* <div class="book-author">@Html.DisplayFor(modelItem => item.AutorPublicador.NombreUsuario)</div> *@
                     <strong>Libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantidadLibrosPublicados) <br />
                     <div class="book-actions">
-                        <a class="btn" asp-controller="Autor" asp-action="Details" asp-route-id="@item.IdUsuario">Visitar perfil</a>
+                        <a class="btn" asp-controller="Autor" asp-action="Index" asp-route-id="@item.IdUsuario">Visitar perfil</a>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-@model IEnumerable<WebApplication_ReadRate.Models.LibroViewModel>
+@model WebApplication_ReadRate.Models.LibroFiltrosViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -8,20 +8,72 @@
 </header>
 
 <section class="container">
+    <!--FORMULARIO-->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">Buscar Libros</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Index" method="get">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="TituloFiltro" class="form-label">Título</label>
+                            <input type="text" name="TituloFiltro" id="TituloFiltro" class="form-control"
+                                   placeholder="Escribe el título del libro..." value="@Model?.TituloFiltro" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="GeneroFiltro" class="form-label">Género</label>
+                            <select name="GeneroFiltro" id="GeneroFiltro" class="form-select" asp-items="@Model?.Generos">
+                                <option value="">-- Todos los géneros --</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="EdadRecomendadaFiltro" class="form-label">Edad Mínima</label>
+                            <input type="number" name="EdadRecomendadaFiltro" id="EdadRecomendadaFiltro" class="form-control"
+                                   placeholder="Ej: 12" min="0" max="100" step="1" value="@Model?.EdadRecomendadaFiltro" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="NombreAutorFiltro" class="form-label">Autor</label>
+                            <input type="text" name="NombreAutorFiltro" id="NombreAutorFiltro" class="form-control"
+                                   placeholder="Nombre del autor..." value="@Model?.NombreAutorFiltro" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ValoracionMediaFiltro" class="form-label">Valoración Mínima</label>
+                            <input type="number" name="ValoracionMediaFiltro" id="ValoracionMediaFiltro" class="form-control"
+                                   placeholder="Ej: 4.5" min="0" max="5" step="0.5" value="@Model?.ValoracionMediaFiltro" />
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <a asp-action="Index" class="btn btn-secondary">Limpiar</a>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--FIN-->
+
+
     <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
         <h2 class="section-title mb-0">Todos los Libros</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo libro</a>
     </article>
-    
+
     <article class="row g-4">
-        @if (Model != null && Model.Any())
+        @if (Model != null && Model.Libros != null && Model.Libros.Any())
         {
-            foreach (var item in Model)
+            foreach (var item in Model.Libros)
             {
                 <article class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card h-100 d-flex flex-column">
                         <div class="book-cover">
-                            @if(!string.IsNullOrEmpty(item.FotoPortadaUrl))
+                            @if (!string.IsNullOrEmpty(item.FotoPortadaUrl))
                             {
                                 <img src="@item.FotoPortadaUrl" alt="Portada de @item.Titulo" class="card-img-top" style="height: 250px; object-fit: contain;">
                             }

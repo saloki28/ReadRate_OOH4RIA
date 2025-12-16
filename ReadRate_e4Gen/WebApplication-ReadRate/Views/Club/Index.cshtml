@@ -9,6 +9,21 @@
 </header>
 
 <section class="container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
     <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
         <h2 class="section-title mb-0">Todos los Clubs de Lectura</h2>
         <a asp-action="Create" class="btn-create">+ Crear nuevo club</a>
@@ -50,9 +65,9 @@
                                         var usuarioId = Context.Session.GetInt32("UsuarioId");
                                         bool clubCompleto = item.Miembros >= item.NumeroMax;
                                         
-                                        // TODO: Implementar lógica para verificar si el lector está suscrito
-                                        // bool estaSuscrito = /* Llamar a método que verifique si usuarioId está en la lista de miembros del club */;
-                                        bool estaSuscrito = false; // Placeholder - Cambiar por la lógica real
+                                        // Verificar si el lector está suscrito a este club
+                                        var clubsSuscritos = ViewBag.ClubsSuscritos as List<int> ?? new List<int>();
+                                        bool estaSuscrito = clubsSuscritos.Contains(item.Id);
                                     }
 
                                     @if (usuarioRol == "lector" && estaSuscrito)
@@ -63,7 +78,6 @@
                                                 Acceder
                                             </a>
                                             <a asp-action="Desuscribirse" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
-                                                @* TODO: Implementar acción Desuscribirse en ClubController *@
                                                 ¡Darme de baja!
                                             </a>
                                         </div>
@@ -79,7 +93,6 @@
                                     {
                                         <!-- Club con cupo disponible: botón normal de suscribirse -->
                                         <a asp-action="Suscribirse" asp-route-id="@item.Id" class="btn-black">
-                                            @* TODO: Implementar acción Suscribirse en ClubController *@
                                             ¡Suscribirme al club!
                                         </a>
                                     }

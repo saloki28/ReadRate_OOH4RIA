@@ -31,6 +31,31 @@ namespace WebApplication_ReadRate.Controllers
             IList<ClubEN> listEN = clubCen.DameTodosClubs(0, -1);
 
             IEnumerable<ClubViewModel> listClub = new ClubAssembler().ConvertirListENToViewModel(listEN).ToList();
+            
+            // Obtener IDs de clubs a los que el lector está suscrito
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+            
+            if (usuarioId.HasValue && usuarioRol == "lector")
+            {
+                LectorRepository lectorRepository = new LectorRepository(session);
+                LectorCEN lectorCEN = new LectorCEN(lectorRepository);
+                LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
+                
+                if (lectorEN != null && lectorEN.ClubSuscritoLector != null)
+                {
+                    ViewBag.ClubsSuscritos = lectorEN.ClubSuscritoLector.Select(c => c.Id).ToList();
+                }
+                else
+                {
+                    ViewBag.ClubsSuscritos = new List<int>();
+                }
+            }
+            else
+            {
+                ViewBag.ClubsSuscritos = new List<int>();
+            }
+            
             SessionClose();
 
             return View(listClub);
@@ -331,9 +356,8 @@ namespace WebApplication_ReadRate.Controllers
             }
         }
 
-        // POST: ClubController/SuscribirseAClub
-        [HttpPost]
-        public ActionResult SuscribirseAClub(int clubId)
+        // GET: ClubController/Suscribirse
+        public ActionResult Suscribirse(int id)
         {
             var lectorId = HttpContext.Session.GetInt32("UsuarioId");
             var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
@@ -341,7 +365,7 @@ namespace WebApplication_ReadRate.Controllers
             if (!lectorId.HasValue || usuarioRol != "lector")
             {
                 TempData["ErrorMessage"] = "Debes iniciar sesión como lector para suscribirte a clubes.";
-                return RedirectToAction("Details", new { id = clubId });
+                return RedirectToAction("Index");
             }
 
             try
@@ -349,15 +373,17 @@ namespace WebApplication_ReadRate.Controllers
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 LectorCP lectorCP = new LectorCP(sessionCP);
                 
-                IList<int> clubsIds = new List<int> { clubId };
+                IList<int> clubsIds = new List<int> { id };
                 lectorCP.SuscribirLectorAClub(lectorId.Value, clubsIds);
+                
+                TempData["SuccessMessage"] = "Te has suscrito correctamente al club.";
             }
             catch(Exception ex)
             {
-                // Error silencioso o manejo según necesidad
+                TempData["ErrorMessage"] = "Error al suscribirte al club. Inténtalo de nuevo.";
             }
 
-            return RedirectToAction("Details", new { id = clubId });
+            return RedirectToAction("Index");
         }
 
         // GET: ClubController/DeleteSuscripcion
@@ -372,16 +398,16 @@ namespace WebApplication_ReadRate.Controllers
             return View(clubVM);
         }
 
-        // POST: ClubController/DesuscribirseDeClub
-        [HttpPost]
-        public ActionResult DesuscribirseDeClub(int clubId)
+        // GET: ClubController/Desuscribirse
+        public ActionResult Desuscribirse(int id)
         {
             var lectorId = HttpContext.Session.GetInt32("UsuarioId");
             var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
 
             if (!lectorId.HasValue || usuarioRol != "lector")
             {
-                return RedirectToAction("Index", "Lector");
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector.";
+                return RedirectToAction("Index");
             }
 
             try
@@ -389,15 +415,17 @@ namespace WebApplication_ReadRate.Controllers
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 LectorCP lectorCP = new LectorCP(sessionCP);
                 
-                IList<int> clubsIds = new List<int> { clubId };
+                IList<int> clubsIds = new List<int> { id };
                 lectorCP.DesuscribirLectorDeClub(lectorId.Value, clubsIds);
+                
+                TempData["SuccessMessage"] = "Te has dado de baja del club correctamente.";
             }
             catch(Exception ex)
             {
-                // Error silencioso o manejo según necesidad
+                TempData["ErrorMessage"] = "Error al darte de baja del club. Inténtalo de nuevo.";
             }
 
-            return RedirectToAction("Index", "Lector");
+            return RedirectToAction("Index");
         }
     }
 }

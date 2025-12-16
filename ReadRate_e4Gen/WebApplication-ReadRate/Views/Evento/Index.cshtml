@@ -10,6 +10,21 @@
 </header>
 
 <section class="container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
     @if (rolUsuario == "administrador")
     {
         <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
@@ -75,8 +90,22 @@
                                     {
                                         <!-- Usuarios regulares (lector, autor, visitante) ven botón de inscripción -->
                                         var eventoCompleto = item.AforoActual >= item.AforoMaximo;
+                                        var eventosInscritos = ViewBag.EventosInscritos as List<int> ?? new List<int>();
+                                        var estaInscrito = eventosInscritos.Contains(item.Id);
                                         
-                                        if (eventoCompleto)
+                                        if ((rolUsuario == "lector" || rolUsuario == "autor") && estaInscrito)
+                                        {
+                                            <!-- Usuario inscrito: mostrar botones Acceder y Desinscribirse -->
+                                            <div class="d-flex gap-2">
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
+                                                    Acceder
+                                                </a>
+                                                <a asp-action="Desinscribirse" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
+                                                    ¡Darme de baja!
+                                                </a>
+                                            </div>
+                                        }
+                                        else if (eventoCompleto)
                                         {
                                             <button disabled class="btn-evento-completo">
                                                 Aforo completo

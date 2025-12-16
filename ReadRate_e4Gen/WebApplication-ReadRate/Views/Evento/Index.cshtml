@@ -2,8 +2,7 @@
 
 @{
     ViewData["Title"] = "Index Eventos";
-    var usuarioRol = Context.Session.GetString("UsuarioRol"); // Para filtrar por uuario (autor y lector) o admin
-    var usuarioNombre = Context.Session.GetString("UsuarioNombre");
+    var rolUsuario = Context.Session.GetString("UsuarioRol");
 }
 
 <header class="page-header">
@@ -11,9 +10,15 @@
 </header>
 
 <section class="container">
-    <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
-        <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
-    </article>
+    @if (rolUsuario == "administrador")
+    {
+        <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
+            <!-- Solo administradores ven el botón de crear -->
+        
+                <a asp-action="Create" class="btn-create">+ Crear nuevo evento</a>
+        
+        </article>
+    }
 
     <div class="vertical-list">
         @if (Model != null && Model.Any())
@@ -30,7 +35,6 @@
                         else
                         {
                             <div class="event-cover-placeholder">
-
                                 Foto Evento
                             </div>
                         }
@@ -58,16 +62,21 @@
 
                         <footer class="event-footer-actions">
 
-                            @*Para admin: *@
-                            @* <div>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn-action">Detalles</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-action edit">Editar</a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete">Borrar</a>
-                            </div> *@
-
-                            <a asp-action="Inscribirse" asp-route-id="@item.Id" class="btn-black">
-                                ¡Inscribirme al evento!
-                            </a>
+                            <!-- BOTONES EVENTO SEGÚN ROL -->
+                            @if (rolUsuario == "administrador")
+                            {
+                                <!-- Admin: Eliminar -->
+                                <div>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-black delete">Eliminar</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <!-- Usuarios regulares (lector, autor, visitante) ven botón de inscripción -->
+                                <a asp-action="Inscribirse" asp-route-id="@item.Id" class="btn-black">
+                                    ¡Inscribirme al evento!
+                                </a>
+                            }
 
                             <div class="aforo-text">
                                 Aforo: @Html.DisplayFor(modelItem => item.AforoActual) / @Html.DisplayFor(modelItem => item.AforoMaximo)
@@ -85,5 +94,5 @@
                 </div>
             </article>
         }
-    </article>
+    </div>
 </section>

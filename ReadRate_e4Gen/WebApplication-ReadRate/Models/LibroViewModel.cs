@@ -71,5 +71,9 @@ namespace WebApplication_ReadRate.Models
         // Autor del libro
         [ScaffoldColumn(false)]
         public AutorEN? Autor { get; set; }
+
+        // Lista de reseñas del libro
+        [ScaffoldColumn(false)]
+        public List<ReseñaViewModel>? Resenas { get; set; }
     }
 }

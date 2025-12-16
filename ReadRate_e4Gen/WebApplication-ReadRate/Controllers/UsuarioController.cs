@@ -22,17 +22,15 @@ namespace WebApplication_ReadRate.Controllers
         [HttpPost]
         public ActionResult Login(UsuarioViewModel login)
         {
+            // PASO 1: Intentar login como Usuario (Lector o Autor)
             UsuarioRepository usuarioRepository = new UsuarioRepository();
             UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
 
-            string token = usuarioCEN.Login(login.Email, login.Password);
+            string tokenUsuario = usuarioCEN.Login(login.Email, login.Password);
             
-            if(token == null){
-                ModelState.AddModelError("", "Email o contraseña incorrectos");
-                return View();
-            }
-            else{
-                // Obtener el usuario completo para conocer su rol
+            if(tokenUsuario != null)
+            {
+                // Es un Usuario (Lector o Autor)
                 var listaUsuarios = usuarioCEN.DameUsuarioPorEmail(login.Email);
                 if (listaUsuarios != null && listaUsuarios.Count > 0)
                 {
@@ -53,15 +51,41 @@ namespace WebApplication_ReadRate.Controllers
                             return RedirectToAction("Index", "Lector");
                         case "autor":
                             return RedirectToAction("Index", "Autor");
-                        case "administrador":
-                            return RedirectToAction("Index", "Administrador");
                         default:
                             return RedirectToAction("Index", "Home");
                     }
                 }
-                
-                return RedirectToAction("Index", "Home");
             }
+            
+            // PASO 2: Si no es Usuario, intentar login como Administrador
+            AdministradorRepository administradorRepository = new AdministradorRepository();
+            AdministradorCEN administradorCEN = new AdministradorCEN(administradorRepository);
+            
+            string tokenAdmin = administradorCEN.Login(login.Email, login.Password);
+            
+            if(tokenAdmin != null)
+            {
+                // Es un Administrador
+                var listaAdmins = administradorCEN.DameAdministradoresPorEmail(login.Email);
+                if (listaAdmins != null && listaAdmins.Count > 0)
+                {
+                    var admin = listaAdmins[0];
+                    
+                    // Guardar información del administrador en sesión
+                    HttpContext.Session.SetString("UsuarioEmail", admin.Email);
+                    HttpContext.Session.SetString("UsuarioNombre", admin.Nombre);
+                    HttpContext.Session.SetInt32("UsuarioId", admin.Id);
+                    HttpContext.Session.SetString("UsuarioRol", "administrador");
+                    HttpContext.Session.SetString("Autenticado", "true");
+                    
+                    // Redireccionar a la página de métricas
+                    return RedirectToAction("Index", "Administrador");
+                }
+            }
+            
+            // PASO 3: Si no es ni Usuario ni Administrador, credenciales incorrectas
+            ModelState.AddModelError("", "Email o contraseña incorrectos");
+            return View();
         }
         
         // GET: UsuarioController/HomeVisitante

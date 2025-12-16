@@ -20,8 +20,15 @@ namespace WebApplication_ReadRate.Models.Assemblers
             lec.CantLibrosLeidos = en.CantLibrosLeidos;
             lec.CantClubsSuscritos = en.CantClubsSuscritos;
             lec.CantAutoresSeguidos = en.CantAutoresSeguidos;
+
+            LibroAssembler libroAssembler = new LibroAssembler();
+            lec.LibrosGuardados = libroAssembler.ConvertirListENToViewModel(en.LibroLeido ?? new List<LibroEN>());
+            lec.LecturasGuardadas = libroAssembler.ConvertirListENToViewModel(en.LibroEnCurso ?? new List<LibroEN>());
+
+            ClubAssembler clubAssembler = new ClubAssembler();
+            lec.ClubsInscritos = clubAssembler.ConvertirListENToViewModel(en.ClubSuscritoLector ?? new List<ClubEN>());
             return lec;
-        }
+        }   
         public IList<LectorViewModel> ConvertirListENToViewModel(IList<LectorEN> enList)
         {
             IList<LectorViewModel> lecList = new List<LectorViewModel>();

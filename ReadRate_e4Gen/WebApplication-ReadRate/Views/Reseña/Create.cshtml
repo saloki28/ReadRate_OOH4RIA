@@ -11,6 +11,7 @@
     <title>Read&Rate - Crear Reseña</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
     </head>
 <body>
@@ -18,34 +19,36 @@
         <h1>DALE TU RATING A @Model.LibroNombre.ToUpper()</h1>
     </header>
 
-    <main class="container">
-        <section class="form-card">
-            <form asp-action="Create" method="post">
-                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+    <main class="container my-5">
+        <section class="card shadow-orange-lg">
+            <div class="card-body p-4">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-                <input type="hidden" asp-for="LibroId" />
-                <input type="hidden" asp-for="FechaPublicacion" />
-                <input type="hidden" asp-for="LectorId" />
+                    <input type="hidden" asp-for="LibroId" />
+                    <input type="hidden" asp-for="FechaPublicacion" />
+                    <input type="hidden" asp-for="LectorId" />
 
-                <article class="form-group">
-                    <label asp-for="Valoracion" class="control-label"></label>
-                    <input asp-for="Valoracion" class="form-control" min="0" max="5" step="0.1" type="number" />
-                    <span asp-validation-for="Valoracion" class="text-danger"></span>
-                    <small class="form-hint">Valora el libro (número entre 0 y 5)</small>
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="Valoracion" class="form-label"></label>
+                        <input asp-for="Valoracion" class="form-control" min="0" max="5" step="0.1" type="number" />
+                        <span asp-validation-for="Valoracion" class="text-danger"></span>
+                        <small class="form-text">Valora el libro (número entre 0 y 5)</small>
+                    </article>
 
-                <article class="form-group">
-                    <label asp-for="Opinion" class="control-label"></label>
-                    <textarea asp-for="Opinion" class="form-control" maxlength="600" placeholder="Escribe tu opinión aquí..."></textarea>
-                    <span asp-validation-for="Opinion" class="text-danger"></span>
-                    <small class="form-hint">Da tu opinión sobre el libro (máximo 600 caracteres)</small> 
-                </article>
+                    <article class="mb-3">
+                        <label asp-for="Opinion" class="form-label"></label>
+                        <textarea asp-for="Opinion" class="form-control" rows="4" maxlength="600" placeholder="Escribe tu opinión aquí..."></textarea>
+                        <span asp-validation-for="Opinion" class="text-danger"></span>
+                        <small class="form-text">Da tu opinión sobre el libro (máximo 600 caracteres)</small> 
+                    </article>
 
-                <article class="form-actions">
-                    <input type="submit" value="Publicar" class="btn btn-primary" />
-                    <a asp-controller="Libro" asp-action="Details" asp-route-id="@Model.LibroId" class="btn btn-primary">Cancelar</a>
-                </article>
-            </form>
+                    <article class="d-flex gap-3 justify-content-between mt-4">
+                        <input type="submit" value="Publicar" class="btn btn-primary px-5" />
+                        <a asp-controller="Libro" asp-action="Details" asp-route-id="@Model.LibroId" class="btn btn-secondary">Cancelar</a>
+                    </article>
+                </form>
+            </div>
         </section>
     </main>
 </body>

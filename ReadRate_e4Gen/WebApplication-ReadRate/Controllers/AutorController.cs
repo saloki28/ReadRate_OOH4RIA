@@ -24,6 +24,7 @@ namespace WebApplication_ReadRate.Controllers
         {
             SessionInitialize();
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
 
             if (!usuarioId.HasValue)
             {
@@ -47,6 +48,20 @@ namespace WebApplication_ReadRate.Controllers
             var librosDelAutor = todosLibros.Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == autorIdAMostrar).ToList();
             var librosViewModel = new LibroAssembler().ConvertirListENToViewModel(librosDelAutor).ToList();
             ViewBag.LibrosAutor = librosViewModel;
+
+            // Verificar si el lector actual ya sigue a este autor
+            ViewBag.YaSiguiendoAutor = false;
+            if (usuarioRol == "lector" && autorIdAMostrar != usuarioId.Value)
+            {
+                LectorRepository lectorRepository = new LectorRepository(session);
+                LectorCEN lectorCEN = new LectorCEN(lectorRepository);
+                LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
+                
+                if (lectorEN?.AutorSeguido != null)
+                {
+                    ViewBag.YaSiguiendoAutor = lectorEN.AutorSeguido.Any(a => a.Id == autorIdAMostrar);
+                }
+            }
 
             SessionClose();
 
@@ -268,6 +283,64 @@ namespace WebApplication_ReadRate.Controllers
                 TempData["ErrorMessage"] = "Error al eliminar el autor: " + ex.Message + innerMessage;
                 return RedirectToAction(nameof(Index));
             }
+        }
+
+        // POST: AutorController/SeguirAutor
+        [HttpPost]
+        public ActionResult SeguirAutor(int autorId)
+        {
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!lectorId.HasValue || usuarioRol != "lector")
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector para seguir autores.";
+                return RedirectToAction("Index", "Autor", new { id = autorId });
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                LectorCP lectorCP = new LectorCP(sessionCP);
+                
+                IList<int> autoresIds = new List<int> { autorId };
+                lectorCP.SeguirAutor(lectorId.Value, autoresIds);
+            }
+            catch(Exception ex)
+            {
+                // Error silencioso o manejo según necesidad
+            }
+
+            return RedirectToAction("Index", "Autor", new { id = autorId });
+        }
+
+        // POST: AutorController/DejarDeSeguirAutor
+        [HttpPost]
+        public ActionResult DejarDeSeguirAutor(int autorId)
+        {
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!lectorId.HasValue || usuarioRol != "lector")
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector para dejar de seguir autores.";
+                return RedirectToAction("Index", "Autor", new { id = autorId });
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                LectorCP lectorCP = new LectorCP(sessionCP);
+                
+                IList<int> autoresIds = new List<int> { autorId };
+                lectorCP.DejarDeSeguirAutor(lectorId.Value, autoresIds);
+            }
+            catch(Exception ex)
+            {
+                // Error silencioso o manejo según necesidad
+            }
+
+            return RedirectToAction("Index", "Autor", new { id = autorId });
         }
     }
 }

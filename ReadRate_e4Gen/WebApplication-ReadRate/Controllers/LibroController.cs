@@ -316,8 +316,14 @@ namespace WebApplication_ReadRate.Controllers
 
             LibroEN libroEN = libroCEN.DameLibroPorOID(id);
             
+            if (libroEN == null)
+            {
+                SessionClose();
+                return RedirectToAction(nameof(Index));
+            }
+            
             // Forzar la carga del Autor antes de cerrar la sesión
-            if (libroEN?.AutorPublicador != null)
+            if (libroEN.AutorPublicador != null)
             {
                 var autorCargado = libroEN.AutorPublicador.Id;
                 var nombreAutor = libroEN.AutorPublicador.NombreUsuario;
@@ -347,6 +353,116 @@ namespace WebApplication_ReadRate.Controllers
                 TempData["ErrorMessage"] = "Error al eliminar el libro: " + ex.Message + innerMessage;
                 return RedirectToAction(nameof(Index));
             }
+        }
+
+
+        // GET: LibroController/DeleteLibroEnCurso
+        public ActionResult DeleteLibroEnCurso(int libroId)
+        {
+            SessionInitialize();
+            LibroRepository libroRepository = new LibroRepository(session);
+            LibroCEN libroCEN = new LibroCEN(libroRepository);
+            LibroEN libroEN = libroCEN.DameLibroPorOID(libroId);
+            
+            if (libroEN == null)
+            {
+                SessionClose();
+                return RedirectToAction("Index", "Lector");
+            }
+            
+            // Forzar la carga del Autor antes de cerrar la sesión
+            if (libroEN.AutorPublicador != null)
+            {
+                var autorCargado = libroEN.AutorPublicador.Id;
+                var nombreAutor = libroEN.AutorPublicador.NombreUsuario;
+            }
+            
+            LibroViewModel libroVM = new LibroAssembler().ConvertirENToViewModel(libroEN);
+            SessionClose();
+            return View(libroVM);
+        }
+
+        // POST: LibroController/AsignarLibroGuardado
+        [HttpPost]
+        public ActionResult AsignarLibroGuardado(int libroId)
+        {
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!lectorId.HasValue || usuarioRol != "lector")
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector.";
+                return RedirectToAction("Details", new { id = libroId });
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                LectorCP lectorCP = new LectorCP(sessionCP);
+                
+                IList<int> librosIds = new List<int> { libroId };
+                lectorCP.AsignarLibroListaGuardados(lectorId.Value, librosIds);
+            }
+            catch(Exception ex)
+            {
+                // Error silencioso o manejo según necesidad
+            }
+
+            return RedirectToAction("Details", new { id = libroId });
+        }
+
+        // GET: LibroController/DeleteLibroGuardado
+        public ActionResult DeleteLibroGuardado(int libroId)
+        {
+            SessionInitialize();
+            LibroRepository libroRepository = new LibroRepository(session);
+            LibroCEN libroCEN = new LibroCEN(libroRepository);
+            LibroEN libroEN = libroCEN.DameLibroPorOID(libroId);
+            
+            if (libroEN == null)
+            {
+                SessionClose();
+                return RedirectToAction("Index", "Lector");
+            }
+            
+            // Forzar la carga del Autor antes de cerrar la sesión
+            if (libroEN.AutorPublicador != null)
+            {
+                var autorCargado = libroEN.AutorPublicador.Id;
+                var nombreAutor = libroEN.AutorPublicador.NombreUsuario;
+            }
+            
+            LibroViewModel libroVM = new LibroAssembler().ConvertirENToViewModel(libroEN);
+            SessionClose();
+            return View(libroVM);
+        }
+
+        // POST: LibroController/DesasignarLibroGuardado
+        [HttpPost]
+        public ActionResult DesasignarLibroGuardado(int libroId)
+        {
+            var lectorId = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (!lectorId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión.";
+                return RedirectToAction("Index", "Lector");
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                LectorCP lectorCP = new LectorCP(sessionCP);
+                
+                IList<int> librosIds = new List<int> { libroId };
+                lectorCP.DesasignarLibroListaGuardados(lectorId.Value, librosIds);
+            }
+            catch(Exception ex)
+            {
+                // Error silencioso o manejo según necesidad
+            }
+
+            return RedirectToAction("Index", "Lector");
         }
     }
 }

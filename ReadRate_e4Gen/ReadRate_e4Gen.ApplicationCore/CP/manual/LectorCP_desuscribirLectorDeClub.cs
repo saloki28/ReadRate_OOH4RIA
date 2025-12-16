@@ -54,9 +54,8 @@ public void DesuscribirLectorDeClub (int p_Lector_OID, System.Collections.Generi
 
                 lectorCEN.get_ILectorRepository ().ModificarLector (lectorEN);
 
-
-                // usuarioCEN.get_IUsuarioRepository ().DesuscribirDeClub (p_Usuario_OID, p_clubSuscrito_OIDs);
-
+                // Desvincular la relación lector-club en la base de datos
+                lectorCEN.get_ILectorRepository ().DesuscribirLectorDeClub (p_Lector_OID, p_clubSuscritoLector_OIDs);
 
                 CPSession.Commit ();
         }

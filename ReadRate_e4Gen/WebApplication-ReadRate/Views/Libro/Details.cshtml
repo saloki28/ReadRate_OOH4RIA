@@ -48,9 +48,16 @@
             <article class="detail-row">
                 <div class="detail-label">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
                 <div class="detail-value">
-                    @for (int i = 0; i < Math.Floor(Model.ValoracionMedia); i++)
+                    @if (Math.Floor(Model.ValoracionMedia) == 0)
                     {
-                        <span>&#9733;</span>
+                        <span>&#9734;</span>
+                    }
+                    else
+                    {
+                        @for (int i = 0; i < Math.Floor(Model.ValoracionMedia); i++)
+                        {
+                            <span>&#9733;</span>
+                        }
                     }
                 </div>
             </article>

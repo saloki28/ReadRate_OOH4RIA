@@ -313,7 +313,7 @@ public System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRa
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM LibroNH self where FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_titulo is null or (concat('%', lower(libro.Titulo), '%') like lower(:p_titulo))) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_autor is null or libro.AutorPublicador.Id=:p_autor)";
+                //String sql = @"FROM LibroNH self where FROM LibroNH libro where (:p_genero is null or libro.Genero=:p_genero) and (:p_titulo is null or lower(libro.Titulo) like concat('%', lower(:p_titulo), '%')) and (:p_edadRecomendada is null or libro.EdadRecomendada >= :p_edadRecomendada) and (:p_numPags is null or libro.NumPags >= :p_numPags) and (:p_valoracionMedia is null or libro.ValoracionMedia >= :p_valoracionMedia) and (:p_autor is null or libro.AutorPublicador.Id=:p_autor)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("LibroNHdameLibrosPorFiltrosHQL");
                 query.SetParameter ("p_genero", p_genero);

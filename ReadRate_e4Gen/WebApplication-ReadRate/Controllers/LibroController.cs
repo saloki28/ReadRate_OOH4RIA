@@ -24,19 +24,105 @@ namespace WebApplication_ReadRate.Controllers
             _webHost = webHost;
         }
 
-        // GET: LibroController
-        public ActionResult Index()
+        // GET: LibroController/Index
+        public ActionResult Index(LibroFiltrosViewModel filtros)
         {   
             SessionInitialize();
             LibroRepository libroRepository = new LibroRepository(session);
             LibroCEN libroCEN = new LibroCEN(libroRepository);
 
-            IList<LibroEN> listaLibrosEN = libroCEN.DameTodosLibros(0, -1);
+            // =================================================================
+            // SELECT GÉNEROS: Obtener géneros únicos para el filtro
+            // =================================================================
+            IList<LibroEN> todosLibros = libroCEN.DameTodosLibros(0, -1);
+            IList<SelectListItem> generoSelect = new List<SelectListItem>();
+            
+            try
+            {
+                // Obtener géneros únicos
+                var generosUnicos = todosLibros
+                    .Select(l => l.Genero)
+                    .Where(g => !string.IsNullOrEmpty(g))
+                    .Distinct()
+                    .OrderBy(g => g)
+                    .ToList();
 
+                // Crear SelectListItems para el dropdown
+                foreach (string genero in generosUnicos)
+                {
+                    generoSelect.Add(new SelectListItem
+                    {
+                        Value = genero,
+                        Text = genero
+                    });
+                }
+            }
+            catch
+            {
+                // En caso de error, la lista queda vacía
+            }
+
+            // ============================================================
+            // BUSCAR ID DEL AUTOR SI SE PROPORCIONÓ NOMBRE
+            //    El formulario recibe un input de texto; el filtro recibe un ID -> Gestión de varios autores con input coincidente
+            // ============================================================
+            List<int> autoresIds = new List<int>();
+            if (!string.IsNullOrWhiteSpace(filtros.NombreAutorFiltro))
+            {
+                AutorRepository autorRepository = new AutorRepository(session);
+                AutorCEN autorCEN = new AutorCEN(autorRepository);
+
+                // Buscar TODOS los autores cuyo nombre contenga el texto (simulando LIKE)
+                IList<AutorEN> autoresEncontrados = autorCEN.DameTodosAutores(0, -1)
+                    .Where(a => a.NombreUsuario != null &&
+                                a.NombreUsuario.Contains(filtros.NombreAutorFiltro, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                // Guardar todos los IDs encontrados
+                autoresIds = autoresEncontrados.Select(a => a.Id).ToList();
+            }
+
+            // ============================================================
+            // APLICAR FILTROS USANDO DameLibrosPorFiltros
+            // ============================================================
+
+            IList<LibroEN> listaLibrosEN = libroCEN.DameLibrosPorFiltros(
+                p_genero: filtros.GeneroFiltro,
+                p_titulo: filtros.TituloFiltro,
+                p_edadRecomendada: filtros.EdadRecomendadaFiltro,
+                p_numPags: null, // No se usa en el formulario
+                p_valoracionMedia: filtros.ValoracionMediaFiltro,
+                p_autor: null, // null para poder filtar por varios autores
+                first: 0,
+                size: -1
+            );
+
+            // ============================================================
+            // FILTRAR POR AUTORES: Autor(es) cuyo nombre contiene el input
+            // ============================================================
+            if (autoresIds.Count > 0)
+            {
+                listaLibrosEN = listaLibrosEN.Where(libro => libro.AutorPublicador != null && autoresIds.Contains(libro.AutorPublicador.Id)).ToList();
+            }
+
+            // Convertir a ViewModels
             IEnumerable<LibroViewModel> listLibros = new LibroAssembler().ConvertirListENToViewModel(listaLibrosEN).ToList();
+
+            // Modelo completo para la vista axtualizada
+            var resultado = new LibroFiltrosViewModel
+            {
+                TituloFiltro = filtros.TituloFiltro,
+                GeneroFiltro = filtros.GeneroFiltro,
+                EdadRecomendadaFiltro = filtros.EdadRecomendadaFiltro,
+                ValoracionMediaFiltro = filtros.ValoracionMediaFiltro,
+                NombreAutorFiltro = filtros.NombreAutorFiltro,
+                Libros = listLibros,
+                Generos = generoSelect
+            };
+
             SessionClose();
 
-            return View(listLibros);
+            return View(resultado);
         }
 
         // GET: LibroController/Details/5

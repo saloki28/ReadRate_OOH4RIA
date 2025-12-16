@@ -1245,21 +1245,21 @@ public static void InitializeData ()
                 // Reseña 1 con notificación
                 int idReseña1 = 0; // Declarar fuera del try para poder usarlo después
                 try {
-                    var reseña1 = reseñacp.CrearReseña(p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
-     p_valoracion: 5.0f,
-     p_lectorValorador: lector3.Id,
-     p_libroReseñado: libro1.Id,
-     p_fecha: new DateTime(2024, 11, 10));
+                        var reseña1 = reseñacp.CrearReseña (p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
+ p_valoracion: 5.0f,
+ p_lectorValorador: lector3.Id,
+ p_libroReseñado: libro1.Id,
+ p_fecha: new DateTime (2024, 11, 10));
 
-                    idReseña1 = reseña1.Id; // Guardar el ID
-                    Console.WriteLine("Reseña para libro 1 creada correctamente con ID: " + idReseña1);
+                        idReseña1 = reseña1.Id; // Guardar el ID
+                        Console.WriteLine ("Reseña para libro 1 creada correctamente con ID: " + idReseña1);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
-                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
-                    Console.WriteLine("Error al crear la reseña");
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("ModelException capturada correctamente: " + ex.Message);
+                        Console.WriteLine ("Error al crear la reseña");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
                 int notificacionId1 = notificacionCP.CrearNotificacion (
@@ -1273,89 +1273,89 @@ public static void InitializeData ()
                 // Reseña 2
                 int idReseña2 = 0; // Declarar fuera del try para poder usarlo después
                 try {
-                    var reseña2 = reseñacp.CrearReseña (
-p_textoOpinion: "Recomendado para todos. Lectura muy entretenida.",
+                        var reseña2 = reseñacp.CrearReseña (
+ p_textoOpinion: "Recomendado para todos. Lectura muy entretenida.",
  p_valoracion: 4.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro1.Id,
  p_fecha: new DateTime (2024, 10, 5)
-                        );
+                                );
 
-                    idReseña2 = reseña2.Id; // Guardar el ID
-                    Console.WriteLine("Reseña para libro 2 creada correctamente con ID: " + idReseña2);
+                        idReseña2 = reseña2.Id; // Guardar el ID
+                        Console.WriteLine ("Reseña para libro 2 creada correctamente con ID: " + idReseña2);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
-                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
-                    Console.WriteLine("Error al crear la reseña");
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("ModelException capturada correctamente: " + ex.Message);
+                        Console.WriteLine ("Error al crear la reseña");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
                 // Reseña 3
                 int idReseña3 = 0; // Declarar fuera del try para poder usarlo después
                 try {
-                    var reseña3 = reseñacp.CrearReseña(
-p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
+                        var reseña3 = reseñacp.CrearReseña (
+ p_textoOpinion: "Tiene sus momentos pero podría mejorar en algunos aspectos.",
  p_valoracion: 3.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro3.Id,
  p_fecha: new DateTime (2024, 10, 10)
-                        );
+                                );
 
-                    idReseña3 = reseña3.Id; // Guardar el ID
-                    Console.WriteLine("Reseña para libro 3 creada correctamente con ID: " + idReseña3);
+                        idReseña3 = reseña3.Id; // Guardar el ID
+                        Console.WriteLine ("Reseña para libro 3 creada correctamente con ID: " + idReseña3);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
-                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
-                    Console.WriteLine("Error al crear la reseña");
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("ModelException capturada correctamente: " + ex.Message);
+                        Console.WriteLine ("Error al crear la reseña");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
                 // Reseña 4
                 int idReseña4 = 0; // Declarar fuera del try para poder usarlo después
                 try {
-                    var reseña4 = reseñacp.CrearReseña (
+                        var reseña4 = reseñacp.CrearReseña (
  p_textoOpinion: "Esperaba más de este libro. No cumplió mis expectativas.",
  p_valoracion: 2.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro4.Id,
  p_fecha: new DateTime (2024, 10, 12)
-                        );
+                                );
 
-                    idReseña4 = reseña4.Id; // Guardar el ID
-                    Console.WriteLine("Reseña para libro 4 creada correctamente con ID: " + idReseña4);
+                        idReseña4 = reseña4.Id; // Guardar el ID
+                        Console.WriteLine ("Reseña para libro 4 creada correctamente con ID: " + idReseña4);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
-                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
-                    Console.WriteLine("Error al crear la reseña");
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("ModelException capturada correctamente: " + ex.Message);
+                        Console.WriteLine ("Error al crear la reseña");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
                 // Reseña 5
                 int idReseña5 = 0; // Declarar fuera del try para poder usarlo después
                 try {
-                    var reseña5 = reseñacp.CrearReseña (
+                        var reseña5 = reseñacp.CrearReseña (
  p_textoOpinion: "Uno de los mejores libros que he leído. Obra maestra.",
  p_valoracion: 5.0f,
  p_lectorValorador: usuarioId3,
  p_libroReseñado: libro5.Id,
  p_fecha: new DateTime (2024, 10, 15)
-                        );
+                                );
 
-                    idReseña5 = reseña5.Id; // Guardar el ID
-                    Console.WriteLine("Reseña para libro 5 creada correctamente con ID: " + idReseña5);
+                        idReseña5 = reseña5.Id; // Guardar el ID
+                        Console.WriteLine ("Reseña para libro 5 creada correctamente con ID: " + idReseña5);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
-                    Console.WriteLine("ModelException capturada correctamente: " + ex.Message);
-                    Console.WriteLine("Error al crear la reseña");
-                    Console.WriteLine("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
+                        Console.WriteLine ("ModelException capturada correctamente: " + ex.Message);
+                        Console.WriteLine ("Error al crear la reseña");
+                        Console.WriteLine ("---------------------------------------------------------------------------------------");
                 }
 
                 // Resumen de Reseñas creadas:

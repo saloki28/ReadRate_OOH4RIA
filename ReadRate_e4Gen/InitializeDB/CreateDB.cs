@@ -984,7 +984,7 @@ public static void InitializeData ()
  p_ubicacion: "Teruel",
  p_descripcion: "Feria anual del libro con firmas de autores",
  p_foto: "/images/imagenEvento/feria_libro_2026.webp",
-                        p_aforoMax: 50,
+                        p_aforoMax: 5,
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
                         );
@@ -997,7 +997,7 @@ public static void InitializeData ()
  p_ubicacion: "Madrid",
  p_descripcion: "Reunión mensual de club de lectura",
  p_foto: "/images/imagenEvento/encuentro_lectores.webp",
-                        p_aforoMax: 50,
+                        p_aforoMax: 4,
                         p_aforoActual: 0,
  p_administradorEventos: administradorId1
                         );
@@ -1011,7 +1011,7 @@ public static void InitializeData ()
  p_descripcion: "Conferencia sobre técnicas de escritura creativa",
  p_foto: "/images/imagenEvento/conferencia_escritores.webp",
                         p_aforoMax: 200,
-                        p_aforoActual: 200,
+                        p_aforoActual: 0,
  p_administradorEventos: administradorId1
                         );
                 Console.WriteLine ("Evento 'Conferencia de Escritores' creado correctamente.");
@@ -1114,7 +1114,7 @@ int usuarioId5 = lectorcen.CrearLector (
                         clubId1 = clubCEN.CrearClub (
  p_nombre: "Club de Ciencia Ficción",
  p_enlaceDiscord: "https://discord.gg/cienciaficcion",
-                                p_miembrosMax: 50,
+                                p_miembrosMax: 4,
  p_foto: "/images/imagenClub/club_cienciaficcion.webp",
  p_descripcion: "Un club para los entusiastas de la ciencia ficción, donde exploramos mundos futuristas y tecnologías avanzadas.",
                                 p_miembrosActuales: 0,
@@ -1147,10 +1147,10 @@ int usuarioId5 = lectorcen.CrearLector (
                         clubId2 = clubCEN.CrearClub (
  p_nombre: "Club de Terror y Horror",
  p_enlaceDiscord: "https://discord.gg/terror",
-                                p_miembrosMax: 25,
+                                p_miembrosMax: 3,
  p_foto: "/images/imagenClub/club_terror.webp",
  p_descripcion: "Para los valientes que disfrutan de historias escalofriantes, criaturas sobrenaturales y el terror psicológico que te mantiene despierto por la noche.",
-                                p_miembrosActuales: 25,
+                                p_miembrosActuales: 0,
  p_lectorPropietario: propietario5
                                 );
 
@@ -1183,7 +1183,7 @@ int usuarioId5 = lectorcen.CrearLector (
                                 p_miembrosMax: 30,
  p_foto: "/images/imagenClub/club_misterio.webp",
  p_descripcion: "Amantes del misterio, el suspense y las tramas que te mantienen en vilo hasta la última página.",
-                                p_miembrosActuales: 12,
+                                p_miembrosActuales: 0,
  p_lectorPropietario: propietario2
                                 );
 
@@ -1212,10 +1212,10 @@ int usuarioId5 = lectorcen.CrearLector (
                         clubId3 = clubCEN.CrearClub (
  p_nombre: "Club de Romance Contemporáneo",
  p_enlaceDiscord: "https://discord.gg/romance",
-                                p_miembrosMax: 75,
+                                p_miembrosMax: 2,
  p_foto: "/images/imagenClub/club_romance.webp",
  p_descripcion: "Para quienes disfrutan de historias de amor modernas, emotivas y llenas de sentimientos.",
-                                p_miembrosActuales: 45,
+                                p_miembrosActuales: 0,
  p_lectorPropietario: propietario3
                                 );
 
@@ -1247,7 +1247,7 @@ int usuarioId5 = lectorcen.CrearLector (
                                 p_miembrosMax: 100,
  p_foto: "/images/imagenClub/club_aventuras.webp",
  p_descripcion: "Exploradores literarios que buscan viajes épicos, mundos fantásticos y personajes heroicos.",
-                                p_miembrosActuales: 67,
+                                p_miembrosActuales: 0,
  p_lectorPropietario: propietario4
                                 );
 
@@ -1307,7 +1307,7 @@ int usuarioId5 = lectorcen.CrearLector (
                 try {
                         var reseña1 = reseñacp.CrearReseña (p_textoOpinion: "Me encantó la trama y los personajes. Una historia muy bien desarrollada.",
  p_valoracion: 5.0f,
- p_lectorValorador: lector3.Id,
+ p_lectorValorador: usuarioId5,
  p_libroReseñado: libro1.Id,
  p_fecha: new DateTime (2024, 11, 10));
 
@@ -1380,7 +1380,7 @@ int usuarioId5 = lectorcen.CrearLector (
                         var reseña4 = reseñacp.CrearReseña (
  p_textoOpinion: "Esperaba más de este libro. No cumplió mis expectativas.",
  p_valoracion: 2.0f,
- p_lectorValorador: usuarioId3,
+ p_lectorValorador: usuarioId5,
  p_libroReseñado: libro4.Id,
  p_fecha: new DateTime (2024, 10, 12)
                                 );
@@ -1981,7 +1981,7 @@ int usuarioId5 = lectorcen.CrearLector (
  p_hora: new DateTime (2026, 7, 1, 18, 0, 0),
  p_ubicacion: "Alicante",
                         p_aforoMax: 20,
-                        p_aforoActual: 20,
+                        p_aforoActual: 0,
  p_administradorEventos: administradorId1
                         );
 
@@ -2144,8 +2144,8 @@ int usuarioId5 = lectorcen.CrearLector (
  p_fecha: new DateTime (2026, 12, 20),                // Fecha futura
  p_hora: new DateTime (2026, 12, 20, 19, 30, 0),
  p_ubicacion: "Teruel",
-                        p_aforoMax: 50,
-                        p_aforoActual: 15
+                        p_aforoMax: 4,
+                        p_aforoActual: 0
                         );
 
                 Console.WriteLine ("Evento modificado correctamente (ID: " + eventoId1 + ")");
@@ -3169,6 +3169,246 @@ int usuarioId5 = lectorcen.CrearLector (
                 Console.WriteLine ("\n\n\n====================================================================================");
                 Console.WriteLine ("====================================================================================");
                 Console.WriteLine ("====================================================================================");
+
+                // CREACIÓN DE RESEÑAS PARA TODOS LOS LIBROS
+                Console.WriteLine ("\n\n------------------ Creación de Reseñas para Libros ------------------");
+
+                // Reseñas para libro1
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente libro, muy recomendable.", p_valoracion: 5.0f, p_lectorValorador: usuarioId1, p_libroReseñado: libro1.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Me gustó mucho la historia.", p_valoracion: 4.5f, p_lectorValorador: usuarioId2, p_libroReseñado: libro1.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2
+                reseñacp.CrearReseña(p_textoOpinion: "Una obra maestra.", p_valoracion: 5.0f, p_lectorValorador: usuarioId3, p_libroReseñado: libro2.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy entretenido.", p_valoracion: 4.0f, p_lectorValorador: usuarioId4, p_libroReseñado: libro2.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_2
+                reseñacp.CrearReseña(p_textoOpinion: "Interesante propuesta.", p_valoracion: 4.0f, p_lectorValorador: usuarioId5, p_libroReseñado: libro2_2.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "No está mal.", p_valoracion: 3.5f, p_lectorValorador: usuarioId1, p_libroReseñado: libro2_2.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_3
+                reseñacp.CrearReseña(p_textoOpinion: "Recomendado.", p_valoracion: 4.5f, p_lectorValorador: usuarioId2, p_libroReseñado: libro2_3.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Buena lectura.", p_valoracion: 4.0f, p_lectorValorador: usuarioId3, p_libroReseñado: libro2_3.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_4
+                reseñacp.CrearReseña(p_textoOpinion: "Muy original.", p_valoracion: 4.8f, p_lectorValorador: usuarioId4, p_libroReseñado: libro2_4.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Me encantó.", p_valoracion: 5.0f, p_lectorValorador: usuarioId5, p_libroReseñado: libro2_4.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_5
+                reseñacp.CrearReseña(p_textoOpinion: "Gran libro.", p_valoracion: 4.7f, p_lectorValorador: usuarioId1, p_libroReseñado: libro2_5.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy recomendable.", p_valoracion: 4.5f, p_lectorValorador: usuarioId2, p_libroReseñado: libro2_5.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_6
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente narrativa.", p_valoracion: 5.0f, p_lectorValorador: usuarioId3, p_libroReseñado: libro2_6.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy bueno.", p_valoracion: 4.3f, p_lectorValorador: usuarioId4, p_libroReseñado: libro2_6.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_7
+                reseñacp.CrearReseña(p_textoOpinion: "Impresionante.", p_valoracion: 4.9f, p_lectorValorador: usuarioId5, p_libroReseñado: libro2_7.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Lectura obligada.", p_valoracion: 5.0f, p_lectorValorador: usuarioId1, p_libroReseñado: libro2_7.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_8
+                reseñacp.CrearReseña(p_textoOpinion: "Genial.", p_valoracion: 4.6f, p_lectorValorador: usuarioId2, p_libroReseñado: libro2_8.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Me gustó.", p_valoracion: 4.2f, p_lectorValorador: usuarioId3, p_libroReseñado: libro2_8.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_9
+                reseñacp.CrearReseña(p_textoOpinion: "Muy interesante.", p_valoracion: 4.4f, p_lectorValorador: usuarioId4, p_libroReseñado: libro2_9.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Fantástico.", p_valoracion: 4.8f, p_lectorValorador: usuarioId5, p_libroReseñado: libro2_9.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_10
+                reseñacp.CrearReseña(p_textoOpinion: "Obra magistral.", p_valoracion: 5.0f, p_lectorValorador: usuarioId1, p_libroReseñado: libro2_10.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy recomendado.", p_valoracion: 4.7f, p_lectorValorador: usuarioId2, p_libroReseñado: libro2_10.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_11
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente trabajo.", p_valoracion: 4.9f, p_lectorValorador: usuarioId3, p_libroReseñado: libro2_11.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Imperdible.", p_valoracion: 5.0f, p_lectorValorador: usuarioId4, p_libroReseñado: libro2_11.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_12
+                reseñacp.CrearReseña(p_textoOpinion: "Muy buena obra.", p_valoracion: 4.5f, p_lectorValorador: usuarioId5, p_libroReseñado: libro2_12.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Recomendadísimo.", p_valoracion: 4.8f, p_lectorValorador: usuarioId1, p_libroReseñado: libro2_12.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_13
+                reseñacp.CrearReseña(p_textoOpinion: "Gran historia.", p_valoracion: 4.6f, p_lectorValorador: usuarioId2, p_libroReseñado: libro2_13.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy bueno.", p_valoracion: 4.4f, p_lectorValorador: usuarioId3, p_libroReseñado: libro2_13.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro2_14
+                reseñacp.CrearReseña(p_textoOpinion: "Increíble.", p_valoracion: 5.0f, p_lectorValorador: usuarioId4, p_libroReseñado: libro2_14.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Obra maestra.", p_valoracion: 4.9f, p_lectorValorador: usuarioId5, p_libroReseñado: libro2_14.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro3
+                reseñacp.CrearReseña(p_textoOpinion: "Muy entretenido.", p_valoracion: 4.3f, p_lectorValorador: usuarioId1, p_libroReseñado: libro3.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Me gustó mucho.", p_valoracion: 4.5f, p_lectorValorador: usuarioId2, p_libroReseñado: libro3.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro3_2
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente lectura.", p_valoracion: 4.8f, p_lectorValorador: usuarioId3, p_libroReseñado: libro3_2.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy recomendable.", p_valoracion: 4.6f, p_lectorValorador: usuarioId4, p_libroReseñado: libro3_2.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro3_3
+                reseñacp.CrearReseña(p_textoOpinion: "Gran libro.", p_valoracion: 4.7f, p_lectorValorador: usuarioId5, p_libroReseñado: libro3_3.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Fantástico.", p_valoracion: 4.9f, p_lectorValorador: usuarioId1, p_libroReseñado: libro3_3.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro4
+                reseñacp.CrearReseña(p_textoOpinion: "Impresionante historia.", p_valoracion: 5.0f, p_lectorValorador: usuarioId2, p_libroReseñado: libro4.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy bueno.", p_valoracion: 4.5f, p_lectorValorador: usuarioId3, p_libroReseñado: libro4.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro5
+                reseñacp.CrearReseña(p_textoOpinion: "Una joya literaria.", p_valoracion: 5.0f, p_lectorValorador: usuarioId4, p_libroReseñado: libro5.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente lectura.", p_valoracion: 4.7f, p_lectorValorador: usuarioId5, p_libroReseñado: libro5.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro5_2
+                reseñacp.CrearReseña(p_textoOpinion: "Muy recomendable.", p_valoracion: 4.6f, p_lectorValorador: usuarioId1, p_libroReseñado: libro5_2.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Interesante.", p_valoracion: 4.2f, p_lectorValorador: usuarioId2, p_libroReseñado: libro5_2.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro5_3
+                reseñacp.CrearReseña(p_textoOpinion: "Gran trabajo.", p_valoracion: 4.8f, p_lectorValorador: usuarioId3, p_libroReseñado: libro5_3.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy bueno.", p_valoracion: 4.5f, p_lectorValorador: usuarioId4, p_libroReseñado: libro5_3.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro5_4
+                reseñacp.CrearReseña(p_textoOpinion: "Fascinante.", p_valoracion: 4.9f, p_lectorValorador: usuarioId5, p_libroReseñado: libro5_4.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Increíble.", p_valoracion: 5.0f, p_lectorValorador: usuarioId1, p_libroReseñado: libro5_4.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro5_5
+                reseñacp.CrearReseña(p_textoOpinion: "Magnífico.", p_valoracion: 4.7f, p_lectorValorador: usuarioId2, p_libroReseñado: libro5_5.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Fantástico libro.", p_valoracion: 4.8f, p_lectorValorador: usuarioId3, p_libroReseñado: libro5_5.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro5_6
+                reseñacp.CrearReseña(p_textoOpinion: "Soberbio.", p_valoracion: 5.0f, p_lectorValorador: usuarioId4, p_libroReseñado: libro5_6.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente.", p_valoracion: 4.9f, p_lectorValorador: usuarioId5, p_libroReseñado: libro5_6.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro6
+                reseñacp.CrearReseña(p_textoOpinion: "Una obra impresionante.", p_valoracion: 5.0f, p_lectorValorador: usuarioId1, p_libroReseñado: libro6.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy buena historia.", p_valoracion: 4.6f, p_lectorValorador: usuarioId2, p_libroReseñado: libro6.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro7
+                reseñacp.CrearReseña(p_textoOpinion: "Espectacular.", p_valoracion: 4.9f, p_lectorValorador: usuarioId3, p_libroReseñado: libro7.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy entretenido.", p_valoracion: 4.4f, p_lectorValorador: usuarioId4, p_libroReseñado: libro7.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro8
+                reseñacp.CrearReseña(p_textoOpinion: "Brillante.", p_valoracion: 5.0f, p_lectorValorador: usuarioId5, p_libroReseñado: libro8.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Increíblemente bueno.", p_valoracion: 4.8f, p_lectorValorador: usuarioId1, p_libroReseñado: libro8.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro9
+                reseñacp.CrearReseña(p_textoOpinion: "Maravilloso.", p_valoracion: 4.7f, p_lectorValorador: usuarioId2, p_libroReseñado: libro9.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy recomendable.", p_valoracion: 4.5f, p_lectorValorador: usuarioId3, p_libroReseñado: libro9.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro10
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente obra.", p_valoracion: 5.0f, p_lectorValorador: usuarioId4, p_libroReseñado: libro10.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy bueno.", p_valoracion: 4.6f, p_lectorValorador: usuarioId5, p_libroReseñado: libro10.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro11
+                reseñacp.CrearReseña(p_textoOpinion: "Extraordinario.", p_valoracion: 4.9f, p_lectorValorador: usuarioId1, p_libroReseñado: libro11.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Gran lectura.", p_valoracion: 4.7f, p_lectorValorador: usuarioId2, p_libroReseñado: libro11.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro11_2
+                reseñacp.CrearReseña(p_textoOpinion: "Impecable.", p_valoracion: 5.0f, p_lectorValorador: usuarioId3, p_libroReseñado: libro11_2.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy interesante.", p_valoracion: 4.5f, p_lectorValorador: usuarioId4, p_libroReseñado: libro11_2.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro11_3
+                reseñacp.CrearReseña(p_textoOpinion: "Sobresaliente.", p_valoracion: 4.8f, p_lectorValorador: usuarioId5, p_libroReseñado: libro11_3.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Recomendado.", p_valoracion: 4.6f, p_lectorValorador: usuarioId1, p_libroReseñado: libro11_3.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro12
+                reseñacp.CrearReseña(p_textoOpinion: "Una maravilla.", p_valoracion: 5.0f, p_lectorValorador: usuarioId2, p_libroReseñado: libro12.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy bueno.", p_valoracion: 4.7f, p_lectorValorador: usuarioId3, p_libroReseñado: libro12.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro13
+                reseñacp.CrearReseña(p_textoOpinion: "Excepcional.", p_valoracion: 4.9f, p_lectorValorador: usuarioId4, p_libroReseñado: libro13.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Fantástico.", p_valoracion: 4.8f, p_lectorValorador: usuarioId5, p_libroReseñado: libro13.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro14
+                reseñacp.CrearReseña(p_textoOpinion: "Magnífico libro.", p_valoracion: 5.0f, p_lectorValorador: usuarioId1, p_libroReseñado: libro14.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Muy recomendable.", p_valoracion: 4.6f, p_lectorValorador: usuarioId2, p_libroReseñado: libro14.Id, p_fecha: DateTime.Now);
+
+                // Reseñas para libro15
+                reseñacp.CrearReseña(p_textoOpinion: "Una obra de arte.", p_valoracion: 5.0f, p_lectorValorador: usuarioId3, p_libroReseñado: libro15.Id, p_fecha: DateTime.Now);
+                reseñacp.CrearReseña(p_textoOpinion: "Excelente.", p_valoracion: 4.9f, p_lectorValorador: usuarioId4, p_libroReseñado: libro15.Id, p_fecha: DateTime.Now);
+
+                Console.WriteLine ("Reseñas creadas correctamente para todos los libros.");
+
+                // CREACIÓN DE RELACIONES SEGUIR AUTOR
+                Console.WriteLine ("\n\n------------------ Creación de Relaciones Seguir Autor ------------------");
+
+                LectorCP lectorcp_seguir = new LectorCP(sessionCPNHibernate);
+
+                // Usuario 1 sigue a varios autores
+                lectorcp_seguir.SeguirAutor(usuarioId1, new List<int> { autorId, autorId2, autorId3 });
+                Console.WriteLine("Usuario 1 ahora sigue a 3 autores.");
+
+                // Usuario 2 sigue a varios autores
+                lectorcp_seguir.SeguirAutor(usuarioId2, new List<int> { autorId4, autorId5, autorId6 });
+                Console.WriteLine("Usuario 2 ahora sigue a 5 autores.");
+
+                // Usuario 3 sigue a varios autores
+                lectorcp_seguir.SeguirAutor(usuarioId3, new List<int> { autorId, autorId3, autorId5, autorId7, autorId8 });
+                Console.WriteLine("Usuario 3 ahora sigue a 5 autores.");
+
+                // Usuario 4 sigue a varios autores
+                lectorcp_seguir.SeguirAutor(usuarioId4, new List<int> { autorId4, autorId6, autorId9, autorId10 });
+                Console.WriteLine("Usuario 4 ahora sigue a 4 autores.");
+
+                // Usuario 5 sigue a varios autores
+                lectorcp_seguir.SeguirAutor(usuarioId5, new List<int> { autorId, autorId5, autorId7, autorId9, autorId12 });
+                Console.WriteLine("Usuario 5 ahora sigue a 5 autores.");
+
+                Console.WriteLine("Relaciones de seguir autor creadas correctamente.");
+
+                // SUSCRIPCIÓN DE LECTORES A CLUBES
+                Console.WriteLine("\n\n------------------ Suscripción de Lectores a Clubes ------------------");
+
+                LectorCP lectorcp_club = new LectorCP(sessionCPNHibernate);
+
+                // Usuario 1 se suscribe a clubes (es propietario de clubId1 y clubId3)
+                lectorcp_club.SuscribirLectorAClub(usuarioId1, new List<int> { clubId2, clubId5 });
+                Console.WriteLine("Usuario 1 ahora está suscrito a 2 clubes.");
+
+                // Usuario 2 se suscribe a clubes (ya está suscrito a clubId1)
+                lectorcp_club.SuscribirLectorAClub(usuarioId2, new List<int> { clubId2, clubId4 });
+                Console.WriteLine("Usuario 2 ahora está suscrito a 2 clubes adicionales.");
+
+                // Usuario 3 se suscribe a clubes (ya está suscrito a clubId1, es propietario de clubId2, clubId4 y clubId5)
+                lectorcp_club.SuscribirLectorAClub(usuarioId3, new List<int> { clubId3 });
+                Console.WriteLine("Usuario 3 ahora está suscrito a 1 club adicional.");
+
+                // Usuario 4 se suscribe a clubes
+                lectorcp_club.SuscribirLectorAClub(usuarioId4, new List<int> { clubId1, clubId2, clubId5 });
+                Console.WriteLine("Usuario 4 ahora está suscrito a 3 clubes.");
+
+                // Usuario 5 se suscribe a clubes
+                lectorcp_club.SuscribirLectorAClub(usuarioId5, new List<int> { clubId1, clubId3 });
+                Console.WriteLine("Usuario 5 ahora está suscrito a 2 clubes.");
+
+                Console.WriteLine("Suscripciones a clubes creadas correctamente.");
+
+                // INSCRIPCIÓN DE LECTORES A EVENTOS
+                Console.WriteLine("\n\n------------------ Inscripción de Lectores a Eventos ------------------");
+
+                LectorCP lectorcp_evento = new LectorCP(sessionCPNHibernate);
+
+                // Usuario 1 se inscribe a eventos (ya inscrito a eventoId1)
+                lectorcp_evento.InscribirLectorAEvento(usuarioId1, new List<int> { eventoId2, eventoId4 });
+                Console.WriteLine("Usuario 1 ahora está inscrito a 2 eventos adicionales.");
+
+                // Usuario 2 se inscribe a eventos (ya inscrito a eventoId1)
+                lectorcp_evento.InscribirLectorAEvento(usuarioId2, new List<int> { eventoId3, eventoId4 });
+                Console.WriteLine("Usuario 2 ahora está inscrito a 2 eventos adicionales.");
+
+                // Usuario 3 se inscribe a eventos (ya inscrito a eventoId1)
+                lectorcp_evento.InscribirLectorAEvento(usuarioId3, new List<int> { eventoId2, eventoId3 });
+                Console.WriteLine("Usuario 3 ahora está inscrito a 2 eventos adicionales.");
+
+                // Usuario 4 se inscribe a eventos
+                lectorcp_evento.InscribirLectorAEvento(usuarioId4, new List<int> { eventoId1, eventoId2, eventoId3 });
+                Console.WriteLine("Usuario 4 ahora está inscrito a 3 eventos.");
+
+                // Usuario 5 se inscribe a eventos
+                lectorcp_evento.InscribirLectorAEvento(usuarioId5, new List<int> { eventoId1, eventoId4 });
+                Console.WriteLine("Usuario 5 ahora está inscrito a 2 eventos.");
+
+                // Inscripciones adicionales para eventoId5 y eventoId6
+                lectorcp_evento.InscribirLectorAEvento(usuarioId1, new List<int> { eventoId5 });
+                lectorcp_evento.InscribirLectorAEvento(usuarioId3, new List<int> { eventoId5, eventoId6 });
+                lectorcp_evento.InscribirLectorAEvento(usuarioId5, new List<int> { eventoId6 });
+                Console.WriteLine("Inscripciones adicionales a eventoId5 y eventoId6 creadas correctamente.");
+
+                Console.WriteLine("Inscripciones a eventos creadas correctamente.");
 
                 /*PROTECTED REGION END*/
         }

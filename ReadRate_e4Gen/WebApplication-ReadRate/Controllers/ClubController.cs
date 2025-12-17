@@ -359,8 +359,45 @@ namespace WebApplication_ReadRate.Controllers
             }
         }
 
-        // GET: ClubController/EliminarClub
+        // GET: ClubController/EliminarClub/5
         public ActionResult EliminarClub(int id)
+        {
+            if (id <= 0)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                SessionInitialize();
+                ClubRepository clubRepository = new ClubRepository(session);
+                ClubCEN clubCEN = new ClubCEN(clubRepository);
+
+                ClubEN clubEN = clubCEN.DameClubPorOID(id);
+
+                if (clubEN == null)
+                {
+                    SessionClose();
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
+
+                SessionClose();
+                return View("Delete", clubVM);
+            }
+            catch
+            {
+                SessionClose();
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        // POST: ClubController/EliminarClub
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult EliminarClub(int id, IFormCollection collection)
         {
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
             var usuarioRol = HttpContext.Session.GetString("UsuarioRol");

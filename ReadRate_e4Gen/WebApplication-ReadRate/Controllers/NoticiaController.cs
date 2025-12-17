@@ -241,7 +241,7 @@ namespace WebApplication_ReadRate.Controllers
                 noticiaCEN.ModificarNoticia(
                     p_Noticia_OID: id,
                     p_titulo: noticiaVM.Titulo,
-                    p_fechaPublicacion: noticiaVM.FechaPublicacion,
+                    p_fechaPublicacion: noticiaOriginal.FechaPublicacion ?? DateTime.Now,
                     p_foto: noticiaVM.Foto,
                     p_textoContenido: noticiaVM.TextoContenido
                 );

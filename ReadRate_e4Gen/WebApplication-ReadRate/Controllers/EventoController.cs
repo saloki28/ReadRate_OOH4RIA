@@ -387,6 +387,8 @@ namespace WebApplication_ReadRate.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
+            SessionCPNHibernate sessionCP = null;
+            
             try
             {
                 if (id <= 0)
@@ -394,14 +396,73 @@ namespace WebApplication_ReadRate.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                EventoRepository eventoRepository = new EventoRepository();
-                EventoCEN eventoCEN = new EventoCEN(eventoRepository);
+                // Usar SessionCPNHibernate con transacciones
+                sessionCP = new SessionCPNHibernate();
+                sessionCP.SessionInitializeTransaction();
+                
+                // Obtener el evento
+                EventoCEN eventoCEN = new EventoCEN(sessionCP.UnitRepo.EventoRepository);
+                EventoEN eventoEN = eventoCEN.DameEventoPorOID(id);
+                
+                if (eventoEN == null)
+                {
+                    sessionCP.SessionClose();
+                    TempData["Error"] = "Evento no encontrado.";
+                    return RedirectToAction(nameof(Index));
+                }
+                
+                // 1. Desinscribir a todos los asistentes del evento
+                var asistentesDelEvento = eventoEN.LectorParticipante?.ToList() ?? new List<LectorEN>();
+                if (asistentesDelEvento.Count > 0)
+                {
+                    foreach (var asistente in asistentesDelEvento)
+                    {
+                        try
+                        {
+                            SessionCPNHibernate sessionCPAsistente = new SessionCPNHibernate();
+                            LectorCP lectorCP = new LectorCP(sessionCPAsistente);
+                            lectorCP.DesinscribirLectorDeEvento(asistente.Id, new List<int> { id });
+                        }
+                        catch { }
+                    }
+                }
+                
+                // 1.5 Limpiar la relación de propietario antes de eliminar
+                eventoEN.AdministradorEventos = null;
+                eventoCEN.ModificarEvento(
+                    eventoEN.Id,
+                    eventoEN.Nombre,
+                    eventoEN.Foto,
+                    eventoEN.Descripcion,
+                    eventoEN.Fecha,
+                    eventoEN.Hora,
+                    eventoEN.Ubicacion,
+                    eventoEN.AforoMax,
+                    eventoEN.AforoActual
+                );
+                
+                // 2. Eliminar el evento
                 eventoCEN.EliminarEvento(id);
+                
+                // COMMIT de la transacción
+                sessionCP.Commit();
+                sessionCP.SessionClose();
 
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
+                // Hacer rollback si hay error
+                if (sessionCP != null)
+                {
+                    try
+                    {
+                        sessionCP.RollBack();
+                        sessionCP.SessionClose();
+                    }
+                    catch { }
+                }
+                
                 TempData["Error"] = "No se pudo eliminar el evento: " + ex.Message;
                 return RedirectToAction(nameof(Index));
             }

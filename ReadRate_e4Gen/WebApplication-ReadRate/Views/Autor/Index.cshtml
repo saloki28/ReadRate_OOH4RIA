@@ -14,74 +14,78 @@
     <h1>@(esPropioAutor ? "TU ÁREA PERSONAL" : "PERFIL DE AUTOR")</h1>
 </header>
 
-<section class="container">
+<main class="container my-5">
     @if (Model != null && Model.Any())
     {
         var autor = Model.First();
         
         @* Información del Autor *@
-        <section>
-            <article class="book-cover">
-                @if (!string.IsNullOrEmpty(autor.FotoUrl))
-                {
-                    <img src="@autor.FotoUrl" alt="Foto de @autor.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
-                }
-                else
-                {
-                    <span>FotoAutor</span>
-                }
-            </article>
-            <article>
-                <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
-                <article class="book-meta" style="font-size: 1rem;">
-                    <div class="book-meta-item">
-                        <strong>Cantidad de libros publicados:</strong> @autor.CantidadLibrosPublicados
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Cantidad de seguidores:</strong> @autor.NumeroSeguidores
-                    </div>
-                    <div class="book-meta-item">
-                        <strong>Valoración media:</strong> <partial name="_StarRating" model="autor.ValoracionMedia" />
-                    </div>
-                </article>
-                
-                @* @if (esPropioAutor)
-                {
-                    @* <div class="book-actions" style="margin-top: 1.5rem;">
-                        <a asp-action="Edit" asp-route-id="@autor.IdUsuario" class="btn-action edit">Editar Perfil</a>
-                        <a asp-action="Delete" asp-route-id="@autor.IdUsuario" class="btn-action delete">Borrar</a>
-                    </div>
-                } *@
-                @* else
-                { *@
-                    @* Botón de seguir solo visible para lectores *@
-                    @if (usuarioRol == "lector" && !esPropioAutor)
-                    {
-                        <article class="book-actions" style="margin-top: 1.5rem;">
-                            @if (ViewBag.YaSiguiendoAutor == true)
+        <section class="card shadow-orange-lg mb-5">
+            <div class="card-body p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center mb-3 mb-md-0">
+                        <article class="autor-photo-wrapper">
+                            @if (!string.IsNullOrEmpty(autor.FotoUrl))
                             {
-                                <form asp-action="DejarDeSeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
-                                    <input type="hidden" name="autorId" value="@autor.IdUsuario" />
-                                    <button type="submit" class="btn-action delete">Dejar de Seguir</button>
-                                </form>
+                                <img src="@autor.FotoUrl" alt="Foto de @autor.NombreUsuario" class="rounded-circle" style="width: 180px; height: 180px; object-fit: cover; border: 4px solid #ff9800; box-shadow: 0 4px 12px rgba(255,111,0,0.3);">
                             }
                             else
                             {
-                                <form asp-action="SeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
-                                    <input type="hidden" name="autorId" value="@autor.IdUsuario" />
-                                    <button type="submit" class="btn-action">Seguir</button>
-                                </form>
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width: 180px; height: 180px; border: 4px solid #ff9800; margin: 0 auto;">
+                                    <span class="text-muted" style="font-size: 3rem;">@autor.NombreUsuario.Substring(0, 1).ToUpper()</span>
+                                </div>
                             }
                         </article>
-                    }
-                @* } *@
-            </article>
+                        <h3 class="mt-3 text-orange-dark">@autor.NombreUsuario</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <article class="stats-card">
+                                    <h2 class="text-orange-dark mb-1">@autor.CantidadLibrosPublicados</h2>
+                                    <p class="text-muted mb-0">Publicados</p>
+                                </article>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <article class="stats-card">
+                                    <h2 class="text-orange-dark mb-1">@autor.NumeroSeguidores</h2>
+                                    <p class="text-muted mb-0">Seguidores</p>
+                                </article>
+                            </div>
+                            <div class="col-md-4">
+                                <article class="stats-card">
+                                    <h2 class="text-orange-dark mb-1"><partial name="_StarRating" model="autor.ValoracionMedia" /></h2>
+                                    <p class="text-muted mb-0">Valoración Media</p>
+                                </article>
+                            </div>
+                        </div>
+                        @if (usuarioRol == "lector" && !esPropioAutor)
+                        {
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                @if (ViewBag.YaSiguiendoAutor == true)
+                                {
+                                    <form asp-action="DejarDeSeguirAutor" asp-controller="Autor" method="post" class="w-100">
+                                        <input type="hidden" name="autorId" value="@autor.IdUsuario" />
+                                        <button type="submit" class="btn-action delete w-100">Dejar de Seguir</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="SeguirAutor" asp-controller="Autor" method="post" class="w-100">
+                                        <input type="hidden" name="autorId" value="@autor.IdUsuario" />
+                                        <button type="submit" class="btn-action w-100">Seguir</button>
+                                    </form>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </section>
 
         @* Sección de Libros del Autor *@
-        <article class="action-bar">
-            <h2 class="section-title">@(esPropioAutor ? "MIS LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
-        </article>
+        <section class="mb-5">
+            <h2 class="section-title mb-4">@(esPropioAutor ? "LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
         
         <section class="books-grid">
             @if (ViewBag.LibrosAutor != null && ViewBag.LibrosAutor.Count > 0)
@@ -132,11 +136,57 @@
                 </article>
             }
         </section>
+        </section>
+
+        @* Sección de Reseñas *@
+        <section>
+            <h2 class="section-title mb-4">ÚLTIMAS RESEÑAS DE PUBLICACIONES</h2>
+            @if (ViewBag.ReseñasAutor != null && ViewBag.ReseñasAutor.Count > 0)
+            {
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    @foreach (var reseña in ViewBag.ReseñasAutor)
+                    {
+                        <div class="col">
+                            <article class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        @if (!string.IsNullOrEmpty(reseña.LectorFoto))
+                                        {
+                                            <img src="@reseña.LectorFoto" alt="Foto de @reseña.LectorNombre" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                        }
+                                        else
+                                        {
+                                            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">
+                                                @reseña.LectorNombre?.Substring(0, 1).ToUpper()
+                                            </div>
+                                        }
+                                        <div>
+                                            <h6 class="mb-0 text-orange-dark">@reseña.LectorNombre</h6>
+                                            <small class="text-muted">Reseña de: <strong>@reseña.LibroNombre</strong></small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text mb-2">@reseña.Opinion</p>
+                                    <div class="mb-2">
+                                        <partial name="_StarRating" model="reseña.Valoracion" />
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info text-center">
+                    @(esPropioAutor ? "Aún no hay reseñas de tus libros." : "Este autor aún no tiene reseñas en sus libros.")
+                </div>
+            }
+        </section>
     }
     else
     {
-        <article class="no-books">
+        <article class="alert alert-danger text-center">
             No se encontró información del autor.
         </article>
     }
-</section>
+</main>

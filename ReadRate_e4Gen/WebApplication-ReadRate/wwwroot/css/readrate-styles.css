@@ -108,6 +108,48 @@ body.login-page .login-container {
     margin-top: 1rem;
 }
 
+.rol-selector {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.rol-option {
+    flex: 1;
+}
+
+.rol-option input[type="radio"] {
+    display: none;
+}
+
+.rol-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    padding: 1.5rem 1rem;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.rol-option input[type="radio"]:checked + .rol-label {
+    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+    color: white;
+    border-color: #ff9800;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
+}
+
+.rol-label:hover {
+    border-color: #ff9800;
+    box-shadow: 0 2px 8px rgba(255, 111, 0, 0.15);
+}
+
 .logo-section {
     margin-bottom: 2rem;
 }
@@ -559,6 +601,51 @@ select.form-control option:checked,
     color: #fff;
     border: 2px solid #ff9800;
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+}
+
+.btn-outline-create {
+    background: #fff;
+    color: #ff9800;
+    border: 2px solid #ff9800;
+    padding: 0.75rem 2rem;
+    border-radius: var(--bs-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-outline-create:hover {
+    background: #ff9800;
+    color: #fff;
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+}
+
+.btn-back-custom {
+    background: #fff;
+    color: #ff9800;
+    border: 2px solid #ff9800;
+    padding: 0.75rem 2rem;
+    border-radius: var(--bs-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 8px 24px rgba(255, 111, 0, 0.15);
+    margin-top: 1em;
+}
+
+.btn-back-custom:hover {
+    background: #ff9800;
+    color: #fff;
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .btn-danger {
@@ -766,6 +853,98 @@ select.form-control option:checked,
     position: relative;
 }
 
+/* Add Card Styling - Botones de añadir (+) mejorados */
+.book-card.add-card {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    border: 3px dashed #ff9800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.book-card.add-card:hover {
+    background: linear-gradient(135deg, #ffe8cc 0%, #ffd699 100%);
+    border-color: #ff6f00;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(255,111,0,0.25);
+}
+
+.add-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.add-content i {
+    transition: all 0.3s ease;
+}
+
+.book-card.add-card:hover .add-content i {
+    transform: scale(1.2) rotate(90deg);
+}
+
+.add-content p {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.text-orange {
+    color: #ff6f00;
+}
+
+.book-card.add-card:hover .text-orange {
+    color: #e65100;
+}
+
+/* Botones de perfil - Editar y Eliminar */
+.btn-profile-edit {
+    background: white;
+    color: #2196f3;
+    border: 2px solid #2196f3;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-profile-edit:hover {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    color: white;
+    border-color: #2196f3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.btn-profile-delete {
+    background: white;
+    color: #f44336;
+    border: 2px solid #f44336;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-profile-delete:hover {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    color: white;
+    border-color: #f44336;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
 /* Alternative card names */
 .event-card,
 .news-card {
@@ -925,6 +1104,7 @@ select.form-control option:checked,
     flex: 1;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .event-info,
@@ -994,8 +1174,8 @@ select.form-control option:checked,
 }
 .book-actions {
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
-    flex-wrap: wrap;
     margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid #f0f0f0;
@@ -1004,8 +1184,8 @@ select.form-control option:checked,
 .event-actions,
 .news-actions {
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
-    flex-wrap: wrap;
     margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid #f0f0f0;
@@ -1750,6 +1930,64 @@ footer.footer .footer-main {
     }
 }
 
+/* ===========================
+   AUTOR PERFIL INFO
+   =========================== */
+.stats-card {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #ffe0b2;
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255, 111, 0, 0.15);
+}
+
+.stats-card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.text-orange-dark {
+    color: #e65100;
+}
+
+/* ===========================
+   AUTOR PERFIL BOTON
+   =========================== */
+.btn-autor-profile {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 2px solid #ffe0b2;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-autor-profile:hover {
+    background: linear-gradient(135deg, #ffe8cc 0%, #ffd699 100%);
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.2);
+}
+
+.btn-autor-profile span {
+    color: #e65100;
+    transition: color 0.3s ease;
+}
+
+.btn-autor-profile:hover span {
+    color: #ff6f00;
+}
+
+
+
+
 
 /*//////////////////////////////////////////////////////////////////////////////*/
 
@@ -2150,8 +2388,5 @@ footer.footer .footer-main {
         font-size: 0.85rem;
     }
 }
-
-
-
 
 

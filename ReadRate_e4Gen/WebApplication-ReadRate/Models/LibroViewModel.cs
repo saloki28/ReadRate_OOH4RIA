@@ -64,6 +64,10 @@ namespace WebApplication_ReadRate.Models
         [Display(Prompt = "Selecciona el nombre del autor del libro", Description = "Nombre del autor del libro", Name = "Autor")]
         public string? NombreAutor { get; set; }
 
+        // Foto del autor del libro
+        [ScaffoldColumn(false)]
+        public string? AutorFotoUrl { get; set; }
+
         // Id del autor del libro
         [ScaffoldColumn(false)]
         public int AutorId { get; set; }

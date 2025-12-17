@@ -359,8 +359,20 @@ namespace WebApplication_ReadRate.Controllers
             }
         }
 
-        // GET: ClubController/EliminarClub/5
-        public ActionResult EliminarClub(int id)
+        // GET: ClubController/DeleteClub - Muestra la vista de confirmación
+        public ActionResult DeleteClub(int clubId)
+        {
+            SessionInitialize();
+            ClubRepository clubRepository = new ClubRepository(session);
+            ClubCEN clubCEN = new ClubCEN(clubRepository);
+            ClubEN clubEN = clubCEN.DameClubPorOID(clubId);
+            ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
+            SessionClose();
+            return View(clubVM);
+        }
+
+        // GET: ClubController/ConfirmarEliminarClub - Ejecuta la eliminación
+        public ActionResult ConfirmarEliminarClub(int id)
         {
             if (id <= 0)
             {

@@ -26,7 +26,7 @@
                 </div>
                 <p class="warning-text">Esta acción no se puede deshacer. Todos los miembros perderán acceso al club.</p>
 
-                <form asp-action="ConfirmarEliminarClub" method="get">
+                <form asp-action="EliminarClub" method="post">
                     <input type="hidden" name="id" value="@Model.Id" />
                     <div class="d-flex gap-3 justify-content-between mt-4">
                         <a asp-controller="Lector" asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> No, volver</a>

@@ -12,6 +12,38 @@ namespace WebApplication_ReadRate.Controllers
 {
     public class UsuarioController : BasicController
     {
+        // GET: UsuarioController/Register
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        // POST: UsuarioController/Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(string rol)
+        {
+            // Validar que se haya seleccionado un rol
+            if (string.IsNullOrEmpty(rol))
+            {
+                ModelState.AddModelError("", "Debes seleccionar un rol");
+                return View();
+            }
+
+            // Redirigir al Create correspondiente según el rol seleccionado
+            if (rol.ToLower() == "lector")
+            {
+                return RedirectToAction("Create", "Lector");
+            }
+            else if (rol.ToLower() == "autor")
+            {
+                return RedirectToAction("Create", "Autor");
+            }
+
+            ModelState.AddModelError("", "Rol no válido");
+            return View();
+        }
+
         // GET: UsuarioController/Login
         public ActionResult Login()
         {

@@ -79,6 +79,7 @@ namespace WebApplication_ReadRate.Controllers
                 CantAutoresSeguidos = 0,
                 CantClubsSuscritos = 0
             };
+
             return View(lectorViewModel);
         }
 
@@ -133,7 +134,9 @@ namespace WebApplication_ReadRate.Controllers
                         p_cantAutoresSeguidos: lec.CantAutoresSeguidos, 
                         p_cantClubsSuscritos: lec.CantClubsSuscritos
                     );
-                    return RedirectToAction(nameof(Index));
+
+                    // Redirigir a la página de login después del registro
+                    return RedirectToAction("Login", "Usuario");
                 }
                 return View(lec);
             }

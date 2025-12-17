@@ -57,7 +57,7 @@ namespace WebApplication_ReadRate.Controllers
                 LectorRepository lectorRepository = new LectorRepository(session);
                 LectorCEN lectorCEN = new LectorCEN(lectorRepository);
                 LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
-                
+
                 if (lectorEN?.AutorSeguido != null)
                 {
                     ViewBag.YaSiguiendoAutor = lectorEN.AutorSeguido.Any(a => a.Id == autorIdAMostrar);
@@ -137,16 +137,16 @@ namespace WebApplication_ReadRate.Controllers
                     AutorRepository autorRepository = new AutorRepository();
                     AutorCEN autorCEN = new AutorCEN(autorRepository);
                     autorCEN.CrearAutor(
-                        p_email: aut.Email, 
-                        p_nombreUsuario: aut.NombreUsuario, 
-                        p_fechaNacimiento: aut.FechaNacimiento, 
-                        p_ciudadResidencia: aut.CiudadResidencia, 
-                        p_paisResidencia: aut.PaisResidencia, 
-                        p_foto: fotoFileName, 
-                        p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), aut.Rol), 
+                        p_email: aut.Email,
+                        p_nombreUsuario: aut.NombreUsuario,
+                        p_fechaNacimiento: aut.FechaNacimiento,
+                        p_ciudadResidencia: aut.CiudadResidencia,
+                        p_paisResidencia: aut.PaisResidencia,
+                        p_foto: fotoFileName,
+                        p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), aut.Rol),
                         p_pass: aut.Pass,
-                        p_numeroSeguidores: aut.NumeroSeguidores, 
-                        p_cantidadLibrosPublicados: aut.CantidadLibrosPublicados, 
+                        p_numeroSeguidores: aut.NumeroSeguidores,
+                        p_cantidadLibrosPublicados: aut.CantidadLibrosPublicados,
                         p_valoracionMedia: aut.ValoracionMedia
                     );
 
@@ -241,7 +241,7 @@ namespace WebApplication_ReadRate.Controllers
                         p_cantidadLibrosPublicados: autor.CantidadLibrosPublicados,
                         p_valoracionMedia: autor.ValoracionMedia
                     );
-                    
+
                     return RedirectToAction(nameof(Index));
                 }
                 return View(autor);
@@ -257,11 +257,15 @@ namespace WebApplication_ReadRate.Controllers
         // GET: AutorController/Delete/5
         public ActionResult Delete(int id)
         {
-            AutorRepository autorRepository = new AutorRepository();
+            SessionInitialize();
+
+            AutorRepository autorRepository = new AutorRepository(session);
             AutorCEN autorCEN = new AutorCEN(autorRepository);
 
             AutorEN autorEN = autorCEN.DameAutorPorOID(id);
             AutorViewModel autorVM = new AutorAssembler().ConvertirENToViewModel(autorEN);
+
+            SessionClose();
 
             return View(autorVM);
         }
@@ -269,20 +273,31 @@ namespace WebApplication_ReadRate.Controllers
         // POST: AutorController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, AutorViewModel model)
         {
             try
             {
+                // Usar el ID del modelo o del parámetro (el que no sea 0)
+                int autorId = model.IdUsuario > 0 ? model.IdUsuario : id;
+
+                if (autorId <= 0)
+                {
+                    TempData["ErrorMessage"] = "ID de autor no válido";
+                    return RedirectToAction("Index", "Usuario");
+                }
+
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 AutorCP autorCP = new AutorCP(sessionCP);
-                autorCP.EliminarAutor(id);
-                return RedirectToAction(nameof(Index));
+                autorCP.EliminarAutor(autorId);
+
+                TempData["SuccessMessage"] = "Autor eliminado correctamente";
+                return RedirectToAction("Index", "Usuario");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
                 TempData["ErrorMessage"] = "Error al eliminar el autor: " + ex.Message + innerMessage;
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Usuario");
             }
         }
 
@@ -303,7 +318,7 @@ namespace WebApplication_ReadRate.Controllers
             {
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 LectorCP lectorCP = new LectorCP(sessionCP);
-                
+
                 IList<int> autoresIds = new List<int> { autorId };
                 lectorCP.SeguirAutor(lectorId.Value, autoresIds);
             }
@@ -332,7 +347,7 @@ namespace WebApplication_ReadRate.Controllers
             {
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 LectorCP lectorCP = new LectorCP(sessionCP);
-                
+
                 IList<int> autoresIds = new List<int> { autorId };
                 lectorCP.DejarDeSeguirAutor(lectorId.Value, autoresIds);
             }

@@ -20,7 +20,7 @@ namespace WebApplication_ReadRate.Controllers
 
             // Obtener el ID del usuario de la sesión
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
-            
+
             if (!usuarioId.HasValue)
             {
                 SessionClose();
@@ -31,7 +31,7 @@ namespace WebApplication_ReadRate.Controllers
             LectorCEN lectorCEN = new LectorCEN(lectorRepository);
 
             LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
-            
+
             // Forzar la carga de las relaciones antes de cerrar la sesión
             if (lectorEN.LibroEnCurso != null)
             {
@@ -45,9 +45,9 @@ namespace WebApplication_ReadRate.Controllers
             {
                 var count3 = lectorEN.ClubSuscritoLector.Count;
             }
-            
+
             LectorViewModel lectorViewModel = new LectorAssembler().ConvertirENToViewModel(lectorEN);
-            
+
             SessionClose();
 
             return View(lectorViewModel);
@@ -120,17 +120,17 @@ namespace WebApplication_ReadRate.Controllers
                     LectorRepository lectorRepository = new LectorRepository();
                     LectorCEN lectorCEN = new LectorCEN(lectorRepository);
                     lectorCEN.CrearLector(
-                        p_email: lec.Email, 
-                        p_nombreUsuario: lec.NombreUsuario, 
-                        p_fechaNacimiento: lec.FechaNacimiento, 
-                        p_ciudadResidencia: lec.CiudadResidencia, 
-                        p_paisResidencia: lec.PaisResidencia, 
-                        p_foto: fotoFileName, 
-                        p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), lec.Rol), 
+                        p_email: lec.Email,
+                        p_nombreUsuario: lec.NombreUsuario,
+                        p_fechaNacimiento: lec.FechaNacimiento,
+                        p_ciudadResidencia: lec.CiudadResidencia,
+                        p_paisResidencia: lec.PaisResidencia,
+                        p_foto: fotoFileName,
+                        p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), lec.Rol),
                         p_pass: lec.Pass,
-                        p_cantLibrosCurso: lec.CantLibrosCurso, 
-                        p_cantLibrosLeidos: lec.CantLibrosLeidos, 
-                        p_cantAutoresSeguidos: lec.CantAutoresSeguidos, 
+                        p_cantLibrosCurso: lec.CantLibrosCurso,
+                        p_cantLibrosLeidos: lec.CantLibrosLeidos,
+                        p_cantAutoresSeguidos: lec.CantAutoresSeguidos,
                         p_cantClubsSuscritos: lec.CantClubsSuscritos
                     );
                     return RedirectToAction(nameof(Index));
@@ -240,11 +240,14 @@ namespace WebApplication_ReadRate.Controllers
         // GET: LectorController/Delete/5
         public ActionResult Delete(int id)
         {
-            LectorRepository lectorRepository = new LectorRepository();
+            SessionInitialize();
+            LectorRepository lectorRepository = new LectorRepository(session);
             LectorCEN lectorCEN = new LectorCEN(lectorRepository);
 
             LectorEN lecEN = lectorCEN.DameLectorPorOID(id);
             LectorViewModel lec = new LectorAssembler().ConvertirENToViewModel(lecEN);
+
+            SessionClose();
 
             return View(lec);
         }
@@ -256,16 +259,26 @@ namespace WebApplication_ReadRate.Controllers
         {
             try
             {
+                // Validación simple del ID
+                if (id <= 0)
+                {
+                    TempData["ErrorMessage"] = "ID de lector no válido";
+                    return RedirectToAction("Index", "Usuario");
+                }
+
+                // Eliminar usando LectorCP_eliminarLector
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 LectorCP lectorCP = new LectorCP(sessionCP);
                 lectorCP.EliminarLector(id);
-                return RedirectToAction(nameof(Index));
+
+                TempData["SuccessMessage"] = "Lector eliminado correctamente";
+                return RedirectToAction("Index", "Usuario");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
-                ModelState.AddModelError("", "Error al eliminar el lector: " + ex.Message + innerMessage);
-                return RedirectToAction(nameof(Index));
+                TempData["ErrorMessage"] = "Error al eliminar el lector: " + ex.Message + innerMessage;
+                return RedirectToAction("Index", "Usuario");
             }
         }
     }

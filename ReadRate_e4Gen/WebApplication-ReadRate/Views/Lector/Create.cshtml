@@ -8,7 +8,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Read&Rate - Crear Lector</title>
+    <title>Read&Rate - Registrar Nuevo Lector</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -16,7 +16,7 @@
 </head>
 <body>
     <header class="page-header">
-        <h1>Crear Nuevo Lector</h1>
+        <h1>Registrar Nuevo Lector</h1>
     </header>
 
     <main class="container my-5">
@@ -28,53 +28,61 @@
                     @* Campo oculto para el rol - siempre será "lector" (valor 2) *@
                     <input type="hidden" asp-for="Rol" value="2" />
 
-                    <article class="mb-3">
-                        <label asp-for="Email" class="form-label"></label>
-                        <input asp-for="Email" class="form-control" placeholder="Ej: lector@gmail.com" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                        <div class="form-text">Formato correo electrónico</div>
-                    </article>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Ej: lector@gmail.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <div class="form-text">Formato correo electrónico</div>
+                        </div>
 
-                    <article class="mb-3">
-                        <label asp-for="NombreUsuario" class="form-label"></label>
-                        <input asp-for="NombreUsuario" class="form-control" placeholder="Ej: Juan123" />
-                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
-                        <div class="form-text">Nombre de usuario de no más de 255 caracteres</div>
-                    </article>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="NombreUsuario" class="form-label"></label>
+                            <input asp-for="NombreUsuario" class="form-control" placeholder="Ej: Juan123" />
+                            <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                            <div class="form-text">Nombre de usuario de no más de 255 caracteres</div>
+                        </div>
+                    </div>
 
-                    <article class="mb-3">
-                        <label asp-for="FechaNacimiento" class="form-label"></label>
-                        <input asp-for="FechaNacimiento" class="form-control" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
-                        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-                        <div class="form-text">Fecha en formato dd/mm/yyyy</div>
-                    </article>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="FechaNacimiento" class="form-label"></label>
+                            <input asp-for="FechaNacimiento" class="form-control" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                            <div class="form-text">Fecha en formato dd/mm/yyyy</div>
+                        </div>
 
-                    <article class="mb-3">
-                        <label asp-for="CiudadResidencia" class="form-label"></label>
-                        <input asp-for="CiudadResidencia" class="form-control" placeholder="Elche, Alicante..."/>
-                        <span asp-validation-for="CiudadResidencia" class="text-danger"></span>
-                        <div class="form-text">Texto de máximo 255 caracteres</div>
-                    </article>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Pass" class="form-label"></label>
+                            <input asp-for="Pass" class="form-control" placeholder="Ej: password123" type="password" />
+                            <span asp-validation-for="Pass" class="text-danger"></span>
+                            <div class="form-text">Contraseña de acceso</div>
+                        </div>
+                    </div>
 
-                    <article class="mb-3">
-                        <label asp-for="PaisResidencia" class="form-label"></label>
-                        <input asp-for="PaisResidencia" class="form-control" placeholder="España, Portugal..." />
-                        <span asp-validation-for="PaisResidencia" class="text-danger"></span>
-                        <div class="form-text">Texto de máximo 255 caracteres</div>
-                    </article>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="CiudadResidencia" class="form-label"></label>
+                            <input asp-for="CiudadResidencia" class="form-control" placeholder="Ej:Alicante"/>
+                            <span asp-validation-for="CiudadResidencia" class="text-danger"></span>
+                            <div class="form-text">Texto de máximo 255 caracteres</div>
+                        </div>
 
-                    <article class="mb-3">
-                        <label asp-for="Pass" class="form-label"></label>
-                        <input asp-for="Pass" class="form-control" placeholder="Ej: password123" type="password" />
-                        <span asp-validation-for="Pass" class="text-danger"></span>
-                        <div class="form-text">Contraseña de acceso</div>
-                    </article>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="PaisResidencia" class="form-label"></label>
+                            <input asp-for="PaisResidencia" class="form-control" placeholder="Ej: España" />
+                            <span asp-validation-for="PaisResidencia" class="text-danger"></span>
+                            <div class="form-text">Texto de máximo 255 caracteres</div>
+                        </div>
+                    </div>
 
-                    <article class="mb-4">
-                        <label asp-for="FotoFile" class="form-label">Foto del lector</label>
-                        <input asp-for="FotoFile" type="file" class="form-control" />
-                        <span asp-validation-for="FotoFile" class="text-danger"></span>
-                    </article>
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <label asp-for="FotoFile" class="form-label">Foto del lector</label>
+                            <input asp-for="FotoFile" type="file" class="form-control" />
+                            <span asp-validation-for="FotoFile" class="text-danger"></span>
+                        </div>
+                    </div>
 
                     <article class="d-flex gap-3 justify-content-between mt-4">
                         <input type="submit" value="Crear lector" class="btn btn-primary px-5" />

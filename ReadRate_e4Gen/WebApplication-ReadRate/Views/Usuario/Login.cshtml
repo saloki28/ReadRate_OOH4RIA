@@ -7,6 +7,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8" />
     <title>Read&Rate - Inicio de Sesión</title>
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />    
     <link rel="stylesheet" href="~/css/readrate-styles.css" />
 </head>
+
 <body class="login-page">
     <main class="login-container">
         <section class="login-card">
@@ -47,11 +49,13 @@
             </form>
             
             <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
-                <p style="color: #666; margin-bottom: 1rem;">¿No tienes cuenta?</p>
-                <a href="@Url.Action("Register", "Usuario")" class="btn btn-primary">Crear Cuenta</a>
+                <p style="color: #666; margin-bottom: 0.5rem;">¿No tienes cuenta?</p>
+                <a href="@Url.Action("Register", "Usuario")" class="btn btn-outline-create">Crear Cuenta</a>
             </div>
-            
-            <p class="footer-text">Tu plataforma de lectura y valoración de libros</p>
+        </section>
+
+        <section class="form-group mt-3">
+            <a href="javascript:history.back()" class="btn btn-back-custom w-100">Volver atrás</a>
         </section>
     </main>
 </body>

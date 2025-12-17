@@ -108,6 +108,48 @@ body.login-page .login-container {
     margin-top: 1rem;
 }
 
+.rol-selector {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.rol-option {
+    flex: 1;
+}
+
+.rol-option input[type="radio"] {
+    display: none;
+}
+
+.rol-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    padding: 1.5rem 1rem;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.rol-option input[type="radio"]:checked + .rol-label {
+    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+    color: white;
+    border-color: #ff9800;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
+}
+
+.rol-label:hover {
+    border-color: #ff9800;
+    box-shadow: 0 2px 8px rgba(255, 111, 0, 0.15);
+}
+
 .logo-section {
     margin-bottom: 2rem;
 }
@@ -559,6 +601,51 @@ select.form-control option:checked,
     color: #fff;
     border: 2px solid #ff9800;
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255,111,0,0.4);
+}
+
+.btn-outline-create {
+    background: #fff;
+    color: #ff9800;
+    border: 2px solid #ff9800;
+    padding: 0.75rem 2rem;
+    border-radius: var(--bs-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-outline-create:hover {
+    background: #ff9800;
+    color: #fff;
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,111,0,0.3);
+}
+
+.btn-back-custom {
+    background: #fff;
+    color: #ff9800;
+    border: 2px solid #ff9800;
+    padding: 0.75rem 2rem;
+    border-radius: var(--bs-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 8px 24px rgba(255, 111, 0, 0.15);
+    margin-top: 1em;
+}
+
+.btn-back-custom:hover {
+    background: #ff9800;
+    color: #fff;
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .btn-danger {

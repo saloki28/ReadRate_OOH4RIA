@@ -80,9 +80,9 @@ namespace WebApplication_ReadRate.Controllers
                     switch (rol)
                     {
                         case "lector":
-                            return RedirectToAction("Index", "Lector");
+                            return RedirectToAction("Index", "Home");
                         case "autor":
-                            return RedirectToAction("Index", "Autor");
+                            return RedirectToAction("Index", "Home");
                         default:
                             return RedirectToAction("Index", "Home");
                     }

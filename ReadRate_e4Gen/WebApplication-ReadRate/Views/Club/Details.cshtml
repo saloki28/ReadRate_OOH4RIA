@@ -129,7 +129,7 @@
                                     <strong>@(miembro.EsPropietario ? "Propietario" : "Miembro")</strong>
                                 </p>
 
-                                <a asp-controller="Lector" asp-action="Details" asp-route-id="@miembro.Id" class="btn-action">
+                                <a asp-controller="Lector" asp-action="Index" asp-route-id="@miembro.Id" class="btn-action">
                                     Visitar Perfil
                                 </a>
                             </div>
@@ -140,7 +140,7 @@
         }
         else
         {
-            <article class="alert alert-info">
+            <article class="alert alert-danger" style="background: #ffffff; border-radius: 15px; color: #999; border: none;">
                 No hay miembros en este club todavía.
             </article>
         }

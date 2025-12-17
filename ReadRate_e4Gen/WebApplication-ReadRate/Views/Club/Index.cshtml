@@ -26,7 +26,7 @@
 
     <article class="d-flex justify-content-between align-items-center mb-4 bg-white p-4 rounded-3 shadow-orange">
         <h2 class="section-title mb-0">Todos los Clubs de Lectura</h2>
-        @if (Context.Session.GetString("UsuarioRol") == "administrador")
+        @if (Context.Session.GetString("UsuarioRol") == "lector")
         {
             <a asp-action="Create" class="btn-create">+ Crear nuevo club</a>
         }
@@ -71,9 +71,25 @@
                                         // Verificar si el lector está suscrito a este club
                                         var clubsSuscritos = ViewBag.ClubsSuscritos as List<int> ?? new List<int>();
                                         bool estaSuscrito = clubsSuscritos.Contains(item.Id);
+                                        
+                                        // Verificar si el lector es propietario de este club
+                                        var clubsPropietario = ViewBag.ClubsPropietario as List<int> ?? new List<int>();
+                                        bool esPropietario = clubsPropietario.Contains(item.Id);
                                     }
 
-                                    @if (usuarioRol == "lector" && estaSuscrito)
+                                    @if (usuarioRol == "lector" && esPropietario)
+                                    {
+                                        <!-- Lector Propietario: Botones de Acceder y Eliminar Club -->
+                                        <div class="d-flex gap-2">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
+                                                Acceder como Propietario
+                                            </a>
+                                            <a asp-action="EliminarClub" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
+                                                Eliminar Club
+                                            </a>
+                                        </div>
+                                    }
+                                    else if (usuarioRol == "lector" && estaSuscrito)
                                     {
                                         <!-- Lector ya suscrito: mostrar botones Acceder y Darse de baja -->
                                         <div class="d-flex gap-2">

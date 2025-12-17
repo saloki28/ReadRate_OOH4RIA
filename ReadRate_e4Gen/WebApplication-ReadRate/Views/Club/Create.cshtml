@@ -25,7 +25,11 @@
         <section class="card shadow-orange-lg">
             <div class="card-body p-4">
                 <form asp-action="Create" method="post" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                    <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+                    
+                    <!-- Campo oculto para PropietarioId -->
+                    <input type="hidden" asp-for="PropietarioId" />
+                    <input type="hidden" asp-for="Miembros" />
 
                     <article class="mb-3">
                         <label asp-for="Nombre" class="form-label"></label>
@@ -48,20 +52,11 @@
                         <div class="form-text">Escribe el enlace de discord del club (máximo 200 caracteres)</div>
                     </article>
 
-                    <article class="row">
-                        <div class="col-md-6 mb-3">
-                            <label asp-for="NumeroMax" class="form-label"></label>
-                            <input asp-for="NumeroMax" class="form-control" type="number" min="0" max="1000" step="1"/>
-                            <span asp-validation-for="NumeroMax" class="text-danger"></span>
-                            <div class="form-text">Indica el número máximo de aforo del club de lectura (máximo 1000)</div>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label asp-for="Miembros" class="form-label"></label>
-                            <input asp-for="Miembros" class="form-control" type="number" min="0" max="1000" step="1" value="0"/>
-                            <span asp-validation-for="Miembros" class="text-danger"></span>
-                            <div class="form-text">Indica los miembros actuales del club de lectura (normalmente empieza en 0)</div>
-                        </div>
+                    <article class="mb-3">
+                        <label asp-for="NumeroMax" class="form-label"></label>
+                        <input asp-for="NumeroMax" class="form-control" type="number" min="0" max="1000" step="1"/>
+                        <span asp-validation-for="NumeroMax" class="text-danger"></span>
+                        <div class="form-text">Indica el número máximo de aforo del club de lectura (máximo 1000)</div>
                     </article>
 
                     <article class="mb-3">
@@ -69,15 +64,6 @@
                         <input asp-for="FotoFile" type="file" class="form-control" /> 
                         <span asp-validation-for="FotoFile" class="text-danger"></span>
                         <div class="form-text">Sube una imagen para el club de lectura</div>
-                    </article>
-
-                    <article class="mb-4">
-                        <label asp-for="PropietarioId" class="form-label">Propietario (Lector)</label>
-                        <select asp-for="PropietarioId" asp-items="lectorItem" class="form-select">
-                            <option value="">-- Seleccionar Lector Propietario --</option>
-                        </select>
-                        <span asp-validation-for="PropietarioId" class="text-danger"></span>
-                        <div class="form-text">Seleccione el lector propietario del club de lectura</div>
                     </article>
 
                     <article class="d-flex gap-3 justify-content-between mt-4">

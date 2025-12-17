@@ -50,10 +50,15 @@ namespace WebApplication_ReadRate.Controllers
                 {
                     ViewBag.ClubsSuscritos = new List<int>();
                 }
+                
+                // Obtener IDs de clubs de los que el lector es propietario
+                var clubsPropietario = listEN.Where(c => c.LectorPropietario?.Id == usuarioId.Value).Select(c => c.Id).ToList();
+                ViewBag.ClubsPropietario = clubsPropietario;
             }
             else
             {
                 ViewBag.ClubsSuscritos = new List<int>();
+                ViewBag.ClubsPropietario = new List<int>();
             }
             
             SessionClose();
@@ -92,17 +97,42 @@ namespace WebApplication_ReadRate.Controllers
 
             // Cargar lista de miembros
             var miembros = new List<dynamic>();
+            
+            // Agregar propietario primero si existe
+            if (clubEn.LectorPropietario != null)
+            {
+                LectorRepository lectorRepo = new LectorRepository(session);
+                LectorCEN lectorCEN = new LectorCEN(lectorRepo);
+                LectorEN lectorPropietario = lectorCEN.DameLectorPorOID(clubEn.LectorPropietario.Id);
+                
+                if (lectorPropietario != null)
+                {
+                    miembros.Add(new
+                    {
+                        Id = lectorPropietario.Id,
+                        Nombre = lectorPropietario.NombreUsuario,
+                        Foto = lectorPropietario.Foto,
+                        EsPropietario = true
+                    });
+                }
+            }
+            
+            // Agregar resto de miembros (excluyendo al propietario si está en la lista)
             if (clubEn.LectorMiembro != null && clubEn.LectorMiembro.Any())
             {
                 foreach (var miembro in clubEn.LectorMiembro)
                 {
-                    miembros.Add(new
+                    // No agregar al propietario dos veces
+                    if (miembro.Id != clubEn.LectorPropietario?.Id)
                     {
-                        Id = miembro.Id,
-                        Nombre = miembro.NombreUsuario,
-                        Foto = miembro.Foto,
-                        EsPropietario = miembro.Id == clubEn.LectorPropietario?.Id
-                    });
+                        miembros.Add(new
+                        {
+                            Id = miembro.Id,
+                            Nombre = miembro.NombreUsuario,
+                            Foto = miembro.Foto,
+                            EsPropietario = false
+                        });
+                    }
                 }
             }
             ViewBag.Miembros = miembros;
@@ -139,25 +169,20 @@ namespace WebApplication_ReadRate.Controllers
         // GET: ClubController/Create
         public ActionResult Create()
         {
-            // Obtener todos los lectores
-            LectorRepository lectorRepo = new LectorRepository();
-            LectorCEN lectorCEN = new LectorCEN(lectorRepo);
-
-            IList<LectorEN> listaLectores = lectorCEN.DameTodosLectores(0, -1);
-            IList<SelectListItem> lectorItems = new List<SelectListItem>();
-
-            foreach (LectorEN lectorEn in listaLectores)
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            
+            if (!usuarioId.HasValue)
             {
-                lectorItems.Add(new SelectListItem
-                {
-                    Text = $"{lectorEn.NombreUsuario} ({lectorEn.Email})",
-                    Value = lectorEn.Id.ToString()
-                });
+                return RedirectToAction("Login", "Usuario");
             }
 
-            ViewData["LectorItems"] = lectorItems;
+            var model = new ClubViewModel
+            {
+                PropietarioId = usuarioId.Value,
+                Miembros = 1 // El propietario es el primer miembro
+            };
 
-            return View();
+            return View(model);
         }
 
         // POST: ClubController/Create
@@ -165,19 +190,41 @@ namespace WebApplication_ReadRate.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ClubViewModel club)
         {
+            // Asegurar que el propietario es el usuario logueado
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (!usuarioId.HasValue)
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+            
+            club.PropietarioId = usuarioId.Value;
+            club.Miembros = 1; // El propietario es el primer miembro
+            
             string fotoFileName = "imagenDefault.webp";
             string path = "";
 
             // Guardar la imagen de la foto si se ha subido un archivo
             if(club.FotoFile != null && club.FotoFile.Length > 0)
             {
-                fotoFileName = Path.GetFileName(club.FotoFile.FileName).Trim();
-                string directory = _webHost.WebRootPath + "/images/imagenClub"; 
-                path = Path.Combine(directory, fotoFileName);
-
+                string directory = _webHost.WebRootPath + "/images/imagenClub";
+                
                 if(!Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
+                }
+                
+                // Generar nombre único si el archivo ya existe
+                string baseFileName = Path.GetFileNameWithoutExtension(club.FotoFile.FileName);
+                string extension = Path.GetExtension(club.FotoFile.FileName);
+                fotoFileName = $"{baseFileName}{extension}";
+                path = Path.Combine(directory, fotoFileName);
+                
+                int counter = 1;
+                while (System.IO.File.Exists(path))
+                {
+                    fotoFileName = $"{baseFileName}_{counter}{extension}";
+                    path = Path.Combine(directory, fotoFileName);
+                    counter++;
                 }
 
                 using (var stream = System.IO.File.Create(path))
@@ -190,20 +237,6 @@ namespace WebApplication_ReadRate.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    // Recargar la lista de lectores para el formulario
-                    LectorRepository lectorRepoReload = new LectorRepository();
-                    LectorCEN lectorCENReload = new LectorCEN(lectorRepoReload);
-                    IList<LectorEN> listaLectoresReload = lectorCENReload.DameTodosLectores(0, -1);
-                    IList<SelectListItem> lectorItemsReload = new List<SelectListItem>();
-                    foreach (LectorEN lectorEn in listaLectoresReload)
-                    {
-                        lectorItemsReload.Add(new SelectListItem
-                        {
-                            Text = $"{lectorEn.NombreUsuario} ({lectorEn.Email})",
-                            Value = lectorEn.Id.ToString()
-                        });
-                    }
-                    ViewData["LectorItems"] = lectorItemsReload;
                     return View(club);
                 }
 
@@ -220,21 +253,7 @@ namespace WebApplication_ReadRate.Controllers
                 if (lectorPropietario == null)
                 {
                     sessionCP.SessionClose();
-                    ModelState.AddModelError("PropietarioId", "No se encontró un lector con ese ID");
-                    // Recargar la lista de lectores
-                    LectorRepository lectorRepoTemp = new LectorRepository();
-                    LectorCEN lectorCENTemp = new LectorCEN(lectorRepoTemp);
-                    IList<LectorEN> listaLectores = lectorCENTemp.DameTodosLectores(0, -1);
-                    IList<SelectListItem> lectorItems = new List<SelectListItem>();
-                    foreach (LectorEN lectorEn in listaLectores)
-                    {
-                        lectorItems.Add(new SelectListItem
-                        {
-                            Text = $"{lectorEn.NombreUsuario} ({lectorEn.Email})",
-                            Value = lectorEn.Id.ToString()
-                        });
-                    }
-                    ViewData["LectorItems"] = lectorItems;
+                    ModelState.AddModelError("", "Error: No se encontró el usuario");
                     return View(club);
                 }
 
@@ -261,25 +280,6 @@ namespace WebApplication_ReadRate.Controllers
             {
                 var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
                 ModelState.AddModelError("", "Error al crear el club: " + ex.Message + innerMessage);
-                
-                // Recargar la lista de lectores para el formulario
-                try
-                {
-                    LectorRepository lectorRepoError = new LectorRepository();
-                    LectorCEN lectorCENError = new LectorCEN(lectorRepoError);
-                    IList<LectorEN> listaLectoresError = lectorCENError.DameTodosLectores(0, -1);
-                    IList<SelectListItem> lectorItemsError = new List<SelectListItem>();
-                    foreach (LectorEN lectorEn in listaLectoresError)
-                    {
-                        lectorItemsError.Add(new SelectListItem
-                        {
-                            Text = $"{lectorEn.NombreUsuario} ({lectorEn.Email})",
-                            Value = lectorEn.Id.ToString()
-                        });
-                    }
-                    ViewData["LectorItems"] = lectorItemsError;
-                }
-                catch { }
                 
                 return View(club);
             }
@@ -359,42 +359,95 @@ namespace WebApplication_ReadRate.Controllers
             }
         }
 
-        // GET: ClubController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: ClubController/EliminarClub
+        public ActionResult EliminarClub(int id)
         {
-            SessionInitialize();
-            ClubRepository clubRepository = new ClubRepository(session);
-            ClubCEN clubCEN = new ClubCEN(clubRepository);
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
 
-            ClubEN clubEN = clubCEN.DameClubPorOID(id);
-            SessionClose();
-
-            if (clubEN == null)
+            if (!usuarioId.HasValue || usuarioRol != "lector")
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector para eliminar clubes.";
+                return RedirectToAction("Index");
             }
 
-            ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
-            return View(clubVM);
-        }
-
-        // POST: ClubController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
+            SessionCPNHibernate sessionCP = null;
+            
             try
             {
-                ClubRepository clubRepository = new ClubRepository();
-                ClubCEN clubCEN = new ClubCEN(clubRepository);
+                // Usar SessionCPNHibernate con transacciones
+                sessionCP = new SessionCPNHibernate();
+                sessionCP.SessionInitializeTransaction();
+                
+                // Verificar que el usuario es el propietario del club
+                ClubCEN clubCEN = new ClubCEN(sessionCP.UnitRepo.ClubRepository);
+                ClubEN clubEN = clubCEN.DameClubPorOID(id);
+                
+                if (clubEN == null)
+                {
+                    sessionCP.SessionClose();
+                    TempData["ErrorMessage"] = "Club no encontrado.";
+                    return RedirectToAction("Index");
+                }
+                
+                if (clubEN.LectorPropietario?.Id != usuarioId.Value)
+                {
+                    sessionCP.SessionClose();
+                    TempData["ErrorMessage"] = "Solo el propietario puede eliminar el club.";
+                    return RedirectToAction("Index");
+                }
+                
+                // 1. Eliminar mensajes asociados al club primero
+                MensajeCEN mensajeCEN = new MensajeCEN(sessionCP.UnitRepo.MensajeRepository);
+                var todosMensajes = mensajeCEN.DameTodosMensajes(0, -1);
+                var mensajesDelClub = todosMensajes.Where(m => m.Club?.Id == id).ToList();
+                
+                foreach (var mensaje in mensajesDelClub)
+                {
+                    mensajeCEN.EliminarMensaje(mensaje.Id);
+                }
+                
+                // 2. Limpiar la lista de miembros del club
+                clubEN.LectorMiembro?.Clear();
+                
+                // 3. Desvincular el propietario antes de eliminar el club
+                clubEN.LectorPropietario = null;
+                clubCEN.ModificarClub(
+                    clubEN.Id,
+                    clubEN.Nombre,
+                    clubEN.EnlaceDiscord,
+                    clubEN.MiembrosMax,
+                    clubEN.Foto,
+                    clubEN.Descripcion,
+                    clubEN.MiembrosActuales
+                );
+                
+                // 4. Eliminar el club
                 clubCEN.EliminarClub(id);
-                return RedirectToAction(nameof(Index));
+                
+                // COMMIT de la transacción
+                sessionCP.Commit();
+                sessionCP.SessionClose();
+                
+                TempData["SuccessMessage"] = "Club eliminado correctamente.";
+                return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
+                // Hacer rollback si hay error
+                if (sessionCP != null)
+                {
+                    try
+                    {
+                        sessionCP.RollBack();
+                        sessionCP.SessionClose();
+                    }
+                    catch { }
+                }
+                
                 var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
-                TempData["ErrorMessage"] = "Error al eliminar la reseña: " + ex.Message + innerMessage;
-                return RedirectToAction(nameof(Index));
+                TempData["ErrorMessage"] = "Error al eliminar el club: " + ex.Message + innerMessage;
+                return RedirectToAction("Index");
             }
         }
 

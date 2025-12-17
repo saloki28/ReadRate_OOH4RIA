@@ -5,9 +5,9 @@
     {
         foreach (var item in Model)
         {
-            <article class="col-12 col-sm-6 col-md-4 col-lg-5col">
-                <div class="card h-100 d-flex flex-column">
-                    <div class="book-cover">
+            <section class="col-12 col-sm-6 col-md-4 col-lg-5col">
+                <article class="card h-100 d-flex flex-column">
+                    <article class="book-cover">
                         @if(!string.IsNullOrEmpty(item.FotoUrl))
                         {
                             <img src="@item.FotoUrl" alt="Foto del autor @item.NombreUsuario" class="card-img-top" style="height: 250px; object-fit: cover;">
@@ -18,26 +18,28 @@
                                 <span class="text-muted">Sin FotoPerfil</span>
                             </div>
                         }
-                    </div>
-                    <div class="card-body d-flex flex-column">
+                    </article>
+                    <article class="card-body d-flex flex-column">
                         <h5 class="card-title text-orange-dark">@Html.DisplayFor(modelItem => item.NombreUsuario)</h5>
                         <div class="card-text small mb-3 flex-grow-1">
                             <div class="mb-1"><strong>Libros publicados:</strong> @Html.DisplayFor(modelItem => item.CantidadLibrosPublicados)</div>
+                            <div class="mb-1"><strong>Seguidores:</strong> @Html.DisplayFor(modelItem => item.NumeroSeguidores)</div>
+                            <div class="mb-1"><strong>Valoración Media:</strong> <partial name="_StarRating" model="item.ValoracionMedia" /></div>
                         </div>
                         <div class="d-flex gap-2 mt-auto">
                             <a class="btn-action flex-fill text-center" asp-controller="Autor" asp-action="Index" asp-route-id="@item.IdUsuario">Visitar perfil</a>
                         </div>
-                    </div>
-                </div>
-            </article>
+                    </article>
+                </article>
+            </section>
         }
     }
     else
     {
-        <article class="col-12">
-            <div class="alert alert-info text-center">
-                Aún no existen libros publicados.
-            </div>
-        </article>
+        <section class="col-12">
+            <article class="alert alert-info text-center">
+                Aún no existen autores publicados.
+            </article>
+        </section>
     }
 </div>

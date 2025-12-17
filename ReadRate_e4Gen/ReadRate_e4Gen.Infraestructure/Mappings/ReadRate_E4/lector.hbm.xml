@@ -121,6 +121,18 @@
 							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH"/>
 					    </bag>
 					
+			
+		  			
+						<bag name="Mensaje" >
+							<key>
+							
+								
+								<column name="FK_idUsuario_idLector"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.MensajeNH"/>
+					    </bag>
+					
+					
 					
 					
 					

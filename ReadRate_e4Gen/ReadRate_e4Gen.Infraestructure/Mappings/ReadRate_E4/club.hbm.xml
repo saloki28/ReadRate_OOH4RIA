@@ -66,6 +66,18 @@
 									<column name="FK_idUsuario_idLectorMiembro"/> 
       						</many-to-many>
     					</bag>
+			
+		  			
+						<bag name="Mensaje" >
+							<key>
+							
+								
+								<column name="FK_idClub_idClub"/>
+					      	</key>
+							<one-to-many class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.MensajeNH"/>
+					    </bag>
+					
+					
 					
 					
 					

@@ -108,6 +108,8 @@ public static void InitializeData ()
                 AutorCEN autorcen = new AutorCEN (autorrepository);
                 LectorRepository lectorrepository = new LectorRepository ();
                 LectorCEN lectorcen = new LectorCEN (lectorrepository);
+                MensajeRepository mensajerepository = new MensajeRepository ();
+                MensajeCEN mensajecen = new MensajeCEN (mensajerepository);
 
 
 
@@ -1047,7 +1049,7 @@ public static void InitializeData ()
 
                 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                // CREACIÓN USURIO - Lector 3 (Para asignarle la creación de clubs)
+                // CREACIÓN USURIOS - Lector 3, 4 y 5 (Para asignarle la creación de clubs)
                 Console.WriteLine ("\n\n------------------ Creación de Usuario Lector ------------------");
 
                 int usuarioId3 = lectorcen.CrearLector (
@@ -1056,7 +1058,7 @@ public static void InitializeData ()
  p_fechaNacimiento: new DateTime (2003, 05, 20),
  p_ciudadResidencia: "Elche",
  p_paisResidencia: "España",
- p_foto: "/images/fotosUsuarios/usuarioDefault.webp",
+ p_foto: "/images/fotosUsuarios/perfilNiko.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
  p_pass: "passNiko",
                         p_cantLibrosCurso: 0,
@@ -1064,6 +1066,30 @@ public static void InitializeData ()
                         p_cantAutoresSeguidos: 0,
                         p_cantClubsSuscritos: 0);
                 Console.WriteLine ("Usuario 'Niko Lector' creado correctamente.");
+                
+int usuarioId4 = lectorcen.CrearLector (
+ p_email: "nerea.lectora@email.com",
+ p_nombreUsuario: "Nerea Ruiz Tercero",
+ p_fechaNacimiento: new DateTime (1980, 11, 10),
+ p_ciudadResidencia: "Elda", p_paisResidencia: "España",
+ p_foto: "/images/fotosUsuarios/perfilNerea.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
+ p_pass: "passNerea",
+                        p_cantLibrosCurso: 0,
+                        p_cantLibrosLeidos: 0,
+                        p_cantAutoresSeguidos: 0,
+                        p_cantClubsSuscritos: 0);
+
+int usuarioId5 = lectorcen.CrearLector (
+ p_email: "ines.lectora@email.com",
+ p_nombreUsuario: "Inés Toboso Valero",
+ p_fechaNacimiento: new DateTime (1980, 11, 10),
+ p_ciudadResidencia: "Albacete", p_paisResidencia: "España",
+ p_foto: "/images/fotosUsuarios/perfilInes.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
+ p_pass: "passInes",
+                        p_cantLibrosCurso: 0,
+                        p_cantLibrosLeidos: 0,
+                        p_cantAutoresSeguidos: 0,
+                        p_cantClubsSuscritos: 0);
 
                 // CREACIÓN DE CLUBS PARA PRUEBAS DE ReadFilter
                 Console.WriteLine ("\n\n------------------ Creación de Clubs ------------------");
@@ -1743,7 +1769,7 @@ public static void InitializeData ()
  p_nombreUsuario: "Marina Antes de Modificar",
  p_fechaNacimiento: new DateTime (1980, 11, 10),
  p_ciudadResidencia: "Villajoyosa", p_paisResidencia: "España",
- p_foto: "/images/fotosUsuarios/usuarioDefault.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
+ p_foto: "/images/fotosUsuarios/perfilMarina.webp", p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.lector,
  p_pass: "passMarina",
                         p_cantLibrosCurso: 0,
                         p_cantLibrosLeidos: 0,

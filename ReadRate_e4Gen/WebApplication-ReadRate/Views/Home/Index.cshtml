@@ -47,8 +47,8 @@
                                         <div class="mb-1"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</div>
                                         <div class="mb-1"><strong>Edad:</strong> +@Html.DisplayFor(modelItem => item.EdadRecomendada) años</div>
                                         <div class="mb-1"><strong>Páginas:</strong> @Html.DisplayFor(modelItem => item.NumPags)</div>
-                                        <div class="mb-1"><strong>Valoración Media:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia) / 5</div>
                                         <div class="mb-1"><strong>Publicación:</strong> @item.FechaPublicacion?.ToString("dd/MM/yyyy")</div>
+                                        <div class="mb-1"><strong>Valoración Media:</strong> <partial name="_StarRating" model="item.ValoracionMedia" /></div>
                                         @* <div class="mt-2">@Html.DisplayFor(modelItem => item.Sinopsis)</div> *@
                                     </div>
                                     <div class="d-flex gap-2 mt-auto">

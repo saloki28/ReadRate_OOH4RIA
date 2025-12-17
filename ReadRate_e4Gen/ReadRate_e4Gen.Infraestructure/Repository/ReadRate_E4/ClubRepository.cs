@@ -117,6 +117,7 @@ public void ModifyDefault (ClubEN club)
                 clubNH.MiembrosActuales = club.MiembrosActuales;
 
 
+
                 session.Update (clubNH);
                 SessionCommit ();
         }

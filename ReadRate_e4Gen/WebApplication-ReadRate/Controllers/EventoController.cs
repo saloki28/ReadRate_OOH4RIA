@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
+using ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
+using ReadRate_e4Gen.Infraestructure.CP;
 using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
 using WebApplication_ReadRate.Models;
 using WebApplication_ReadRate.Models.Assemblers;
@@ -24,6 +26,44 @@ namespace WebApplication_ReadRate.Controllers
 
             // Añado order by ya que el filtro HQL no los ordena
             IEnumerable<EventoViewModel> listEventos = new EventoAssembler().ConvertirListENToViewModel(listaEventosEN).OrderBy(e => e.FechaPublicacion).ToList();
+            
+            // Obtener IDs de eventos a los que el usuario está inscrito
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+            
+            if (usuarioId.HasValue && (usuarioRol == "lector" || usuarioRol == "autor"))
+            {
+                List<int> eventosInscritos = new List<int>();
+                
+                if (usuarioRol == "lector")
+                {
+                    LectorRepository lectorRepository = new LectorRepository(session);
+                    LectorCEN lectorCEN = new LectorCEN(lectorRepository);
+                    LectorEN lectorEN = lectorCEN.DameLectorPorOID(usuarioId.Value);
+                    
+                    if (lectorEN != null && lectorEN.EventoLector != null)
+                    {
+                        eventosInscritos = lectorEN.EventoLector.Select(e => e.Id).ToList();
+                    }
+                }
+                else if (usuarioRol == "autor")
+                {
+                    AutorRepository autorRepository = new AutorRepository(session);
+                    AutorCEN autorCEN = new AutorCEN(autorRepository);
+                    AutorEN autorEN = autorCEN.DameAutorPorOID(usuarioId.Value);
+                    
+                    if (autorEN != null && autorEN.EventoAutor != null)
+                    {
+                        eventosInscritos = autorEN.EventoAutor.Select(e => e.Id).ToList();
+                    }
+                }
+                
+                ViewBag.EventosInscritos = eventosInscritos;
+            }
+            else
+            {
+                ViewBag.EventosInscritos = new List<int>();
+            }
 
             SessionClose();
 
@@ -365,6 +405,82 @@ namespace WebApplication_ReadRate.Controllers
                 TempData["Error"] = "No se pudo eliminar el evento: " + ex.Message;
                 return RedirectToAction(nameof(Index));
             }
+        }
+
+        // GET: EventoController/Inscribirse
+        public ActionResult Inscribirse(int id)
+        {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!usuarioId.HasValue || (usuarioRol != "lector" && usuarioRol != "autor"))
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector o autor para inscribirte a eventos.";
+                return RedirectToAction("Index");
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                IList<int> eventosIds = new List<int> { id };
+
+                if (usuarioRol == "lector")
+                {
+                    LectorCP lectorCP = new LectorCP(sessionCP);
+                    lectorCP.InscribirLectorAEvento(usuarioId.Value, eventosIds);
+                }
+                else // autor
+                {
+                    AutorCP autorCP = new AutorCP(sessionCP);
+                    autorCP.InscribirAutorAEvento(usuarioId.Value, eventosIds);
+                }
+                
+                TempData["SuccessMessage"] = "Te has inscrito correctamente al evento.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al inscribirte al evento. Inténtalo de nuevo.";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        // GET: EventoController/Desinscribirse
+        public ActionResult Desinscribirse(int id)
+        {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+
+            if (!usuarioId.HasValue || (usuarioRol != "lector" && usuarioRol != "autor"))
+            {
+                TempData["ErrorMessage"] = "Debes iniciar sesión como lector o autor.";
+                return RedirectToAction("Index");
+            }
+
+            try
+            {
+                SessionCPNHibernate sessionCP = new SessionCPNHibernate();
+                IList<int> eventosIds = new List<int> { id };
+
+                if (usuarioRol == "lector")
+                {
+                    LectorCP lectorCP = new LectorCP(sessionCP);
+                    lectorCP.DesinscribirLectorDeEvento(usuarioId.Value, eventosIds);
+                }
+                else // autor
+                {
+                    AutorCP autorCP = new AutorCP(sessionCP);
+                    autorCP.DesinscribirAutorDeEvento(usuarioId.Value, eventosIds);
+                }
+                
+                TempData["SuccessMessage"] = "Te has desinscrito correctamente del evento.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al desinscribirte del evento. Inténtalo de nuevo.";
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

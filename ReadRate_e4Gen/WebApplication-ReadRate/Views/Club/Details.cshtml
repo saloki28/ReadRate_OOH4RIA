@@ -1,70 +1,220 @@
 @model WebApplication_ReadRate.Models.ClubViewModel
 
 @{
-    ViewData["Title"] = "Detalles del club de lectura";
+    ViewData["Title"] = "Club de Lectura - " + Model.Nombre;
 }
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8" />
-    <title>Read&Rate - Detalles del club de lectura</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/readrate-styles.css" />
-</head>
-<body>
-    <header class="page-header">
-        <h1>Detalles del club de lectura</h1>
-    </header>
+<header class="page-header">
+    <h1>Club de Lectura</h1>
+</header>
 
-    <main class="container my-5">
-        <section class="details-card card shadow-lg">
-            
-            @if(Model != null && !string.IsNullOrEmpty(Model.FotoUrl))
+<section class="container my-5">
+    <!-- Foto y nombre del club -->
+    <article class="details-card club-hero mb-5">
+        <div class="club-photo-wrapper">
+            @if(!string.IsNullOrEmpty(Model.FotoUrl))
             {
-                <div class="detail-label fw-bold">Foto</div>
-                <div class="detail-row-foto d-flex justify-content-center align-items-center mb-4">
-                    <img src="@Model.FotoUrl" alt="Foto del club" style="max-width: 300px;">
+                <div class="club-photo">
+                    <img src="@Model.FotoUrl" alt="Foto del club">
+                    <div class="club-badge">
+                        <span>R&R</span>
+                    </div>
                 </div>
             }
+            else
+            {
+                <div class="club-photo-placeholder">
+                    <span>R&R</span>
+                </div>
+            }
+        </div>
+        
+        <h2 class="club-name">
+            @Model.Nombre
+        </h2>
+        
+        <div class="club-members-badge">
+            <span>
+                @Model.Miembros / @Model.NumeroMax Miembros
+            </span>
+        </div>
+    </article>
 
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Nombre)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Nombre)</div>
-            </article>
+    <!-- Card de información del club -->
+    <article class="details-card club-info-card mb-5">
+        <!-- Descripción destacada -->
+        <div class="club-description-highlight">
+            <h4>
+                <span></span> Descripción del Club
+            </h4>
+            <p>
+                @Model.Descripcion
+            </p>
+        </div>
 
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Descripcion)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Descripcion)</div>
-            </article>
+        <!-- Grid de información -->
+        <article class="row g-4">
+            <!-- Horario -->
+            <div class="col-md-6">
+                <div class="club-info-box">
+                    <h5>
+                        <span></span> Horario
+                    </h5>
+                    <p>
+                        ¡Únete en cualquier momento! Las reuniones se coordinan en Discord según la disponibilidad de los miembros.
+                    </p>
+                </div>
+            </div>
 
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.PropietarioNombre)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.PropietarioNombre)</div>
-            </article>
+            <!-- Discord -->
+            <div class="col-md-6">
+                <div class="club-info-box">
+                    <h5>
+                        <span></span> Comunidad
+                    </h5>
+                    @if(!string.IsNullOrEmpty(Model.Enlace))
+                    {
+                        <a href="@Model.Enlace" target="_blank" class="btn-action club-discord-btn">
+                            Unirse al Discord
+                        </a>
+                    }
+                    else
+                    {
+                        <p class="club-discord-unavailable">
+                            Discord no disponible
+                        </p>
+                    }
+                </div>
+            </div>
+        </article>
+    </article>
 
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.NumeroMax)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.NumeroMax) Lectores</div>
-            </article>
+    <!-- Separador -->
+    <hr style="border-top: 2px solid #ff9800; margin: 3rem 0;">
 
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Miembros)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Miembros) Lectores</div>
-            </article>
+    <!-- Miembros del club -->
+    <article class="mb-5">
+        <h2 class="section-title mb-4">Miembros del Club</h2>
+        
+        @{
+            var miembros = ViewBag.Miembros as List<dynamic>;
+        }
+        
+        @if (miembros != null && miembros.Any())
+        {
+            <article class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+                @foreach (var miembro in miembros)
+                {
+                    <div class="col">
+                        <div class="card user-card h-100">
+                            <div class="card-body user-card-body text-center">
+                                <h5 class="user-name">@miembro.Nombre</h5>
+                                
+                                <article class="user-photo-container">
+                                    <div class="user-photo-wrapper">
+                                        @if (!string.IsNullOrEmpty(miembro.Foto))
+                                        {
+                                            <img src="@miembro.Foto" alt="@miembro.Nombre" />
+                                        }
+                                        else
+                                        {
+                                            <div class="user-photo-placeholder">
+                                                @(miembro.Nombre?.Substring(0, 1).ToUpper() ?? "L")
+                                            </div>
+                                        }
+                                    </div>
+                                </article>
 
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Enlace)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Enlace)</div>
-            </article>
+                                <p class="user-role">
+                                    <strong>@(miembro.EsPropietario ? "Propietario" : "Miembro")</strong>
+                                </p>
 
-            <article class="form-actions d-flex gap-3 justify-content-between mt-4">
-                <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary px-5">Editar Club</a>
+                                <a asp-controller="Lector" asp-action="Details" asp-route-id="@miembro.Id" class="btn-action">
+                                    Visitar Perfil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
             </article>
-        </section>
-    </main>
-</body>
-</html>
+        }
+        else
+        {
+            <article class="alert alert-info">
+                No hay miembros en este club todavía.
+            </article>
+        }
+    </article>
+
+    <!-- Separador -->
+    <hr style="border-top: 2px solid #ff9800; margin: 3rem 0;">
+
+    <!-- Foro del club -->
+    <article class="mb-5">
+        <h2 class="section-title mb-4">Foro del Club</h2>
+        
+        <!-- Formulario para enviar mensaje -->
+        <article class="details-card mb-4">
+            <form method="post" asp-action="EnviarMensaje" asp-route-clubId="@Model.Id">
+                <div class="detail-row">
+                    <div class="detail-label">Escribe tu mensaje</div>
+                    <div class="detail-value">
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Comparte tus ideas con el club..." required style="width: 100%; padding: 0.75rem; border: 2px solid #ffe0b2; border-radius: 10px;"></textarea>
+                    </div>
+                </div>
+                <div class="text-end mt-3">
+                    <button type="submit" class="btn-action">Enviar Mensaje</button>
+                </div>
+            </form>
+        </article>
+
+        <!-- Lista de mensajes -->
+        <article class="mensajes-container">
+            @{
+                var mensajes = ViewBag.Mensajes as List<dynamic>;
+            }
+            
+            @if (mensajes != null && mensajes.Any())
+            {
+                foreach (var mensaje in mensajes)
+                {
+                    <article class="details-card mb-3">
+                        <div class="d-flex align-items-start">
+                            @if (!string.IsNullOrEmpty(mensaje.LectorFoto))
+                            {
+                                <img src="@mensaje.LectorFoto" alt="@mensaje.LectorNombre" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; margin-right: 1rem;" />
+                            }
+                            else
+                            {
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ff9800; color: white; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: bold;">
+                                    @(mensaje.LectorNombre?.Substring(0, 1).ToUpper() ?? "L")
+                                </div>
+                            }
+                            <div style="flex: 1;">
+                                <div class="detail-row" style="border: none; padding: 0;">
+                                    <div class="detail-label">@mensaje.LectorNombre</div>
+                                    <div class="detail-value" style="text-align: left; font-size: 0.85rem;">@mensaje.FechaHora.ToString("dd/MM/yyyy")</div>
+                                </div>
+                                <p style="margin-top: 0.5rem; color: #666;">@mensaje.TextoContenido</p>
+                                @if (mensaje.LectorId == ViewBag.UsuarioId)
+                                {
+                                    <form asp-action="EliminarMensaje" asp-route-id="@mensaje.Id" asp-route-clubId="@Model.Id" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este mensaje?');">
+                                        <button type="submit" class="btn-action delete flex-fill text-center">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                }
+                            </div> 
+                        </div>
+                    </article>
+                }
+            }
+            else
+            {
+                <div class="details-card" style="text-align: center; color: #999;">
+                    No hay mensajes en el foro todavía. ¡Sé el primero en escribir!
+                </div>
+            }
+        </article>
+    </article>
+</section>

@@ -34,14 +34,17 @@ namespace WebApplication_ReadRate.Controllers
                     var autorNombre = libro.AutorPublicador?.NombreUsuario;
                 }
                 
-                // Obtener autores para la partial view
+                // Obtener los 5 autores con mayor valoración media
                 AutorRepository autorRepository = new AutorRepository();
                 AutorCEN autorCEN = new AutorCEN(autorRepository);
-                IList<AutorEN> listaAutores = autorCEN.DameTodosAutores(0,5); //los primeros 5
+                IList<AutorEN> listaAutores = autorCEN.DameAutoresOrdenadosValoracion();
+                
+                // Tomar solo los 5 autores mejor valorados
+                var top5Autores = listaAutores.Take(5).ToList();
 
                 // Convertir a ViewModels
                 var autoresViewModel = new AutorAssembler()
-                    .ConvertirListENToViewModel(listaAutores);
+                    .ConvertirListENToViewModel(top5Autores);
    
                 
                 ViewBag.Autores = autoresViewModel;

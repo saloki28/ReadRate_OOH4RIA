@@ -92,7 +92,7 @@
                         <div class="book-cover">
                             @if (!string.IsNullOrEmpty(libro.FotoPortadaUrl))
                             {
-                                <img src="@libro.FotoPortadaUrl" alt="Portada de @libro.Titulo" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="@libro.FotoPortadaUrl" alt="Portada de @libro.Titulo" style="width: 100%; height: 100%; object-fit: contain;">
                             }
                             else
                             {
@@ -110,7 +110,7 @@
                                     <a asp-controller="Libro" asp-action="Delete" asp-route-id="@libro.Id" class="btn-action delete">Eliminar</a>
                                 }
                                 else{
-                                    <a asp-controller="Reseña" asp-action="Details" asp-route-id="@libro.Id" class="btn-action">Ver Detalles</a>
+                                    <a asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id" class="btn-action">Ver Detalles</a>
                                 }
                             </div>
                         </div>

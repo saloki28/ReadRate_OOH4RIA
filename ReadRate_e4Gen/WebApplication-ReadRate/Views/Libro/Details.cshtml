@@ -22,146 +22,174 @@
     </header>
 
     <main class="container my-5">
-        <section class="details-card card shadow-lg">
-
-            <article class="detail-row">
-                <div class="detail-label">@Html.DisplayNameFor(model => model.Titulo)</div>
-                <div class="detail-value">@Html.DisplayFor(model => model.Titulo)</div>
-            </article>
-
-            @if(Model != null && !string.IsNullOrEmpty(Model.FotoPortadaUrl))
-            {
-                <div class="detail-row-foto d-flex justify-content-center align-items-center mb-4">
-                    <img src="@Model.FotoPortadaUrl" alt="Portada del libro" style="max-width: 215px; border: none; box-shadow: none;">
-                </div>
-            }
-
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">Nombre del Autor/a</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.NombreAutor)</div>
-            </article>
-        
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Sinopsis)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Sinopsis)</div>
-            </article>
-
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.ValoracionMedia)</div>
-                <div class="detail-value text-end">
-                    @await Html.PartialAsync("_StarRating", Model.ValoracionMedia)
-                </div>
-            </article>
-            
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.Genero)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.Genero)</div>
-            </article>
-            
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.EdadRecomendada)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.EdadRecomendada) años</div>
-            </article>
-            
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.FechaPublicacion)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.FechaPublicacion)</div>
-            </article>
-            
-            <article class="detail-row d-flex justify-content-between py-3">
-                <div class="detail-label fw-semibold">@Html.DisplayNameFor(model => model.NumPags)</div>
-                <div class="detail-value text-end">@Html.DisplayFor(model => model.NumPags) páginas</div>
-            </article>
-            
-            @*cuando sea lector*@ 
-            @if (rolUsuario == "lector") {
-
-                <article class="detail-row d-flex justify-content-between py-3">
-                    <a asp-controller="Reseña" asp-action="Create" asp-route-libroId="@Model.Id" asp-route-lectorId="@lectorId" class="btn btn-primary px-5">¡Rate!</a>
-                    
-                    @* Botón para lista de guardados *@
-                    @if ((bool)ViewData["EstaEnGuardados"] == true)
-                    {
-                        <form asp-controller="Libro" asp-action="QuitarDeGuardados" method="post" style="display:inline;">
-                            <input type="hidden" name="libroId" value="@Model.Id" />
-                            <button type="submit" class="btn btn-primary px-5">Quitar de Libros Leídos</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <form asp-controller="Libro" asp-action="AgregarAGuardados" method="post" style="display:inline;">
-                            <input type="hidden" name="libroId" value="@Model.Id" />
-                            <button type="submit" class="btn btn-primary px-5">Añadir a Libros Leídos</button>
-                        </form>
-                    }
-
-                    @* Botón para lista en curso *@
-                    @if ((bool)ViewData["EstaEnCurso"] == true)
-                    {
-                        <form asp-controller="Libro" asp-action="QuitarDeEnCurso" method="post" style="display:inline;">
-                            <input type="hidden" name="libroId" value="@Model.Id" />
-                            <button type="submit" class="btn btn-primary px-5">Quitar de Libros en Curso</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <form asp-controller="Libro" asp-action="AgregarAEnCurso" method="post" style="display:inline;">
-                            <input type="hidden" name="libroId" value="@Model.Id" />
-                            <button type="submit" class="btn btn-primary px-5">Añadir a Libros en Curso</button>
-                        </form>
-                    }
-                </article>
-            }
-            
+        <!-- Título del libro destacado -->
+        <section class="text-center mb-4">
+            <h2 class="section-title mb-4">@Model.Titulo</h2>
         </section>
 
-        <section class="details-card">
-            <h2>RESEÑAS PUBLICADAS</h2>
+        <!-- Información principal del libro -->
+        <section class="mb-5">
+            <div class="details-card">
+                <div class="row">
+                    <!-- Columna izquierda: Portada -->
+                    <article class="col-md-3 text-center mb-4 mb-md-0 d-flex align-items-center">
+                        @if(Model != null && !string.IsNullOrEmpty(Model.FotoPortadaUrl))
+                        {
+                            <div class="book-cover-container">
+                                <img src="@Model.FotoPortadaUrl" alt="Portada de @Model.Titulo" class="book-cover-detail">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="book-cover-placeholder">
+                                <i class="fas fa-book fa-3x text-muted"></i>
+                                <p class="text-muted mt-3">Sin portada</p>
+                            </div>
+                        }
+                    </article>
+
+                    <!-- Columna derecha: Información -->
+                    <article class="col-md-9">
+                        <article class="detail-row">
+                            <div class="detail-label">Autor:</div>
+                            <div class="detail-value">@Model.NombreAutor</div>
+                        </article>
+
+                        <article class="detail-row">
+                            <div class="detail-label">Sinopsis:</div>
+                            <div class="detail-value">@Model.Sinopsis</div>
+                        </article>
+
+                        <article class="detail-row">
+                            <div class="detail-label">Valoración media:</div>
+                            <div class="detail-value">
+                                @await Html.PartialAsync("_StarRating", Model.ValoracionMedia)
+                            </div>
+                        </article>
+
+                        <article class="detail-row">
+                            <div class="detail-label">Género:</div>
+                            <div class="detail-value">@Model.Genero</div>
+                        </article>
+
+                        <article class="detail-row">
+                            <div class="detail-label">Edad recomendada:</div>
+                            <div class="detail-value">@Model.EdadRecomendada años</div>
+                        </article>
+
+                        <article class="detail-row">
+                            <div class="detail-label">Fecha de publicación:</div>
+                            <div class="detail-value">@Model.FechaPublicacion.ToString("dd/MM/yyyy")</div>
+                        </article>
+
+                        <article class="detail-row">
+                            <div class="detail-label">Páginas:</div>
+                            <div class="detail-value">@Model.NumPags</div>
+                        </article>
+
+                        @* Botones de acción para lectores *@
+                        @if (rolUsuario == "lector")
+                        {
+                            <article class="d-flex flex-wrap gap-3 mt-4 justify-content-center">
+                                <a asp-controller="Reseña" asp-action="Create" asp-route-libroId="@Model.Id" asp-route-lectorId="@lectorId" class="btn-action">
+                                    ¡Rate!
+                                </a>
+
+                                @if ((bool)ViewData["EstaEnGuardados"] == true)
+                                {
+                                    <form asp-controller="Libro" asp-action="QuitarDeGuardados" method="post" style="display:inline;">
+                                        <input type="hidden" name="libroId" value="@Model.Id" />
+                                        <button type="submit" class="btn-action delete">Quitar de Libros Leídos</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-controller="Libro" asp-action="AgregarAGuardados" method="post" style="display:inline;">
+                                        <input type="hidden" name="libroId" value="@Model.Id" />
+                                        <button type="submit" class="btn-action">Añadir a Libros Leídos</button>
+                                    </form>
+                                }
+
+                                @if ((bool)ViewData["EstaEnCurso"] == true)
+                                {
+                                    <form asp-controller="Libro" asp-action="QuitarDeEnCurso" method="post" style="display:inline;">
+                                        <input type="hidden" name="libroId" value="@Model.Id" />
+                                        <button type="submit" class="btn-action delete">Quitar de Libros en Curso</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-controller="Libro" asp-action="AgregarAEnCurso" method="post" style="display:inline;">
+                                        <input type="hidden" name="libroId" value="@Model.Id" />
+                                        <button type="submit" class="btn-action">Añadir a Libros en Curso</button>
+                                    </form>
+                                }
+                            </article>
+                        }
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de reseñas -->
+        <section>
+            <h2 class="section-title mb-4">Reseñas Publicadas</h2>
 
             @if (Model.Resenas != null && Model.Resenas.Any())
             {
-                foreach (var resena in Model.Resenas)
-                {
-                    <article class="details-card">
-                        <div class="d-flex align-items-center mb-3">
-                            @if (!string.IsNullOrEmpty(resena.LectorFoto))
-                            {
-                                <img src="@resena.LectorFoto" alt="Foto de @resena.LectorNombre" class="card-img-top" style="width: 50px; height: 50px; object-fit: cover;" />
-                            }
-                            else
-                            {
-                                <div class="card-img-top">
-                                    <span class="detail-value" style="width: 50px; height: 50px;">@resena.LectorNombre?.Substring(0, 1).ToUpper()</span>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach (var resena in Model.Resenas)
+                    {
+                        <div class="col">
+                            <article class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <!-- Foto y nombre del usuario -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        @if (!string.IsNullOrEmpty(resena.LectorFoto))
+                                        {
+                                            <img src="@resena.LectorFoto" alt="Foto de @resena.LectorNombre" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                        }
+                                        else
+                                        {
+                                            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">
+                                                @resena.LectorNombre?.Substring(0, 1).ToUpper()
+                                            </div>
+                                        }
+                                        <strong class="text-dark">@resena.LectorNombre</strong>
+                                    </div>
+
+                                    <!-- Opinión -->
+                                    <div class="mb-3">
+                                        <p class="text-muted small mb-1">Opinión personal:</p>
+                                        <p class="card-text">@resena.Opinion</p>
+                                    </div>
+
+                                    <!-- Valoración con estrellas -->
+                                    <div class="mb-3">
+                                        <p class="text-muted small mb-1">Valoración:</p>
+                                        <partial name="_StarRating" model="resena.Valoracion" />
+                                    </div>
+
+                                    <!-- Botón eliminar si es del usuario -->
+                                    @if (resena.LectorId == lectorId)
+                                    {
+                                        <form asp-controller="Reseña" asp-action="Delete" asp-route-id="@resena.Id" method="post">
+                                            <button type="submit" class="btn-action delete w-100" onclick="return confirm('¿Estás seguro de eliminar tu reseña?');">
+                                                Eliminar mi reseña
+                                            </button>
+                                        </form>
+                                    }
                                 </div>
-                            }
-                            <strong>@resena.LectorNombre</strong>
+                            </article>
                         </div>
-
-                        <p class="detail-row">
-                            <p class="detail-label">Opinión</p>
-                            <p class="detail-value synopsis">@resena.Opinion</p>
-                        </p>
-
-                        <p class="detail-row">
-                            <p class="detail-label">Valoración</p>
-                            <p class="detail-value">
-                                <partial name="_StarRating" model="resena.Valoracion" />
-                            </p>
-                        </p>
-
-                        @* Botón para eliminar si la reseña es del lector logueado *@
-                        @if (resena.LectorId == lectorId)
-                        {
-                            <form asp-controller="Reseña" asp-action="Delete" asp-route-id="@resena.Id" method="post" style="display:inline;">
-                                <button type="submit" class="btn btn-primary px-5">Eliminar mi reseña</button>
-                            </form>
-                        }
-                    </article>
-                }
+                    }
+                </div>
             }
             else
             {
-                <p>No hay reseñas para este libro aún.</p>
+                <div class="alert alert-danger" style="background: #ffffff; border-radius: 15px; color: #999; border: none;">
+                    No hay reseñas para este libro aún. ¡Sé el primero en valorarlo!
+                </div>
             }
         </section>
     </main>

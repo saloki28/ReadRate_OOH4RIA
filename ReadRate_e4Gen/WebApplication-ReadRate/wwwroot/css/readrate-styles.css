@@ -432,6 +432,9 @@ select.form-control option:checked,
     color: #666;
     flex: 1;
     text-align: right;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .detail-row-foto {
@@ -1273,7 +1276,482 @@ footer.footer .footer-main {
     box-shadow: 0 6px 16px rgba(255,111,0,0.4);
 }
 
-/*/////////////////////////////////////////////////////////////*/
+
+/* ===========================
+   CLUB DETAILS PAGE
+   =========================== */
+
+/* Hero Section */
+.club-hero {
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff 0%, #fffaf5 100%);
+}
+
+.club-photo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.club-photo {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+}
+
+.club-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #ff9800;
+    box-shadow: 0 8px 24px rgba(255, 111, 0, 0.3);
+}
+
+.club-photo-placeholder {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid #ffa726;
+    box-shadow: 0 8px 24px rgba(255, 111, 0, 0.3);
+}
+
+.club-photo-placeholder span {
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.club-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+    border-radius: 50%;
+    border: 4px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
+}
+
+.club-badge span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.club-name {
+    color: #e65100;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(230, 81, 0, 0.1);
+}
+
+.club-members-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #fff3e0;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.1);
+}
+
+.club-members-badge span {
+    color: #e65100;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Club Info Cards */
+.club-info-card {
+    background: linear-gradient(to bottom, #ffffff 0%, #fffaf5 100%);
+}
+
+.club-description-highlight {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    height: 100%;
+    border: 2px solid #ffe0b2;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 2rem;
+}
+
+.club-description-highlight h4 {
+    color: #e65100;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.club-description-highlight h4 span {
+    font-size: 1.5rem;
+}
+
+.club-description-highlight p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.club-info-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    height: 100%;
+    border: 2px solid #ffe0b2;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.club-info-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 111, 0, 0.12);
+}
+
+.club-info-box h5 {
+    color: #e65100;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.club-info-box h5 span {
+    font-size: 1.5rem;
+}
+
+.club-info-box p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.club-discord-unavailable {
+    color: #999;
+    margin: 0;
+    text-align: center;
+    padding: 0.75rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.club-discord-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.05rem;
+    display: block;
+    text-decoration: none;
+}
+
+/* ===========================
+   STAR RATING STYLES
+   =========================== */
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    color: #ff9800;
+}
+
+.star-rating i {
+    font-size: 1.1rem;
+}
+
+.star-rating .fas.fa-star,
+.star-rating .fas.fa-star-half-alt {
+    color: #ff9800;
+}
+
+.star-rating .far.fa-star {
+    color: #ddd;
+}
+
+.star-rating .rating-value {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* ===========================
+   BOOK COVER DETAIL STYLES
+   =========================== */
+.book-cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.book-cover-detail {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: cover;
+}
+
+.book-cover-placeholder {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    border: 3px dashed #ff9800;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 280px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.1);
+}
+
+.book-cover-placeholder i {
+    color: #ff9800;
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   EVENTOS, NOTICIAS Y CLUBES: Listados horizontales
+   ========================================================= */
+
+/* Contenedor principal: Ya no es un grid, es una lista vertical */
+.vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.event-horizontal {
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.event-horizontal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Imagen (Izquierda) */
+.event-horizontal-img {
+    flex: 0 0 300px; 
+    margin: 0;
+    position: relative;
+    border-right: 2px solid #333; 
+}
+
+.event-horizontal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Zona de Contenido (Derecha) */
+.event-horizontal-body {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    max-height: 20em;
+}
+
+.event-title {
+    color: #ff6f00;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* Cajas de Datos (Fecha, Hora, Ubicaci�n) */
+.meta-box-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.meta-box {
+    border: 1px solid #333;
+    padding: 0.4rem 1rem;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: #fff;
+    white-space: nowrap;
+}
+
+.event-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Footer con Bot�n y Aforo */
+.event-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 2px solid #333;
+}
+
+/* Bot�n negro */
+.btn-black {
+    background: #000;
+    color: #fff;
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    transition: all 0.3s;
+}
+
+.btn-black:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Botón Club Completo */
+.btn-club-completo {
+    background: #fff;
+    color: #000;
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-club-completo:disabled {
+    background: #fff;
+    color: #000;
+}
+
+.btn-evento-completo {
+    background: #fff;
+    color: #000;
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-evento-completo:disabled {
+    background: #fff;
+    color: #000;
+}
+
+.aforo-text {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Media Queries para Eventos */
+/* Desktop - Horizontal */
+@media (min-width: 768px) {
+    .event-horizontal .row {
+        max-height: 20em;
+    }
+}
+
+/* Móvil - Vertical */
+@media (max-width: 767px) {
+    .event-horizontal .row {
+        max-height: none !important;
+    }
+    
+    .event-horizontal-body {
+        max-height: none !important;
+        padding: 1rem;
+    }
+    
+    .event-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .event-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .meta-box-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .meta-box {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.75rem;
+        text-align: center;
+    }
+    
+    .event-footer-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .btn-black {
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .aforo-text {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////*/
 
 
 /* ===========================
@@ -1675,442 +2153,5 @@ footer.footer .footer-main {
 
 
 
-/* ///////////////////////////////////////////////////////////////////////////////////////// */
 
-
-/* =========================================================
-   EVENTOS, NOTICIAS Y CLUBES: Listados horizontales
-   ========================================================= */
-
-/* Contenedor principal: Ya no es un grid, es una lista vertical */
-.vertical-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 0 auto;
-}
-
-.event-horizontal {
-    display: flex;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease;
-}
-
-.event-horizontal:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-/* Imagen (Izquierda) */
-.event-horizontal-img {
-    flex: 0 0 300px; 
-    margin: 0;
-    position: relative;
-    border-right: 2px solid #333; 
-}
-
-.event-horizontal-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Zona de Contenido (Derecha) */
-.event-horizontal-body {
-    flex: 1;
-    padding: 1.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    max-height: 20em;
-}
-
-.event-title {
-    color: #ff6f00;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
-}
-
-/* Cajas de Datos (Fecha, Hora, Ubicaci�n) */
-.meta-box-container {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    justify-content: center;
-}
-
-.meta-box {
-    border: 1px solid #333;
-    padding: 0.4rem 1rem;
-    border-radius: 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-    background: #fff;
-    white-space: nowrap;
-}
-
-.event-description {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-/* Footer con Bot�n y Aforo */
-.event-footer-actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 2px solid #333;
-}
-
-/* Bot�n negro */
-.btn-black {
-    background: #000;
-    color: #fff;
-    padding: 0.6rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 2px solid #000;
-    transition: all 0.3s;
-}
-
-.btn-black:hover {
-    background: #fff;
-    color: #000;
-}
-
-/* Botón Club Completo */
-.btn-club-completo {
-    background: #fff;
-    color: #000;
-    padding: 0.6rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 2px solid #000;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-.btn-club-completo:disabled {
-    background: #fff;
-    color: #000;
-}
-
-.btn-evento-completo {
-    background: #fff;
-    color: #000;
-    padding: 0.6rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 2px solid #000;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-.btn-evento-completo:disabled {
-    background: #fff;
-    color: #000;
-}
-
-.aforo-text {
-    font-weight: 600;
-    color: #444;
-}
-
-/* Media Queries para Eventos */
-/* Desktop - Horizontal */
-@media (min-width: 768px) {
-    .event-horizontal .row {
-        max-height: 20em;
-    }
-}
-
-/* Móvil - Vertical */
-@media (max-width: 767px) {
-    .event-horizontal .row {
-        max-height: none !important;
-    }
-    
-    .event-horizontal-body {
-        max-height: none !important;
-        padding: 1rem;
-    }
-    
-    .event-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .event-description {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-    }
-    
-    .meta-box-container {
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .meta-box {
-        font-size: 0.85rem;
-        padding: 0.3rem 0.75rem;
-        text-align: center;
-    }
-    
-    .event-footer-actions {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
-    }
-    
-    .btn-black {
-        width: 100%;
-        text-align: center;
-        padding: 0.7rem 1rem;
-        font-size: 0.85rem;
-    }
-    
-    .aforo-text {
-        text-align: center;
-        font-size: 0.9rem;
-    }
-}
-
-
-/* ===========================
-   CLUB DETAILS PAGE
-   =========================== */
-
-/* Hero Section */
-.club-hero {
-    text-align: center;
-    background: linear-gradient(to bottom, #ffffff 0%, #fffaf5 100%);
-}
-
-.club-photo-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.club-photo {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 1.5rem;
-    position: relative;
-}
-
-.club-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 6px solid #ff9800;
-    box-shadow: 0 8px 24px rgba(255, 111, 0, 0.3);
-}
-
-.club-photo-placeholder {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 1.5rem;
-    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 6px solid #ffa726;
-    box-shadow: 0 8px 24px rgba(255, 111, 0, 0.3);
-}
-
-.club-photo-placeholder span {
-    color: white;
-    font-size: 4rem;
-    font-weight: bold;
-}
-
-.club-badge {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
-    border-radius: 50%;
-    border: 4px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
-}
-
-.club-badge span {
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.club-name {
-    color: #e65100;
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(230, 81, 0, 0.1);
-}
-
-.club-members-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
-    background-color: #fff3e0;
-    border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.1);
-}
-
-.club-members-badge span {
-    color: #e65100;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-/* Club Info Cards */
-.club-info-card {
-    background: linear-gradient(to bottom, #ffffff 0%, #fffaf5 100%);
-}
-
-.club-description-highlight {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    height: 100%;
-    border: 2px solid #ffe0b2;
-    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-bottom: 2rem;
-}
-
-.club-description-highlight h4 {
-    color: #e65100;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.club-description-highlight h4 span {
-    font-size: 1.5rem;
-}
-
-.club-description-highlight p {
-    color: #555;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin: 0;
-}
-
-.club-info-box {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    height: 100%;
-    border: 2px solid #ffe0b2;
-    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.club-info-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 111, 0, 0.12);
-}
-
-.club-info-box h5 {
-    color: #e65100;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.club-info-box h5 span {
-    font-size: 1.5rem;
-}
-
-.club-info-box p {
-    color: #666;
-    margin: 0;
-    line-height: 1.6;
-}
-
-.club-discord-unavailable {
-    color: #999;
-    margin: 0;
-    text-align: center;
-    padding: 0.75rem;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-}
-
-.club-discord-btn {
-    width: 100%;
-    text-align: center;
-    padding: 0.75rem;
-    font-size: 1.05rem;
-    display: block;
-    text-decoration: none;
-}
-
-/* ===========================
-   STAR RATING STYLES
-   =========================== */
-.star-rating {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.15rem;
-    color: #ff9800;
-}
-
-.star-rating i {
-    font-size: 1.1rem;
-}
-
-.star-rating .fas.fa-star,
-.star-rating .fas.fa-star-half-alt {
-    color: #ff9800;
-}
-
-.star-rating .far.fa-star {
-    color: #ddd;
-}
-
-.star-rating .rating-value {
-    margin-left: 0.5rem;
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 600;
-}
 

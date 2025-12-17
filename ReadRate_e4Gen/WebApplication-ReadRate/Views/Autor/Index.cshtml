@@ -122,7 +122,7 @@
                 }
                 @if (esPropioAutor)
                 {
-                    <a asp-controller="Libro" asp-action="Create">
+                    <a asp-controller="Libro" asp-action="Create" asp-route-autorId="@autor.IdUsuario" class="add-book-card-link">
                         <div class="book-card">
                             <p>+</p> 
                         </div>

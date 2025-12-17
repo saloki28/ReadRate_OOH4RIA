@@ -248,7 +248,7 @@ else
                                 }
                                 @if (esPropioLector && club.PropietarioId == Model.IdUsuario)
                                 {
-                                    <a class="btn-action delete" asp-controller="Club" asp-action="DeleteClub" asp-route-clubId="@club.Id">Eliminar Club</a>
+                                    <a class="btn-action delete" asp-controller="Club" asp-action="ConfirmarEliminarClub" asp-route-clubId="@club.Id">Eliminar Club</a>
                                 }
                             </div>
                         </div>

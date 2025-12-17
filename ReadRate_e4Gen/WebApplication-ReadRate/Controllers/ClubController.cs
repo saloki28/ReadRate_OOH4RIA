@@ -359,22 +359,10 @@ namespace WebApplication_ReadRate.Controllers
             }
         }
 
-        // GET: ClubController/DeleteClub - Muestra la vista de confirmación
-        public ActionResult DeleteClub(int clubId)
+        // GET: ClubController/ConfirmarEliminarClub - Muestra la vista de confirmación
+        public ActionResult ConfirmarEliminarClub(int clubId)
         {
-            SessionInitialize();
-            ClubRepository clubRepository = new ClubRepository(session);
-            ClubCEN clubCEN = new ClubCEN(clubRepository);
-            ClubEN clubEN = clubCEN.DameClubPorOID(clubId);
-            ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
-            SessionClose();
-            return View(clubVM);
-        }
-
-        // GET: ClubController/ConfirmarEliminarClub - Ejecuta la eliminación
-        public ActionResult ConfirmarEliminarClub(int id)
-        {
-            if (id <= 0)
+            if (clubId <= 0)
             {
                 return RedirectToAction(nameof(Index));
             }
@@ -385,7 +373,7 @@ namespace WebApplication_ReadRate.Controllers
                 ClubRepository clubRepository = new ClubRepository(session);
                 ClubCEN clubCEN = new ClubCEN(clubRepository);
 
-                ClubEN clubEN = clubCEN.DameClubPorOID(id);
+                ClubEN clubEN = clubCEN.DameClubPorOID(clubId);
 
                 if (clubEN == null)
                 {
@@ -396,7 +384,7 @@ namespace WebApplication_ReadRate.Controllers
                 ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
 
                 SessionClose();
-                return View("Delete", clubVM);
+                return View("DeleteClub", clubVM);
             }
             catch
             {

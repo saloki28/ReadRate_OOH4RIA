@@ -53,7 +53,7 @@
         </div>
 
         <!-- Grid de información -->
-        <div class="row g-4">
+        <article class="row g-4">
             <!-- Horario -->
             <div class="col-md-6">
                 <div class="club-info-box">
@@ -86,7 +86,7 @@
                     }
                 </div>
             </div>
-        </div>
+        </article>
     </article>
 
     <!-- Separador -->
@@ -102,7 +102,7 @@
         
         @if (miembros != null && miembros.Any())
         {
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+            <article class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                 @foreach (var miembro in miembros)
                 {
                     <div class="col">
@@ -110,7 +110,7 @@
                             <div class="card-body user-card-body text-center">
                                 <h5 class="user-name">@miembro.Nombre</h5>
                                 
-                                <div class="user-photo-container">
+                                <article class="user-photo-container">
                                     <div class="user-photo-wrapper">
                                         @if (!string.IsNullOrEmpty(miembro.Foto))
                                         {
@@ -123,7 +123,7 @@
                                             </div>
                                         }
                                     </div>
-                                </div>
+                                </article>
 
                                 <p class="user-role">
                                     <strong>@(miembro.EsPropietario ? "Propietario" : "Miembro")</strong>
@@ -136,13 +136,13 @@
                         </div>
                     </div>
                 }
-            </div>
+            </article>
         }
         else
         {
-            <div class="alert alert-info">
+            <article class="alert alert-info">
                 No hay miembros en este club todavía.
-            </div>
+            </article>
         }
     </article>
 
@@ -154,7 +154,7 @@
         <h2 class="section-title mb-4">Foro del Club</h2>
         
         <!-- Formulario para enviar mensaje -->
-        <div class="details-card mb-4">
+        <article class="details-card mb-4">
             <form method="post" asp-action="EnviarMensaje" asp-route-clubId="@Model.Id">
                 <div class="detail-row">
                     <div class="detail-label">Escribe tu mensaje</div>
@@ -166,10 +166,10 @@
                     <button type="submit" class="btn-action">Enviar Mensaje</button>
                 </div>
             </form>
-        </div>
+        </article>
 
         <!-- Lista de mensajes -->
-        <div class="mensajes-container">
+        <article class="mensajes-container">
             @{
                 var mensajes = ViewBag.Mensajes as List<dynamic>;
             }
@@ -204,7 +204,7 @@
                                         </button>
                                     </form>
                                 }
-                            </div>
+                            </div> 
                         </div>
                     </article>
                 }
@@ -215,6 +215,6 @@
                     No hay mensajes en el foro todavía. ¡Sé el primero en escribir!
                 </div>
             }
-        </div>
+        </article>
     </article>
 </section>

@@ -6,21 +6,22 @@
 
 @{
     var usuarioId = Context.Session.GetInt32("UsuarioId");
+    var usuarioRol = Context.Session.GetString("UsuarioRol");
     bool esPropioAutor = Model != null && usuarioId.HasValue && Model.Any() && Model.First().IdUsuario == usuarioId.Value;
 }
 
-<div class="page-header">
+<header class="page-header">
     <h1>@(esPropioAutor ? "TU ÁREA PERSONAL" : "PERFIL DE AUTOR")</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
     @if (Model != null && Model.Any())
     {
         var autor = Model.First();
         
         @* Información del Autor *@
-        <div>
-            <div class="book-cover">
+        <section>
+            <article class="book-cover">
                 @if (!string.IsNullOrEmpty(autor.FotoUrl))
                 {
                     <img src="@autor.FotoUrl" alt="Foto de @autor.NombreUsuario" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
@@ -29,10 +30,10 @@
                 {
                     <span>FotoAutor</span>
                 }
-            </div>
-            <div>
+            </article>
+            <article>
                 <div class="book-title" style="font-size: 2rem; margin-bottom: 0.5rem;">@autor.NombreUsuario</div>
-                <div class="book-meta" style="font-size: 1rem;">
+                <article class="book-meta" style="font-size: 1rem;">
                     <div class="book-meta-item">
                         <strong>Cantidad de libros publicados:</strong> @autor.CantidadLibrosPublicados
                     </div>
@@ -40,9 +41,9 @@
                         <strong>Cantidad de seguidores:</strong> @autor.NumeroSeguidores
                     </div>
                     <div class="book-meta-item">
-                        <strong>Valoración media:</strong> @autor.ValoracionMedia / 5
+                        <strong>Valoración media:</strong> <partial name="_StarRating" model="autor.ValoracionMedia" />
                     </div>
-                </div>
+                </article>
                 
                 @* @if (esPropioAutor)
                 {
@@ -53,37 +54,41 @@
                 } *@
                 @* else
                 { *@
-                    <div class="book-actions" style="margin-top: 1.5rem;">
-                        @if (ViewBag.YaSiguiendoAutor == true)
-                        {
-                            <form asp-action="DejarDeSeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
-                                <input type="hidden" name="autorId" value="@autor.IdUsuario" />
-                                <button type="submit" class="btn-action delete">Dejar de Seguir</button>
-                            </form>
-                        }
-                        else
-                        {
-                            <form asp-action="SeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
-                                <input type="hidden" name="autorId" value="@autor.IdUsuario" />
-                                <button type="submit" class="btn-action">Seguir</button>
-                            </form>
-                        }
-                    </div>
+                    @* Botón de seguir solo visible para lectores *@
+                    @if (usuarioRol == "lector" && !esPropioAutor)
+                    {
+                        <article class="book-actions" style="margin-top: 1.5rem;">
+                            @if (ViewBag.YaSiguiendoAutor == true)
+                            {
+                                <form asp-action="DejarDeSeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
+                                    <input type="hidden" name="autorId" value="@autor.IdUsuario" />
+                                    <button type="submit" class="btn-action delete">Dejar de Seguir</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-action="SeguirAutor" asp-controller="Autor" method="post" style="display: inline;">
+                                    <input type="hidden" name="autorId" value="@autor.IdUsuario" />
+                                    <button type="submit" class="btn-action">Seguir</button>
+                                </form>
+                            }
+                        </article>
+                    }
                 @* } *@
-            </div>
-        </div>
+            </article>
+        </section>
 
         @* Sección de Libros del Autor *@
-        <div class="action-bar">
+        <article class="action-bar">
             <h2 class="section-title">@(esPropioAutor ? "MIS LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
-        </div>
+        </article>
         
-        <div class="books-grid">
+        <section class="books-grid">
             @if (ViewBag.LibrosAutor != null && ViewBag.LibrosAutor.Count > 0)
             {
                 foreach (var libro in ViewBag.LibrosAutor)
                 {
-                    <div class="book-card">
+                    <article class="book-card">
                         <div class="book-cover">
                             @if (!string.IsNullOrEmpty(libro.FotoPortadaUrl))
                             {
@@ -97,7 +102,7 @@
                         <div class="book-info">
                             <div class="book-title">@libro.Titulo</div>
                             <div class="book-meta">
-                                <strong>Valoración:</strong> @libro.ValoracionMedia / 5 <br />
+                                <strong>Valoración:</strong> <partial name="_StarRating" model="libro.ValoracionMedia" /> <br />
                             </div>
                             <div class="book-actions">
                                 @if (esPropioAutor)
@@ -109,7 +114,7 @@
                                 }
                             </div>
                         </div>
-                    </div>
+                    </article>
                 }
                 @if (esPropioAutor)
                 {
@@ -122,16 +127,16 @@
             }
             else
             {
-                <div class="no-books">
+                <article class="no-books">
                     @(esPropioAutor ? "Aún no has publicado ningún libro." : "Este autor aún no ha publicado libros.")
-                </div>
+                </article>
             }
-        </div>
+        </section>
     }
     else
     {
-        <div class="no-books">
+        <article class="no-books">
             No se encontró información del autor.
-        </div>
+        </article>
     }
-</div>
+</section>

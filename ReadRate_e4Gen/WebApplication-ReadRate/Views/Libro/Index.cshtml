@@ -100,10 +100,10 @@
                                     <strong>Páginas:</strong> @Html.DisplayFor(modelItem => item.NumPags)
                                 </div>
                                 <div class="mb-1">
-                                    <strong>Valoración:</strong> @Html.DisplayFor(modelItem => item.ValoracionMedia)
+                                    <strong>Publicado:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
                                 </div>
                                 <div class="mb-1">
-                                    <strong>Publicado:</strong> @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                                    <strong>Valoración:</strong> <partial name="_StarRating" model="item.ValoracionMedia" />
                                 </div>
                                 <div class="mb-1">
                                     <strong>Sinopsis:</strong> @Html.DisplayFor(modelItem => item.Sinopsis)

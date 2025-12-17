@@ -2078,3 +2078,33 @@ footer.footer .footer-main {
     text-decoration: none;
 }
 
+/* ===========================
+   STAR RATING STYLES
+   =========================== */
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    color: #ff9800;
+}
+
+.star-rating i {
+    font-size: 1.1rem;
+}
+
+.star-rating .fas.fa-star,
+.star-rating .fas.fa-star-half-alt {
+    color: #ff9800;
+}
+
+.star-rating .far.fa-star {
+    color: #ddd;
+}
+
+.star-rating .rating-value {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+

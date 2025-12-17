@@ -1,0 +1,38 @@
+@model float
+
+@{
+    // Redondear valoración al 0.5 más cercano
+    float rounded = (float)(Math.Round(Model * 2) / 2.0);
+
+    // Calcular cuántas estrellas completas hay
+    int fullStars = (int)Math.Floor(rounded);
+
+    // Calcular cuántas medias estrellas hay
+    bool hasHalfStar = (rounded - fullStars) >= 0.5;
+
+    // Calcular cuántas estrellas vacías hay
+    int emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+}
+
+<span class="star-rating" title="@Model.ToString("F1") / 5">
+    <!-- Pintar estrellas completas -->
+    @for (int i = 0; i < fullStars; i++)
+    {
+        <i class="fas fa-star"></i>
+    }
+
+    <!-- Pintar medias estrellas -->
+    @if (hasHalfStar)
+    {
+        <i class="fas fa-star-half-alt"></i>
+    }
+
+    <!-- Pintar estrellas vacías -->
+    @for (int i = 0; i < emptyStars; i++)
+    {
+        <i class="far fa-star"></i>
+    }
+
+    <!-- Mostrar valor numérico exacto de la valoración -->
+    <span class="rating-value">(@(Model % 1 == 0 ? Model.ToString("F0") : Model.ToString("F1")))</span>
+</span>

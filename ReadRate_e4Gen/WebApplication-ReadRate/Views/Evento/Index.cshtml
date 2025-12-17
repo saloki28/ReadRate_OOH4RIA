@@ -69,13 +69,13 @@
 
                                 <div class="meta-box-container d-flex flex-wrap gap-3 mb-3">
                                     <div class="meta-box">
-                                        <strong>Fecha:</strong> @item.FechaPublicacion.ToString("dd/MM/yy")
+                                        <strong><i class="fas fa-calendar-alt"></i> Fecha:</strong> @item.FechaPublicacion.ToString("dd/MM/yy")
                                     </div>
                                     <div class="meta-box">
-                                        <strong>Hora:</strong> @item.HoraEvento.ToString("HH:mm")
+                                        <strong><i class="fas fa-clock"></i> Hora:</strong> @item.HoraEvento.ToString("HH:mm")
                                     </div>
                                     <div class="meta-box">
-                                        <strong>Ubicación:</strong> @Html.DisplayFor(modelItem => item.Ubicacion)
+                                        <strong><i class="fas fa-map-marker-alt"></i> Ubicación:</strong> @Html.DisplayFor(modelItem => item.Ubicacion)
                                     </div>
                                 </div>
 

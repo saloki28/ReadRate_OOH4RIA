@@ -26,13 +26,14 @@ namespace WebApplication_ReadRate.Controllers
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
             var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
 
-            if (!usuarioId.HasValue)
+            // Si no hay ID y no hay usuario logueado, redirigir a Home
+            if (!id.HasValue && !usuarioId.HasValue)
             {
                 SessionClose();
                 return RedirectToAction("Index", "Home");
             }
 
-            // Si no se proporciona ID, usar el del usuario actual
+            // Si no se proporciona ID, usar el del usuario actual (solo si está logueado)
             int autorIdAMostrar = id ?? usuarioId.Value;
 
             AutorRepository autorRepository = new AutorRepository(session);
@@ -49,9 +50,9 @@ namespace WebApplication_ReadRate.Controllers
             var librosViewModel = new LibroAssembler().ConvertirListENToViewModel(librosDelAutor).ToList();
             ViewBag.LibrosAutor = librosViewModel;
 
-            // Verificar si el lector actual ya sigue a este autor
+            // Verificar si el lector actual ya sigue a este autor (solo si está logueado)
             ViewBag.YaSiguiendoAutor = false;
-            if (usuarioRol == "lector" && autorIdAMostrar != usuarioId.Value)
+            if (usuarioId.HasValue && usuarioRol == "lector" && autorIdAMostrar != usuarioId.Value)
             {
                 LectorRepository lectorRepository = new LectorRepository(session);
                 LectorCEN lectorCEN = new LectorCEN(lectorRepository);

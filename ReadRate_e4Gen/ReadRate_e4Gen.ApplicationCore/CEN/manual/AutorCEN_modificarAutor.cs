@@ -31,7 +31,18 @@ public void ModificarAutor (int p_Autor_OID, string p_email, string p_nombreUsua
         autorEN.PaisResidencia = p_paisResidencia;
         autorEN.Foto = p_foto;
         autorEN.Rol = p_rol;
-        autorEN.Pass = p_pass;
+
+        if (!string.IsNullOrWhiteSpace(p_pass) && p_pass.Length != 32)
+        {
+            // Nueva contraseña: aplicar hash MD5
+            autorEN.Pass = Utils.Util.GetEncondeMD5(p_pass);
+        }
+        else
+        {
+            // Contraseña actual (ya hasheada) o vacía: mantener tal cual
+            autorEN.Pass = p_pass;
+        }
+
         autorEN.NumeroSeguidores = p_numeroSeguidores;
         autorEN.CantidadLibrosPublicados = p_cantidadLibrosPublicados;
         autorEN.ValoracionMedia = p_valoracionMedia;

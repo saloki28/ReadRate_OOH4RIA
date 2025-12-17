@@ -23,16 +23,16 @@
         <section class="card shadow-orange-lg">
             <div class="card-body p-4">
                 <form asp-action="Edit" method="post" enctype="multipart/form-data">
-                    @Html.AntiForgeryToken()
                     <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
                     <input type="hidden" asp-for="IdUsuario" />
-                    @* Campos ocultos necesarios para el controlador *@
-                    <input type="hidden" asp-for="Rol" />
+                    @* Campo oculto para el rol - siempre será "autor" (valor 1) *@
+                    <input type="hidden" asp-for="Rol" value="1" />
                     <input type="hidden" asp-for="FotoUrl" />
                     <input type="hidden" asp-for="NumeroSeguidores" />
                     <input type="hidden" asp-for="CantidadLibrosPublicados" />
                     <input type="hidden" asp-for="ValoracionMedia" />
+
 
                     <article class="mb-3">
                         <label asp-for="Email" class="form-label"></label>
@@ -69,22 +69,31 @@
                         <div class="form-text">Texto de máximo 255 caracteres</div>
                     </article>
 
+                    @* Contraseña vacia *@
                     <article class="mb-3">
-                        <label asp-for="Pass" class="form-label"></label>
-                        <input asp-for="Pass" class="form-control" />
+                        <label for="Pass" class="form-label">Contraseña</label>
+                        <input type="password" id="Pass" name="Pass" class="form-control" placeholder="ej: passAutor123" />
                         <span asp-validation-for="Pass" class="text-danger"></span>
-                        <div class="form-text">Contraseña de acceso</div>
+                        <div class="form-text">Contraseña obligatoria</div>
                     </article>
 
                     <article class="mb-4">
-                        <label asp-for="FotoFile" class="form-label"></label>
-                        <input asp-for="FotoFile" class="form-control" type="file" />
+                        <label asp-for="FotoFile" class="form-label">Foto del autor</label>
+
+                        @if (!string.IsNullOrEmpty(Model.FotoUrl))
+                        {
+                            <div class="mb-2">
+                                <img src="@Model.FotoUrl" alt="Foto actual" class="img-thumbnail" style="max-width: 150px;" />
+                                <p class="text-muted small">Foto actual</p>
+                            </div>
+                        }
+                        <input asp-for="FotoFile" type="file" class="form-control" />
                         <span asp-validation-for="FotoFile" class="text-danger"></span>
-                        <div class="form-text">Imagen del perfil (formatos aceptados: .jpg, .png, .gif)</div>
+                        <div class="form-text">Sube una nueva imagen solo si deseas cambiarla</div>
                     </article>
 
                     <article class="d-flex gap-3 justify-content-between mt-4">
-                        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>Volver al listado</a>
+                        <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
                         <input type="submit" value="Guardar cambios" class="btn btn-primary px-5" />
                     </article>
                 </form>

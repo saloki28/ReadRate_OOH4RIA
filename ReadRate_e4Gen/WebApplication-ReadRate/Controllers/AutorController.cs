@@ -50,6 +50,18 @@ namespace WebApplication_ReadRate.Controllers
             var librosViewModel = new LibroAssembler().ConvertirListENToViewModel(librosDelAutor).ToList();
             ViewBag.LibrosAutor = librosViewModel;
 
+            // Obtener últimas reseñas de los libros del autor
+            ReseñaRepository reseñaRepository = new ReseñaRepository(session);
+            ReseñaCEN reseñaCEN = new ReseñaCEN(reseñaRepository);
+            var todasReseñas = reseñaCEN.DameTodosReseñas(0, -1);
+            var idsLibrosAutor = librosDelAutor.Select(l => l.Id).ToList();
+            var reseñasDelAutor = todasReseñas
+                .Where(r => r.LibroReseñado != null && idsLibrosAutor.Contains(r.LibroReseñado.Id))
+                .OrderByDescending(r => r.Id)
+                .Take(4)
+                .ToList();
+            ViewBag.ReseñasAutor = new ReseñaAssembler().ConvertirListENToViewModel(reseñasDelAutor);
+
             // Verificar si el lector actual ya sigue a este autor (solo si está logueado)
             ViewBag.YaSiguiendoAutor = false;
             if (usuarioId.HasValue && usuarioRol == "lector" && autorIdAMostrar != usuarioId.Value)

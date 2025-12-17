@@ -135,13 +135,16 @@ namespace WebApplication_ReadRate.Controllers
             LibroEN libroEN = libroCEN.DameLibroPorOID(id);
             
             // Forzar la carga del Autor antes de cerrar la sesión
+            string? autorFoto = null;
             if (libroEN?.AutorPublicador != null)
             {
                 var autorCargado = libroEN.AutorPublicador.Id;
                 var nombreAutor = libroEN.AutorPublicador.NombreUsuario;
+                autorFoto = libroEN.AutorPublicador.Foto;
             }
             
             LibroViewModel libroVM = new LibroAssembler().ConvertirENToViewModel(libroEN);
+            libroVM.AutorFotoUrl = autorFoto;
 
             // Cargar reseñas del libro
             ReseñaRepository reseñaRepo = new ReseñaRepository(session);

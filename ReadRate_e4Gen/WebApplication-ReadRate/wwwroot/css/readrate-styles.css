@@ -1837,6 +1837,64 @@ footer.footer .footer-main {
     }
 }
 
+/* ===========================
+   AUTOR PERFIL INFO
+   =========================== */
+.stats-card {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #ffe0b2;
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255, 111, 0, 0.15);
+}
+
+.stats-card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.text-orange-dark {
+    color: #e65100;
+}
+
+/* ===========================
+   AUTOR PERFIL BOTON
+   =========================== */
+.btn-autor-profile {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 2px solid #ffe0b2;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-autor-profile:hover {
+    background: linear-gradient(135deg, #ffe8cc 0%, #ffd699 100%);
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.2);
+}
+
+.btn-autor-profile span {
+    color: #e65100;
+    transition: color 0.3s ease;
+}
+
+.btn-autor-profile:hover span {
+    color: #ff6f00;
+}
+
+
+
+
 
 /*//////////////////////////////////////////////////////////////////////////////*/
 
@@ -2237,8 +2295,5 @@ footer.footer .footer-main {
         font-size: 0.85rem;
     }
 }
-
-
-
 
 

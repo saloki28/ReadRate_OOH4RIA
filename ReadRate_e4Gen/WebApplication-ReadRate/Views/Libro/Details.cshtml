@@ -52,7 +52,21 @@
                     <article class="col-md-9">
                         <article class="detail-row">
                             <div class="detail-label">Autor:</div>
-                            <div class="detail-value">@Model.NombreAutor</div>
+                            <div class="detail-value">
+                                <a asp-controller="Autor" asp-action="Index" asp-route-id="@Model.AutorId" class="btn-autor-profile d-inline-flex align-items-center gap-2 text-decoration-none">
+                                    @if (!string.IsNullOrEmpty(Model.AutorFotoUrl))
+                                    {
+                                        <img src="@Model.AutorFotoUrl" alt="Foto de @Model.NombreAutor" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover; border: 2px solid #ff9800;">
+                                    }
+                                    else
+                                    {
+                                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 1.2rem; font-weight: bold; border: 2px solid #ff9800;">
+                                            @Model.NombreAutor?.Substring(0, 1).ToUpper()
+                                        </div>
+                                    }
+                                    <span class="fw-semibold">@Model.NombreAutor</span>
+                                </a>
+                            </div>
                         </article>
 
                         <article class="detail-row">
@@ -160,13 +174,13 @@
 
                                     <!-- Opinión -->
                                     <div class="mb-3">
-                                        <p class="text-muted small mb-1">Opinión personal:</p>
+                                        <p class="text-muted small mb-1" style="color: #ef7d19;">Opinión personal:</p>
                                         <p class="card-text">@resena.Opinion</p>
                                     </div>
 
                                     <!-- Valoración con estrellas -->
                                     <div class="mb-3">
-                                        <p class="text-muted small mb-1">Valoración:</p>
+                                        <p class="text-muted small mb-1" style="color: #ef7d19;">Valoración:</p>
                                         <partial name="_StarRating" model="resena.Valoracion" />
                                     </div>
 

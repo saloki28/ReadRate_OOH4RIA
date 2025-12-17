@@ -509,6 +509,12 @@ select.form-control option:checked,
     font-size: 0.9rem;
 }
 
+.validation-summary ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
 /* ===========================
    BUTTON STYLES
    =========================== */

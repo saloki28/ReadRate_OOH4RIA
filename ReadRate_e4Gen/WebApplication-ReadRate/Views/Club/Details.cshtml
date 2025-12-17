@@ -129,9 +129,20 @@
                                     <strong>@(miembro.EsPropietario ? "Propietario" : "Miembro")</strong>
                                 </p>
 
-                                <a asp-controller="Lector" asp-action="Index" asp-route-id="@miembro.Id" class="btn-action">
-                                    Visitar Perfil
+                                @if (miembro.EsPropietario && miembro.Id == ViewBag.UsuarioId)
+                                {
+                                    <a asp-controller="Lector" asp-action="Index" asp-route-id="@miembro.Id" class="btn-action">
+                                    Ver mi Perfil
                                 </a>
+                                }else if(@miembro.Id == ViewBag.UsuarioId){
+                                    <a asp-controller="Lector" asp-action="Index" class="btn-action">
+                                        Ver mi Perfil
+                                    </a>
+                                }else{
+                                    <a asp-controller="Lector" asp-action="Details" asp-route-id="@miembro.Id" class="btn-action">
+                                        Visitar Perfil
+                                    </a>
+                                }
                             </div>
                         </div>
                     </div>

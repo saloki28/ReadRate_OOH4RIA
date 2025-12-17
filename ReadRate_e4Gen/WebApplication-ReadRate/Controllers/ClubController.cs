@@ -374,6 +374,43 @@ namespace WebApplication_ReadRate.Controllers
         // GET: ClubController/ConfirmarEliminarClub - Ejecuta la eliminación
         public ActionResult ConfirmarEliminarClub(int id)
         {
+            if (id <= 0)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                SessionInitialize();
+                ClubRepository clubRepository = new ClubRepository(session);
+                ClubCEN clubCEN = new ClubCEN(clubRepository);
+
+                ClubEN clubEN = clubCEN.DameClubPorOID(id);
+
+                if (clubEN == null)
+                {
+                    SessionClose();
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ClubViewModel clubVM = new ClubAssembler().ConvertirENToViewModel(clubEN);
+
+                SessionClose();
+                return View("Delete", clubVM);
+            }
+            catch
+            {
+                SessionClose();
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        // POST: ClubController/EliminarClub
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult EliminarClub(int id, IFormCollection collection)
+        {
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
             var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
 
@@ -419,10 +456,27 @@ namespace WebApplication_ReadRate.Controllers
                     mensajeCEN.EliminarMensaje(mensaje.Id);
                 }
                 
-                // 2. Limpiar la lista de miembros del club
-                clubEN.LectorMiembro?.Clear();
+                // 2. Desuscribir a todos los miembros del club (excepto el propietario)
+                var miembrosDelClub = clubEN.LectorMiembro?.ToList() ?? new List<LectorEN>();
+                if (miembrosDelClub.Count > 0)
+                {
+                    foreach (var miembro in miembrosDelClub)
+                    {
+                        // No desuscribir al propietario, solo a los miembros regulares
+                        if (miembro.Id != clubEN.LectorPropietario?.Id)
+                        {
+                            try
+                            {
+                                SessionCPNHibernate sessionCPMiembro = new SessionCPNHibernate();
+                                LectorCP lectorCP = new LectorCP(sessionCPMiembro);
+                                lectorCP.DesuscribirLectorDeClub(miembro.Id, new List<int> { id });
+                            }
+                            catch { }
+                        }
+                    }
+                }
                 
-                // 3. Desvincular el propietario antes de eliminar el club
+                // 2.5 Limpiar la relación de propietario antes de eliminar
                 clubEN.LectorPropietario = null;
                 clubCEN.ModificarClub(
                     clubEN.Id,
@@ -433,8 +487,7 @@ namespace WebApplication_ReadRate.Controllers
                     clubEN.Descripcion,
                     clubEN.MiembrosActuales
                 );
-                
-                // 4. Eliminar el club
+                // 3. Eliminar el club directamente
                 clubCEN.EliminarClub(id);
                 
                 // COMMIT de la transacción

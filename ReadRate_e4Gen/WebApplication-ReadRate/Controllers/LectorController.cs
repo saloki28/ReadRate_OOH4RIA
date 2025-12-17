@@ -44,6 +44,28 @@ namespace WebApplication_ReadRate.Controllers
             if (lectorEN.ClubSuscritoLector != null)
             {
                 var count3 = lectorEN.ClubSuscritoLector.Count;
+                // Forzar la carga de los propietarios de cada club
+                foreach (var club in lectorEN.ClubSuscritoLector)
+                {
+                    if (club.LectorPropietario != null)
+                    {
+                        var propietarioId = club.LectorPropietario.Id;
+                    }
+                }
+            }
+            
+            // Forzar la carga de los clubes creados por el lector
+            if (lectorEN.ClubCreado != null)
+            {
+                var count4 = lectorEN.ClubCreado.Count;
+                // Forzar la carga de los propietarios de cada club creado
+                foreach (var club in lectorEN.ClubCreado)
+                {
+                    if (club.LectorPropietario != null)
+                    {
+                        var propietarioId = club.LectorPropietario.Id;
+                    }
+                }
             }
             
             LectorViewModel lectorViewModel = new LectorAssembler().ConvertirENToViewModel(lectorEN);

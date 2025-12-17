@@ -26,8 +26,8 @@
                 </div>
                 <p class="warning-text">Podrás volver a suscribirte cuando quieras</p>
 
-                <form asp-action="DesuscribirseDeClub" method="post">
-                    <input type="hidden" name="clubId" value="@Model.Id" />
+                <form asp-action="Desuscribirse" method="get">
+                    <input type="hidden" name="id" value="@Model.Id" />
                     <div class="d-flex gap-3 justify-content-between mt-4">
                         <a asp-controller="Lector" asp-action="Index" class="btn btn-secondary">No, volver</a>
                         <button type="submit" class="btn btn-danger px-5">Sí, desuscribirme</button>

@@ -105,37 +105,69 @@
                         @if (rolUsuario == "lector")
                         {
                             <article class="d-flex flex-wrap gap-3 mt-4 justify-content-center">
-                                <a asp-controller="Reseña" asp-action="Create" asp-route-libroId="@Model.Id" asp-route-lectorId="@lectorId" class="btn-action">
-                                    ¡Rate!
-                                </a>
+                                @* Botón de Rate - deshabilitado si ya tiene reseña *@
+                                @if ((bool)ViewData["TieneReseña"] == true)
+                                {
+                                    <button class="btn-action" disabled style="background: #e0e0e0; color: #666; cursor: not-allowed; border-color: #ccc;">
+                                        <i class="fas fa-check-circle me-2"></i>Gracias por tu reseña
+                                    </button>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Reseña" asp-action="Create" asp-route-libroId="@Model.Id" asp-route-lectorId="@lectorId" class="btn-action">
+                                        <i class="fas fa-star me-2"></i>¡Rate!
+                                    </a>
+                                }
 
+                                @* Botón de Libros Leídos *@
                                 @if ((bool)ViewData["EstaEnGuardados"] == true)
                                 {
                                     <form asp-controller="Libro" asp-action="QuitarDeGuardados" method="post" style="display:inline;">
                                         <input type="hidden" name="libroId" value="@Model.Id" />
-                                        <button type="submit" class="btn-action delete">Quitar de Libros Leídos</button>
+                                        <button type="submit" class="btn-action delete">
+                                            <i class="fas fa-times me-2"></i>Quitar de Libros Leídos
+                                        </button>
                                     </form>
+                                }
+                                else if ((bool)ViewData["EstaEnCurso"] == true)
+                                {
+                                    <button class="btn-action" disabled style="background: #e0e0e0; color: #666; cursor: not-allowed; border-color: #ccc;">
+                                        <i class="fas fa-ban me-2"></i>No puedes añadir a Leídos
+                                    </button>
                                 }
                                 else
                                 {
                                     <form asp-controller="Libro" asp-action="AgregarAGuardados" method="post" style="display:inline;">
                                         <input type="hidden" name="libroId" value="@Model.Id" />
-                                        <button type="submit" class="btn-action">Añadir a Libros Leídos</button>
+                                        <button type="submit" class="btn-action">
+                                            <i class="fas fa-book me-2"></i>Añadir a Libros Leídos
+                                        </button>
                                     </form>
                                 }
 
+                                @* Botón de Libros en Curso *@
                                 @if ((bool)ViewData["EstaEnCurso"] == true)
                                 {
                                     <form asp-controller="Libro" asp-action="QuitarDeEnCurso" method="post" style="display:inline;">
                                         <input type="hidden" name="libroId" value="@Model.Id" />
-                                        <button type="submit" class="btn-action delete">Quitar de Libros en Curso</button>
+                                        <button type="submit" class="btn-action delete">
+                                            <i class="fas fa-times me-2"></i>Quitar de Libros en Curso
+                                        </button>
                                     </form>
+                                }
+                                else if ((bool)ViewData["EstaEnGuardados"] == true)
+                                {
+                                    <button class="btn-action" disabled style="background: #e0e0e0; color: #666; cursor: not-allowed; border-color: #ccc;">
+                                        <i class="fas fa-ban me-2"></i>No puedes añadir a En Curso
+                                    </button>
                                 }
                                 else
                                 {
                                     <form asp-controller="Libro" asp-action="AgregarAEnCurso" method="post" style="display:inline;">
                                         <input type="hidden" name="libroId" value="@Model.Id" />
-                                        <button type="submit" class="btn-action">Añadir a Libros en Curso</button>
+                                        <button type="submit" class="btn-action">
+                                            <i class="fas fa-book-reader me-2"></i>Añadir a Libros en Curso
+                                        </button>
                                     </form>
                                 }
                             </article>

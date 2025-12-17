@@ -1113,7 +1113,7 @@ int usuarioId5 = lectorcen.CrearLector (
 
                         clubId1 = clubCEN.CrearClub (
  p_nombre: "Club de Ciencia Ficción",
- p_enlaceDiscord: "https://discord.gg/cienciaficcion",
+ p_enlaceDiscord: "https://discord.gg/ujEadRna ",
                                 p_miembrosMax: 4,
  p_foto: "/images/imagenClub/club_cienciaficcion.webp",
  p_descripcion: "Un club para los entusiastas de la ciencia ficción, donde exploramos mundos futuristas y tecnologías avanzadas.",
@@ -1146,7 +1146,7 @@ int usuarioId5 = lectorcen.CrearLector (
 
                         clubId2 = clubCEN.CrearClub (
  p_nombre: "Club de Terror y Horror",
- p_enlaceDiscord: "https://discord.gg/terror",
+ p_enlaceDiscord: "https://discord.gg/ujEadRna ",
                                 p_miembrosMax: 3,
  p_foto: "/images/imagenClub/club_terror.webp",
  p_descripcion: "Para los valientes que disfrutan de historias escalofriantes, criaturas sobrenaturales y el terror psicológico que te mantiene despierto por la noche.",
@@ -1179,7 +1179,7 @@ int usuarioId5 = lectorcen.CrearLector (
 
                         clubId5 = clubCEN.CrearClub (
  p_nombre: "Club de Misterio y Suspense",
- p_enlaceDiscord: "https://discord.gg/misterio",
+ p_enlaceDiscord: "https://discord.gg/ujEadRna ",
                                 p_miembrosMax: 30,
  p_foto: "/images/imagenClub/club_misterio.webp",
  p_descripcion: "Amantes del misterio, el suspense y las tramas que te mantienen en vilo hasta la última página.",
@@ -1211,7 +1211,7 @@ int usuarioId5 = lectorcen.CrearLector (
 
                         clubId3 = clubCEN.CrearClub (
  p_nombre: "Club de Romance Contemporáneo",
- p_enlaceDiscord: "https://discord.gg/romance",
+ p_enlaceDiscord: "https://discord.gg/ujEadRna ",
                                 p_miembrosMax: 2,
  p_foto: "/images/imagenClub/club_romance.webp",
  p_descripcion: "Para quienes disfrutan de historias de amor modernas, emotivas y llenas de sentimientos.",
@@ -1243,7 +1243,7 @@ int usuarioId5 = lectorcen.CrearLector (
 
                         clubId4 = clubCEN.CrearClub (
  p_nombre: "Club de Aventuras Épicas",
- p_enlaceDiscord: "https://discord.gg/aventuras",
+ p_enlaceDiscord: "https://discord.gg/ujEadRna ",
                                 p_miembrosMax: 100,
  p_foto: "/images/imagenClub/club_aventuras.webp",
  p_descripcion: "Exploradores literarios que buscan viajes épicos, mundos fantásticos y personajes heroicos.",

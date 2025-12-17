@@ -61,25 +61,25 @@ else
                                 <div class="col-md-3 mb-3 mb-md-0">
                                     <article class="stats-card">
                                         <h2 class="text-orange-dark mb-1">@Model.CantLibrosCurso</h2>
-                                        <p class="text-muted mb-0">En Curso</p>
+                                        <p class="text-muted mb-0">Libros En Curso</p>
                                     </article>
                                 </div>
                                 <div class="col-md-3 mb-3 mb-md-0">
                                     <article class="stats-card">
                                         <h2 class="text-orange-dark mb-1">@Model.CantLibrosLeidos</h2>
-                                        <p class="text-muted mb-0">Leídos</p>
+                                        <p class="text-muted mb-0">Libros Leídos</p>
                                     </article>
                                 </div>
                                 <div class="col-md-3 mb-3 mb-md-0">
                                     <article class="stats-card">
                                         <h2 class="text-orange-dark mb-1">@Model.CantAutoresSeguidos</h2>
-                                        <p class="text-muted mb-0">Autores</p>
+                                        <p class="text-muted mb-0">Autores Seguidos</p>
                                     </article>
                                 </div>
                                 <div class="col-md-3">
                                     <article class="stats-card">
                                         <h2 class="text-orange-dark mb-1">@Model.CantClubsSuscritos</h2>
-                                        <p class="text-muted mb-0">Clubes</p>
+                                        <p class="text-muted mb-0">Clubes Suscritos</p>
                                     </article>
                                 </div>
                             </article>
@@ -159,7 +159,7 @@ else
 
     <!-- Sección de Libros Guardados -->
     <section class="mb-5">
-        <h2 class="section-title mb-4">LECTURAS GUARDADAS</h2>
+        <h2 class="section-title mb-4">LIBROS LEÍDOS</h2>
         <div class="books-grid">
     @if (Model != null && Model.LibrosGuardados != null && Model.LibrosGuardados.Any())
     {

@@ -18,7 +18,6 @@ namespace WebApplication_ReadRate.Models.Assemblers
             lec.Pass = en.Pass;
             lec.CantLibrosCurso = en.CantLibrosCurso;
             lec.CantLibrosLeidos = en.CantLibrosLeidos;
-            lec.CantClubsSuscritos = en.CantClubsSuscritos;
             lec.CantAutoresSeguidos = en.CantAutoresSeguidos;
 
             LibroAssembler libroAssembler = new LibroAssembler();
@@ -31,6 +30,9 @@ namespace WebApplication_ReadRate.Models.Assemblers
             var clubsCreados = en.ClubCreado ?? new List<ClubEN>();
             var todosLosClubes = clubsSuscritos.Union(clubsCreados).ToList();
             lec.ClubsInscritos = clubAssembler.ConvertirListENToViewModel(todosLosClubes);
+            
+            // Calcular el contador real de clubes basándose en la lista combinada de clubs (miembro y propietario)
+            lec.CantClubsSuscritos = todosLosClubes.Count;
             
             return lec;
         }   

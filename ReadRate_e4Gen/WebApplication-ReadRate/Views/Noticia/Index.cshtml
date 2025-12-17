@@ -12,7 +12,7 @@
         <h2 class="section-title mb-0">Todas las Noticias</h2>
         @if (Context.Session.GetString("UsuarioRol") == "administrador")
         {
-            <a asp-action="Create" class="btn-create">+ Crear nueva noticia</a>
+            <a asp-action="Create" class="btn-create"><i class="fas fa-plus"></i> Crear nueva noticia</a>
         }
     </article>
 

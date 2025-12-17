@@ -78,6 +78,22 @@
                                 }
                             </div>
                         }
+                        @if (esPropioAutor)
+                        {
+                            <div class="row mt-4 align-items-center">
+                                <div class="col-6">
+                                    @* TODO *@
+                                        <a asp-controller="Autor" @*asp-action="Edit"*@ asp-route-id="@autor.IdUsuario" class="btn-profile-edit w-100"> 
+                                        <i class="fas fa-edit"></i> Editar Información
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                     <a asp-controller="Autor" @*asp-action="Delete"*@ asp-route-id="@autor.IdUsuario" class="btn-profile-delete w-100">
+                                        <i class="fas fa-trash-alt"></i> Eliminar Cuenta
+                                    </a>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

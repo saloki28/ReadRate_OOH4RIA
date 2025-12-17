@@ -86,6 +86,9 @@
                                     {
                                         <!-- Admin: Eliminar -->
                                         <div class="d-flex gap-2 mt-auto">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
+                                                Acceder
+                                            </a>
                                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Eliminar</a>
                                         </div>
                                     }

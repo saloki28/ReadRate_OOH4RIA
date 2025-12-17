@@ -81,7 +81,10 @@
 
             <article class="form-actions d-flex gap-3 justify-content-between mt-4">
                 <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
-                <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn btn-primary px-5">Editar lector</a>
+                @if (Context.Session.GetString("UsuarioRol") == "administrador" && Model != null)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn btn-primary px-5">Editar lector</a>
+                }
             </article>
         </section>
     </main>

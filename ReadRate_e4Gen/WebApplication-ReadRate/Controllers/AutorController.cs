@@ -95,6 +95,7 @@ namespace WebApplication_ReadRate.Controllers
                 ValoracionMedia = 0.0f,
                 FechaNacimiento = DateTime.Today
             };
+
             return View(autorViewModel);
         }
 
@@ -150,7 +151,8 @@ namespace WebApplication_ReadRate.Controllers
                         p_valoracionMedia: aut.ValoracionMedia
                     );
 
-                    return RedirectToAction(nameof(Index));
+                    // Redirigir a la página de login después del registro
+                    return RedirectToAction("Login", "Usuario");
                 }
 
                 return View(aut);

@@ -1,0 +1,118 @@
+@{
+    ViewData["Title"] = "Crear Cuenta";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Read&Rate - Crear Cuenta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />    
+    <link rel="stylesheet" href="~/css/readrate-styles.css" />
+    <style>
+        body.register-page {
+            min-height: 100vh;
+            background: var(--readrate-orange-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .birth-date-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .rol-selector {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .rol-option {
+            flex: 1;
+        }
+
+        .rol-option input[type="radio"] {
+            display: none;
+        }
+
+        .rol-label {
+            display: block;
+            padding: 2rem 1.5rem;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: var(--bs-border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .rol-option input[type="radio"]:checked + .rol-label {
+            background: var(--readrate-orange-main);
+            color: white;
+            border-color: var(--readrate-orange-main);
+        }
+
+        .rol-label:hover {
+            border-color: var(--readrate-orange-light);
+        }
+    </style>
+</head>
+<body class="register-page">
+    <div class="container" style="max-width: 650px;">
+        <div class="card shadow-lg">
+            <div class="card-body p-4">
+                <div class="text-center mb-4">
+                    <h1 class="text-primary fw-bold mb-3" style="font-size: 2.5rem; color: var(--readrate-orange-main) !important;">CREAR CUENTA</h1>
+                    <p class="text-muted">Selecciona tu rol en la plataforma</p>
+                </div>
+
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <!-- Rol en la plataforma -->
+                    <div class="mb-5 mt-5">
+                        <label class="form-label fw-semibold text-primary text-center d-block mb-3" style="font-size: 1.2rem;">¿Cómo quieres usar Read&Rate?</label>
+                        <div class="rol-selector">
+                            <div class="rol-option">
+                                <input type="radio" id="rolLector" name="rol" value="lector" checked />
+                                <label for="rolLector" class="rol-label">
+                                    <div style="font-size: 1.1rem;">Lector</div>
+                                    <small style="color: #666; font-weight: normal;">Descubre y reseña libros</small>
+                                </label>
+                            </div>
+                            <div class="rol-option">
+                                <input type="radio" id="rolAutor" name="rol" value="autor" />
+                                <label for="rolAutor" class="rol-label">
+                                    <div style="font-size: 1.1rem;">Autor</div>
+                                    <small style="color: #666; font-weight: normal;">Publica tus obras</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Continuar</button>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </form>
+
+                <div class="text-center mt-4 pt-3 border-top">
+                    <p class="text-muted mb-2">¿Ya tienes cuenta?</p>
+                    <a href="@Url.Action("Login", "Usuario")" class="fw-semibold" style="color: var(--readrate-orange-main); text-decoration: none;">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

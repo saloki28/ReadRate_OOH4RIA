@@ -32,7 +32,7 @@
             <a asp-action="Create"
                class="btn-create btn-black py-3 fw-bold text-uppercase w-50 text-center"
                style="font-size: 1.1rem; letter-spacing: 1px;">
-                + Crear nuevo evento
+                <i class="fas fa-plus"></i> Crear nuevo evento
             </a>
 
         </article>
@@ -87,9 +87,9 @@
                                         <!-- Admin: Eliminar -->
                                         <div class="d-flex gap-2 mt-auto">
                                             <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
-                                                Acceder
+                                                <i class="fas fa-eye"></i> Acceder
                                             </a>
-                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Eliminar</a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action flex-fill text-center"><i class="fas fa-trash-alt"></i> Eliminar</a>
                                         </div>
                                     }
                                     else
@@ -104,10 +104,10 @@
                                             <!-- Usuario inscrito: mostrar botones Acceder y Desinscribirse -->
                                             <div class="d-flex gap-2">
                                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
-                                                    Acceder
+                                                    <i class="fas fa-eye"></i> Acceder
                                                 </a>
                                                 <a asp-action="Desinscribirse" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
-                                                    ¡Darme de baja!
+                                                    <i class="fas fa-user-minus"></i> ¡Darme de baja!
                                                 </a>
                                             </div>
                                         }

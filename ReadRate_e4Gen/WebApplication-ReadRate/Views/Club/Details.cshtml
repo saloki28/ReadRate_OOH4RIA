@@ -132,15 +132,15 @@
                                 @if (miembro.EsPropietario && miembro.Id == ViewBag.UsuarioId)
                                 {
                                     <a asp-controller="Lector" asp-action="Index" asp-route-id="@miembro.Id" class="btn-action">
-                                    Ver mi Perfil
+                                    <i class="fas fa-user"></i> Ver mi Perfil
                                 </a>
                                 }else if(@miembro.Id == ViewBag.UsuarioId){
                                     <a asp-controller="Lector" asp-action="Index" class="btn-action">
-                                        Ver mi Perfil
+                                        <i class="fas fa-user"></i> Ver mi Perfil
                                     </a>
                                 }else{
                                     <a asp-controller="Lector" asp-action="Details" asp-route-id="@miembro.Id" class="btn-action">
-                                        Visitar Perfil
+                                        <i class="fas fa-eye"></i> Visitar Perfil
                                     </a>
                                 }
                             </div>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="text-end mt-3">
-                    <button type="submit" class="btn-action">Enviar Mensaje</button>
+                    <button type="submit" class="btn-action"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
                 </div>
             </form>
         </article>
@@ -211,7 +211,7 @@
                                 {
                                     <form asp-action="EliminarMensaje" asp-route-id="@mensaje.Id" asp-route-clubId="@Model.Id" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este mensaje?');">
                                         <button type="submit" class="btn-action delete flex-fill text-center">
-                                            Eliminar
+                                            <i class="fas fa-trash-alt"></i> Eliminar
                                         </button>
                                     </form>
                                 }

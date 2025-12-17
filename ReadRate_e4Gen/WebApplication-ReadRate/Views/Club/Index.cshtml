@@ -28,7 +28,7 @@
         <h2 class="section-title mb-0">Todos los Clubs de Lectura</h2>
         @if (Context.Session.GetString("UsuarioRol") == "lector")
         {
-            <a asp-action="Create" class="btn-create">+ Crear nuevo club</a>
+            <a asp-action="Create" class="btn-create"><i class="fas fa-plus"></i> Crear nuevo club</a>
         }
     </article>
 
@@ -82,10 +82,10 @@
                                         <!-- Lector Propietario: Botones de Acceder y Eliminar Club -->
                                         <div class="d-flex gap-2">
                                             <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
-                                                Acceder como Propietario
+                                                <i class="fas fa-users"></i> Acceder como Propietario
                                             </a>
-                                            <a asp-action="EliminarClub" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
-                                                Eliminar Club
+                                            <a asp-action="DeleteClub" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
+                                                <i class="fas fa-trash-alt"></i> Eliminar Club
                                             </a>
                                         </div>
                                     }
@@ -94,10 +94,10 @@
                                         <!-- Lector ya suscrito: mostrar botones Acceder y Darse de baja -->
                                         <div class="d-flex gap-2">
                                             <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">
-                                                Acceder
+                                                <i class="fas fa-eye"></i> Acceder
                                             </a>
                                             <a asp-action="Desuscribirse" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">
-                                                ¡Darme de baja!
+                                                <i class="fas fa-user-minus"></i> ¡Darme de baja!
                                             </a>
                                         </div>
                                     }

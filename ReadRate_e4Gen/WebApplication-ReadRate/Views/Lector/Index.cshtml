@@ -88,12 +88,12 @@ else
                                 <div class="row mt-4 align-items-center">
                                     <div class="col-6">
                                          <a asp-controller="Lector" @*asp-action="Edit"*@ asp-route-id="@Model.IdUsuario" class="btn-profile-edit w-100"> 
-                                            Editar Información
+                                            <i class="fas fa-edit"></i> Editar Información
                                         </a>
                                     </div>
                                     <div class="col-6">
                                         <a asp-controller="Lector" @*asp-action="Delete"*@ asp-route-id="@Model.IdUsuario" class="btn-profile-delete w-100">
-                                            Eliminar Cuenta
+                                            <i class="fas fa-trash-alt"></i> Eliminar Cuenta
                                         </a>
                                     </div>
                                 </div>
@@ -129,13 +129,13 @@ else
                             <div class="book-title">@lectura.Titulo</div>
                             <div class="book-author">@lectura.NombreAutor</div>
                             <div class="book-actions">
-                                <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@lectura.Id">Ver Detalles</a>
+                                <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@lectura.Id"><i class="fas fa-eye"></i> Ver Detalles</a>
                                 @if (esPropioLector)
                                 {
                                     <form asp-controller="Libro" asp-action="QuitarDeEnCurso" method="post" style="display:inline;">
                                         <input type="hidden" name="libroId" value="@lectura.Id" />
                                         <input type="hidden" name="returnUrl" value="perfil" />
-                                        <button type="submit" class="btn-action delete" style="width: 100%">Eliminar de En Curso</button>
+                                        <button type="submit" class="btn-action delete" style="width: 100%"><i class="fas fa-trash-alt"></i> Eliminar de En Curso</button>
                                     </form>
                                 }
                             </div>
@@ -176,13 +176,13 @@ else
                             <div class="book-title">@libro.Titulo</div>
                             <div class="book-author">@libro.NombreAutor</div>
                             <div class="book-actions">
-                                <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id">Ver Detalles</a>
+                                <a class="btn-action" asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id"><i class="fas fa-eye"></i> Ver Detalles</a>
                                 @if (esPropioLector)
                                 {
                                     <form asp-controller="Libro" asp-action="QuitarDeGuardados" method="post" style="display:inline;">
                                         <input type="hidden" name="libroId" value="@libro.Id" />
                                         <input type="hidden" name="returnUrl" value="perfil" />
-                                        <button type="submit" class="btn-action delete" style="width: 100%">Eliminar de Leídos</button>
+                                        <button type="submit" class="btn-action delete" style="width: 100%"><i class="fas fa-trash-alt"></i> Eliminar de Leídos</button>
                                     </form>
                                 }
                             </div>
@@ -241,14 +241,14 @@ else
                                 }
                             </div>
                             <div class="book-actions">
-                                <a class="btn-action" asp-controller="Club" asp-action="Details" asp-route-id="@club.Id">Ver Detalles</a>
+                                <a class="btn-action" asp-controller="Club" asp-action="Details" asp-route-id="@club.Id"><i class="fas fa-eye"></i> Ver Detalles</a>
                                 @if (esPropioLector && club.PropietarioId != Model.IdUsuario)
                                 {
-                                    <a class="btn-action delete" asp-controller="Club" asp-action="DeleteSuscripcion" asp-route-clubId="@club.Id">Desuscribirse</a>
+                                    <a class="btn-action delete" asp-controller="Club" asp-action="DeleteSuscripcion" asp-route-clubId="@club.Id"><i class="fas fa-user-minus"></i> Desuscribirse</a>
                                 }
                                 @if (esPropioLector && club.PropietarioId == Model.IdUsuario)
                                 {
-                                    <a class="btn-action delete" asp-controller="Club" asp-action="DeleteClub" asp-route-clubId="@club.Id">Eliminar Club</a>
+                                    <a class="btn-action delete" asp-controller="Club" asp-action="DeleteClub" asp-route-clubId="@club.Id"><i class="fas fa-trash-alt"></i> Eliminar Club</a>
                                 }
                             </div>
                         </div>

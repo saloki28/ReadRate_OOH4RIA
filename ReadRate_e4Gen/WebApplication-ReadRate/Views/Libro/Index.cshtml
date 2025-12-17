@@ -50,8 +50,8 @@
                         </article>
 
                         <article class="d-flex gap-2 justify-content-end mt-4">
-                            <a asp-action="Index" class="btn btn-secondary">Limpiar</a>
-                            <button type="submit" class="btn btn-primary">Buscar</button>
+                            <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-times"></i> Limpiar</a>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
                         </article>
                     </div>
                 </div>
@@ -112,14 +112,14 @@
                             @if (rolUsuario == "administrador")
                             {
                                 <article class="d-flex gap-2 mt-auto">
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">Borrar</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center"><i class="fas fa-eye"></i> Detalles</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center"><i class="fas fa-trash-alt"></i> Borrar</a>
                                 </article>
                             }
                             else
                             {
                                 <article class="d-flex gap-2 mt-auto">
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center"><i class="fas fa-eye"></i> Detalles</a>
                                 </article>
                             }
                         </article>

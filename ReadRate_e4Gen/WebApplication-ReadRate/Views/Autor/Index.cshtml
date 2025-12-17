@@ -66,14 +66,14 @@
                                 {
                                     <form asp-action="DejarDeSeguirAutor" asp-controller="Autor" method="post" class="w-100">
                                         <input type="hidden" name="autorId" value="@autor.IdUsuario" />
-                                        <button type="submit" class="btn-action delete w-100">Dejar de Seguir</button>
+                                        <button type="submit" class="btn-action delete w-100"><i class="fas fa-user-minus"></i> Dejar de Seguir</button>
                                     </form>
                                 }
                                 else
                                 {
                                     <form asp-action="SeguirAutor" asp-controller="Autor" method="post" class="w-100">
                                         <input type="hidden" name="autorId" value="@autor.IdUsuario" />
-                                        <button type="submit" class="btn-action w-100">Seguir</button>
+                                        <button type="submit" class="btn-action w-100"><i class="fas fa-user-plus"></i> Seguir</button>
                                     </form>
                                 }
                             </div>
@@ -111,10 +111,10 @@
                             <div class="book-actions">
                                 @if (esPropioAutor)
                                 {
-                                    <a asp-controller="Libro" asp-action="Delete" asp-route-id="@libro.Id" class="btn-action delete">Eliminar</a>
+                                    <a asp-controller="Libro" asp-action="Delete" asp-route-id="@libro.Id" class="btn-action delete"><i class="fas fa-trash-alt"></i> Eliminar</a>
                                 }
                                 else{
-                                    <a asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id" class="btn-action">Ver Detalles</a>
+                                    <a asp-controller="Libro" asp-action="Details" asp-route-id="@libro.Id" class="btn-action"><i class="fas fa-eye"></i> Ver Detalles</a>
                                 }
                             </div>
                         </div>

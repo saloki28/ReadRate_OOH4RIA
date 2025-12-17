@@ -60,14 +60,14 @@
                                     @if (usuarioRol == "admin" || usuarioRol == "administrador") // ajusta según tus roles
                                     {
                                         <div class="d-flex gap-2 w-100">
-                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
-                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center">Borrar</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center"><i class="fas fa-eye"></i> Detalles</a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action delete flex-fill text-center"><i class="fas fa-trash-alt"></i> Borrar</a>
                                         </div>
                                     }
                                     else
                                     {
                                         <div class="d-flex gap-2 w-100">
-                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center">Detalles</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-action flex-fill text-center"><i class="fas fa-eye"></i> Detalles</a>
                                         </div>
                                     }
                                 </footer>

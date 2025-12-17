@@ -31,8 +31,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
             {
                 CPSession.SessionInitializeTransaction();
 
-                System.Diagnostics.Debug.WriteLine($"=== INICIO ELIMINACIÓN LECTOR {p_Lector_OID} ===");
-
                 lectorCEN = new LectorCEN(CPSession.UnitRepo.LectorRepository);
                 LectorEN lector = lectorCEN.DameLectorPorOID(p_Lector_OID); // Obtener el lector a eliminar
 
@@ -42,7 +40,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     throw new ModelException("----------------El lector con ID {p_Lector_OID} no existe. --------------------");
                 }
 
-                System.Diagnostics.Debug.WriteLine($"Lector encontrado: {lector.NombreUsuario}");
 
                 // ============================================================
                 // ELIMINAR CLUBES --> LECTOR PROPIETARIO
@@ -50,7 +47,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                 if (lector.ClubCreado != null && lector.ClubCreado.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Eliminando {lector.ClubCreado.Count} club(es) creado(s) por el lector...");
 
                     clubCEN = new ClubCEN(CPSession.UnitRepo.ClubRepository);
                     mensajeCEN = new MensajeCEN(CPSession.UnitRepo.MensajeRepository);
@@ -60,7 +56,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                     foreach (int clubId in clubsIds)
                     {
-                        System.Diagnostics.Debug.WriteLine($"  Eliminando club ID: {clubId}");
 
                         ClubEN club = clubCEN.DameClubPorOID(clubId);
 
@@ -74,7 +69,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                             {
                                 mensajeCEN.EliminarMensaje(mensaje.Id);
                             }
-                            System.Diagnostics.Debug.WriteLine($"    {mensajesDelClub.Count} mensaje(s) eliminado(s)");
 
                             // 1.2. Desvincular todos los MIEMBROS del club, ya que el club va a ser eliminado
                             if (club.LectorMiembro != null && club.LectorMiembro.Count > 0)
@@ -88,7 +82,7 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                                         lectorCEN.get_ILectorRepository().DesuscribirLectorDeClub(miembroId, new List<int> { clubId });
                                     }
                                 }
-                                System.Diagnostics.Debug.WriteLine($"    {miembrosIds.Count} miembro(s) desvinculado(s)");
+
                             }
 
                             // 1.3. Desvincular al PROPIETARIO
@@ -96,7 +90,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                             // 1.4. ELIMINAR CLUB al final, ya que si no hay propietario no hay club
                             clubCEN.EliminarClub(clubId);
-                            System.Diagnostics.Debug.WriteLine($"  ✅ Club {clubId} eliminado");
                         }
                     }
                 }
@@ -106,7 +99,7 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (lector.ClubSuscritoLector != null && lector.ClubSuscritoLector.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Desuscribiendo de {lector.ClubSuscritoLector.Count} club(es)...");
+
 
                     // Obtengo los IDs de los clubes a los que está suscrito el lector
                     List<int> clubsIds = lector.ClubSuscritoLector.Select(c => c.Id).ToList();
@@ -115,7 +108,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     {
                         lectorCEN.get_ILectorRepository().DesuscribirLectorDeClub(p_Lector_OID, new List<int> { clubId });
                     }
-                    System.Diagnostics.Debug.WriteLine($"✅ Desuscrito de {clubsIds.Count} club(es)");
                 }
 
                 // ============================================================
@@ -123,7 +115,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (lector.EventoLector != null && lector.EventoLector.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Desinscribiendo de {lector.EventoLector.Count} evento(s)...");
 
                     // Obtengo los IDs de los eventos a los que está inscrito el lector
                     List<int> eventosIds = lector.EventoLector.Select(e => e.Id).ToList();
@@ -132,7 +123,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     {
                         lectorCEN.get_ILectorRepository().DesinscribirLectorDeEvento(p_Lector_OID, new List<int> { eventoId });
                     }
-                    System.Diagnostics.Debug.WriteLine($"✅ Desinscrito de {eventosIds.Count} evento(s)");
                 }
 
                 // ============================================================
@@ -140,14 +130,12 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (lector.AutorSeguido != null && lector.AutorSeguido.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Dejando de seguir {lector.AutorSeguido.Count} autor(es)...");
 
                     // Obtengo los IDs de los autores que el lector sigue
                     List<int> autoresIds = lector.AutorSeguido.Select(a => a.Id).ToList();
 
                     lectorCEN.get_ILectorRepository().DejarDeSeguirAutor(p_Lector_OID, autoresIds);
 
-                    System.Diagnostics.Debug.WriteLine($"✅ Dejó de seguir {autoresIds.Count} autor(es)");
                 }
 
                 // ============================================================
@@ -157,27 +145,22 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // 1.1. Libros Guardados
                 if (lector.LibroLeido != null && lector.LibroLeido.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Desasignando {lector.LibroLeido.Count} libro(s) guardado(s)...");
 
                     // Obtengo los IDs de los libros guardados
                     List<int> librosIds = lector.LibroLeido.Select(l => l.Id).ToList();
 
                     lectorCEN.get_ILectorRepository().DesasignarLibroListaGuardados(p_Lector_OID, librosIds);
 
-                    System.Diagnostics.Debug.WriteLine($"✅ {librosIds.Count} libro(s) guardado(s) desasignado(s)");
                 }
 
                 // 1.2. Libros En Curso
                 if (lector.LibroEnCurso != null && lector.LibroEnCurso.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Desasignando {lector.LibroEnCurso.Count} libro(s) en curso...");
-
                     // Obtengo los IDs de los libros en curso
                     List<int> librosIds = lector.LibroEnCurso.Select(l => l.Id).ToList();
 
                     lectorCEN.get_ILectorRepository().DesasignarLibroListaEnCurso(p_Lector_OID, librosIds);
 
-                    System.Diagnostics.Debug.WriteLine($"✅ {librosIds.Count} libro(s) en curso desasignado(s)");
                 }
 
                 // ============================================================
@@ -194,13 +177,11 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                 if (mensajesDelLector.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Eliminando {mensajesDelLector.Count} mensaje(s) del lector...");
 
                     foreach (var mensaje in mensajesDelLector)
                     {
                         mensajeCEN.EliminarMensaje(mensaje.Id);
                     }
-                    System.Diagnostics.Debug.WriteLine($"✅ {mensajesDelLector.Count} mensaje(s) eliminado(s)");
                 }
 
                 // ============================================================
@@ -214,13 +195,11 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                 if (reseñasDelLector.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Eliminando {reseñasDelLector.Count} reseña(s) del lector...");
 
                     foreach (var reseña in reseñasDelLector)
                     {
                         reseñaCEN.EliminarReseña(reseña.Id);
                     }
-                    System.Diagnostics.Debug.WriteLine($"✅ {reseñasDelLector.Count} reseña(s) eliminada(s)");
                 }
 
                 // ============================================================
@@ -228,7 +207,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (lector.NotificacionLector != null && lector.NotificacionLector.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Eliminando {lector.NotificacionLector.Count} notificación(es)...");
 
                     NotificacionCEN notificacionCEN = new NotificacionCEN(CPSession.UnitRepo.NotificacionRepository);
 
@@ -239,23 +217,17 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     {
                         notificacionCEN.EliminarNotificacion(notifId);
                     }
-                    System.Diagnostics.Debug.WriteLine($"✅ {notificacionesIds.Count} notificación(es) eliminada(s)");
                 }
 
                 // ============================================================
                 // FINALMENTE: ELIMINAR EL LECTOR
                 // ============================================================
-                System.Diagnostics.Debug.WriteLine($"Eliminando lector {lector.NombreUsuario}...");
                 lectorCEN.get_ILectorRepository().EliminarLector(p_Lector_OID);
-                System.Diagnostics.Debug.WriteLine($"✅ Lector eliminado correctamente");
 
                 CPSession.Commit();
-                System.Diagnostics.Debug.WriteLine($"=== FIN ELIMINACIÓN LECTOR {p_Lector_OID} ===");
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"❌ Error en EliminarLector: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"StackTrace: {ex.StackTrace}");
                 CPSession.RollBack();
                 throw ex;
             }

@@ -108,6 +108,8 @@ public static void InitializeData ()
                 AutorCEN autorcen = new AutorCEN (autorrepository);
                 LectorRepository lectorrepository = new LectorRepository ();
                 LectorCEN lectorcen = new LectorCEN (lectorrepository);
+                MensajeRepository mensajerepository = new MensajeRepository ();
+                MensajeCEN mensajecen = new MensajeCEN (mensajerepository);
 
 
 

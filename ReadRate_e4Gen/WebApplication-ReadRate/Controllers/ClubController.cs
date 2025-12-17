@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4;
@@ -9,6 +8,7 @@ using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.CP;
 using WebApplication_ReadRate.Models;
 using WebApplication_ReadRate.Models.Assemblers;
+using System.Linq;
 
 namespace WebApplication_ReadRate.Controllers
 {
@@ -89,6 +89,48 @@ namespace WebApplication_ReadRate.Controllers
                     clubView.PropietarioNombre = lectorPropietario.NombreUsuario;
                 }
             }
+
+            // Cargar lista de miembros
+            var miembros = new List<dynamic>();
+            if (clubEn.LectorMiembro != null && clubEn.LectorMiembro.Any())
+            {
+                foreach (var miembro in clubEn.LectorMiembro)
+                {
+                    miembros.Add(new
+                    {
+                        Id = miembro.Id,
+                        Nombre = miembro.NombreUsuario,
+                        Foto = miembro.Foto,
+                        EsPropietario = miembro.Id == clubEn.LectorPropietario?.Id
+                    });
+                }
+            }
+            ViewBag.Miembros = miembros;
+
+            // Obtener el ID del usuario logueado para el foro
+            ViewBag.UsuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+            // Cargar mensajes del club
+            MensajeRepository mensajeRepo = new MensajeRepository(session);
+            MensajeCEN mensajeCEN = new MensajeCEN(mensajeRepo);
+            
+            var todosMensajes = mensajeCEN.DameTodosMensajes(0, -1);
+            var mensajesDelClub = todosMensajes.Where(m => m.Club?.Id == id).OrderByDescending(m => m.Fecha).ToList();
+            
+            var mensajesList = new List<dynamic>();
+            foreach (var mensaje in mensajesDelClub)
+            {
+                mensajesList.Add(new
+                {
+                    Id = mensaje.Id,
+                    TextoContenido = mensaje.Texto,
+                    FechaHora = mensaje.Fecha ?? DateTime.Now,
+                    LectorId = mensaje.Lector?.Id ?? 0,
+                    LectorNombre = mensaje.Lector?.NombreUsuario ?? "Usuario",
+                    LectorFoto = mensaje.Lector?.Foto
+                });
+            }
+            ViewBag.Mensajes = mensajesList;
 
             SessionClose();
             return View(clubView);
@@ -426,6 +468,92 @@ namespace WebApplication_ReadRate.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        // POST: ClubController/EnviarMensaje
+        [HttpPost]
+        public ActionResult EnviarMensaje(int clubId, string mensaje)
+        {
+            try
+            {
+                var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+                var usuarioRol = HttpContext.Session.GetString("UsuarioRol");
+                
+                if (!usuarioId.HasValue || usuarioRol != "lector")
+                {
+                    TempData["ErrorMessage"] = "Debes estar logueado como lector para enviar mensajes";
+                    return RedirectToAction("Details", new { id = clubId });
+                }
+
+                if (string.IsNullOrWhiteSpace(mensaje))
+                {
+                    TempData["ErrorMessage"] = "El mensaje no puede estar vacío";
+                    return RedirectToAction("Details", new { id = clubId });
+                }
+
+                MensajeRepository mensajeRepo = new MensajeRepository();
+                MensajeCEN mensajeCEN = new MensajeCEN(mensajeRepo);
+                
+                mensajeCEN.CrearMensaje(mensaje, DateTime.Now, usuarioId.Value, clubId);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al enviar mensaje: " + ex.Message;
+            }
+            
+            return RedirectToAction("Details", new { id = clubId });
+        }
+
+        // POST: ClubController/EliminarMensaje
+        [HttpPost]
+        public ActionResult EliminarMensaje(int id, int clubId)
+        {
+            try
+            {
+                var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+                
+                if (!usuarioId.HasValue)
+                {
+                    TempData["ErrorMessage"] = "Debes estar logueado para eliminar mensajes";
+                    return RedirectToAction("Details", new { id = clubId });
+                }
+
+                // Verificar que el mensaje pertenece al usuario
+                SessionInitialize();
+                MensajeRepository mensajeRepo = new MensajeRepository(session);
+                MensajeCEN mensajeCEN = new MensajeCEN(mensajeRepo);
+                
+                MensajeEN mensaje = mensajeCEN.DameMensajePorOID(id);
+                
+                if (mensaje == null)
+                {
+                    SessionClose();
+                    TempData["ErrorMessage"] = "Mensaje no encontrado";
+                    return RedirectToAction("Details", new { id = clubId });
+                }
+
+                if (mensaje.Lector?.Id != usuarioId.Value)
+                {
+                    SessionClose();
+                    TempData["ErrorMessage"] = "No puedes eliminar mensajes de otros usuarios";
+                    return RedirectToAction("Details", new { id = clubId });
+                }
+
+                SessionClose();
+
+                // Eliminar mensaje
+                MensajeRepository mensajeRepoDelete = new MensajeRepository();
+                MensajeCEN mensajeCENDelete = new MensajeCEN(mensajeRepoDelete);
+                mensajeCENDelete.EliminarMensaje(id);
+
+                TempData["SuccessMessage"] = "Mensaje eliminado correctamente";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al eliminar mensaje: " + ex.Message;
+            }
+            
+            return RedirectToAction("Details", new { id = clubId });
         }
     }
 }

@@ -17,6 +17,7 @@ protected IEventoRepository eventorepository;
 protected INotificacionRepository notificacionrepository;
 protected IAutorRepository autorrepository;
 protected ILectorRepository lectorrepository;
+protected IMensajeRepository mensajerepository;
 
 
 public abstract IUsuarioRepository UsuarioRepository {
@@ -47,6 +48,9 @@ public abstract IAutorRepository AutorRepository {
         get;
 }
 public abstract ILectorRepository LectorRepository {
+        get;
+}
+public abstract IMensajeRepository MensajeRepository {
         get;
 }
 }

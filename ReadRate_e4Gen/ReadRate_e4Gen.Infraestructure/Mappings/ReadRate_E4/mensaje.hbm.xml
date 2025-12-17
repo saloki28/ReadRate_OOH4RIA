@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="ReadRate_e4Gen.Infraestructure"
+		                   namespace="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4">
+		    
+		    
+			
+				<class name="MensajeNH" table="Mensaje"> 
+				  	
+						<id name="Id" column="idMensaje" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Texto" type="string"> 
+						<column name="texto"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Lector" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.LectorNH" >	
+								<column name="FK_idUsuario_idLector"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Club" class="ReadRate_e4Gen.Infraestructure.EN.ReadRate_E4.ClubNH" >	
+								<column name="FK_idClub_idClub"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MensajeNHReadAllHQL">from MensajeNH</query>
+		</hibernate-mapping>
+	

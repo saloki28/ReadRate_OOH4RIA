@@ -108,6 +108,15 @@ public override ILectorRepository LectorRepository {
                 return this.lectorrepository;
         }
 }
+
+public override IMensajeRepository MensajeRepository {
+        get
+        {
+                this.mensajerepository = new MensajeRepository ();
+                this.mensajerepository.setSessionCP (session);
+                return this.mensajerepository;
+        }
+}
 }
 }
 

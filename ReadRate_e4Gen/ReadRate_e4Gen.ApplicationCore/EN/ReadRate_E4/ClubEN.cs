@@ -75,6 +75,13 @@ private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadR
 
 
 
+/**
+ *	Atributo mensaje
+ */
+private System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.MensajeEN> mensaje;
+
+
+
 
 
 
@@ -138,30 +145,37 @@ public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.E
 
 
 
+public virtual System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.MensajeEN> Mensaje {
+        get { return mensaje; } set { mensaje = value;  }
+}
+
+
+
 
 
 public ClubEN()
 {
         notificacionClub = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN>();
         lectorMiembro = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN>();
+        mensaje = new System.Collections.Generic.List<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.MensajeEN>();
 }
 
 
 
-public ClubEN(int id, string nombre, string enlaceDiscord, int miembrosMax, string foto, string descripcion, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorPropietario, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionClub, int miembrosActuales, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorMiembro
+public ClubEN(int id, string nombre, string enlaceDiscord, int miembrosMax, string foto, string descripcion, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorPropietario, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionClub, int miembrosActuales, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorMiembro, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.MensajeEN> mensaje
               )
 {
-        this.init (Id, nombre, enlaceDiscord, miembrosMax, foto, descripcion, lectorPropietario, notificacionClub, miembrosActuales, lectorMiembro);
+        this.init (Id, nombre, enlaceDiscord, miembrosMax, foto, descripcion, lectorPropietario, notificacionClub, miembrosActuales, lectorMiembro, mensaje);
 }
 
 
 public ClubEN(ClubEN club)
 {
-        this.init (club.Id, club.Nombre, club.EnlaceDiscord, club.MiembrosMax, club.Foto, club.Descripcion, club.LectorPropietario, club.NotificacionClub, club.MiembrosActuales, club.LectorMiembro);
+        this.init (club.Id, club.Nombre, club.EnlaceDiscord, club.MiembrosMax, club.Foto, club.Descripcion, club.LectorPropietario, club.NotificacionClub, club.MiembrosActuales, club.LectorMiembro, club.Mensaje);
 }
 
 private void init (int id
-                   , string nombre, string enlaceDiscord, int miembrosMax, string foto, string descripcion, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorPropietario, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionClub, int miembrosActuales, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorMiembro)
+                   , string nombre, string enlaceDiscord, int miembrosMax, string foto, string descripcion, ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN lectorPropietario, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.NotificacionEN> notificacionClub, int miembrosActuales, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.LectorEN> lectorMiembro, System.Collections.Generic.IList<ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4.MensajeEN> mensaje)
 {
         this.Id = id;
 
@@ -183,6 +197,8 @@ private void init (int id
         this.MiembrosActuales = miembrosActuales;
 
         this.LectorMiembro = lectorMiembro;
+
+        this.Mensaje = mensaje;
 }
 
 public override bool Equals (object obj)

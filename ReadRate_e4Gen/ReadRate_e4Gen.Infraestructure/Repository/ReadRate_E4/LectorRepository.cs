@@ -116,6 +116,7 @@ public void ModifyDefault (LectorEN lector)
 
 
 
+
                 session.Update (lectorNH);
                 SessionCommit ();
         }

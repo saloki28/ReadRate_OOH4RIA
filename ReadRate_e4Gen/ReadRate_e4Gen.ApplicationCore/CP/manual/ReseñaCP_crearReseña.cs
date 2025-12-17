@@ -1,13 +1,12 @@
 
 using System;
 using System.Text;
-
 using System.Collections.Generic;
+using System.Linq;
 using ReadRate_e4Gen.ApplicationCore.Exceptions;
 using ReadRate_e4Gen.ApplicationCore.EN.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.IRepository.ReadRate_E4;
 using ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4;
-using System.Linq;
 
 
 

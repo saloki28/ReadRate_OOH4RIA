@@ -87,7 +87,7 @@
         <section class="mb-5">
             <h2 class="section-title mb-4">@(esPropioAutor ? "LIBROS PUBLICADOS" : "LIBROS PUBLICADOS")</h2>
         
-        <section class="books-grid">
+            <div class="books-grid">
             @if (ViewBag.LibrosAutor != null && ViewBag.LibrosAutor.Count > 0)
             {
                 foreach (var libro in ViewBag.LibrosAutor)
@@ -120,22 +120,19 @@
                         </div>
                     </article>
                 }
+            }
                 @if (esPropioAutor)
                 {
-                    <a asp-controller="Libro" asp-action="Create">
-                        <div class="book-card">
-                            <p>+</p> 
+                    <a asp-controller="Libro" asp-action="Create" class="text-decoration-none">
+                        <div class="book-card add-card">
+                            <div class="add-content">
+                                <i class="fas fa-plus-circle fa-4x text-orange mb-3"></i>
+                                <p class="text-orange fw-bold mb-0">Añadir Libro</p>
+                            </div>
                         </div>
                     </a>
                 }
-            }
-            else
-            {
-                <article class="no-books">
-                    @(esPropioAutor ? "Aún no has publicado ningún libro." : "Este autor aún no ha publicado libros.")
-                </article>
-            }
-        </section>
+            </div>
         </section>
 
         @* Sección de Reseñas *@

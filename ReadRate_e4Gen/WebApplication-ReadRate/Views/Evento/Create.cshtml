@@ -55,26 +55,19 @@
                         </div>
                     </article>
 
-                    <article class="mb-3">
-                        <label asp-for="Ubicacion" class="form-label"></label>
-                        <input asp-for="Ubicacion" class="form-control" placeholder="Escribe aquí la ubicación..." />
-                        <span asp-validation-for="Ubicacion" class="text-danger"></span>
-                        <div class="form-text">Texto de máximo 255 caracteres</div>
-                    </article>
-
                     <article class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Ubicacion" class="form-label"></label>
+                            <input asp-for="Ubicacion" class="form-control" placeholder="Escribe aquí la ubicación..." />
+                            <span asp-validation-for="Ubicacion" class="text-danger"></span>
+                            <div class="form-text">Texto de máximo 255 caracteres</div>
+                        </div>
+
                         <div class="col-md-6 mb-3">
                             <label asp-for="AforoMaximo" class="form-label"></label>
                             <input asp-for="AforoMaximo" class="form-control" type="number" min="1" max="10000" step="1" placeholder="Ej: 320" />
                             <span asp-validation-for="AforoMaximo" class="text-danger"></span>
                             <div class="form-text">Aforo entre 1 y 10000</div>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label asp-for="AforoActual" class="form-label"></label>
-                            <input asp-for="AforoActual" class="form-control" type="number" min="0" max="10000" step="1" placeholder="Ej: 0" />
-                            <span asp-validation-for="AforoActual" class="text-danger"></span>
-                            <div class="form-text">Aforo entre 0 y 10000</div>
                         </div>
                     </article>
 
@@ -83,12 +76,6 @@
                         <input asp-for="FotoFichero" class="form-control" type="file" accept="image/*" />
                         <span asp-validation-for="FotoFichero" class="text-danger"></span>
                         <div class="form-text">Imagen opcional para el evento</div>
-                    </article>
-
-                    <article class="mb-4">
-                        <label asp-for="AdminPublicadorID" class="form-label">Nombre del Administrador</label>
-                        <select class="form-select" asp-for="AdminPublicadorID" asp-items='(IEnumerable<SelectListItem>)ViewData["Administradores"]'></select>
-                        <span asp-validation-for="AdminPublicadorID" class="text-danger"></span>
                     </article>
 
                     <article class="d-flex gap-3 justify-content-between mt-4">

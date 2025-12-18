@@ -107,13 +107,16 @@ namespace WebApplication_ReadRate.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    // Validación de AdminPublicadorId
-                    if (!noticiaVM.AdminPublicadorID.HasValue || noticiaVM.AdminPublicadorID.Value <= 0)
+                    // Obtener el ID del administrador desde la sesión
+                    var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+                    if (!usuarioId.HasValue)
                     {
-                        ModelState.AddModelError("AdminPublicadorID", "Ha habido un error, el administrador no existe o tiene ID incorrecto");
-                        RecargarAdministradores();
+                        ModelState.AddModelError("", "Debe iniciar sesión como administrador para crear noticias");
                         return View(noticiaVM);
                     }
+                    
+                    // Asignar automáticamente el administrador actual
+                    noticiaVM.AdminPublicadorID = usuarioId.Value;
 
                     // Manejo del archivo de foto
                     if (noticiaVM.FotoFichero != null && noticiaVM.FotoFichero.Length > 0)

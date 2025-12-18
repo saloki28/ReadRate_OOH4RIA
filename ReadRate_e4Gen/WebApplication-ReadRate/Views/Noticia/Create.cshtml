@@ -39,12 +39,6 @@
                         <div class="form-text">Texto de máximo 255 caracteres</div>
                     </article>
 
-                    <article class="mb-3">
-                        <label asp-for="AdminPublicadorID" class="form-label">Nombre del Administrador</label>
-                        <select class="form-select" asp-for="AdminPublicadorID" asp-items='(IEnumerable<SelectListItem>)ViewData["Administradores"]'></select>
-                        <span asp-validation-for="AdminPublicadorID" class="text-danger"></span>
-                    </article>
-
                     <article class="mb-4">
                         <label asp-for="FotoFichero" class="form-label">Imagen de Portada</label>
                         <input asp-for="FotoFichero" class="form-control" type="file" accept="image/*" />

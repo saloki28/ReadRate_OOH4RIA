@@ -148,25 +148,22 @@ namespace WebApplication_ReadRate.Controllers
             {
                 ModelState.Remove("Foto");
                 ModelState.Remove("FotoFichero");
+                ModelState.Remove("AdminPublicadorID"); // Remover validación ya que se asigna automáticamente
+                ModelState.Remove("AforoActual"); // Remover validación ya que se asigna automáticamente
 
                 if (ModelState.IsValid)
                 {
-                    // Validación de AdminPublicadorId
-                    if (!eventoVM.AdminPublicadorID.HasValue || eventoVM.AdminPublicadorID.Value <= 0)
+                    // Obtener el ID del administrador desde la sesión
+                    var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+                    if (!usuarioId.HasValue)
                     {
-                        ModelState.AddModelError("AdminPublicadorID", "Ha habido un error, el administrador no existe o tiene ID incorrecto");
-                        RecargarAdministradores();
+                        ModelState.AddModelError("", "Debe iniciar sesión como administrador para crear eventos");
                         return View(eventoVM);
                     }
-
-                    // VALIDACIÓN: Aforo actual no puede ser mayor que aforo máximo
-                    if (eventoVM.AforoActual.HasValue && eventoVM.AforoMaximo.HasValue && 
-                        eventoVM.AforoActual.Value > eventoVM.AforoMaximo.Value)
-                    {
-                        ModelState.AddModelError("AforoActual", $"El aforo actual ({eventoVM.AforoActual.Value}) no puede ser mayor que el aforo máximo ({eventoVM.AforoMaximo.Value})");
-                        RecargarAdministradores();
-                        return View(eventoVM);
-                    }
+                    
+                    // Asignar automáticamente el administrador actual y aforo actual a 0
+                    eventoVM.AdminPublicadorID = usuarioId.Value;
+                    eventoVM.AforoActual = 0;
 
                     // MANEJO DEL ARCHIVO DE FOTO
                     if (eventoVM.FotoFichero != null && eventoVM.FotoFichero.Length > 0)

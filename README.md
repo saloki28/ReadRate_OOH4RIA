@@ -15,13 +15,17 @@ Para acceder a la aplicación, puedes utilizar las siguientes credenciales de pr
 - **Email:** `niko.lector@email.com`
   - **Contraseña:** `passNiko`
 
-### ✍️ Autor
-- **Email:** `lucymontgomery@email.com`
-- **Contraseña:** `passLucy`
+### ✍️ Autores
+- **Email:** `marinaabadmor@gmail.com`
+    - **Contraseña:** `passMarina`
+    - **NOTA:** El Autor es ROBERT JORDAN, pero está asociado uno de nuestros correos electrónicos para notificaciones reales (para exposición en clase)
+
+- **Email:** `carlosruizzafon@email.com`
+    - **Contraseña:** `passCarlos`
 
 ### 👨‍💼 Administrador
 - **Email:** `admin@email.com`
-- **Contraseña:** `passAdmin1`
+    - **Contraseña:** `passAdmin1`
 
 > **Nota**: Para acceder con otros usuarios, consulta el script `CreateDB.cs` para obtener las contraseñas.
 

@@ -31,15 +31,15 @@ namespace ReadRate_e4Gen.ApplicationCore.CEN.ReadRate_E4
             lectorEN.Foto = p_foto;
             lectorEN.Rol = p_rol;
 
-            // Solo hash si no lo est� aun
+            // Solo hash si no lo está aun
             if (!string.IsNullOrWhiteSpace(p_pass) && p_pass.Length != 32)
             {
-                // Nueva contrase�a: aplicar hash MD5
+                // Nueva contraseña: aplicar hash MD5
                 lectorEN.Pass = Utils.Util.GetEncondeMD5(p_pass);
             }
             else
             {
-                // Contrase�a actual (ya hasheada) o vac�a: mantener tal cual
+                // Contraseña actual (ya hasheada) o vacía: mantener tal cual
                 lectorEN.Pass = p_pass;
             }
 

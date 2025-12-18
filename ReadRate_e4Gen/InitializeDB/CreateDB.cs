@@ -230,7 +230,7 @@ public static void InitializeData ()
 
                 // Autor 1 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId = autorcen.CrearAutor (
- p_email: "leighbardugo@email.com",
+ p_email: "itv7@gcloud.ua.es",
  p_nombreUsuario: "Leigh Bardugo",
  p_fechaNacimiento: new DateTime (1975, 4, 6),
  p_ciudadResidencia: "Jerusalén",
@@ -238,7 +238,7 @@ public static void InitializeData ()
  p_foto: "/images/fotosUsuarios/leighBardugo.webp",
  p_valoracionMedia: 0.0f,
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "passLeigh",
+ p_pass: "passInes",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
@@ -261,7 +261,7 @@ public static void InitializeData ()
 
                 // Autor 2 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId2 = autorcen.CrearAutor (
- p_email: "robertjordan@email.com",
+ p_email: "marinaabadmor@gmail.com",
  p_nombreUsuario: "Robert Jordan",
  p_valoracionMedia: 0.0f,
  p_fechaNacimiento: new DateTime (1948, 10, 17),
@@ -269,7 +269,7 @@ public static void InitializeData ()
  p_paisResidencia: "Estados Unidos",
  p_foto: "/images/fotosUsuarios/robertJordan.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "passRobert",
+ p_pass: "passMarina",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
@@ -487,7 +487,7 @@ public static void InitializeData ()
 
                 // Autor 3 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId3 = autorcen.CrearAutor (
- p_email: "brandonsanderson@email.com",
+ p_email: "nikolasleon28@gmail.com",
  p_nombreUsuario: "Brandon Sanderson",
  p_fechaNacimiento: new DateTime (1975, 12, 19),
  p_ciudadResidencia: "Lincoln",
@@ -495,7 +495,7 @@ public static void InitializeData ()
  p_valoracionMedia: 0.0f,
  p_foto: "/images/fotosUsuarios/brandonSanderson.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "passBrandon",
+ p_pass: "passNiko",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );
@@ -548,7 +548,7 @@ public static void InitializeData ()
 
                 // Autor 4 (devuelve su id para ser usado a continuación en la creación del libro)
                 int autorId4 = autorcen.CrearAutor (
- p_email: "cervantes@email.com",
+ p_email: "nrt17@gcloud.ua.es",
  p_nombreUsuario: "Miguel De Cervantes",
  p_fechaNacimiento: new DateTime (1753, 9, 29),
  p_ciudadResidencia: "Alcalá de Henares",
@@ -556,7 +556,7 @@ public static void InitializeData ()
  p_paisResidencia: "España",
  p_foto: "/images/fotosUsuarios/cervantes.webp",
  p_rol: ReadRate_e4Gen.ApplicationCore.Enumerated.ReadRate_E4.RolUsuarioEnum.autor,
- p_pass: "passCervantes",
+ p_pass: "passNerea",
                         p_numeroSeguidores: 0,
                         p_cantidadLibrosPublicados: 0
                         );

@@ -7,13 +7,6 @@
 
 Para acceder a la aplicación, puedes utilizar las siguientes credenciales de prueba:
 
-### 👨‍💼 Administrador
-- **Email:** `admin@email.com`
-- **Contraseña:** `passAdmin1`
-
-### ✍️ Autor
-- **Email:** `leighbardugo@email.com`
-- **Contraseña:** `passLeigh`
 
 ### 📖 Lectores
 - **Email:** `marina.lectora@email.com`
@@ -21,6 +14,14 @@ Para acceder a la aplicación, puedes utilizar las siguientes credenciales de pr
   
 - **Email:** `niko.lector@email.com`
   - **Contraseña:** `passNiko`
+
+### ✍️ Autor
+- **Email:** `lucymontgomery@email.com`
+- **Contraseña:** `passLucy`
+
+### 👨‍💼 Administrador
+- **Email:** `admin@email.com`
+- **Contraseña:** `passAdmin1`
 
 > **Nota**: Para acceder con otros usuarios, consulta el script `CreateDB.cs` para obtener las contraseñas.
 

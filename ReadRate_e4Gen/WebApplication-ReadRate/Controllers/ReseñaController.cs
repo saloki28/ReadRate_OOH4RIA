@@ -8,6 +8,8 @@ using ReadRate_e4Gen.Infraestructure.Repository.ReadRate_E4;
 using ReadRate_e4Gen.Infraestructure.CP;
 using WebApplication_ReadRate.Models;
 using WebApplication_ReadRate.Models.Assemblers;
+using System.Net;
+using System.Net.Mail;
 
 namespace WebApplication_ReadRate.Controllers
 {
@@ -51,7 +53,8 @@ namespace WebApplication_ReadRate.Controllers
 
         // GET: ReseñaController/Create
         public ActionResult Create(int libroId, int lectorId)
-        { 
+        {
+            
             LibroRepository libroRepo = new LibroRepository();
             LibroCEN libroCEN = new LibroCEN(libroRepo);
             LibroEN libro = libroCEN.DameLibroPorOID(libroId);
@@ -99,7 +102,50 @@ namespace WebApplication_ReadRate.Controllers
                 Console.WriteLine($"Fecha recuperada de BD: {reseñaCreada.Fecha}");
                 Console.WriteLine($"Fecha recuperada (formato completo): {reseñaCreada.Fecha:dd/MM/yyyy HH:mm:ss.fff}");
                 Console.WriteLine($"=== FIN DEPURACIÓN ===");
+                
+                // Obtener datos del autor del libro para enviar email                
+                SessionInitialize();                
+                LibroRepository libroRepo = new LibroRepository(session);
+                LibroCEN libroCEN = new LibroCEN(libroRepo);
+                LibroEN libro = libroCEN.DameLibroPorOID(res.LibroId);
+                SessionClose();
 
+                // Enviar email al autor
+                if (libro != null && libro.AutorPublicador != null && !string.IsNullOrEmpty(libro.AutorPublicador.Email))
+                {
+                    try
+                    {
+                        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                        smtpClient.Credentials = new System.Net.NetworkCredential(
+                            "readandrate1@gmail.com",
+                            "fyhiyvimlfgtejgl");
+                        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtpClient.EnableSsl = true;
+
+                        MailMessage mail = new MailMessage();
+                        mail.From = new MailAddress("readandrate1@gmail.com", "Read&Rate");
+                        mail.To.Add(new MailAddress(libro.AutorPublicador.Email));
+                        mail.Subject = $"Nueva reseña para tu libro: {libro.Titulo}";
+                        mail.Body = $@"
+                        <h2>¡Hola {libro.AutorPublicador.NombreUsuario}!</h2>
+                        <p>Tu libro <strong>{libro.Titulo}</strong> ha recibido una nueva reseña.</p>
+                        <p><strong>Valoración:</strong> {reseñaCreada.Valoracion} ⭐</p>
+                        <p>Visita Read&Rate para ver la reseña completa.</p>";
+                        mail.IsBodyHtml = true;
+
+                        smtpClient.Send(mail);
+                        Console.WriteLine("Email enviado correctamente");
+                    }
+                    catch (Exception emailEx)
+                    {
+                        Console.WriteLine($"[ERROR EMAIL] No se pudo enviar el email: {emailEx.Message}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No se envió email - Condiciones no cumplidas");
+                }
+                
                 return RedirectToAction("Details", "Libro", new { id = res.LibroId });
             }
             catch (Exception ex)

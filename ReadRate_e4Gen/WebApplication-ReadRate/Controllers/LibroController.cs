@@ -371,10 +371,46 @@ namespace WebApplication_ReadRate.Controllers
         public ActionResult Delete(int id, IFormCollection collection)
         {
             try
-            {
-                LibroRepository libroRepository = new LibroRepository();
+            {   
+                SessionCPNHibernate CPSession = new SessionCPNHibernate();
+                CPSession.SessionInitializeTransaction();
+                
+                var libroRepository = CPSession.UnitRepo.LibroRepository;
                 LibroCEN libroCEN = new LibroCEN(libroRepository);
+                
+                // Obtener el autor antes de eliminar el libro
+                LibroEN libro = libroCEN.DameLibroPorOID(id);
+                int? autorId = libro?.AutorPublicador?.Id;
+                
+                // Eliminar el libro (y sus reseñas)
                 libroCEN.EliminarLibro(id);
+                
+                // Recalcular valoración media del autor si existe
+                if (autorId.HasValue)
+                {
+                    var autorRepo = CPSession.UnitRepo.AutorRepository;
+                    var autor = autorRepo.ReadOIDDefault(autorId.Value);
+                    
+                    if (autor != null)
+                    {
+                        // Obtener todos los libros restantes del autor
+                        var librosAutor = libroCEN.DameTodosLibros(0, int.MaxValue)
+                                          .Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == autor.Id)
+                                          .ToList();
+
+                        // Calcular la valoración media del autor
+                        if (librosAutor.Count > 0)
+                            autor.ValoracionMedia = (float)librosAutor.Average(l => l.ValoracionMedia);
+                        else
+                            autor.ValoracionMedia = 0;
+
+                        autorRepo.ModificarAutor(autor);
+                    }
+                }
+                
+                CPSession.Commit();
+                CPSession.SessionClose();
+
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)

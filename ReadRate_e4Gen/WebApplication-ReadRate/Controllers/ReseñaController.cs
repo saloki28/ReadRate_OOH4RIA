@@ -108,10 +108,20 @@ namespace WebApplication_ReadRate.Controllers
                 LibroRepository libroRepo = new LibroRepository(session);
                 LibroCEN libroCEN = new LibroCEN(libroRepo);
                 LibroEN libro = libroCEN.DameLibroPorOID(res.LibroId);
+
+                // Forzar la carga de las propiedades del autor ANTES de cerrar la sesión
+                string? autorEmail = null;
+                string? autorNombre = null;
+                if (libro?.AutorPublicador != null)
+                {
+                    autorEmail = libro.AutorPublicador.Email;
+                    autorNombre = libro.AutorPublicador.NombreUsuario;
+                }
+                
                 SessionClose();
 
-                // Enviar email al autor
-                if (libro != null && libro.AutorPublicador != null && !string.IsNullOrEmpty(libro.AutorPublicador.Email))
+                // Enviar email al autor usando los valores cargados previamente
+                if (!string.IsNullOrEmpty(autorEmail))
                 {
                     try
                     {
@@ -124,10 +134,10 @@ namespace WebApplication_ReadRate.Controllers
 
                         MailMessage mail = new MailMessage();
                         mail.From = new MailAddress("readandrate1@gmail.com", "Read&Rate");
-                        mail.To.Add(new MailAddress(libro.AutorPublicador.Email));
+                        mail.To.Add(new MailAddress(autorEmail));
                         mail.Subject = $"Nueva reseña para tu libro: {libro.Titulo}";
                         mail.Body = $@"
-                        <h2>¡Hola {libro.AutorPublicador.NombreUsuario}!</h2>
+                        <h2>¡Hola {autorNombre}!</h2>
                         <p>Tu libro <strong>{libro.Titulo}</strong> ha recibido una nueva reseña.</p>
                         <p><strong>Valoración:</strong> {reseñaCreada.Valoracion} ⭐</p>
                         <p>Visita Read&Rate para ver la reseña completa.</p>";
@@ -224,14 +234,65 @@ namespace WebApplication_ReadRate.Controllers
         {
             try
             {
+                SessionCPNHibernate CPSession = new SessionCPNHibernate();
+                CPSession.SessionInitializeTransaction();
+                
                 // Obtener el libro antes de eliminar para redirigir correctamente
-                ReseñaRepository resRepository = new ReseñaRepository();
+                var resRepository = CPSession.UnitRepo.ReseñaRepository;
                 ReseñaCEN resCEN = new ReseñaCEN(resRepository);
                 
                 ReseñaEN resEN = resCEN.DameReseñaPorOID(id);
                 int libroId = resEN.LibroReseñado.Id;
                 
+                // Eliminar la reseña
                 resCEN.EliminarReseña(id);
+                
+                // Recalcular valoración media del libro
+                var libroRepo = CPSession.UnitRepo.LibroRepository;
+                LibroCEN libroCEN = new LibroCEN(libroRepo);
+                var libro = libroRepo.ReadOIDDefault(libroId);
+                
+                if (libro != null)
+                {
+                    // Obtener todas las reseñas del libro (ya no incluye la eliminada)
+                    var reseñasLibro = resRepository.DameTodosReseñas(0, int.MaxValue)
+                                       .Where(r => r.LibroReseñado != null && r.LibroReseñado.Id == libro.Id)
+                                       .ToList();
+
+                    // Calcular la valoración media del libro
+                    if (reseñasLibro.Count > 0)
+                        libro.ValoracionMedia = (float)reseñasLibro.Average(r => r.Valoracion);
+                    else
+                        libro.ValoracionMedia = 0;
+
+                    libroRepo.ModificarLibro(libro);
+
+                    // Recalcular valoración media del autor
+                    if (libro.AutorPublicador != null)
+                    {
+                        var autorRepo = CPSession.UnitRepo.AutorRepository;
+                        var autor = autorRepo.ReadOIDDefault(libro.AutorPublicador.Id);
+
+                        if (autor != null)
+                        {
+                            // Obtener todos los libros del autor
+                            var librosAutor = libroCEN.DameTodosLibros(0, int.MaxValue)
+                                              .Where(l => l.AutorPublicador != null && l.AutorPublicador.Id == autor.Id)
+                                              .ToList();
+
+                            // Calcular la valoración media del autor
+                            if (librosAutor.Count > 0)
+                                autor.ValoracionMedia = (float)librosAutor.Average(l => l.ValoracionMedia);
+                            else
+                                autor.ValoracionMedia = 0;
+
+                            autorRepo.ModificarAutor(autor);
+                        }
+                    }
+                }
+                
+                CPSession.Commit();
+                CPSession.SessionClose();
                 
                 return RedirectToAction("Details", "Libro", new { id = libroId });
             }

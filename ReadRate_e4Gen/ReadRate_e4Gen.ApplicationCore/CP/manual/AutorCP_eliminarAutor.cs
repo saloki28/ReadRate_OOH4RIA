@@ -29,8 +29,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
             {
                 CPSession.SessionInitializeTransaction();
 
-                System.Diagnostics.Debug.WriteLine($"=== INICIO ELIMINACIÓN AUTOR {p_Autor_OID} ===");
-
                 autorCEN = new AutorCEN(CPSession.UnitRepo.AutorRepository);
                 AutorEN autor = autorCEN.DameAutorPorOID(p_Autor_OID); // Obtener el autor a eliminar
 
@@ -39,8 +37,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 {
                     throw new ModelException($"El autor con ID {p_Autor_OID} no existe.");
                 }
-
-                System.Diagnostics.Debug.WriteLine($"Autor encontrado: {autor.NombreUsuario}");
 
                 // ============================================================
                 // ELIMINAR LIBROS PUBLICADOS POR EL AUTOR
@@ -51,14 +47,12 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                 if (librosDelAutor.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Eliminando {librosDelAutor.Count} libro(s) publicado(s) por el autor...");
 
                     lectorCEN = new LectorCEN(CPSession.UnitRepo.LectorRepository);
                     reseñaCEN = new ReseñaCEN(CPSession.UnitRepo.ReseñaRepository);
 
                     foreach (var libro in librosDelAutor)
                     {
-                        System.Diagnostics.Debug.WriteLine($"  Procesando libro ID: {libro.Id} - '{libro.Titulo}'");
 
                         // ============================================================
                         // 1.1. Eliminar RESEÑAS de libro
@@ -69,13 +63,11 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
 
                         if (reseñasDelLibro.Count > 0)
                         {
-                            System.Diagnostics.Debug.WriteLine($"    Eliminando {reseñasDelLibro.Count} reseña(s) del libro...");
 
                             foreach (var reseña in reseñasDelLibro)
                             {
                                 reseñaCEN.EliminarReseña(reseña.Id);
                             }
-                            System.Diagnostics.Debug.WriteLine($"    ✅ {reseñasDelLibro.Count} reseña(s) eliminada(s)");
                         }
 
                         // 1.2. DESASIGNAR LIBROS DE LISTAS
@@ -87,25 +79,18 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                             if (lector.LibroLeido != null && lector.LibroLeido.Any(l => l.Id == libro.Id))
                             {
                                 lectorCEN.get_ILectorRepository().DesasignarLibroListaGuardados(lector.Id, new List<int> { libro.Id });
-
-                                System.Diagnostics.Debug.WriteLine($"    Libro desasignado de lista guardados del lector {lector.Id}");
                             }
 
                             // Libros En Curso
                             if (lector.LibroEnCurso != null && lector.LibroEnCurso.Any(l => l.Id == libro.Id))
                             {
                                 lectorCEN.get_ILectorRepository().DesasignarLibroListaEnCurso(lector.Id, new List<int> { libro.Id });
-
-                                System.Diagnostics.Debug.WriteLine($"    Libro desasignado de lista en curso del lector {lector.Id}");
                             }
                         }
 
                         // 1.3. ELIMINAR LIBRO
                         libroCEN.EliminarLibro(libro.Id);
-                        System.Diagnostics.Debug.WriteLine($"  ✅ Libro '{libro.Titulo}' eliminado");
                     }
-
-                    System.Diagnostics.Debug.WriteLine($"✅ {librosDelAutor.Count} libro(s) eliminado(s)");
                 }
 
                 // ============================================================
@@ -113,7 +98,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (autor.LectorSeguidor != null && autor.LectorSeguidor.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Desvinculando {autor.LectorSeguidor.Count} lector(es) que siguen al autor...");
 
                     if (lectorCEN == null)
                     {
@@ -126,8 +110,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     {
                         lectorCEN.get_ILectorRepository().DejarDeSeguirAutor(lectorId, new List<int> { p_Autor_OID });
                     }
-
-                    System.Diagnostics.Debug.WriteLine($"✅ {lectoresIds.Count} lector(es) dejaron de seguir al autor");
                 }
 
                 // ============================================================
@@ -135,7 +117,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (autor.EventoAutor != null && autor.EventoAutor.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Desinscribiendo autor de {autor.EventoAutor.Count} evento(s)...");
 
                     List<int> eventosIds = new List<int>();
 
@@ -148,8 +129,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     {
                         autorCEN.get_IAutorRepository().DesinscribirAutorDeEvento(p_Autor_OID, eventosIds);
                     }
-
-                    System.Diagnostics.Debug.WriteLine($"✅ Desinscrito de {eventosIds.Count} evento(s)");
                 }
 
                 // ============================================================
@@ -157,7 +136,6 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                 // ============================================================
                 if (autor.NotificacionAutor != null && autor.NotificacionAutor.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Eliminando {autor.NotificacionAutor.Count} notificación(es) del autor...");
 
                     NotificacionCEN notificacionCEN = new NotificacionCEN(CPSession.UnitRepo.NotificacionRepository);
                     List<int> notificacionesIds = autor.NotificacionAutor.Select(n => n.Id).ToList();
@@ -166,24 +144,17 @@ namespace ReadRate_e4Gen.ApplicationCore.CP.ReadRate_E4
                     {
                         notificacionCEN.EliminarNotificacion(notifId);
                     }
-
-                    System.Diagnostics.Debug.WriteLine($"✅ {notificacionesIds.Count} notificación(es) eliminada(s)");
                 }
 
                 // ============================================================
                 // FINALMENTE: ELIMINAR EL AUTOR
                 // ============================================================
-                System.Diagnostics.Debug.WriteLine($"Eliminando autor {autor.NombreUsuario}...");
                 autorCEN.get_IAutorRepository().EliminarAutor(p_Autor_OID);
-                System.Diagnostics.Debug.WriteLine($"✅ Autor eliminado correctamente");
 
                 CPSession.Commit();
-                System.Diagnostics.Debug.WriteLine($"=== FIN ELIMINACIÓN AUTOR {p_Autor_OID} ===");
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"❌ Error en EliminarAutor: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"StackTrace: {ex.StackTrace}");
                 CPSession.RollBack();
                 throw;
             }

@@ -53,7 +53,7 @@ namespace WebApplication_ReadRate.Controllers
                     }
                 }
             }
-            
+
             // Forzar la carga de los clubes creados por el lector
             if (lectorEN.ClubCreado != null)
             {
@@ -193,15 +193,15 @@ namespace WebApplication_ReadRate.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    // Obtener el lector actual para saber el número de modificaciones
+                    // Obtener el lector actual para preservar datos
                     SessionInitialize();
                     LectorRepository lectorRepositoryRead = new LectorRepository(session);
                     LectorCEN lectorCENRead = new LectorCEN(lectorRepositoryRead);
                     LectorEN lectorActual = lectorCENRead.DameLectorPorOID(id);
                     SessionClose();
 
-                    // Usar la foto actual del ViewModel (que viene de la BD)
-                    string fotoFileName = lector.FotoUrl ?? string.Empty;
+                    // Preservo foto actual
+                    string fotoFileName = lector.FotoUrl ?? lectorActual.Foto;
 
                     // Si se subió una nueva foto, procesarla
                     if (lector.FotoFile != null && lector.FotoFile.Length > 0)
@@ -232,6 +232,10 @@ namespace WebApplication_ReadRate.Controllers
                         fotoFileName = "/images/fotosUsuarios/usuarioDefault.webp";
                     }
 
+                    string passwordFinal = string.IsNullOrWhiteSpace(lector.Pass)
+                        ? lectorActual.Pass  // Mantener contraseña actual (ya hasheada)
+                        : lector.Pass;        // Usar nueva contraseña (se hasheara)
+
                     // Modificar el lector con la foto correspondiente
                     LectorRepository lectorRepository = new LectorRepository();
                     LectorCEN lectorCEN = new LectorCEN(lectorRepository);
@@ -244,17 +248,17 @@ namespace WebApplication_ReadRate.Controllers
                         p_paisResidencia: lector.PaisResidencia,
                         p_foto: fotoFileName,
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), lector.Rol),
-                        p_pass: lector.Pass,
-                        p_cantLibrosCurso: lector.CantLibrosCurso,
-                        p_cantLibrosLeidos: lector.CantLibrosLeidos,
-                        p_cantAutoresSeguidos: lector.CantAutoresSeguidos,
-                        p_cantClubsSuscritos: lector.CantClubsSuscritos
+                        p_pass: passwordFinal,
+                        p_cantLibrosCurso: lectorActual.CantLibrosCurso,
+                        p_cantLibrosLeidos: lectorActual.CantLibrosLeidos,
+                        p_cantAutoresSeguidos: lectorActual.CantAutoresSeguidos,
+                        p_cantClubsSuscritos: lectorActual.CantClubsSuscritos 
                     );
                     return RedirectToAction(nameof(Index));
                 }
                 return View(lector);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var innerMessage = ex.InnerException != null ? " - " + ex.InnerException.Message : "";
                 ModelState.AddModelError("", "Error al modificar el lector: " + ex.Message + innerMessage);
@@ -291,13 +295,27 @@ namespace WebApplication_ReadRate.Controllers
                     return RedirectToAction("Index", "Usuario");
                 }
 
+                // Obtener el ID del usuario actual desde la sesión (Admin vs Lector)
+                var usuarioActualId = HttpContext.Session.GetInt32("UsuarioId");
+
                 // Eliminar usando LectorCP_eliminarLector
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 LectorCP lectorCP = new LectorCP(sessionCP);
                 lectorCP.EliminarLector(id);
 
-                TempData["SuccessMessage"] = "Lector eliminado correctamente";
-                return RedirectToAction("Index", "Usuario");
+                // Si el usuario actual es el mismo que se elimina, cerrar sesión
+                if (usuarioActualId.HasValue && usuarioActualId.Value == id)
+                {
+                    HttpContext.Session.Clear();
+
+                    TempData["SuccessMessage"] = "Tu cuenta ha sido eliminada correctamente";
+                    return RedirectToAction("Index", "Home");
+                }
+                else // Si es un admin eliminando otro lector
+                {
+                    TempData["SuccessMessage"] = "Lector eliminado correctamente";
+                    return RedirectToAction("Index", "Usuario");
+                }
             }
             catch (Exception ex)
             {

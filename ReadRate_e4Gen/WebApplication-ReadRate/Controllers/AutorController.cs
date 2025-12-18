@@ -200,15 +200,15 @@ namespace WebApplication_ReadRate.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    // Obtener el autor actual para saber el número de modificaciones
+                    // Obtener el autor actual para preservar datos
                     SessionInitialize();
                     AutorRepository autorRepositoryRead = new AutorRepository(session);
                     AutorCEN autorCENRead = new AutorCEN(autorRepositoryRead);
                     AutorEN autorActual = autorCENRead.DameAutorPorOID(id);
                     SessionClose();
 
-                    // Usar la foto actual del ViewModel (que viene de la BD)
-                    string fotoFileName = autor.FotoUrl ?? string.Empty;
+                    // Preservar foto actual
+                    string fotoFileName = autor.FotoUrl ?? autorActual.Foto;
 
                     // Si se subió una nueva foto, procesarla
                     if (autor.FotoFile != null && autor.FotoFile.Length > 0)
@@ -238,6 +238,11 @@ namespace WebApplication_ReadRate.Controllers
                         fotoFileName = "/images/fotosUsuarios/usuarioDefault.webp";
                     }
 
+                    // PRESERVAR CONTRASEÑA ACTUAL SI NO SE CAMBIÓ
+                    string passwordFinal = string.IsNullOrWhiteSpace(autor.Pass)
+                        ? autorActual.Pass  // Mantener contraseña actual (ya hasheada)
+                        : autor.Pass;        // Usar nueva contraseña (se hasheará en CEN)
+
                     // Modificar el autor con la foto correspondiente
                     AutorRepository autorRepository = new AutorRepository();
                     AutorCEN autorCEN = new AutorCEN(autorRepository);
@@ -250,10 +255,10 @@ namespace WebApplication_ReadRate.Controllers
                         p_paisResidencia: autor.PaisResidencia,
                         p_foto: fotoFileName,
                         p_rol: (RolUsuarioEnum)Enum.Parse(typeof(RolUsuarioEnum), autor.Rol),
-                        p_pass: autor.Pass,
-                        p_numeroSeguidores: autor.NumeroSeguidores,
-                        p_cantidadLibrosPublicados: autor.CantidadLibrosPublicados,
-                        p_valoracionMedia: autor.ValoracionMedia
+                        p_pass: passwordFinal,  // Contraseña preservada o nueva
+                        p_numeroSeguidores: autorActual.NumeroSeguidores,
+                        p_cantidadLibrosPublicados: autorActual.CantidadLibrosPublicados,
+                        p_valoracionMedia: autorActual.ValoracionMedia
                     );
 
                     return RedirectToAction(nameof(Index));
@@ -291,21 +296,33 @@ namespace WebApplication_ReadRate.Controllers
         {
             try
             {
-                // Usar el ID del modelo o del parámetro (el que no sea 0)
-                int autorId = model.IdUsuario > 0 ? model.IdUsuario : id;
-
-                if (autorId <= 0)
+                if (id <= 0)
                 {
                     TempData["ErrorMessage"] = "ID de autor no válido";
                     return RedirectToAction("Index", "Usuario");
                 }
 
+                // Obtener el ID del usuario actual desde la sesión (Admin vs Autor)
+                var usuarioActualId = HttpContext.Session.GetInt32("UsuarioId");
+
+                // Eliminar usando AutorCP_EliminarAutor
                 SessionCPNHibernate sessionCP = new SessionCPNHibernate();
                 AutorCP autorCP = new AutorCP(sessionCP);
-                autorCP.EliminarAutor(autorId);
+                autorCP.EliminarAutor(id);
 
-                TempData["SuccessMessage"] = "Autor eliminado correctamente";
-                return RedirectToAction("Index", "Usuario");
+                // El usuario se borra a sí mismo
+                if (usuarioActualId.HasValue && usuarioActualId.Value == id)
+                {
+                    HttpContext.Session.Clear(); // Cerramos su sesión
+                    TempData["SuccessMessage"] = "Tu cuenta de autor ha sido eliminada correctamente";
+                    return RedirectToAction("Index", "Home");
+                }
+                // Un Admin borra a un Autor
+                else
+                {
+                    TempData["SuccessMessage"] = "Autor eliminado correctamente";
+                    return RedirectToAction("Index", "Usuario");
+                }
             }
             catch (Exception ex)
             {

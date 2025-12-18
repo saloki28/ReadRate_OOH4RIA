@@ -28,6 +28,7 @@
                     <input type="hidden" asp-for="IdUsuario" />
                     @* Campo oculto para el rol - siempre será "lector" (valor 2) *@
                     <input type="hidden" asp-for="Rol" value="2" />
+                    <input type="hidden" asp-for="FotoUrl" />
 
                     <article class="mb-3">
                         <label asp-for="Email" class="form-label"></label>
@@ -64,17 +65,26 @@
                         <div class="form-text">Texto de máximo 255 caracteres</div>
                     </article>
 
+                    @* Campo contraseña vacio *@
                     <article class="mb-3">
-                        <label asp-for="Pass" class="form-label"></label>
-                        <input asp-for="Pass" class="form-control" />
+                        <label for="Pass" class="form-label">Contraseña</label>
+                        <input type="password" id="Pass" name="Pass" class="form-control" placeholder="ej: passUser123" />
                         <span asp-validation-for="Pass" class="text-danger"></span>
-                        <div class="form-text">Contraseña de acceso</div>
+                        <div class="form-text"> Contraseña obligatoria</div>
                     </article>
 
                     <article class="mb-4">
                         <label asp-for="FotoFile" class="form-label">Foto del lector</label>
+                        @if (!string.IsNullOrEmpty(Model.FotoUrl))
+                        {
+                            <div class="mb-2">
+                                <img src="@Model.FotoUrl" alt="Foto actual" class="img-thumbnail" style="max-width: 150px;" />
+                                <p class="text-muted small">Foto actual</p>
+                            </div>
+                        }
                         <input asp-for="FotoFile" type="file" class="form-control" />
                         <span asp-validation-for="FotoFile" class="text-danger"></span>
+                        <div class="form-text">Sube una nueva imagen solo si deseas cambiarla</div>
                     </article>
 
                     <article class="d-flex gap-3 justify-content-between mt-4">
